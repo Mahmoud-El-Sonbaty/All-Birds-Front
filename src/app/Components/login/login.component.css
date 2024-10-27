@@ -1,0 +1,49 @@
+/* Enlarge input fields */
+input.form-control {
+  height: 50px;           /* Increase the height */
+  font-size: 1.2rem;      /* Increase the font size inside the input */
+}
+
+/* Style labels */
+label {
+  font-size: 1.1rem;      /* Increase label font size */
+  color: #555;            /* Change label color */
+  font-weight: 600;       /* Make label text bold */
+}
+
+/* Style for Create Account section heading and description */
+h3 {
+  font-size: 1.5rem;      /* Adjust heading size */
+  color: #333;            /* Match color to the original page */
+  font-weight: bold;
+}
+
+p.text-center {
+  font-size: 1rem;        /* Adjust font size to match the original page */
+  color: #666;            /* Match color to the original page */
+}
+
+/*  */
+
+
+
+
+#submit:hover{
+
+  background-color:white;
+  border-radius:1px black;
+color: black;
+
+
+}
+
+#Submitforget:hover{
+
+  background-color:white;
+  border-radius:1px black;
+color: black;
+
+
+}
+
+/*  */

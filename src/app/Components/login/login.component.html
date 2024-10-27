@@ -1,0 +1,59 @@
+
+<div  *ngIf="!showResetPasswordFormbool">
+  <h3 >LOGIN</h3>
+  <form  (ngSubmit)="check()"  #myform="ngForm">
+    <div class="mb-3">
+      <label for="email">Email</label>
+      <input 
+      required
+      minlength="8"
+      maxlength="40"              
+      name="Email"
+      #nameInp="ngModel"
+      [(ngModel)]="usernameCheck.Email"
+      type="email" class="form-control form-control-lg" id="email" >
+      @if(nameInp.invalid &&nameInp.touched){
+        @if(nameInp.hasError("required")){<div class="text-danger"> Email is required </div>}
+        @else if(nameInp.hasError("minlength")){<div class="text-danger">minlength less then  8 </div>
+        }
+            }
+    </div>
+    <div  class="mb-3">
+      <label for="password">Password</label>
+      <input
+      required
+      type="password" class="form-control form-control-lg" id="password">
+      @if(nameInp.invalid&&nameInp.touched){
+        @if (nameInp.hasError("required")) {
+          <div class="text-danger">password is required</div>
+        }
+        
+        
+            }
+    </div>
+    <button type="submit" [disabled]="myform.invalid" class="btn btn-dark btn-lg w-100">Sign In</button>
+
+    <div style="display: flex; justify-content: center;" >
+    <a > <button    type="button"  (click)="showResetPasswordForm()">Forgot Password</button> </a> 
+    </div>
+  </form>
+
+</div>
+        
+     
+
+<div  *ngIf="showResetPasswordFormbool">
+        
+        <div id="resetPasswordForm" class="form-group mb-3" >
+          <h3>Reset Your Password</h3>
+          <p>We will send you an email to reset your password.</p>
+          <form (ngSubmit)="checkforget()"  #myform="ngForm">
+           
+            <div class="form-group">
+              <label for="resetEmail">Email</label><br>
+              <input  [(ngModel)]="usernameCheck.Email" type="email" class="form-control" id="resetEmail" ><br>
+            </div>
+            <button  id="Submitforget" type="submit" class="btn btn-dark btn-lg w-30">Submit</button><br>
+            <button type="button" style="color: black;" class="btn btn-link"  (click)="hideResetPasswordForm()">Cancel</button><br>
+          </form>
+        </div>

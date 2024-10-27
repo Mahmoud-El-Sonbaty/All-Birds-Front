@@ -1,0 +1,109 @@
+
+
+<h3 >Create an Account</h3>
+<p >
+  We never save credit card information.<br><br>
+  Registering makes checkout fast and easy and saves your order information in your account.
+</p>
+<form  (ngSubmit)="Adduser()"  #myform="ngForm">
+
+  <div class="form-group mb-3">
+    <label for="firstName">First Name</label>
+    <input
+    required
+    minlength="3"
+    maxlength="40"
+    name="firstName"
+    #nameInp="ngModel"
+    [(ngModel)]="username.Firstname"
+    type="text"
+    id="firstName"
+    class="form-control"
+  />
+    @if(nameInp.invalid &&nameInp.touched){
+      @if(nameInp.hasError("required")){<div class="text-danger"> Name is required </div>}
+      @else if(nameInp.hasError("minlength")){<div class="text-danger">minlength less then  3 </div>
+      }
+          }  
+          
+          
+  </div>
+  <div class="form-group mb-3">
+    <label for="lastName">Last Name</label>
+    <input  
+    required
+    minlength="3"
+    maxlength="40"
+    name="lastName"
+    #nameInp="ngModel"
+    
+    [(ngModel)]="username.Lastname" type="text" id="lastName" class="form-control"  />
+    @if(nameInp.invalid &&nameInp.touched){
+      @if(nameInp.hasError("required")){<div class="text-danger"> Name is required </div>}
+      @else if(nameInp.hasError("minlength")){<div class="text-danger">minlength less then  3 </div>
+      }
+          }
+  </div>
+  <div class="form-group mb-3">
+    <label for="email">Email</label>
+    <input 
+    name="email"
+
+    required
+    [(ngModel)]="username.Email" type="email" id="email" class="form-control" />
+    @if(nameInp.invalid&&nameInp.touched){
+@if (nameInp.hasError("required")) {
+  <div class="text-danger">Email is required</div>
+}
+
+
+    }
+  </div>
+  <div class="form-group mb-3">
+    <label for="password">Password</label>
+    <input
+    required
+    minlength="8"
+    maxlength="40"
+    name="password"
+    #nameInp="ngModel"
+    [(ngModel)]="username.Password" type="password" id="password" class="form-control" />
+    @if(nameInp.invalid &&nameInp.touched){
+      @if(nameInp.hasError("required")){<div class="text-danger"> Password is required </div>}
+      @else if(nameInp.hasError("minlength")){<div class="text-danger">minlength less then  8 </div>
+      }
+          }
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="confirmPassword">Confirm Password</label>
+    <input 
+    required
+    minlength="8"
+    maxlength="40"
+    name="password"
+    #nameInp="ngModel"
+    [(ngModel)]="username.Confirm_Password" type="password" class="form-control form-control-lg" id="confirmPassword" >
+ 
+    @if(nameInp.invalid &&nameInp.touched){
+      @if(nameInp.hasError("required")){<div class="text-danger"> Password is required </div>}
+      @else if(nameInp.hasError("minlength")){<div class="text-danger">minlength less then  8 </div>
+      }
+          }
+  </div>
+
+  <div class="form-check mb-3">
+    <input type="checkbox" class="form-check-input" id="newsOffers">
+    <label class="form-check-label" for="newsOffers">Sign up for news and offers    </label>
+    
+  </div>
+  <!-- <button  type="submit" id="Register" class="btn btn-dark btn-lg w-100" >Register</button> -->
+
+ <button  type="submit" id="asd" class="btn btn-dark btn-lg w-100" [disabled]="myform.invalid">Register</button>
+   <!-- <p> By creating an account, you agree to our Terms of Use and  Privacy Policy.</p> -->
+  <br><br>
+  <p class="text-center text-muted small">* REQUIRED FIELDS</p>
+</form>
+
+
+
