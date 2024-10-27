@@ -1,5 +1,6 @@
 .navbar{
   box-shadow: 0 5px 5px rgba(38, 38, 38, 0.137);
+  position: relative;
 }
 .navbar-nav .nav-link {
   text-transform: uppercase;
@@ -66,4 +67,20 @@
 }
 .navbar-nav .dropdown-toggle::after {
 display: none !important;
+}
+@media (max-width: 2400px) {
+  #Allbirds {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+  }
+
+}
+@media (max-width: 1200px) {
+  #icons {
+    position: absolute;
+    top: 15px;
+    right: 2%;
+  }
+
 }
