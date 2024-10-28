@@ -68,30 +68,62 @@
 .navbar-nav .dropdown-toggle::after {
 display: none !important;
 }
-@media (max-width: 2400px) {
-  #Allbirds {
-    position: absolute;
-    top: 3px;
-    left: 50%;
-  }
 
-}
-@media (max-width: 1200px) {
-  #Allbirds {
-    position: absolute;
+
+
+@media (max-width: 3000px) {
+   #Allbirds {
+    position: absolute !important;
     top: 0px;
     left: 50%;
   }
+  /* .navbar-logo {
+    max-width: 15vw;
+    max-height: 15vh;
+  }  */
+}
+
+
+@media (max-width: 1200px) {
+ #icons {
+   position: absolute;
+   top: 10px;
+   right: 2%;
+ }
+  #Allbirds {
+   top: -2px;
+ }
 
 }
-@media (max-width: 1200px) {
+
+@media (max-width: 768px) {
+  /* .navbar-logo {
+    max-width: 15vw;
+    max-height: 15vh;
+  } */
   #icons {
-    position: absolute;
-    top: 15px;
+    top: 12px;
     right: 2%;
   }
-
 }
+
+
+@media (max-width: 576px) {
+  /* .navbar-logo {
+    max-width: 30vw;
+    max-height: 25vh;
+  } */
+   #Allbirds {
+    top: -3px;
+  }
+  #icons {
+    top: 10px;
+    right: 2%;
+  }
+}
+
+
+
 .navbar-toggler {
   display: flex;
   flex-direction: column;
@@ -122,3 +154,17 @@ display: none !important;
   transform: translateY(-7px) rotate(-45deg);
 
 }
+
+
+/* .navbar-logo {
+  max-width: 8vw;
+  max-height: 9vh;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  transition: max-width 0.5s ease, max-height 0.2s ease;
+} */
+
+
+
+
