@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container-fluid checkout-page">
+        <nav class="navbar">
+            <div class="navbar-content">
+                <div class="logo-container">
+                    <img src="path/to/allbirds-logo.png" alt="Allbirds Logo" class="navbar-logo" />
+                </div>
+            </div>
+        </nav>
+        <div class="row">
+            <!-- Left Section: Form -->
+            <div class="col-md-8">
+             
+            
+
+                <!-- Contact Section -->
+                <div class="d-flex justify-content-between">
+                  <h4>Contact</h4>
+                  
+                  <a href="#" class="text-right">Login</a>
+                </div>
+                <form [formGroup]="checkoutForm" (ngSubmit)="submitForm()">
+                    <div class="form-group">
+                        <div class="input">
+                            <i class="fa fa-envelope"></i>
+                            <input type="email" class="form-control" placeholder="Email" formControlName="email" required>
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="emailOffers" formControlName="emailOffers">
+                        <label class="form-check-label" for="emailOffers">Email me with news and offers</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="textOffers" formControlName="textOffers" (change)="toggleMobileNumberField()">
+                        <label class="form-check-label" for="textOffers">Text me with news and offers</label>
+                    </div>
+
+                    <!-- Mobile Number with Country Code -->
+                    <div class="form-group mt-4" *ngIf="showMobileField">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <select class="custom-select" [(ngModel)]="selectedCountryCode">
+                                    <option *ngFor="let code of countryCodes" [value]="code.code">
+                                        {{ code.name }} ({{ code.code }})
+                                    </option>
+                                </select>
+                            </div>
+                            <input type="number" class="form-control" placeholder="Mobile number" formControlName="mobileNumber" required>
+                        </div>
+                    </div>
+                    
+                    
+
+                    <!-- Delivery Section -->
+                    <h4 class="mt-4">Delivery</h4>
+                    <div class="form-group">
+                        <div class="input">
+                            <i class="fa fa-globe"></i>
+                            <select class="form-control" required>
+                                <option>Country/Region</option>
+                                <option>Egypt</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="input">
+                                <i class="fa fa-user"></i>
+                                <input type="text" class="form-control" placeholder="First name" formControlName="firstName" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input">
+                                <i class="fa fa-user"></i>
+                                <input type="text" class="form-control" placeholder="Last name" formControlName="lastName" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input">
+                            <i class="fa fa-building"></i>
+                            <input type="text" class="form-control" placeholder="Company (required for business addresses)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input">
+                            <i class="fa fa-map-marker"></i>
+                            <input type="text" class="form-control" placeholder="Address" formControlName="address" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input">
+                            <i class="fa fa-map-signs"></i>
+                            <input type="text" class="form-control" placeholder="Apartment, suite, etc. (optional)">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="input">
+                                <i class="fa fa-city"></i>
+                                <input type="text" class="form-control" placeholder="City" formControlName="city" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input">
+                                <i class="fa fa-map"></i>
+                                <input type="text" class="form-control" placeholder="State" formControlName="state" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input">
+                                <i class="fa fa-flag"></i>
+                                <input type="text" class="form-control" placeholder="ZIP code" formControlName="zip" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Section -->
+                    <h4 class="mt-4">Payment</h4>
+                    <p class="text-secondary">All transactions are secure and encrypted.</p>
+                    <div class="payment-methods">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="creditCard" formControlName="paymentMethod" (change)="updatePayButton()" checked>
+                            <label class="form-check-label" for="creditCard"><i class="fa fa-credit-card"></i> Credit Card</label>
+                        </div>
+
+                        <!-- Credit Card Fields -->
+                        <div class="credit-card-fields" *ngIf="checkoutForm.get('paymentMethod')?.value === 'creditCard'">
+                            <div class="form-group">
+                                <div class="input">
+                                    <i class="fa fa-credit-card"></i>
+                                    <input type="text" class="form-control" placeholder="Card number" formControlName="cardNumber" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="input">
+                                        <i class="fa fa-calendar"></i>
+                                        <input type="text" class="form-control" placeholder="Expiration date (MM / YY)" formControlName="expirationDate" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                  <div class="input-group position-relative">
+                                    <div class="input">
+                                      
+                                    </div>
+                                      <input type="text" class="form-control" id="cvv" placeholder="Security code (CVV)" formControlName="securityCode" required>
+                                      <span class="input-group-text info-icon" (click)="togglePopover()" tabindex="0" role="button" aria-label="More info about CVV">
+                                          <i class="fa fa-info-circle"></i>
+                                      </span>
+                                      <!-- Popover -->
+                                      <div class="popover" *ngIf="showPopover">
+                                          <p>The CVV (Card Verification Value) is a 3-digit code found on the back of your card. It provides an additional layer of security for online purchases.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              
+                              
+                              
+                            </div>
+                            <div class="form-group">
+                                <div class="input">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" class="form-control" placeholder="Name on card" required formControlName="nameOnCard">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" formControlName="paymentMethod" (change)="updatePayButton()">
+                            <label class="form-check-label" for="cod"><i class="fa fa-money-bill-wave"></i> Cash on Delivery (COD)</label>
+                            <div class="cod-details" *ngIf="isCODSelected">
+                                <p>Details of product ordered: [Product Name]</p>
+                                <p>Shipment voice: [Voice Details]</p>
+                                <p>Total price: [Price Details]</p>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" value="paypal" formControlName="paymentMethod" (change)="updatePayButton()">
+                            <label class="form-check-label" for="paypal"><i class="fab fa-paypal"></i> PayPal</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success pay-button mt-3"><i class="fa fa-check"></i> {{ payButtonText }}</button>
+                </form>
+            </div>
+
+            <!-- Right Section: Order Summary -->
+            <div class="col-md-4 order-summary">
+                <div class="summary-item">
+                    <img src="assets/shoe.png" alt="Product image" width="50">
+                    <p>Men's  slipper - Rugged Beige</p>
+                    <p><strong>$0.00</strong></p>
+                </div>
+                <div class="form-group">
+                    <div class="input">
+                        <i class="fa fa-gift"></i>
+                        <input type="text" class="form-control" placeholder="Gift card or discount code">
+                    </div>
+                    <button class="btn btn-success mt-3"><i class="fa fa-tag"></i> Apply</button>
+                </div>
+                <hr>
+                <div class="total-price">
+                    <h5>Total</h5>
+                    <h5><strong>$0.00</strong></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
