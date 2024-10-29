@@ -19,52 +19,61 @@
 
 
 
-        @for (parent of category; track parent.catId ; let i =$index) {
+        @for (parent of category; track parent.id ; let i =$index) {
 
-          <li class="nav-item p-0">
-            <div [class]="'nav-link ' +parent.NameEn+'-toggle position-relative text-dark'" data-bs-toggle="collapse" [attr.href]="'#' + parent.NameEn + 'Menu'"  role="button" (click)="showing(parent.NameEn)" aria-expanded="false"  [attr.aria-controls]="parent.NameEn + 'Menu'">
-              <p class="ms-3 mt-3  d-inline-block ">{{parent.NameEn}}</p>
-              @if(parent.IsParentCategory){
+          <li class="nav-item">
+            <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button" (click)="showing(parent.id,parent.level)" aria-expanded="false"  [attr.aria-controls]="parent.id + 'Menu'">
+              <p class="ms-3 mt-3  d-inline-block ">{{parent.nameEn}}</p>
+              @if(parent.isParentCategory){
                 <span class=" position-absolute end-0 me-3 mt-3 fs-5">→</span>
 
               }
               <hr>
 
             </div>
-            @if(parent.IsParentCategory){
-              <div [class]="'collapse' +parent.NameEn+'-content'" [id]="parent.NameEn">
-                <h4 class="collapse-header centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(parent.NameEn)">
+             @if(parent.isParentCategory){
+              <div [class]="'collapse ' +parent.id+'-content'" [id]="'Menu'+parent.id">
+                <h4 class="'collapse-header level0 centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(parent.id,parent.level)">
                   <span class="back-button position-absolute start-0 ms-3">←</span>
-                {{parent.NameEn}}
+                {{parent.nameEn}}
                 </h4>
 
 
                 <ul class="nav flex-column sub-menu">
-                  @for (child of parent.Children; track child.catId;let y =$index) {
-                    <li  [class]="'nav-item fade-in ms-3'  +child.NameEn+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#' + child.NameEn + 'Menu'"  role="button" (click)="showing(child.NameEn)" aria-expanded="false"  [attr.aria-controls]="child.NameEn + 'Menu'">{{child.NameEn}}
-                      @if (child.IsParentCategory) {
-
+                  @for (child of parent.children; track child.id;let y =$index) {
+                    <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" (click)="showing(child.id,child.level)" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
+                      <p class="ms-2 mt1  d-inline-block  ">{{child.nameEn}}
+                      </p>
+                      @if (child.isParentCategory) {
                         <span class=" position-absolute end-0 me-3">→</span>
-
-                        <div [class]="'collapse' +child.NameEn+'-content'" [id]="child.NameEn">
-                          <h4 class="collapse-header centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(child.NameEn)">
-                            <span class="back-button position-absolute start-0 ms-3">←</span>
-                          {{child.NameEn}}
-                          </h4>
+                      }
 
 
-                          <ul class="nav flex-column sub-menu">
-                            @for (grandChild of child.Children; track grandChild.catId;let x =$index) {
-                              <li  class="nav-item fade-in ms-3" >{{grandChild.NameEn}}
+                        <hr>
 
-                              </li>
-
-                            }
-
-                          </ul>
-                          </div>
-                        }
                     </li>
+                    @if (child.isParentCategory) {
+
+
+                      <div [class]="'collapse ' +child.id+'-content'" [id]="'Menu'+child.id">
+                        <h4 class="collapse-header  centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(child.id,child.level)">
+                          <span class="back-button position-absolute start-0 ms-3">←</span>
+                        {{child.nameEn}}
+                        </h4>
+
+
+                        <ul class="nav flex-column sub-menu">
+                          @for (grandChild of child.children; track grandChild.id;let x =$index) {
+                            <li  class="nav-item level2 fade-in p-3"  >{{grandChild.nameEn}}
+
+                            </li>
+                            <hr>
+
+                          }
+
+                        </ul>
+                        </div>
+                      }
 
                   }
 
@@ -76,162 +85,19 @@
           </li>
         }
 
-<!--
-        <li class="nav-item ">
-
-          <a class="nav-link women-toggle position-relative text-dark" data-bs-toggle="collapse" href="#womenMenu" role="button" (click)="showing('women')" aria-expanded="false" aria-controls="womenMenu">
-
-            <p class="ms-3 mt-3  d-inline-block ">WOMEN</p>
-            <span class=" position-absolute end-0 me-3 mt-3 fs-5">→</span>
-            <hr>
-
-          </a>
-          <div class="collapse menu-content" id="womenMenu">
-            <h4 class="collapse-header centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack('women')">
-              <span class="back-button position-absolute start-0 ms-3">←</span>
-              WOMEN
-
-            </h4>
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item fade-in ms-3">SHOES <span class=" position-absolute end-0 me-3">→</span></li>
-              <hr>
-              <li class="nav-item fade-in ms-3">BESTSELLERS <span class=" position-absolute end-0 me-3">→</span></li>
-              <hr>
-              <li class="nav-item fade-in ms-3">APPAREL & MORE <span class=" position-absolute end-0 me-3">→</span></li>
-              <hr>
-              <li class="nav-item fade-in ms-3">FEATURED <span class=" position-absolute end-0 me-3">→</span></li>
-            </ul>
-          </div>
+        <li class="nav-item nav-link level0">
+          <p class="ms-3 mt-3  d-inline-block ">Account</p>
+          <hr>
 
         </li>
 
-
-
-        <li class="nav-item">
-          <a class="nav-link  socks-toggle position-relative text-dark"  href="#socksMenu" role="button"  aria-expanded="false" aria-controls="socksMenu">
-
-            <p class="ms-3 mt-3  d-inline-block ">SOCKS</p>
-            <hr>
-
-          </a>
+        <li class="nav-item nav-link level0">
+          <p class="ms-3 mt-3  d-inline-block ">Help</p>
+          <hr>
 
         </li>
-        <li class="nav-item ">
-          <a class="nav-link sale-toggle position-relative " (click)="showing('sale')" data-bs-toggle="collapse" href="#saleMenu" role="button" aria-expanded="false" aria-controls="saleMenu">
-
-            <p class="ms-3 mt-3  d-inline-block ">SALE</p>
-            <span class=" position-absolute end-0 me-3 mt-3 fs-5">→</span>
-            <hr >
-
-          </a>
-          <div class="collapse menu-conten" id="saleMenu">
-            <h4 class="collapse-header centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack('sale')">
-              <span class="back-button position-absolute start-0 ms-3">←</span>
-              Sale
-            </h4>
-          <ul class="nav flex-column">
-              <li class="nav-item fade-in ms-3">MEN'S SALE <span class=" position-absolute end-0 me-3">→</span></li>
-              <hr>
-
-              <li class="nav-item fade-in ms-3">WOMEN'S SALE <span class=" position-absolute end-0 me-3">→</span></li>
-              <hr>
-
-              <li class="nav-item fade-in ms-3">KID'S SALE <span class=" position-absolute end-0 me-3">→</span></li>
-              <hr>
-
-
-              <li class="nav-item fade-in ms-3">FEATURED DEALS </li>
-              <hr>
-
-              </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link sale-toggle position-relative text-dark" (click)="showing('sustainability')" data-bs-toggle="collapse" href="#sustainabilityMenu" role="button" aria-expanded="false" aria-controls="sustainabilityMenu">
-             <p class="ms-3 mt-3  d-inline-block ">SUSTAINABILITY</p>
-            <hr>
-
-          </a>
-
-          <div class="collapse" id="sustainabilityMenu">
-            <h4 class="collapse-header centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack('sustainability')">
-              <span class="back-button position-absolute start-0 ms-3">←</span>
-              Sustainability
-            </h4>
-
-          </div>
-
-        </li>
-
-          <li class="nav-item">
-            <a class="nav-link Rerun-toggle position-relative text-dark"  href="#RerunMenu" role="button" aria-expanded="false" aria-controls="RrunyMenu">
-
-
-              <p class="ms-3 mt-3  d-inline-block ">Rerun</p>
-
-
-              <hr>
-
-            </a>
-
-          </li>
-          <li class="nav-item">
-            <a class="nav-link Stores-toggle position-relative text-dark"  href="#StoresMenu" role="button" aria-expanded="false" aria-controls="RrunyMenu">
-
-              <p class="ms-3 mt-3  d-inline-block ">Stores</p>
-
-
-              <hr>
-
-            </a>
-
-          </li>
-            <li class="nav-item">
-              <a class="nav-link Account-toggle position-relative text-dark"  href="#AccountMenu" role="button" aria-expanded="false" aria-controls="RrunyMenu">
-
-                <p class="ms-3 mt-3  d-inline-block ">Account</p>
-                <hr >
-
-              </a>
-
-          </li>
-            <li class="nav-item">
-              <a class="nav-link Help-toggle position-relative text-dark"  href="#HelpMenu" role="button" aria-expanded="false" aria-controls="RrunyMenu">
-
-
-                <p class="ms-3 mt-3  d-inline-block ">Help</p>
-                <hr >
-
-              </a>
-
-          </li> -->
       </ul>
-      <div class="d-flex align-items-center">
-        <ul class="navbar-nav navbar-icons ms-auto d-flex flex-row " id="icons">
-          <li class="nav-item d-none d-md-block ">
-            <a class="nav-link" href="#"><i class="fas fa-search text-dark"></i></a>
-          </li>
-          <li class="nav-item  d-none d-xl-block ">
-            <a class="nav-link" href="#"><i class="fas fa-user text-dark"></i></a>
-          </li>
-          <li class="nav-item  d-none d-xl-block">
-            <a class="nav-link" href="#"><i class="fas fa-question-circle text-dark"></i></a>
-          </li>
-          <li class="nav-item cart-icon">
-            <a class="nav-link position-relative" href="#">
 
-              <i class="fas fa-shopping-cart text-dark"></i>
-              <!-- <span class="position-absolute top-0 start-50 translate-top mb-1  ">
-              +99
-              </span> -->
-              <!-- <span class="position-absolute top-25 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"> </span> -->
-            </a>
-
-            <!-- <span class="badge bg-light text-dark ">+99</span> -->
-          </li>
-
-        </ul>
-      </div>
 
 
     </div>
@@ -252,73 +118,77 @@
     <div class="collapse navbar-collapse justify-content-between d-none" id="navbarNav">
 
       <ul class="navbar-nav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav ">
 
-        <li class="nav-item">
+        @for (child of category; track child.id ; let i =$index){
+          @if (child.isParentCategory) {
+            <li class="nav-item">
+              <a class="nav-link dropdown-toggle" href="#" [id]="child.nameEn+'Dropdown'"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{child.nameEn}}
+              </a>
 
-          <a class="nav-link dropdown-toggle" href="#" id="menDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Men
-          </a>
-          <div class="dropdown-menu" aria-labelledby="menDropdown">
-            <div class="row">
-              <div class="col-lg-2 col-md-12 mx-auto">
-                <h6>Shoes</h6>
-                <a class="dropdown-item" href="#">Everyday Sneakers</a>
-                <a class="dropdown-item" href="#">Active Shoes</a>
-                <a class="dropdown-item" href="#">Water-Repellent Sneakers</a>
-                <a class="dropdown-item" href="#">Slip-Ons</a>
-                <a class="dropdown-item" href="#">High Tops</a>
-                <a class="dropdown-item" href="#">Hiking</a>
-                <a class="dropdown-item" href="#">Sale</a>
-                <a class="dropdown-item" href="#">Shop All</a>
-              </div>
-              <div class="col-lg-2 col-md-12 ">
-                <h6>Bestsellers</h6>
-                <a class="dropdown-item" href="#">Tree Runner</a>
-                <a class="dropdown-item" href="#">Wool Runner</a>
-                <a class="dropdown-item" href="#">Wool Runner Go</a>
-                <a class="dropdown-item" href="#">Tree Runner Go</a>
-                <a class="dropdown-item" href="#">Tree Glider</a>
-                <a class="dropdown-item" href="#">Wool Runner Mizzle</a>
-                <a class="dropdown-item" href="#">Tree Dasher 2</a>
-                <a class="dropdown-item" href="#">Wool Dasher Mizzle</a>
-                <a class="dropdown-item" href="#">Shop All</a>
-              </div>
-              <div class="col-lg-2 col-md-12  ">
-                <h6>Apparel & More</h6>
-                <a class="dropdown-item" href="#">Socks</a>
-                <a class="dropdown-item" href="#">Tees</a>
-                <a class="dropdown-item" href="#">Underwear</a>
-                <a class="dropdown-item" href="#">Hats</a>
-                <a class="dropdown-item" href="#">Insoles</a>
-                <a class="dropdown-item" href="#">Lace Kits</a>
-                <a class="dropdown-item" href="#">Gift Cards</a>
-                <a class="dropdown-item" href="#">Sale</a>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <h6>Featured</h6>
-                <div class="row">
-                  <div class="col-md-12 m-2">
-                    <div class="featured-image">
-                      <img src="https://placehold.co/100x30" alt="Shop Men's Sale">
-                      <div class="text">Shop Men's Sale</div>
-                    </div>
+              <div class="dropdown-menu" [attr.aria-labelledby]="child.nameEn + 'Dropdown'">
+                <div class="row fade-in">
+                    @for (kid of child.children; track  kid.id;let x= $index) {
+
+
+                      @if(kid.nameEn !="New Arrivals"){
+                          <div class="col-lg-2 col-md-12 mx-auto">
+                          <h5>{{kid.nameEn}}</h5>
+                          @for (smaller of kid.children; track  smaller.id;let s= $index) {
+
+                            <a class="dropdown-item" href="#">{{smaller.nameEn}}</a>
+                          }
+
+                        </div>
+                        }@else {
+                          <div class="col-lg-6 col-md-12">
+                            <h5>{{kid.nameEn}}</h5>
+                              <div class="row">
+                                  <div class="col-md-12 m-2">
+                                    <div class="featured-image">
+                                      <img src="https://placehold.co/100x30" alt="Shop Men's Sale">
+                                      <div class="text">Shop Men's Sale</div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-12 m-2">
+                                    <div class="featured-image">
+                                      <img src="https://placehold.co/100x30" alt="Ultra-Soft Wool Sneaks">
+                                      <div class="text">Ultra-Soft Wool Sneaks</div>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+
+
+                        }
+                      }
                   </div>
-                  <div class="col-md-12 m-2">
-                    <div class="featured-image">
-                      <img src="https://placehold.co/100x30" alt="Ultra-Soft Wool Sneaks">
-                      <div class="text">Ultra-Soft Wool Sneaks</div>
-                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item">
+
+            </li>
+
+          }@else {
+
+                   <li class="nav-item">
+                    @if(child.nameEn=="Sale"){
+
+                      <a class="nav-link text-danger" href="#">{{child.nameEn}}</a>
+                    }@else {
+
+                      <a class="nav-link text-dark" href="#">{{child.nameEn}}</a>
+                    }
+
+                </li>
+          }
+        }
+
+
+        <!-- <li class="nav-item">
           <a class="nav-link dropdown-toggle" href="#" id="womenDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Women</a>
           <div class="dropdown-menu" aria-labelledby="womenDropdown">
-            <div class="row">
+            <div class="row fade-in">
               <div class="col-lg-2 col-md-12">
                 <h6>Shoes</h6>
                 <a class="dropdown-item" href="#">Everyday Sneakers</a>
@@ -372,37 +242,35 @@
               </div>
             </div>
           </div>
-        </li>
+        </li> -->
       </ul>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">Socks</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link sale" href="#">Sale</a>
-        </li>
+        </li> -->
       </ul>
 
       <ul class="navbar-nav text-dark">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sustainability</a>
+        <li class="nav-item ">
+          <a class="nav-link text-dark d-none d-xxl-block " href="#">Sustainability</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Rerun</a>
+          <a class="nav-link text-dark" href="#">Rerun</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Stores</a>
+          <a class="nav-link text-dark" href="#">Stores</a>
+        </li>
+        <!-- <li class="nav-item d-xl-none">
+          <a class="nav-link text-dark" href="#">Account</a>
         </li>
         <li class="nav-item d-xl-none">
-          <a class="nav-link" href="#">Account</a>
-        </li>
-        <li class="nav-item d-xl-none">
-          <a class="nav-link" href="#">Help</a>
-        </li>
+          <a class="nav-link text-dark" href="#">Help</a>
+        </li> -->
       </ul>
 
     </div>
     <div class="d-flex align-items-center">
       <ul class="navbar-nav navbar-icons ms-auto d-flex flex-row " id="icons">
+
         <li class="nav-item d-none d-md-block ">
           <a class="nav-link" href="#"><i class="fas fa-search text-dark"></i></a>
         </li>
@@ -416,10 +284,8 @@
           <a class="nav-link position-relative" href="#">
 
             <i class="fas fa-shopping-cart text-dark"></i>
-            <!-- <span class="position-absolute top-0 start-50 translate-top mb-1  ">
-            +99
-            </span> -->
-            <!-- <span class="position-absolute top-25 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"> </span> -->
+
+            <span class="position-absolute top-25 start-100 translate-middle p-2  border border-light rounded-circle" style="background-color:#b19776 ;"> </span>
           </a>
 
           <!-- <span class="badge bg-light text-dark ">+99</span> -->
@@ -430,8 +296,7 @@
 
   </div>
 
-
-  <div class="search-container d-flex justify-content-start align-items-center d-md-none m-2 p-2">
+  <div class="search-container d-flex justify-content-start align-items-center d-xl-none m-2 p-2">
     <a class="nav-link" href="#"><i class="fas fa-search text-dark"></i></a>
     <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="width: 300px; margin-left: 10px;">
   </div>

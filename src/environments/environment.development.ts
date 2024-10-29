@@ -1,4 +1,4 @@
 export const environment = {
-BaseUrl:'http://localhost:3000'
+BaseUrl:'http://localhost:5120/api/Category'
 
 };

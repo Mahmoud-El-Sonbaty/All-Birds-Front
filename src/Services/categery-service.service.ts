@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Icategory } from '../Modules/category';
+import { Apiresponse, Icategory } from '../Modules/category';
 import { environment } from '../environments/environment.development';
 
 @Injectable({
@@ -11,12 +11,12 @@ export class CategeryServiceService {
 
   constructor(private httpclient:HttpClient) { }
 
-getAllCategory():Observable<Icategory[]>{
+getAllCategory():Observable<Apiresponse>{
   console.log(environment.BaseUrl)
-  return this.httpclient.get<Icategory[]>(`${environment.BaseUrl}/Categories`)
+  return this.httpclient.get<Apiresponse>(`${environment.BaseUrl}`)
 }
-getCategoryById(id:number):Observable<Icategory>{
-  return this.httpclient.get<Icategory>(`${environment.BaseUrl}/Categories`,{
+getCategoryById(id:number):Observable<Apiresponse>{
+  return this.httpclient.get<Apiresponse>(`${environment.BaseUrl}`,{
     params:{
       "Id":id
     }

@@ -1,17 +1,16 @@
 export interface Icategory {
-  catId:number;
-  NameEn:string;
-  NameAr:string;
-  ParentCategoryId:number;
-  Level: number;
-  IsParentCategory:Boolean;
-  Children:Icategory[]|null;
+  id:number;
+  nameEn:string;
+  nameAr:string;
+  parentCategoryId:number;
+  level: number;
+  isParentCategory:Boolean;
+  children:Icategory[]|null;
 
 }
-export interface ApiResponse {
-  IsSuccess: boolean;
-  Data: {
-    Categories: Icategory[];
-  };
-  Msg: string;
+export interface Apiresponse{
+
+  data:Icategory[];
+  msg:string;
+  isSuccess:boolean;
 }
