@@ -24,7 +24,11 @@ export class CheckoutComponent implements AfterViewInit {
   //
   isCODSelected: boolean = false; // Track if COD is selected
   isPayPalSelected: boolean = false; // Track if PayPal is selected
-
+  //
+  selectedPaymentMethod: string = ''; // Tracks the selected payment method to change bg
+  selectPaymentMethod(method: string): void {
+    this.selectedPaymentMethod = method;
+  }
   constructor(private fb: FormBuilder, private renderer: Renderer2) {
     this.checkoutForm = this.fb.group({
       email: [''],
