@@ -6,10 +6,9 @@ export interface Icategory {
   level: number;
   isParentCategory:Boolean;
   children:Icategory[]|null;
-
 }
-export interface Apiresponse{
 
+export interface Apiresponse{
   data:Icategory[];
   msg:string;
   isSuccess:boolean;
