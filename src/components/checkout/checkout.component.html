@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"></script>
+
 </head>
 
 <body>
@@ -17,14 +19,14 @@
                 </div>
             </div>
         </nav>
-        <div class="row">
+        <div class="row ms-5">
             <!-- Left Section: Form -->
-            <div class="col-md-8">
+            <div class="col-md-6">
              
             
 
                 <!-- Contact Section -->
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between m-4">
                   <h4>Contact</h4>
                   
                   <a href="#" class="text-right">Login</a>
@@ -32,17 +34,79 @@
                 <form [formGroup]="checkoutForm" (ngSubmit)="submitForm()">
                     <div class="form-group">
                         <div class="input">
-                            <i class="fa fa-envelope"></i>
-                            <input type="email" class="form-control" placeholder="Email" formControlName="email" required>
+                            <input #input type="email" class="form-control shadow-none" placeholder="Email" formControlName="email" required>
                         </div>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="emailOffers" formControlName="emailOffers">
-                        <label class="form-check-label" for="emailOffers">Email me with news and offers</label>
+                        <input type="checkbox" class="form-check-input custom-checkbox-black shadow-none" id="emailOffers" formControlName="emailOffers">
+                        <label class="form-check-label " for="emailOffers">Email me with news and offers</label>
                     </div>
+                    <!--  -->
+                
+                    <!--  -->
+                    
+                    
+                    
+
+                    <!-- Delivery Section -->
+                    <h4 class="mt-4">Delivery</h4>
+                    <div class="form-group">
+                        <div class="input">
+                            <select #input class="form-control" required>
+                                <option value="" disabled selected>Country/Region</option>
+                                <option>Country/Region</option>
+                                <option>Egypt</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="input">
+                                <input #input type="text" class="form-control shadow-none" placeholder="First name" formControlName="firstName" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input">
+                                <input #input type="text" class="form-control shadow-none" placeholder="Last name" formControlName="lastName" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input">
+                            <input #input type="text" class="form-control shadow-none" placeholder="Company (required for business addresses)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input">
+                            <input #input type="text" class="form-control shadow-none" placeholder="Address" formControlName="address" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input">
+                            <input #input type="text" class="form-control shadow-none" placeholder="Apartment, suite, etc. (optional)">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="input">
+                                <input #input type="text" class="form-control shadow-none" placeholder="City" formControlName="city" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input">
+                                <input #input type="text" class="form-control shadow-none" placeholder="State" formControlName="state" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input">
+                                <input #input type="text" class="form-control shadow-none" placeholder="ZIP code" formControlName="zip" required>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="textOffers" formControlName="textOffers" (change)="toggleMobileNumberField()">
-                        <label class="form-check-label" for="textOffers">Text me with news and offers</label>
+                        <input type="checkbox" class="form-check-input shadow-none custom-checkbox-black" id="textOffers" formControlName="textOffers" (change)="toggleMobileNumberField()">
+                        <label class="form-check-label " for="textOffers">Text me with news and offers</label>
                     </div>
 
                     <!-- Mobile Number with Country Code -->
@@ -54,150 +118,95 @@
                                         {{ code.name }} ({{ code.code }})
                                     </option>
                                 </select>
-                            </div>
-                            <input type="number" class="form-control" placeholder="Mobile number" formControlName="mobileNumber" required>
-                        </div>
-                    </div>
-                    
-                    
-
-                    <!-- Delivery Section -->
-                    <h4 class="mt-4">Delivery</h4>
-                    <div class="form-group">
-                        <div class="input">
-                            <i class="fa fa-globe"></i>
-                            <select class="form-control" required>
-                                <option>Country/Region</option>
-                                <option>Egypt</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="input">
-                                <i class="fa fa-user"></i>
-                                <input type="text" class="form-control" placeholder="First name" formControlName="firstName" required>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="input">
-                                <i class="fa fa-user"></i>
-                                <input type="text" class="form-control" placeholder="Last name" formControlName="lastName" required>
+                            </div >
+                            <input type="number" class=" form-control shadow-none" placeholder="Mobile number" formControlName="mobileNumber" required>
+                            <div>
+                                By submitting this form, you agree to receive recurring automated promotional and personalized 
+                                marketing text messages (e.g. cart reminders) from Allbirds at the cell number used when signing up.
+                                Consent is not a condition of any purchase.Reply HELP for help and STOP to cancel. Msg frequency
+                                varies. Msg and data rates may apply. View our <a href="">Privacy Policy</a> & <a href="">Terms of Service</a>.
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="input">
-                            <i class="fa fa-building"></i>
-                            <input type="text" class="form-control" placeholder="Company (required for business addresses)">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input">
-                            <i class="fa fa-map-marker"></i>
-                            <input type="text" class="form-control" placeholder="Address" formControlName="address" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input">
-                            <i class="fa fa-map-signs"></i>
-                            <input type="text" class="form-control" placeholder="Apartment, suite, etc. (optional)">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="input">
-                                <i class="fa fa-city"></i>
-                                <input type="text" class="form-control" placeholder="City" formControlName="city" required>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="input">
-                                <i class="fa fa-map"></i>
-                                <input type="text" class="form-control" placeholder="State" formControlName="state" required>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="input">
-                                <i class="fa fa-flag"></i>
-                                <input type="text" class="form-control" placeholder="ZIP code" formControlName="zip" required>
-                            </div>
-                        </div>
-                    </div>
-
+                    <!--  -->
                     <!-- Payment Section -->
                     <h4 class="mt-4">Payment</h4>
                     <p class="text-secondary">All transactions are secure and encrypted.</p>
-                    <div class="payment-methods">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="creditCard" formControlName="paymentMethod" (change)="updatePayButton()" checked>
-                            <label class="form-check-label" for="creditCard"><i class="fa fa-credit-card"></i> Credit Card</label>
+                    
+                    
+                    <div class="payment-methods border p-3" style="background-color: #f9f9f9;">
+                        <!-- Payment Method Selection -->
+                        <div class="form-check d-flex align-items-center p-4 mb-4" style="border: solid 1px gray;">
+                            <input class="form-check-input custom-radio-black mt-0 mr-2 mx-1" type="radio" name="paymentMethod" id="creditCard" value="creditCard" formControlName="paymentMethod" (change)="updatePayButton()" checked>
+                            <label class="form-check-label font-weight-bold mb-0 mr-auto ms-2" for="creditCard">
+                                Credit Card
+                            </label>
+                    
+                            <!-- Credit Card Logos -->
+                            <div class="d-flex align-items-center">
+                                <img src="https://via.placeholder.com/40x24?text=Visa" alt="Visa" class="mr-1">
+                                <img src="https://via.placeholder.com/40x24?text=MC" alt="MasterCard" class="mr-1">
+                                <img src="https://via.placeholder.com/40x24?text=Amex" alt="Amex" class="mr-1">
+                                <img src="https://via.placeholder.com/40x24?text=Disc" alt="Discover" class="mr-1">
+                                <span class="badge badge-secondary">+4</span>
+                            </div>
                         </div>
-
+                    
                         <!-- Credit Card Fields -->
-                        <div class="credit-card-fields" *ngIf="checkoutForm.get('paymentMethod')?.value === 'creditCard'">
-                            <div class="form-group">
-                                <div class="input">
-                                    <i class="fa fa-credit-card"></i>
-                                    <input type="text" class="form-control" placeholder="Card number" formControlName="cardNumber" required>
-                                </div>
+                        <div class="credit-card-fields " *ngIf="checkoutForm.get('paymentMethod')?.value === 'creditCard'">
+                            <div class="form-group position-relative mb-4">
+                                <input #input type="text" class="form-control shadow-none" placeholder="Card number" formControlName="cardNumber" required>
+                                <i class="fas fa-lock position-absolute" style="right: 15px; top: 50%; transform: translateY(-50%); color: #aaa;"></i>
                             </div>
+                    
                             <div class="form-row">
-                                <div class="col">
-                                    <div class="input">
-                                        <i class="fa fa-calendar"></i>
-                                        <input type="text" class="form-control" placeholder="Expiration date (MM / YY)" formControlName="expirationDate" required>
-                                    </div>
+                                <div class="form-group col-md-6">
+                                    <input #input type="text" class="form-control shadow-none" placeholder="Expiration date (MM / YY)" formControlName="expirationDate" required>
                                 </div>
-                                <div class="col">
-                                  <div class="input-group position-relative">
-                                    <div class="input">
-                                      
-                                    </div>
-                                      <input type="text" class="form-control" id="cvv" placeholder="Security code (CVV)" formControlName="securityCode" required>
-                                      <span class="input-group-text info-icon" (click)="togglePopover()" tabindex="0" role="button" aria-label="More info about CVV">
-                                          <i class="fa fa-info-circle"></i>
-                                      </span>
-                                      <!-- Popover -->
-                                      <div class="popover" *ngIf="showPopover">
-                                          <p>The CVV (Card Verification Value) is a 3-digit code found on the back of your card. It provides an additional layer of security for online purchases.</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              
-                              
-                              
+                    
+                                <div class="form-group col-md-5 position-relative">
+                                    <input #input type="text" class="form-control shadow-none" placeholder="Security code (CVV)" formControlName="securityCode" required>
+                                    <i class="fas fa-question-circle position-absolute" style="right: 15px; top: 50%; transform: translateY(-50%); color: #aaa;" data-toggle="tooltip" title="The CVV is a 3-digit code on the back of your card."></i>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <div class="input">
-                                    <i class="fa fa-user"></i>
-                                    <input type="text" class="form-control" placeholder="Name on card" required formControlName="nameOnCard">
-                                </div>
+                    
+                            <div class="form-group mt-4">
+                                <input #input type="text" class="form-control shadow-none" placeholder="Name on card" required formControlName="nameOnCard">
                             </div>
                         </div>
-
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" formControlName="paymentMethod" (change)="updatePayButton()">
-                            <label class="form-check-label" for="cod"><i class="fa fa-money-bill-wave"></i> Cash on Delivery (COD)</label>
-                            <div class="cod-details" *ngIf="isCODSelected">
+                    
+                        <!-- Cash on Delivery Option -->
+                        <div class="form-check mt-4 p-4 mb-4"style="border: solid 1px gray;" >
+                            <input class="form-check-input shadow-none custom-radio-black mx-1" type="radio" name="paymentMethod" id="cod" value="cod" formControlName="paymentMethod" (change)="updatePayButton()">
+                            <label class="form-check-label ms-2" for="cod">Cash on Delivery (COD)</label>
+                            <div class="cod-details mt-2" *ngIf="isCODSelected" >
                                 <p>Details of product ordered: [Product Name]</p>
                                 <p>Shipment voice: [Voice Details]</p>
                                 <p>Total price: [Price Details]</p>
                             </div>
                         </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" value="paypal" formControlName="paymentMethod" (change)="updatePayButton()">
-                            <label class="form-check-label" for="paypal"><i class="fab fa-paypal"></i> PayPal</label>
+                        <div class="form-check p-4" style="border: solid 1px gray;">
+                            <input class="form-check-input shadow-none custom-radio-black mx-1" type="radio" name="paymentMethod" id="paypal" value="paypal" formControlName="paymentMethod" (change)="updatePayButton()">
+                            <label class="form-check-label ms-2" for="paypal">PayPal</label>
                         </div>
-                    </div>
 
-                    <button type="submit" class="btn btn-success pay-button mt-3"><i class="fa fa-check"></i> {{ payButtonText }}</button>
+                    </div>
+                    
+                    <!-- Bootstrap JS (Optional) for Tooltip -->
+                    <script>
+                        $(function () {
+                            $('[data-toggle="tooltip"]').tooltip()
+                        })
+                    </script>
+                    
+                     
+                    <button type="submit" class="btn btn-success pay-button mt-3">{{ payButtonText }}</button>
+                
                 </form>
             </div>
 
             <!-- Right Section: Order Summary -->
-            <div class="col-md-4 order-summary">
+            <!-- <div class="col-md-6 order-summary">
                 <div class="summary-item">
                     <img src="assets/shoe.png" alt="Product image" width="50">
                     <p>Men's  slipper - Rugged Beige</p>
@@ -205,17 +214,63 @@
                 </div>
                 <div class="form-group">
                     <div class="input">
-                        <i class="fa fa-gift"></i>
-                        <input type="text" class="form-control" placeholder="Gift card or discount code">
+                        <input type="text" class="form-control w-50 d-inline " placeholder="Gift card or discount code">
+                        <button class="btn btn-light text-secondary py-3 px-3 fw-bold d-inline">Apply</button>
                     </div>
-                    <button class="btn btn-success mt-3"><i class="fa fa-tag"></i> Apply</button>
                 </div>
                 <hr>
                 <div class="total-price">
                     <h5>Total</h5>
                     <h5><strong>$0.00</strong></h5>
                 </div>
+            </div> -->
+            <!--  -->
+            <div class="order-summary col-md-6">
+                <div class="d-flex justify-content-between align-items-start">
+                  <!-- Item Info -->
+                  <div class="d-flex">
+                    <span class="badge-item me-2"><img src="assets/shoe.png" alt="Product image" width="50"></span>
+                    <div>
+                      <p class="product-title m-2">Men's Wool Runner Go - Rugged Beige</p>
+                      <p class="product-subtitle text-muted m-0">(Rugged Beige Sole)</p>
+                      <p class="product-size text-muted">13</p>
+                    </div>
+                  </div>
+                  
+                  <p class="d-flex justify-content-between col-md-5">$93.00</p>
+                </div>
+              
+              
+                <div class="col-8">
+                    <!-- Discount Code Input -->
+                    <div class="input-group discount-code">
+                  <input
+                    type="text"
+                    class="form-control shadow-none"
+                    placeholder="Gift card or discount code"
+                  />
+                  <button class="btn apply-btn ms-4" type="button">Apply</button>
+                </div>
+              
+                <!-- Subtotal and Shipping -->
+                <div class="d-flex justify-content-between mb-2">
+                  <p class="text-muted mt-4">Subtotal</p>
+                  <p class="mt-3">$93.00</p>
+                </div>
+                <div class="d-flex justify-content-between mb-4">
+                  <p class="text-muted mb-0">Shipping</p>
+                  <p class="shipping-placeholder text-muted mb-0">Enter shipping address</p>
+                </div>
+              
+                <!-- Total -->
+                <div class="d-flex justify-content-between total-section">
+                  <p class="fw-bold mb-0">Total</p>
+                  <p class="total-amount mb-0">USD <span class="fw-bold">$93.00</span></p>
+                </div>
             </div>
+              </div>
+              
+            <!--  -->
         </div>
     </div>
 </body>

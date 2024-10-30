@@ -1,15 +1,17 @@
 body {
     box-sizing: border-box;
+    margin: 0px;
 }
 
 /* Style the navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    padding: 20px;
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    border-bottom:solid 1px #ccc;;
+    /* margin-bottom: 30px; */
 }
 
 .logo-container {
@@ -23,7 +25,7 @@ body {
 }
 
 .checkout-page {
-    padding: 20px;
+    /* padding: 0px; */
 }
 
 /* New Styles for Aligning Input Fields Side by Side */
@@ -65,22 +67,21 @@ body {
 
 .input-group .custom-select {
     max-width: 130px;
-    border-radius: 5px 0 0 5px;
+    /* border-radius: 5px 0 0 5px; */
     border-right: 0;
 }
 
 .input-group .form-control {
-    width: 50px;
-    min-width: 50px;
-    border-radius: 0 5px 5px 0;
-    padding-left: 10px;
+    /* width: 10px;
+    /* min-width: 50px; */
+    /* border-radius: 0 5px 5px 0; */
+    /* padding-left: 40px;  */
 }
 
 /* Additional styling for consistent appearance */
 .input-group .custom-select,
 .input-group .form-control {
     height: 40px;
-    border: 1px solid #ced4da;
 }
 
 /* Input styling */
@@ -88,40 +89,35 @@ input[type="text"],
 input[type="email"],
 select {
     padding-left: 30px;
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #ced4da;
-    height: 40px;
+    padding: 20px;
+    /* width: 100%; */
+    /* border-radius: 5px; */
+    /* border: 1px solid #ced4da; */
+    /* height: 40px; */
 }
 
 /* Payment Section */
-.payment-methods {
-    margin-top: 20px;
-    background-color: #f0f0f0; /* Gray background */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+.custom-radio-black:checked {
+    background-color: black; /* Radio circle fill color when checked */
+    border-color: black; /* Border color */
+}
+.custom-radio-black {
+    border-color: black; /* Border color when not checked */
+}
+.custom-checkbox-black:checked {
+    background-color: black; /* Radio circle fill color when checked */
+    border-color: black; /* Border color */
+}
+.custom-checkbox-black {
+    border-color: black; /* Border color when not checked */
 }
 
-.payment-methods label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-    font-weight: 500;
-    color: #333;
-}
-
-.payment-methods label input[type="radio"] {
-    margin-right: 8px;
-}
 
 /* Button styling */
 .pay-button {
     width: 100%;
-    background-color: #007bff;
+    background-color: black;
     color: white;
-    border: none;
-    border-radius: 5px;
     padding: 12px;
     margin-top: 20px;
     font-size: 16px;
@@ -130,22 +126,27 @@ select {
 }
 
 .pay-button:hover {
-    background-color: #0056b3;
+    background-color: white;
+    color: black;
+    border: solid 2px black;
 }
 
+
 /* Order Summary */
-.order-summary {
+/* .order-summary {
     position: sticky;
     top: 20px;
     align-self: flex-start;
     background-color: rgb(218, 218, 218);
-    padding: 20px;
+    padding: 50px;
+    border-left: solid;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
 }
 
 .summary-item {
+    padding: 40px;
     display: flex;
     align-items: center;
     margin-bottom: 15px;
@@ -153,7 +154,7 @@ select {
 
 .summary-item img {
     margin-right: 10px;
-}
+} */
 
 .btn-secondary {
     margin-top: 10px;
@@ -170,7 +171,7 @@ select {
 .input-group input {
     padding-right: 30px;
 }
-
+/* 
 .info-icon {
     position: absolute;
     right: 10px;
@@ -178,7 +179,7 @@ select {
     transform: translateY(-50%);
     cursor: pointer;
     color: #007bff;
-}
+} */
 
 /* Popover styling */
 .popover {
@@ -196,15 +197,69 @@ select {
     transform: translateY(-100%);
 }
 
-/* Optional: Adjust hover and focus states for better accessibility */
-.info-icon:hover {
-    color: #0056b3;
-}
+/*  */
+.order-summary {
 
-.info-icon:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
-}
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+    position: sticky;
+    /* align-self: flex-start; */
+    top: 20px; /* Sets the distance from the top of the viewport */
+    padding: 3rem;
+  }
+  
+  
+  .badge-item {
+    background-color: #ddd;
+    color: #333;
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 24px;
+  }
+  
+  .product-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .product-subtitle, .product-size {
+    font-size: 0.8rem;
+  }
+  
+  .price {
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  .discount-code .form-control {
+    /* border: 1px solid #ddd; */
+  }
+  
+  .discount-code .apply-btn {
+    background-color: #e0e0e0;
+    color: #555;
+    /* border: 1px solid #ddd; */
+  }
+  
+  .shipping-placeholder {
+    font-size: 0.9rem;
+  }
+  
+  .total-section {
+    /* border-top: 1px solid #ddd; */
+    padding-top: 1rem;
+  }
+  
+  .total-amount {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+
+/*  */
+/* Optional: Adjust hover and focus states for better accessibility */
 
 /* Responsive styles */
 @media (max-width: 768px) {

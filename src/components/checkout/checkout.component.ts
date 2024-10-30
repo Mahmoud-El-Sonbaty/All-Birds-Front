@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -9,20 +9,23 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup } from '@angul
   standalone: true,
   imports: [FormsModule, CommonModule, ReactiveFormsModule]
 })
-export class CheckoutComponent {
+export class CheckoutComponent implements AfterViewInit {
+  @ViewChildren('input') inputFields!: QueryList<ElementRef>;
   checkoutForm: FormGroup;
   payButtonText: string = 'Pay Now'; // Default button text
   showMobileField: boolean = false; // Toggle mobile number field visibility
   countryCodes = [
-    { name: 'United States', code: '+1' },
-    { name: 'Canada', code: '+1' },
+    { name: 'Egypt', code: '+20', flag: '🇪🇬' },
+    { name: 'United States', code: '+1', flag: '🇺🇸' },
+    { name: 'Canada', code: '+1', flag: '🇨🇦' },
     // Add more country codes as needed
   ];
-  selectedCountryCode: string = this.countryCodes[0].code; // Default selected country code
+  selectedCountryCode = this.countryCodes[0].code; // Default selected country code
+  //
   isCODSelected: boolean = false; // Track if COD is selected
   isPayPalSelected: boolean = false; // Track if PayPal is selected
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private renderer: Renderer2) {
     this.checkoutForm = this.fb.group({
       email: [''],
       emailOffers: [false],
@@ -58,14 +61,25 @@ export class CheckoutComponent {
     this.isCODSelected = paymentMethod === 'cod';
   }
 
-  //
   showPopover = false;
 
-togglePopover() {
+  togglePopover() {
     this.showPopover = !this.showPopover;
-}
+  }
 
-  //
+  ngAfterViewInit() {
+    // Add focus and blur event listeners to all input fields
+    this.inputFields.forEach((input) => {
+      this.renderer.listen(input.nativeElement, 'focus', () => {
+        this.renderer.setStyle(input.nativeElement, 'border', '2px solid black');
+      });
+
+      this.renderer.listen(input.nativeElement, 'blur', () => {
+        this.renderer.removeStyle(input.nativeElement, 'border');
+      });
+    });
+  }
+
   submitForm() {
     console.log('Form Submitted', this.checkoutForm.value);
   }
