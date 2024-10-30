@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Apiresponse, Icategory } from '../Modules/category';
+import { Apiresponse, Icategory } from '../models/category';
 import { environment } from '../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategeryServiceService {
+export class CategeryService {
 
   constructor(private httpclient:HttpClient) { }
 

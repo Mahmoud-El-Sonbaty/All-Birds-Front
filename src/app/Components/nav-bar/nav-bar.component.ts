@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Icategory } from '../../../Modules/category';
-import { CategeryServiceService } from '../../../Services/categery-service.service';
+import { Icategory } from '../../../models/category';
+import { CategeryService } from '../../../services/categery.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,12 +11,12 @@ import { Subscription } from 'rxjs';
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
-export class NavBarComponent implements OnInit,OnDestroy {
+export class NavBarComponent implements OnInit, OnDestroy {
 
   sub:Subscription[]= []as Subscription[];
   category:Icategory[]=[]as Icategory[];
 
-constructor(private categories:CategeryServiceService) {
+constructor(private categories:CategeryService) {
 
 
 }
@@ -30,13 +30,10 @@ constructor(private categories:CategeryServiceService) {
       {
         next:(res)=>{
           this.category=res.data
-
         },
         error:(err)=>{
           console.log(err);
-
-
-         }
+        }
       }
     )
     this.sub.push(item);
