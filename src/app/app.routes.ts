@@ -4,5 +4,5 @@ import { MainProductComponent } from './Components/MainProduct/main-product/main
 
 export const routes: Routes = [
   { path: '', component: MainProductComponent },
-  { path :'Product' ,component : MainProductComponent , title : 'Product Page' }
+  { path :'ProductCategory/:id' ,component : MainProductComponent , title : 'Product Page' }
 ];
