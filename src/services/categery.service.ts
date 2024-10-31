@@ -13,7 +13,7 @@ export class CategeryService {
 
 getAllCategory():Observable<Apiresponse>{
   console.log(environment.BaseUrl)
-  return this.httpclient.get<Apiresponse>(`${environment.BaseUrl}/Category`)
+  return this.httpclient.get<Apiresponse>(`${environment.BaseUrl}`)
 }
 getCategoryById(id:number):Observable<Apiresponse>{
   return this.httpclient.get<Apiresponse>(`${environment.BaseUrl}`,{
