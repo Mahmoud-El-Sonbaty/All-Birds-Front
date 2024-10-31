@@ -1,0 +1,308 @@
+{
+
+    "Categories": [
+      {
+        "Id": 1,
+        "NameEn": "Men",
+        "NameAr": "رجالي",
+        "ParentCategoryId": 0,
+        "Level": 0,
+        "IsParentCategory": true,
+        "Children": [
+          {
+            "Id": 2,
+            "NameEn": "Shoes",
+            "NameAr": "أحذية",
+            "ParentCategoryId": 1,
+            "Level": 1,
+            "IsParentCategory": true,
+            "Children": [
+              {
+                "Id": 3,
+                "NameEn": "Everyday Sneakers",
+                "NameAr": "أحذية رياضية يومية",
+                "ParentCategoryId": 2,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 4,
+                "NameEn": "Active Shoes",
+                "NameAr": "أحذية نشطة",
+                "ParentCategoryId": 2,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 5,
+                "NameEn": "Water-Repellent Shoes",
+                "NameAr": "أحذية مقاومة للماء",
+                "ParentCategoryId": 2,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 6,
+                "NameEn": "Slip-Ons",
+                "NameAr": "أحذية بدون أربطة",
+                "ParentCategoryId": 2,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 7,
+                "NameEn": "Sale Shoes",
+                "NameAr": "عروض الأحذية",
+                "ParentCategoryId": 2,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              }
+            ]
+          },
+          {
+            "Id": 8,
+            "NameEn": "Bestsellers",
+            "NameAr": "أفضل المبيعات",
+            "ParentCategoryId": 1,
+            "Level": 1,
+            "IsParentCategory": false,
+            "Children": []
+          },
+          {
+            "Id": 9,
+            "NameEn": "Apparel & More",
+            "NameAr": "ملابس وأشياء أخرى",
+            "ParentCategoryId": 1,
+            "Level": 1,
+            "IsParentCategory": true,
+            "Children": [
+              {
+                "Id": 10,
+                "NameEn": "Underwear",
+                "NameAr": "ملابس داخلية",
+                "ParentCategoryId": 9,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 11,
+                "NameEn": "Tees",
+                "NameAr": "قمصان",
+                "ParentCategoryId": 9,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 12,
+                "NameEn": "Insoles",
+                "NameAr": "نعال",
+                "ParentCategoryId": 9,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 13,
+                "NameEn": "Gift Cards",
+                "NameAr": "بطاقات هدايا",
+                "ParentCategoryId": 9,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 14,
+                "NameEn": "Sale Apparel & Socks",
+                "NameAr": "عروض الملابس والجوارب",
+                "ParentCategoryId": 9,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              }
+            ]
+          },
+          {
+            "Id": 15,
+            "NameEn": "New Arrivals",
+            "NameAr": "وصل حديثًا",
+            "ParentCategoryId": 1,
+            "Level": 1,
+            "IsParentCategory": false,
+            "Children": []
+          }
+        ]
+      },
+      {
+        "Id": 16,
+        "NameEn": "Women",
+        "NameAr": "حريمي",
+        "ParentCategoryId": 0,
+        "Level": 0,
+        "IsParentCategory": true,
+        "Children": [
+          {
+            "Id": 17,
+            "NameEn": "Shoes",
+            "NameAr": "أحذية",
+            "ParentCategoryId": 16,
+            "Level": 1,
+            "IsParentCategory": true,
+            "Children": [
+              {
+                "Id": 18,
+                "NameEn": "Everyday Sneakers",
+                "NameAr": "أحذية رياضية يومية",
+                "ParentCategoryId": 17,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 19,
+                "NameEn": "Active Shoes",
+                "NameAr": "أحذية نشطة",
+                "ParentCategoryId": 17,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 20,
+                "NameEn": "Water-Repellent Sneakers",
+                "NameAr": "أحذية رياضية مقاومة للماء",
+                "ParentCategoryId": 17,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 21,
+                "NameEn": "Flats",
+                "NameAr": "أحذية مسطحة",
+                "ParentCategoryId": 17,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 22,
+                "NameEn": "Slip-Ons",
+                "NameAr": "أحذية بدون أربطة",
+                "ParentCategoryId": 17,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 23,
+                "NameEn": "Sale Shoes",
+                "NameAr": "عروض الأحذية",
+                "ParentCategoryId": 17,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              }
+            ]
+          },
+          {
+            "Id": 24,
+            "NameEn": "Bestsellers",
+            "NameAr": "أفضل المبيعات",
+            "ParentCategoryId": 16,
+            "Level": 1,
+            "IsParentCategory": false,
+            "Children": []
+          },
+          {
+            "Id": 25,
+            "NameEn": "Apparel & More",
+            "NameAr": "ملابس وأشياء أخرى",
+            "ParentCategoryId": 16,
+            "Level": 1,
+            "IsParentCategory": true,
+            "Children": [
+              {
+                "Id": 26,
+                "NameEn": "Underwear",
+                "NameAr": "ملابس داخلية",
+                "ParentCategoryId": 25,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 27,
+                "NameEn": "Tees",
+                "NameAr": "قمصان",
+                "ParentCategoryId": 25,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 28,
+                "NameEn": "Insoles",
+                "NameAr": "نعال",
+                "ParentCategoryId": 25,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 29,
+                "NameEn": "Gift Cards",
+                "NameAr": "بطاقات هدايا",
+                "ParentCategoryId": 25,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              },
+              {
+                "Id": 30,
+                "NameEn": "Sale Apparel & Socks",
+                "NameAr": "عروض الملابس والجوارب",
+                "ParentCategoryId": 25,
+                "Level": 2,
+                "IsParentCategory": false,
+                "Children": []
+              }
+            ]
+          },
+          {
+            "Id": 31,
+            "NameEn": "New Arrivals",
+            "NameAr": "وصل حديثًا",
+            "ParentCategoryId": 16,
+            "Level": 1,
+            "IsParentCategory": false,
+            "Children": []
+          }
+        ]
+      },
+      {
+        "Id": 32,
+        "NameEn": "Socks",
+        "NameAr": "الجوارب",
+        "ParentCategoryId": 0,
+        "Level": 0,
+        "IsParentCategory": false,
+        "Children": []
+      },
+      {
+        "Id": 33,
+        "NameEn": "Sale",
+        "NameAr": "العروض",
+        "ParentCategoryId": 0,
+        "Level": 0,
+        "IsParentCategory": false,
+        "Children": []
+      }
+    ]
+  }
