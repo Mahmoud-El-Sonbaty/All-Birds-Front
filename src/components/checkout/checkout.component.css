@@ -2,6 +2,8 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+
 }
 
 /* Navbar Styles */
@@ -144,9 +146,12 @@ select {
 .order-summary {
     background-color: #f9f9f9;
     border-left: 1px solid #ddd;
-    position: sticky;
-    top: 20px;
     padding: 3rem;
+    position: sticky;
+    top: 0px;
+    align-self: flex-start;
+    height: 100vh;
+    
 }
 
 .badge-item {
@@ -176,6 +181,7 @@ select {
 .discount-code .apply-btn {
     background-color: #e0e0e0;
     color: #555;
+    border-radius:0px
 }
 
 .shipping-placeholder {
@@ -238,9 +244,14 @@ select {
     .order-summary {
         margin-top: 10px;
         padding: 2rem; /* Reduce padding on smaller screens */
+     
+
     }
 
    
+}
+.form-control{
+    border-radius: 0px;
 }
 
 /* Extra Small Devices (Mobile) */

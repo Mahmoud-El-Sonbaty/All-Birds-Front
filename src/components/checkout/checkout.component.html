@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-check">
                             <input type="checkbox"
-                                class="form-check-input custom-checkbox-black shadow-none"
+                                class="form-check-input custom-checkbox-black shadow-none rounded-0"
                                 id="emailOffers" formControlName="emailOffers">
                             <label class="form-check-label "
                                 for="emailOffers">Email me with news and
@@ -54,13 +54,12 @@
                         </div>
                         <!--  -->
 
-                        <!--  -->
 
                         <!-- Delivery Section -->
                         <h4 class="mt-4">Delivery</h4>
                         <div class="form-group">
                             <div class="input">
-                                <select #input class="form-control" required>
+                                <select #input class="form-control shadow-none" required>
                                     <option value disabled
                                         selected>Country/Region</option>
                                     <option>Country/Region</option>
@@ -127,33 +126,12 @@
                                         <option value selected disabled>Select
                                             State</option>
                                         <option value="AL">Alabama</option>
-                                        <option value="AK">Alaska</option>
-                                        <option value="AZ">Arizona</option>
-                                        <option value="AR">Arkansas</option>
-
-                                        <option value="MD">Maryland</option>
-                                        <option
-                                            value="MA">Massachusetts</option>
-                                        <option value="MI">Michigan</option>
-                                        <option value="MN">Minnesota</option>
-
                                         <option value="NV">Nevada</option>
                                         <option value="NH">New
-                                            Hampshire</option>
-                                        <option value="NJ">New Jersey</option>
-                                        <option value="NM">New Mexico</option>
-                                        <option value="NY">New York</option>
-                                        <option value="NC">North
-                                            Carolina</option>
-                                        <option value="ND">North Dakota</option>
-                                        <option value="OH">Ohio</option>
-                                        <option value="OK">Oklahoma</option>
-
                                         <option value="SC">South
                                             Carolina</option>
                                         <option value="SD">South Dakota</option>
                                         <option value="TN">Tennessee</option>
-
                                         <option value="WV">West
                                             Virginia</option>
                                         <option value="WI">Wisconsin</option>
@@ -176,7 +154,7 @@
                         <!--  -->
                         <div class="form-check">
                             <input type="checkbox"
-                                class="form-check-input shadow-none custom-checkbox-black"
+                                class="form-check-input shadow-none custom-checkbox-black rounded-0"
                                 id="textOffers" formControlName="textOffers"
                                 (change)="toggleMobileNumberField()">
                             <label class="form-check-label "
@@ -313,47 +291,36 @@
                             </div>
                         </div>
 
-                        <div class="payment-methods border p-3"
-                            [ngClass]="{'selected-bg': selectedPaymentMethod === 'cod'}"
-                            (click)="selectPaymentMethod('cod')">
-                            <!-- Cash on Delivery Option -->
-                            <div class="form-check mt-4 p-3 mb-4"
-                                style="border: solid 1px gray;">
-                                <input
-                                    class="form-check-input shadow-none custom-radio-black mx-1"
-                                    type="radio" name="paymentMethod" id="cod"
-                                    value="cod" formControlName="paymentMethod"
-                                    (change)="updatePayButton(); selectPaymentMethod('cod')">
-                                <label class="form-check-label ms-2"
-                                    for="cod">Cash on Delivery (COD)</label>
-                                <div class="cod-details mt-2"
-                                    *ngIf="isCODSelected">
-                                    <p>Details of product ordered: [Product
-                                        Name]</p>
-                                    <p>Shipment voice: [Voice Details]</p>
-                                    <p>Total price: [Price Details]</p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="payment-methods border p-3"
+
+                                                <!-- PayPal Option -->
+                            <div class="payment-methods border p-3"
                             [ngClass]="{'selected-bg': selectedPaymentMethod === 'paypal'}"
                             (click)="selectPaymentMethod('paypal')">
-                            <!-- PayPal Option -->
-                            <div class="form-check p-3"
-                                style="border: solid 1px gray;">
-                                <input
-                                    class="form-check-input shadow-none custom-radio-black mx-1"
-                                    type="radio" name="paymentMethod"
-                                    id="paypal"
-                                    value="paypal"
-                                    formControlName="paymentMethod"
-                                    (change)="updatePayButton(); selectPaymentMethod('paypal')">
-                                <label class="form-check-label ms-2"
-                                    for="paypal">PayPal</label>
+                            <div class="form-check p-3" style="border: solid 1px gray;">
+                            <input
+                                class="form-check-input shadow-none custom-radio-black mx-1"
+                                type="radio" name="paymentMethod"
+                                id="paypal"
+                                value="paypal"
+                                formControlName="paymentMethod"
+                                (change)="updatePayButton(); selectPaymentMethod('paypal')">
+                            <label class="form-check-label ms-2" for="paypal">PayPal</label>
                             </div>
-                        </div>
+                            </div>
 
+                            <!-- Conditional Rendering for Payment Button or PayPal Component -->
+                            <div *ngIf="isPayPalSelected; else regularPayButton">
+                            <ngx-paypal [config]="payPalConfig">Pay with PayPal</ngx-paypal>
+                            </div>
+
+                            <ng-template #regularPayButton>
+                            <button type="submit" class="btn pay-button mt-3 rounded-0">
+                            {{ payButtonText }}
+                            </button>
+                            </ng-template>
+
+                        
                         <!-- Bootstrap JS (Optional) for Tooltip -->
                         <script>
                         $(function () {
@@ -361,43 +328,43 @@
                         })
                     </script>
 
-                        <button type="submit"
-                            class="btn btn-success pay-button mt-3">{{
-                            payButtonText }}</button>
-
+                        
                     </form>
                 </div>
+                <!-- summary -->
                 <div class="order-summary col-md-6">
                     <div
-                        class="d-flex justify-content-between align-items-start">
-                        <!-- Item Info -->
+                    class="d-flex justify-content-between align-items-start">
+                    <!-- Item Info -->
                         <div class="d-flex">
                             <span class="badge-item me-2"><img
                                     src="assets/shoe.png" alt="Product image"
                                     width="50"></span>
-                            <div>
-                                <p class="product-title m-2">Men's Wool Runner
+                                    <div>
+                                        <p class="product-title m-2">Men's Wool Runner
                                     Go - Rugged Beige</p>
                                 <p
                                     class="product-subtitle text-muted m-0">(Rugged
                                     Beige Sole)</p>
                                 <p class="product-size text-muted">13</p>
                             </div>
+                            <div>
+                                <div class="d-flex justify-content-between mb-4">
+                                    <p class="d-flex ms-5">$93.00</p>
+                                </div>
+                            </div>
                         </div>
 
-                        <p
-                            class="d-flex justify-content-between col-md-5 ps-4">$93.00</p>
                     </div>
 
                     <div class="col-9">
                         <!-- Discount Code Input -->
                         <div class="discount-code">
-                            <input
-                                #input
-                                type="text"
-                                class="discount shadow-none p-3 w-75 "
-                                placeholder="Gift card or discount code" />
-                            <button class=" btn apply-btn ms-4 md-2 p-3"
+                            <input #input
+                            type="text"
+                            class="discount shadow-none p-3 w-75  border "
+                            placeholder="Gift card or discount code" />
+                            <button class="btn apply-btn ms-4 p-3"
                                 type="button">Apply</button>
                         </div>
 
@@ -408,21 +375,22 @@
                         </div>
                         <div class="d-flex justify-content-between mb-4">
                             <p class="text-muted mb-0">Shipping</p>
-                            <p
-                                class="shipping-placeholder text-muted mb-0">Enter
-                                shipping address</p>
+                            <p class="shipping-placeholder text-muted mb-0">Enter shipping address</p>
                         </div>
 
                         <!-- Total -->
                         <div
-                            class="d-flex justify-content-between total-section">
+                        class="d-flex justify-content-between total-section">
                             <p class="fw-bold mb-0">Total</p>
                             <p class="total-amount mb-0">USD <span
-                                    class="fw-bold">$93.00</span></p>
+                                class="fw-bold">$93.00</span></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                    
+                   
+                    
+                
                 <!--  -->
             </div>
         </div>
