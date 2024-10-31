@@ -3,11 +3,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Icategory } from '../../../models/category';
 import { CategeryService } from '../../../services/categery.service';
 import { Subscription } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
@@ -45,8 +46,6 @@ constructor(private categories:CategeryService) {
 
     if (backButton) {
       backButton.classList.toggle('hidden', !show);
-
-
     }
   }
 
@@ -59,7 +58,7 @@ constructor(private categories:CategeryService) {
         menuElement.classList.remove('hidden');
         this.toggleBackButton(menu, true);
 
-      if(Level>0){
+      if(Level > 0){
 
         // document.querySelectorAll('.level'+Level+'.nav-link')[4].parentElement?.parentElement?.children[0].classList.add('hidden');
         document.querySelectorAll('.level'+Level+'.nav-item')
@@ -72,7 +71,7 @@ constructor(private categories:CategeryService) {
             .forEach(el => el.classList.add('hidden'));
       }
 
-          console.log(document.querySelectorAll('.level'+Level+'.nav-link'))
+          // console.log(document.querySelectorAll('.level'+Level+'.nav-link'))
 
         setTimeout(() => {
             menuElement.querySelectorAll('.fade-in').forEach((el, index) => {
@@ -85,7 +84,7 @@ constructor(private categories:CategeryService) {
 }
 
 
-   goBack(menu: number,Level:number): void {
+  goBack(menu: number,Level:number): void {
     // console.log(`Going back to menu id: ${menu}, Level: ${Level}`);
 
     const menuElement = document.getElementById(`Menu${menu}`) as HTMLElement;
@@ -94,24 +93,21 @@ constructor(private categories:CategeryService) {
 
         // console.log( document.querySelectorAll('.nav-link.level'+Level)  )
         // console.log( menu , Level  )
-        if(Level>0){
-
-          document.querySelectorAll('.nav-item.level'+Level)
-          .forEach(el => {
-            el.classList.remove('hidden');
-            el.classList.add('show');
-          });
-
-          document.querySelectorAll('.level'+Level+'.nav-item')
-          .forEach(el => el.textContent?.includes("→")?el.parentElement?.parentElement?.children[0].classList.remove('hidden'):"");
-               }else{
-                document.querySelectorAll('.nav-link.level'+Level)
-                .forEach(el => {
-                  el.classList.remove('hidden');
-                  el.classList.add('show');
-                });
-               }
-
+      if(Level>0) {
+        document.querySelectorAll('.nav-item.level'+Level)
+        .forEach(el => {
+          el.classList.remove('hidden');
+          el.classList.add('show');
+        });
+        document.querySelectorAll('.level'+Level+'.nav-item')
+        .forEach(el => el.textContent?.includes("→")?el.parentElement?.parentElement?.children[0].classList.remove('hidden'):"");
+      } else {
+        document.querySelectorAll('.nav-link.level'+Level)
+        .forEach(el => {
+          el.classList.remove('hidden');
+          el.classList.add('show');
+        });
+      }
     }
   }
 

@@ -1,15 +1,15 @@
 export interface Icategory {
-  id:number;
-  nameEn:string;
-  nameAr:string;
-  parentCategoryId:number;
+  id: number;
+  nameEn: string;
+  nameAr: string;
+  parentCategoryId: number;
   level: number;
-  isParentCategory:Boolean;
-  children:Icategory[]|null;
+  isParentCategory: Boolean;
+  children: Icategory[]|null;
 }
 
 export interface Apiresponse{
-  data:Icategory[];
-  msg:string;
-  isSuccess:boolean;
+  data: Icategory[];
+  msg: string;
+  isSuccess: boolean;
 }

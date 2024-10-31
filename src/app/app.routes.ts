@@ -3,6 +3,6 @@ import { MainProductComponent } from './components/main-product/main-product.com
 
 
 export const routes: Routes = [
-  { path: '', component: MainProductComponent },
-  { path :'Product' ,component : MainProductComponent , title : 'Product Page' }
+  { path: 'Collections', component: MainProductComponent, title: 'Collections'},
+  // { path :'Product' ,component : MainProductComponent , title : 'Product Page' }
 ];
