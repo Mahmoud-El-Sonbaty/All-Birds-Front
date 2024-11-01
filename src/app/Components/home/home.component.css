@@ -1,0 +1,178 @@
+.shop {
+  padding: 10px 20px;
+  background-color: white;
+  border: 0;
+  color: #333;
+  font-weight: bold;
+  width: 50%;
+
+
+  border-radius: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.shop:hover {
+  background-color: #333;
+  color: white;
+}
+
+.capHeader
+{
+  right: 0;
+}
+.capbutton{
+  right: -40%;
+}
+.third{
+  font-family: Georgia, 'Times New Roman', Times, serif ;
+  font-size: 45px;
+}
+.first{
+  font-size: 85px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+.rounded-circle{
+  width: 10px !important;
+  height: 10px !important;
+  margin: -5px !important;
+  transition: opacity 0.3s, transform 0.3s !important;
+
+
+}
+.rounded-circle.active{
+  opacity: 1;
+  background-color: #fdfdfd !important;
+  transform: scale(1.5);
+}
+.texts{
+  font-size: 20px;
+}
+.card-group .card-1 {
+  position: relative;
+    overflow: hidden;
+    border-radius: 0;
+  }
+
+  .card .carbtn {
+   opacity: 0;
+   transition: opacity 0.3s ease;
+   text-align: center;
+   bottom: 15px;
+   width: 100%;
+  }
+
+  .card:hover .carbtn {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-group .card.img{
+      overflow:hidden;
+  }
+  .card-group .card img{
+
+      transition: transform 0.3s ease ;
+  }
+  .card-group .card img:hover{
+
+      transform: scale(1.04) ;
+  }
+  .carbtnshop{
+      border-radius: 0;
+      border: 0;
+      max-width: 60%;
+
+  }
+  .carbtnshop:hover{
+      background-color: #1f1f1f;
+      color: white;
+      border: 0;
+  }
+  .card .carbody {
+    text-align: center;
+    top: 45px;
+    width: 100%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(243, 238, 238);
+   }
+   .card .carimag{
+    border-radius: 0;
+   }
+
+
+
+   .card{
+    border-radius: 0;
+    overflow:hidden;
+
+  }
+  .card img{
+    border-radius: 0;
+    transition: transform 0.3s ease ;
+
+  }
+  .card:hover img{
+
+    transform: scale(1.04) ;
+
+  }
+
+  .textSlide {
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    width: 100%;
+    font-weight: 700;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .carousel-control-prev, .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+  }
+
+  .carousel-control-prev {
+    left: .9rem;
+  }
+  .carousel-control-next {
+    right: .9rem;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: transparent;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    border-right: none;
+    border-top: none;
+    position: absolute;
+    padding: 10px;
+  }
+
+  .carousel-control-prev-icon {
+    margin-left: 5px;
+    transform: rotate(45deg);
+  }
+
+  .carousel-control-next-icon {
+    margin-right: 5px;
+
+    transform: rotate(-135deg);
+  }
