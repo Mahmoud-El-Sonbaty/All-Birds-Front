@@ -1,0 +1,76 @@
+body
+{
+  margin: 0px;
+  overflow: hidden;
+
+}
+.card{
+  border-radius: 5px;
+  transition: box-shadow 0.1s ease-in-out;
+  border: none;
+  font-family: "Open Sans", sans-serif;
+}
+.card:hover{
+  box-shadow:0px 0px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.carousel-control-prev{
+ left: -15px;
+
+}
+.carousel-control-next{
+ right: -15px;
+
+}
+
+.carousel-control-prev i,
+.carousel-control-next i {
+    color: black;
+    font-size: 1.5rem;
+    border: 1px solid rgb(132, 132, 132);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.carousel-control-prev i:hover,
+.carousel-control-next i:hover{
+  background-color: rgb(223, 223, 223);
+  border-radius: 10px;
+}
+
+.imageCarousel img{
+  width: 40px ;
+}
+.imageCarousel img:hover{
+  border: 1px solid rgb(189, 189, 189);
+
+}
+.size div {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s ease;
+}
+
+.card:hover .size div {
+  opacity: 1;
+  visibility: visible;
+}
+.size div p{
+ border: 1px solid rgb(132, 132, 132);
+ width: 40px;
+ height: 40px;
+  text-align: center;
+  padding-top: 2px;
+
+
+}
+.size div p:hover
+{
+  background-color: rgb(225, 225, 226);
+  border-radius: 10px;
+
+}
