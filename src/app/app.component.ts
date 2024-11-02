@@ -7,10 +7,11 @@ import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
   standalone: true,
   imports: [RouterOutlet, NavBarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  imports:[CheckoutComponent,ReactiveFormsModule,FormsModule],
+
 })
+
 export class AppComponent {
   title = 'FrontAllbirds';
-
-
 }

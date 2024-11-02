@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Checkout Page</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script
+            src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"></script>
+
+    </head>
+
+    <body>
+        <div class="container-fluid checkout-page ">
+            <div class="navbar-wrapper">
+
+                <nav class="navbar">
+                    <div class="navbar-content">
+                        <div class="logo-container ms-5">
+                            <img src="Logo.svg"
+                                alt="Allbirds Logo" class="navbar-logo" />
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="row ms-5 ">
+                <!-- Left Section: Form -->
+                <div class="col-md-6 mb-4 ps-5 pe-5">
+                    <!-- Contact Section -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <h4>Contact</h4>
+                        <a href="#" class="text-right text-dark">Login</a>
+                    </div>
+                    <form [formGroup]="checkoutForm" (ngSubmit)="submitForm()" autocomplete="off">
+                        <div class="form-group">
+                            <div class="floating-label">
+                                <input #input type="email"
+                                       class="form-control shadow-none"
+                                       placeholder=" "
+                                       required 
+                                       formControlName="email">
+                                <label for="input">Email</label>
+                            </div>
+                            <p *ngIf="checkoutForm.get('email')?.touched && checkoutForm.get('email')?.invalid" class="text-danger">
+                                Enter a valid email address
+                            </p>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox"
+                                class="form-check-input custom-checkbox-black shadow-none rounded-0"
+                                id="emailOffers"
+                                required
+                                >
+                                
+                            <label class="form-check-label "
+                                for="emailOffers">Email me with news and
+                                offers</label>
+                        </div>
+                        <!--  -->
+
+
+                        <!-- Delivery Section -->
+                        <h4 class="mt-4">Delivery</h4>
+                        <div class="form-group">
+                            <div class="input">
+                            <div class="floating-label">
+                                <select #input class="form-control shadow-none" required>
+                                    <option value="" disabled selected hidden></option>
+                                    <option>Country/Region</option>
+                                    <option>Egypt</option>
+                                    <!-- Add more countries as needed -->
+                                </select>
+                                <label for="input">Country/Region</label>
+                            </div>
+                            
+                            <i class="fas fa-chevron-down custom-select-icon" style="margin-left: 520px;"></i>
+                        </div>
+                    </div>
+                        <div class="form-row">
+                            <div class="col ">
+                                <div class="floating-label">
+                                    <input #input type="text"
+                                           class="form-control shadow-none"
+                                           placeholder=" "
+                                           name="firstName"
+                                           required
+                                           formControlName="firstName">
+                                    <label for="input">First name</label>
+                                </div>
+                                <p *ngIf="checkoutForm.get('firstName')?.touched && checkoutForm.get('firstName')?.invalid" class="text-danger">
+                                    Enter a first name
+                                </p>  
+                            </div>
+                            
+                            <div class="col">
+                                <div class="floating-label">
+                                    <input #input type="text"
+                                           class="form-control shadow-none"
+                                           placeholder=" "
+                                           required
+                                           formControlName="lastName">
+                                    <label for="input">Last name</label>
+                                </div>
+                                <p *ngIf="checkoutForm.get('lastName')?.touched && checkoutForm.get('lastName')?.invalid" class="text-danger">
+                                    Enter a last name
+                                </p>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <div class="input">
+                                <div class="floating-label">
+                                <input #input type="text"
+                                    class="form-control shadow-none"
+                                    placeholder="">
+                                    <label for="floating-label">Company (required for business addresses)</label>
+                            </div>
+                            </div>
+                            
+
+                        </div>
+                        <div class="form-group">
+                            <div class="input">
+                            <div class="floating-label">
+                                <input #input type="text"
+                                       class="form-control shadow-none"
+                                       placeholder=" "
+                                       required
+                                       formControlName="address">
+                                <label for="input">Address</label>
+                            </div>
+                            <i class="fas fa-search custom-select-icon text-secondary" style="margin-left: 520px;"></i>
+                            <p *ngIf="checkoutForm.get('address')?.touched && checkoutForm.get('address')?.invalid" class="text-danger">
+                                Enter an address
+                            </p>
+                        </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="input">
+                            <div class="floating-label">
+                                <input #input type="text"
+                                       class="form-control shadow-none"
+                                       placeholder=" "
+                                       formControlName="apartment">
+                                <label for="input">Apartment, suite, etc. (optional)</label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                        
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="floating-label">
+                                    <input #input type="text"
+                                           class="form-control shadow-none"
+                                           placeholder=" "
+                                           required
+                                           formControlName="city">
+                                    <label for="input">City</label>
+                                </div>
+                                <p *ngIf="checkoutForm.get('city')?.touched && checkoutForm.get('city')?.invalid" class="text-danger">
+                                    Enter a city
+                                </p>
+                            </div>
+                            
+                            <div class="col">
+                                <div class="input">
+                                    <select
+                                        class="form-control shadow-none"
+                                        required
+                                        #input
+                                        formControlName="state"
+                                    >
+                                 
+                                        <option  hidden selected>State</option>
+                                        <option value="AL">Egypt</option>
+                                        <option value="NV">Syria</option>
+                                    </select>
+                                    <p *ngIf="checkoutForm.get('state')?.touched && checkoutForm.get('state')?.invalid" class="text-danger">
+                                        Select a state / province
+                                      </p>
+
+                                    <!-- Custom arrow icon -->
+                                    <i class="fas fa-chevron-down custom-select-icon"></i>
+                                </div>
+                             
+
+                            </div>
+                            <div class="col">
+                                <div class="floating-label">
+                                    <input #input type="text"
+                                           class="form-control shadow-none"
+                                           placeholder=" "
+                                           required
+                                           formControlName="zipCode">
+                                    <label for="input">ZIP code</label>
+                                </div>
+                                <p *ngIf="checkoutForm.get('zipCode')?.touched && checkoutForm.get('zipCode')?.invalid" class="text-danger">
+                                    Enter a ZIP / postal code
+                                </p>
+                            </div>
+                            
+                        </div>
+                        <!--  -->
+                        <div class="form-check">
+                            <input type="checkbox"
+                                class="form-check-input shadow-none custom-checkbox-black rounded-0"
+                                id="textOffers" formControlName="textOffers"
+                                (change)="toggleMobileNumberField()">
+                            <label class="form-check-label "
+                                for="textOffers">Text me with news and
+                                offers</label>
+                        </div>
+
+                        <!-- Mobile Number with Country Code -->
+                        <div class="form-group mt-4" *ngIf="showMobileField">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <select class="custom-select"
+                                        [(ngModel)]="selectedCountryCode">
+                                        <option
+                                            *ngFor="let code of countryCodes"
+                                            [value]="code.code">
+                                            {{ code.name }} ({{ code.code }})
+                                            
+                                        </option>
+                                    </select>
+                                </div>
+                                <input type="number"
+                                    class=" form-control shadow-none"
+                                    placeholder="Mobile number"
+                                    required
+                                    
+                                   >
+                           <div class="text-secondary" style="font-size: 0.9em; line-height: 1.5em;">
+    <p>
+        <span>
+            By submitting this form, you agree to receive recurring automated promotional and personalized
+            marketing text messages (e.g., cart reminders) from Allbirds at the cell number used when signing up. 
+            Consent is not a condition of any purchase. Reply HELP for help and STOP to cancel. Msg frequency 
+            varies. Msg and data rates may apply. View our 
+            <a href="#" style="color: black; text-decoration: underline;">Privacy Policy</a> & 
+            <a href="#" style="color: black; text-decoration: underline;">Terms of Service</a>.
+        </span>
+    </p>
+</div>
+
+                            </div>
+                        </div>
+                        <h4 class="mt-4">Shipping method</h4>
+                        <p class="text-secondary bg-light p-3">Enter your
+                            shipping address to view available shipping
+                            methods.</p>
+
+                        <!--  -->
+                        <!-- Payment Section -->
+                        <h4 class="mt-4">Payment</h4>
+                        <p class="text-secondary">All transactions are secure
+                            and encrypted.</p>
+
+                        <div class="payment-methods border p-3"
+                            [ngClass]="{'selected-bg': selectedPaymentMethod === 'creditCard'}"
+                            (click)="selectPaymentMethod('creditCard')">
+                            <!-- Payment Method Selection -->
+                            <div
+                                class="form-check d-flex align-items-center p-3 mb-4"
+                                style="border: solid 1px gray;">
+                                <input
+                                    class="form-check-input custom-radio-black mt-0 mr-2 mx-1"
+                                    type="radio" name="paymentMethod"
+                                    id="creditCard"
+                                    value="creditCard"
+                                    formControlName="paymentMethod"
+                                    (change)="updatePayButton(); selectPaymentMethod('creditCard')"
+                                    checked>
+                                <label
+                                    class="form-check-label font-weight-bold mb-0 mr-auto ms-2"
+                                    for="creditCard">
+                                    Credit Card
+                                </label>
+
+                                <!-- Credit Card Logos -->
+                                <div class="d-flex align-items-center">
+                                    <img
+                                        src="https://via.placeholder.com/40x24?text=Visa"
+                                        alt="Visa" class="mr-1">
+                                    <img
+                                        src="https://via.placeholder.com/40x24?text=MC"
+                                        alt="MasterCard" class="mr-1">
+                                    <img
+                                        src="https://via.placeholder.com/40x24?text=Amex"
+                                        alt="Amex" class="mr-1">
+                                    <img
+                                        src="https://via.placeholder.com/40x24?text=Disc"
+                                        alt="Discover" class="mr-1">
+                                    <span
+                                        class="badge badge-secondary">+4</span>
+                                </div>
+                            </div>
+
+                            <!-- Credit Card Fields -->
+                            <div class="credit-card-fields"
+                                *ngIf="checkoutForm.get('paymentMethod')?.value === 'creditCard'">
+                                <!-- Card Number -->
+                                <div class="form-group position-relative mb-4">
+                                    <div class="floating-label">
+                                        <input #input type="text"
+                                               class="form-control shadow-none"
+                                               placeholder=" "
+                                               formControlName="cardNumber"
+                                               required
+                                               maxlength="16"
+                                               pattern="[0-9]*" 
+                                               inputmode="numeric" 
+                                               [ngClass]="{'is-invalid': f['cardNumber'].touched && f['cardNumber'].invalid}"
+                                               (keypress)="restrictNonNumeric($event)">
+                                        <label for="input">Card number</label>
+                                    </div>
+                                    <p *ngIf="f['expirationDate'].touched && f['expirationDate'].invalid" class="text-danger">
+                                        Enter a valid expiration date
+                                    </p>
+                                </div>
+                                
+                                <!-- Expiration Date and CVV -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <div class="floating-label">
+                                        <input type="text"
+                                               class="form-control shadow-none"
+                                               placeholder=""
+                                               required
+                                               formControlName="expirationDate"
+                                               maxlength="7"
+                                               pattern="(0[1-9]|1[0-2])\/\d{4}" 
+                                               inputmode="numeric"
+                                               [ngClass]="{'is-invalid': f['expirationDate'].touched && f['expirationDate'].invalid}"
+                                               (input)="formatExpirationDate($event)" 
+                                               (keypress)="restrictNonNumeric($event)">
+                                               <label for="input">Expiration date (MM/YYYY)</label>
+
+                                            </div>
+                                        <p *ngIf="f['expirationDate'].touched && f['expirationDate'].invalid" class="text-danger">
+                                            Enter a valid expiration date
+
+
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-5 position-relative">
+                                        <div class="floating-label">
+                                        <input #input type="text"
+                                            class="form-control shadow-none"
+                                            placeholder=""
+                                            
+                                            formControlName="cvv"
+                                            required
+                                            maxlength="3"
+                                            pattern="[0-9]*"
+                                            inputmode="numeric"
+                                            [ngClass]="{'is-invalid': f['cvv'].touched && f['cvv'].invalid}"
+                                            (keypress)="restrictNonNumeric($event)">
+                                            <label for="input">security code (CVV)</label>
+
+                                        </div>
+                                     <p *ngIf="f['cvv'].touched && f['cvv'].invalid" class="text-danger">
+                                        Enter the CVV or security code on your card
+                                     </p>
+                                          
+                                     <i class="fas fa-question-circle position-absolute"
+                                     style="right: 15px; top: 50%; transform: translateY(-50%); color: #aaa;"
+                                     data-toggle="tooltip"
+                                     title="The CVV is a 3-digit code on the back of your card."></i>
+                                    </div>
+                                </div>
+                                <!-- Name on Card -->
+                                <div class="form-group mt-4">
+                                    <div class="floating-label">
+                                        <input #input type="text"
+                                               class="form-control shadow-none"
+                                               placeholder=" "
+                                               formControlName="cardName"
+                                               required
+                                               [ngClass]="{'is-invalid': f['cardName'].touched && f['cardName'].invalid}">
+                                        <label for="input">Name on card</label>
+                                    </div>
+                                    <p *ngIf="f['cardName'].touched && f['cardName'].invalid" class="text-danger">
+                                        Enter your name exactly as it’s written on your card
+                                    </p>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+
+
+
+                                                <!-- PayPal Option -->
+                            <div class="payment-methods border p-3"
+                            [ngClass]="{'selected-bg': selectedPaymentMethod === 'paypal'}"
+                            (click)="selectPaymentMethod('paypal')">
+                            <div class="form-check p-3" style="border: solid 1px gray;">
+                            <input
+                                class="form-check-input shadow-none custom-radio-black mx-1"
+                                type="radio" name="paymentMethod"
+                                id="paypal"
+                                value="paypal"
+                                formControlName="paymentMethod"
+                                (change)="updatePayButton(); selectPaymentMethod('paypal')">
+                            <label class="form-check-label ms-2" for="paypal">PayPal</label>
+                            </div>
+                            </div>
+
+                            <!-- Conditional Rendering for Payment Button or PayPal Component -->
+                            <div *ngIf="isPayPalSelected; else regularPayButton">
+                            <ngx-paypal [config]="payPalConfig">Pay with PayPal</ngx-paypal>
+                            </div>
+
+                            <ng-template #regularPayButton>
+                            <button type="submit" class="btn pay-button mt-3 rounded-0">
+                            {{ payButtonText }}
+                            </button>
+                            </ng-template>
+
+                        
+                        <!-- Bootstrap JS (Optional) for Tooltip -->
+                        <script>
+                        $(function () {
+                            $('[data-toggle="tooltip"]').tooltip()
+                        })
+                    </script>
+
+                        
+                    </form>
+                </div>
+                <!-- summary -->
+                <div class="order-summary col-md-6">
+                    <div
+                    class="d-flex justify-content-between align-items-start">
+                    <!-- Item Info -->
+                        <div class="d-flex">
+                            <span class="badge-item me-2"><img
+                                    src="assets/shoe.png" alt="Product image"
+                                    width="50"></span>
+                                    <div>
+                                        <p class="product-title m-2">Men's Wool Runner
+                                    Go - Rugged Beige</p>
+                                <p
+                                    class="product-subtitle text-muted m-0">(Rugged
+                                    Beige Sole)</p>
+                                <p class="product-size text-muted">13</p>
+                            </div>
+                            <div>
+                                <div class="d-flex justify-content-between mb-4">
+                                    <p class="d-flex ms-5">$93.00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-9">
+                        <!-- Discount Code Input -->
+                        <div class="discount-code">
+                            <input #input
+                            type="text"
+                            class="discount shadow-none p-3 w-75  border "
+                            placeholder="Gift card or discount code" />
+                            <button class="btn apply-btn ms-4 p-3"
+                                type="button">Apply</button>
+                        </div>
+
+                        <!-- Subtotal and Shipping -->
+                        <div class="d-flex justify-content-between mb-2">
+                            <p class="text-muted mt-4">Subtotal</p>
+                            <p class="mt-3">$93.00</p>
+                        </div>
+                        <div class="d-flex justify-content-between mb-4">
+                            <p class="text-muted mb-0">Shipping</p>
+                            <p class="shipping-placeholder text-muted mb-0">Enter shipping address</p>
+                        </div>
+
+                        <!-- Total -->
+                        <div
+                        class="d-flex justify-content-between total-section">
+                            <p class="fw-bold mb-0">Total</p>
+                            <p class="total-amount mb-0">USD <span
+                                class="fw-bold">$93.00</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+                    
+                
+                <!--  -->
+            </div>
+        </div>
+    </body>
+
+</html>
