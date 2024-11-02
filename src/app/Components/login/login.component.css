@@ -47,3 +47,10 @@ color: black;
 }
 
 /*  */
+input{
+  padding:30px 10px !important;
+}
+input:focus{
+  
+  border-color:black ;
+}

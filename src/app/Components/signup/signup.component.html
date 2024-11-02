@@ -6,11 +6,12 @@
   Registering makes checkout fast and easy and saves your order information in your account.
 </p>
 <form  (ngSubmit)="Adduser()"  #myform="ngForm">
-
+  <div>{{myform.valid|json}}</div>
   <div class="form-group mb-3">
     <label for="firstName">First Name</label>
-    <input
-    required
+    <input 
+
+    required="true"
     minlength="3"
     maxlength="40"
     name="firstName"
@@ -18,7 +19,7 @@
     [(ngModel)]="username.Firstname"
     type="text"
     id="firstName"
-    class="form-control"
+    class="form-control shadow-none"
   />
   
     @if(FirstNameInp.invalid &&FirstNameInp.touched){
@@ -38,20 +39,20 @@
     name="lastName"
     #LastNameInp="ngModel"
     
-    [(ngModel)]="username.Lastname" type="text" id="lastName" class="form-control"  />
+    [(ngModel)]="username.Lastname" type="text" id="lastName"   class="form-control shadow-none"  />
     @if(LastNameInp.invalid &&LastNameInp.touched){
       @if(LastNameInp.hasError("required")){<div class="text-danger"> Name is required </div>}
       @if(LastNameInp.hasError("minlength")){<div class="text-danger">minlength less then  3 </div>
       }
           }
   </div>
-  <div class="form-group mb-3">
+   <div class="form-group mb-3">
     <label for="email">Email</label>
     <input 
     name="email"
     #EmailInp="ngModel"
     required
-    [(ngModel)]="username.Email" type="email" id="email" class="form-control" />
+    [(ngModel)]="username.Email" type="email" id="email"  class="form-control shadow-none" />
     @if(EmailInp.invalid&&EmailInp.touched){
 @if (EmailInp.hasError("required")) {
   <div class="text-danger">Email is required</div>
@@ -64,7 +65,7 @@
 
 <div class="text-danger">Email must contain &#64;</div>
     }
-  </div>
+  </div> 
   <div class="form-group mb-3">
     <label for="password">Password</label>
     <input
@@ -73,7 +74,7 @@
     maxlength="40"
     name="password"
     #passwordInp="ngModel"
-    [(ngModel)]="username.Password" type="password" id="password" class="form-control" />
+    [(ngModel)]="username.Password" type="password" id="password"   class="form-control shadow-none" />
     @if( passwordInp.invalid &&passwordInp.touched){
       @if(passwordInp.hasError("required")){<div class="text-danger"> Password is required </div>}
       @if(passwordInp.hasError("minlength")){<div class="text-danger">minlength less then  6 </div>
@@ -94,7 +95,7 @@
     maxlength="40"
     name="ConfirmPassword"
     #ConfirmpasswordInp="ngModel"
-    [(ngModel)]="username.Confirm_Password" type="password" class="form-control form-control-lg" id="ConfirmPassword" >
+    [(ngModel)]="username.Confirm_Password" type="password" class="form-control shadow-none" id="ConfirmPassword" >
  
     @if(ConfirmpasswordInp.invalid &&ConfirmpasswordInp.touched){
 

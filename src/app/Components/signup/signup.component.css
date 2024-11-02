@@ -32,3 +32,13 @@ color: black;
 
 
   }
+input:focus{
+  
+  border-color:black ;
+}
+
+
+input{
+  
+  padding:30px 10px !important;
+}

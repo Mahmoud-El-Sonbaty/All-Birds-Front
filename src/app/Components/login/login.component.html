@@ -1,38 +1,23 @@
 
 <div  *ngIf="!showResetPasswordFormbool">
   <h3 >LOGIN</h3>
-  <form  (ngSubmit)="check()"  #myform="ngForm">
-    <!-- <div class="mb-3">
-      <label for="email">Email</label>
-      <input 
-      required
-      minlength="8"
-      maxlength="40"              
-      name="Email"
-      #nameInp="ngModel"
-      [(ngModel)]="usernameCheck.Email"
-      type="email" class="form-control form-control-lg" id="email" >
-      @if(nameInp.invalid &&nameInp.touched){
-        @if(nameInp.hasError("required")){<div class="text-danger"> Email is required </div>}
-        @else if(nameInp.hasError("minlength")){<div class="text-danger">minlength less then  8 </div>
-        }
-            }
-    </div> -->
+  <form  (ngSubmit)="check()"  #myform1="ngForm">
+   
     <div class="form-group mb-3">
       <label for="email">Email</label>
       <input 
       name="email"
-      #EmailInp="ngModel"
+      #EmaillogInp="ngModel"
       required
-      [(ngModel)]="usernameCheck.Email" type="email" id="email" class="form-control" />
-      @if(EmailInp.invalid&&EmailInp.touched){
-  @if (EmailInp.hasError("required")) {
+      [(ngModel)]="usernameCheck.Email" type="email" id="email" class="form-control shadow-none" />
+      @if(EmaillogInp.invalid&&EmaillogInp.touched){
+  @if (EmaillogInp.hasError("required")) {
     <div class="text-danger">Email is required</div>
   }
   
   
       }
-      @else if (!isEmailValid()&&EmailInp.touched) {
+      @else if (!isEmailValid()&&EmaillogInp.touched) {
      
   
   <div class="text-danger">Email must contain &#64;</div>
@@ -45,34 +30,21 @@
         minlength="6"
         maxlength="40"
         name="password"
-        #passwordInp="ngModel"
-        [(ngModel)]="usernameCheck.Password" type="password" id="password" class="form-control" />
-        @if( passwordInp.invalid &&passwordInp.touched){
-          @if(passwordInp.hasError("required")){<div class="text-danger"> Password is required </div>}
-          @if(passwordInp.hasError("minlength")){<div class="text-danger">minlength less then  6 </div>
+        #passwordlogInp="ngModel"
+        [(ngModel)]="usernameCheck.Password" type="password" id="password" class="form-control shadow-none" />
+        @if( passwordlogInp.invalid &&passwordlogInp.touched){
+          @if(passwordlogInp.hasError("required")){<div class="text-danger"> Password is required </div>}
+          @if(passwordlogInp.hasError("minlength")){<div class="text-danger">minlength less then  6 </div>
           }
               }
-          @else if(!ispasswordvaild()&&passwordInp.touched){
+          @else if(!ispasswordvaild()&&passwordlogInp.touched){
     
             <div class="text-danger">password must contain at least one number </div>
               }
            
       </div>
 
-    <!-- <div  class="mb-3">
-      <label for="password">Password</label>
-      <input
-      required
-      type="password" class="form-control form-control-lg" id="password">
-      @if(nameInp.invalid&&nameInp.touched){
-        @if (nameInp.hasError("required")) {
-          <div class="text-danger">password is required</div>
-        }
-        
-        
-            }
-    </div> -->
-    <button type="submit" [disabled]="myform.invalid" class="btn btn-dark btn-lg w-100">Sign In</button>
+    <button type="submit" [disabled]="myform1.invalid" class="btn btn-dark btn-lg w-100">Sign In</button>
 
     <div style="display: flex; justify-content: center;" >
     <a > <button    type="button"  (click)="showResetPasswordForm()">Forgot Password</button> </a> 
@@ -90,25 +62,21 @@
           <p>We will send you an email to reset your password.</p>
           <form (ngSubmit)="onSubmit()" #myform2="ngForm">
            
-            <!-- <div class="form-group">
-              <label for="resetEmail">Email</label><br>
-              <input  [(ngModel)]="usernameCheck.Email" type="email" class="form-control" id="resetEmail" ><br>
-            </div> -->
             <div class="form-group mb-3">
               <label for="email">Email</label>
               <input 
               name="email"
-              #EmailInp="ngModel"
+              #EmailforgetInp="ngModel"
               required
-              [(ngModel)]="usernameCheck.Email" type="email" id="email" class="form-control" />
-              @if(EmailInp.invalid&&EmailInp.touched){
-          @if (EmailInp.hasError("required")) {
+              [(ngModel)]="usernameCheck.Email" type="email" id="email" class="form-control shadow-none" />
+              @if(EmailforgetInp.invalid&&EmailforgetInp.touched){
+          @if (EmailforgetInp.hasError("required")) {
             <div class="text-danger">Email is required</div>
           }
           
           
               }
-              @else if (!isEmailValid()&&EmailInp.touched) {
+              @else if (!isEmailValid()&&EmailforgetInp.touched) {
              
           
           <div class="text-danger">Email must contain &#64;</div>
@@ -118,3 +86,6 @@
             <button type="button" style="color: black;" class="btn btn-link"  (click)="hideResetPasswordForm()">Cancel</button><br>
           </form>
         </div>
+
+
+

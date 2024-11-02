@@ -1,6 +1,6 @@
 body{ 
-color: #0b0601; 
-background-color: rgb(240, 18, 18);
+/* color: #0b0601; 
+background-color: rgb(240, 18, 18); */
   /* Uncomment the line below to use black as the background color instead */
   /* background-color: black; */ 
 }
@@ -18,3 +18,9 @@ background-color: rgb(240, 18, 18);
   p{
     color: rebeccapurple;
   } */
+.body{
+/* margin: 0 !important; */
+padding-top:10vw;
+background-color:#f1ebe7;
+  /* background-color:red; */
+}
