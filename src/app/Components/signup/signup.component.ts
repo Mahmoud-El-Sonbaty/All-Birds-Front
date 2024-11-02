@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Username } from '../../../model/username';
+import { Username } from '../../../models/username';
 import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 // import { UsernameServicesService } from '../../username-services.service';

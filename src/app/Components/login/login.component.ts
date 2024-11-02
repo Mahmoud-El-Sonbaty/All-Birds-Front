@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Username } from '../../../model/username';
-import { UsernameCheck } from '../../../model/username-check';
+import { Username } from '../../../models/username';
+import { UsernameCheck } from '../../../models/username-check';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { UsernameServicesService } from '../../../services/username-services.service';

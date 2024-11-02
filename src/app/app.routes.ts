@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './Components/home/home.component';
-import { RegisterComponent } from './Create an Account/register/register.component';
 import { authoGuard } from '../guards/autho.guard';
+import { RegisterComponent } from './components/register/register.component';
 import { MainProductComponent } from './components/main-product/main-product.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 
