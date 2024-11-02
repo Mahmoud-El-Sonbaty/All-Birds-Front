@@ -8,7 +8,6 @@ import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
   imports: [RouterOutlet, NavBarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports:[CheckoutComponent,ReactiveFormsModule,FormsModule],
 
 })
 
