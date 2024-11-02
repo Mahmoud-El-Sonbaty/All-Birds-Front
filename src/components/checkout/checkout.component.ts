@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ICreateOrderRequest, IPayPalConfig, NgxPayPalModule } from 'ngx-paypal';
 
 @Component({
@@ -8,12 +8,17 @@ import { ICreateOrderRequest, IPayPalConfig, NgxPayPalModule } from 'ngx-paypal'
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css'],
   standalone: true,
-  imports: [FormsModule, CommonModule, ReactiveFormsModule,NgxPayPalModule]
+  imports: [FormsModule, CommonModule, ReactiveFormsModule,NgxPayPalModule],
+
+
 })
 export class CheckoutComponent implements AfterViewInit ,OnInit{
+
+
   @ViewChildren('input') inputFields!: QueryList<ElementRef>;
   checkoutForm: FormGroup;
-  showMobileField: boolean = false; // Toggle mobile number field visibility
+  showMobileField: boolean = false;
+
   countryCodes = [
     { name: 'Egypt', code: '+20', flag: '🇪🇬' },
     { name: 'United States', code: '+1', flag: '🇺🇸' },
@@ -27,30 +32,69 @@ export class CheckoutComponent implements AfterViewInit ,OnInit{
   selectPaymentMethod(method: string): void {
     this.selectedPaymentMethod = method;
   }
-  constructor(private fb: FormBuilder, private renderer: Renderer2) {
+  constructor(private fb: FormBuilder,private renderer:Renderer2) {
     this.checkoutForm = this.fb.group({
-      email: [''],
-      emailOffers: [false],
+      email: ['', [Validators.required, Validators.email]],
+      emailOffers: [false, Validators.requiredTrue],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      zipCode: ['', Validators.required],
       textOffers: [false],
-      mobileNumber: [''],
-      firstName: [''],
-      lastName: [''],
-      address: [''],
-      city: [''],
-      state: [''],
-      zip: [''],
-      paymentMethod: ['creditCard'],
-      cardNumber: [''],
-      expirationDate: [''],
-      securityCode: [''],
-      nameOnCard: ['']
+      mobileNumber: ['', Validators.required],
+      nameOnCard: ['', Validators.required],
+      //payment 
+      paymentMethod: ['creditCard'],  // Default or selected payment method
+      cardNumber: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^\d{16}$/)  // Only 16 digits
+        ]
+      ],
+      cvv: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^\d{3}$/)  // Only 3 digits
+        ]
+      ],
+      expirationDate: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^(0[1-9]|1[0-2])\/\d{4}$/)  // MM/YYYY format
+        ]
+      ],
+      cardName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^[a-zA-Z\s]+$/)  // Name can contain letters and spaces only
+        ]
+      ]
     });
   }
- 
 
   toggleMobileNumberField() {
     this.showMobileField = !this.showMobileField;
+    //
+     this.showMobileField = this.checkoutForm.get('textOffers')?.value;
+    if (this.showMobileField) {
+      this.checkoutForm.get('mobileNumber')?.setValidators(Validators.required);
+    } else {
+      this.checkoutForm.get('mobileNumber')?.clearValidators();
+    }
+    this.checkoutForm.get('mobileNumber')?.updateValueAndValidity();
   }
+
+  get formControls() {
+    return this.checkoutForm.controls;
+  }
+    //
+  
 
   showPopover = false;
 
@@ -116,7 +160,7 @@ private initConfig(): void {
         },
         style: {
             label: 'paypal',    // Label on the button
-            layout: 'vertical',  // Layout type
+            layout: 'horizontal',  // Layout type
             color: 'blue',       // Set to blue
             shape: 'rect',       // Rectangular shape
             tagline: false       // Disable the "Powered by PayPal" tagline
@@ -173,11 +217,65 @@ private renderPayPalButton() {
         }
     }).render('#paypal-button-container'); // Specify the container ID where the button will be rendered
 }
+//payment
+get f() {
+  return this.checkoutForm.controls;
+}
+restrictNonNumeric(event: KeyboardEvent) {
+  const allowedKeys = ['Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Enter'];  // Allow some special keys
+  if (allowedKeys.indexOf(event.key) !== -1) {
+      return;  // Allow special keys
+  }
+  
+  // Prevent default if the key is not a number
+  if (!/[0-9]/.test(event.key)) {
+      event.preventDefault();
+  }
+}
 
+formatExpirationDate(event: Event) {
+  const input = event.target as HTMLInputElement;
+  let value = input.value.replace(/\D/g, ''); // Remove non-digit characters
+
+  // Handle month and year formatting
+  if (value.length >= 2) {
+      const month = value.slice(0, 2);
+      const year = value.slice(2, 6);
+
+      // Validate the month range (01 to 12)
+      if (parseInt(month, 10) > 12) {
+          // Set month to 12 if it's greater
+          value = '12' + (year ? '/' + year : '');
+      } else {
+          value = month + (year ? '/' + year : '');
+      }
+  } else {
+      value = value; // Show only MM if less than 2 characters
+  }
+
+  // Update the input field and form control
+  input.value = value;
+  this.checkoutForm.get('expirationDate')?.setValue(value);
+}
+
+//floating placeholder
+onFocus() {
+  this.f['cardName'].markAsTouched(); // Optional: Mark as touched on focus
+}
+
+
+
+//
   
 // paypal button
 
   submitForm() {
-    console.log('Form Submitted', this.checkoutForm.value);
+    if (this.checkoutForm.valid) {
+      // Proceed with form submission
+      console.log('Form submitted', this.checkoutForm.value);
+    } else {
+      // Mark all controls as touched to show validation errors
+      this.checkoutForm.markAllAsTouched();
+    }
   }
 }
