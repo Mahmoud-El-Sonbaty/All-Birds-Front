@@ -74,7 +74,7 @@ this.showResetPasswordFormbool=true;
 
 
 
-    return this.usernameCheck.Email.includes("@"); 
+    return  (!!this.usernameCheck.Email && this.usernameCheck.Email.includes("@"));  
     
       }
       ispasswordvaild():boolean{

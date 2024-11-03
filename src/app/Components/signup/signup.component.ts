@@ -40,9 +40,10 @@ this.cook.set("Email",this.username.Email);
   }
   isEmailValid():Boolean{
 
+console.log("sssssss");
 
-
-return this.username.Email.includes("@"); 
+console.log(this.username.Email);
+return  (!!this.username.Email && this.username.Email.includes("@")); 
 
   }
   ispasswordvaild():boolean{
