@@ -176,3 +176,184 @@
 
     transform: rotate(-135deg);
   }
+
+
+
+
+
+
+
+
+
+  /* 4 product style  */
+  /* body {
+    box-sizing: border-box;
+    overflow-x: hidden;
+  } */
+  .main-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .thumbnail-image {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .text-overlay {
+    position: absolute;
+    bottom: 1.3rem;
+    left: 0.8rem;
+    color: aliceblue;
+  }
+
+  .text-overlay p {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .text-overlay h6 {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .price {
+    position: absolute;
+    right: 0.9rem;
+    bottom: 4.3rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: aliceblue;
+
+  }
+
+  .text-overlay-left {
+    position: absolute;
+    bottom: 1.3rem;
+    left: 0.8rem;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .right-column .row {
+    height: 100%;
+  }
+
+  .right-column .col-6 {
+    height: 50%;
+    display: flex;
+  }
+
+  .column-wrapper {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .text-overlay-left {
+      font-size: 1rem;
+      margin-left: 1rem;
+      width: 100%;
+      color: aliceblue;
+    }
+    .text-overlay-left .title {
+      font-size: 3rem;
+      margin: 0;
+      text-align: left;
+
+    }
+    .text-overlay-left .subtitle {
+      font-size: 1.5rem;
+        margin-bottom: 2rem;
+      text-align: left;
+    }
+
+  .text-overlay-left .card-group button{
+    border-radius: 0;
+    padding: 1rem;
+    width: 25%;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.5s ease, background-color 0.5s ease;
+      }
+  .text-overlay-left .card-group button:hover{
+    color: aliceblue;
+
+    background-color: black;
+
+  }
+  @media (max-width: 992px) {
+    .column-wrapper {
+      flex-direction: column;
+    }
+
+  }
+  .col-lg-6 ,.imag4{
+    overflow: hidden;
+  }
+  .col-lg-6.left-column img,
+  .right-column img {
+    transition: transform .3s ease;
+
+  }
+  .col-lg-6.left-column img:hover,
+  .right-column img:hover {
+    transform: scale(1.2);
+  }
+
+
+
+
+
+
+
+
+  /* gift card */
+  .overlays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+  .overlays h2{
+    font-size: 1.5rem ;
+  }
+  .overlays p{
+    font-size: .9rem ;
+  }
+  .image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+  .giftbtn{
+    border-radius: 0;
+    border: 0;
+    opacity: 0;
+    transition: color 0.5s ease, background-color 0.5s ease, opacity .2s ease;
+
+  }
+  .giftbtn:hover{
+    color: aliceblue;
+    background-color: black;
+  }
+  .image-container:hover .giftbtn{
+    opacity: 1;
+  }

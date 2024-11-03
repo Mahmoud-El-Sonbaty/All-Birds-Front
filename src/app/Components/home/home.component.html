@@ -1,3 +1,5 @@
+<!-- first slide -->
+
 <div id="carouselExampleSlidesOnly " class="carousel slide p-0 position-relative" data-bs-ride="carousel">
   <div class="carousel-indicators position-absolute  top-50 d-flex flex-column  justify-content-start ms-5  w-25 ">
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active rounded-circle bg-secondary  " aria-current="true" aria-label="Slide 1"></button>
@@ -46,48 +48,30 @@
 
 </div>
 
-
+<!-- 3 cards -->
 <div class="card-group p-3 m-0">
-  <div class="card m-2 img card-1">
-        <img src="images/slide1-image1.jpg" class="card-img-top carimag" alt="...">
+  <div class="card m-2 img card-1" *ngFor="let item of items">
+    <ng-container *ngIf="item.type === 'image'; else videoTemplate">
+      <img [src]="item.src" class="card-img-top carimag" alt="...">
+    </ng-container>
+    <ng-template #videoTemplate>
+      <video [src]="item.src" autoplay muted></video>
+    </ng-template>
 
-        <div class=" position-absolute carbody">
-              <h2 class="product-title">Tree Topper</h2>
-              <p class="product-subtitle">Breezy High-Top Sneakers</p>
-          </div>
+    <div class="position-absolute carbody">
+      <h2 class="product-title">{{ item.title }}</h2>
+      <p class="product-subtitle">{{ item.subtitle }}</p>
+    </div>
 
-         <div class="position-absolute carbtn">
-              <button class="btn btn-light carbtnshop m-1">SHOP MEN</button>
-              <button class="btn btn-light carbtnshop m-1">SHOP WOMEN</button>
-           </div>
+    <div class="position-absolute carbtn">
+      <button class="btn btn-light carbtnshop m-1">SHOP MEN</button>
+      <button class="btn btn-light carbtnshop m-1">SHOP WOMEN</button>
+    </div>
   </div>
-  <div class="card m-1 m-2 vid card-1">
-      <video src="images/video.webm" autoplay  ></video>
-
-        <div class=" position-absolute carbody">
-          <h2 class="product-title">Tree Topper</h2>
-          <p class="product-subtitle">Breezy High-Top Sneakers</p>
-        </div>
-
-        <div class="position-absolute  carbtn" >
-            <button class="btn btn-light carbtnshop m-1">SHOP MEN</button>
-            <button class="btn btn-light carbtnshop m-1">SHOP WOMEN</button>
-        </div>
-  </div>
-  <div class="card m-2 img card-1" >
-      <img src="images/slide1-image2.jpg" class="card-img-top carimag " alt="...">
-      <div class=" position-absolute carbody">
-        <h2 class="product-title">Tree Topper</h2>
-        <p class="product-subtitle">Breezy High-Top Sneakers</p>
-      </div>
-      <div class="position-absolute  carbtn">
-          <button class="btn btn-light carbtnshop m-1">SHOP MEN</button>
-          <button class="btn btn-light carbtnshop m-1">SHOP WOMEN</button>
-      </div>
-  </div>
-
-
 </div>
+
+<!-- slide 2 -->
+
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item" *ngFor="let slide of slides2; let i = index" [ngClass]="{'active': i===0}">
@@ -118,3 +102,106 @@
     <span class="visually-hidden">Next</span>
   </a>
 </div>
+
+<!-- 4 product -->
+<div class="container-fluid m-1">
+  <div class="column-wrapper h-100 mb-1">
+    <div class="col-lg-6 left-column m-0 p-0">
+      <div class="position-relative h-100">
+        <img src="./slide1-image1.jpg" class="img-fluid main-image" alt="Large Shoe Image">
+        <div class="text-overlay-left">
+          <p class="title">Shoe Name 4</p>
+          <p class="subtitle">Shoe Name 4</p>
+          <div class="card-group">
+            <button class="btn btn-light  m-1">SHOP MEN</button>
+            <button class="btn btn-light  m-1">SHOP WOMEN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 right-column m-0 p-0 mb-1">
+      <div class="row g-1 w-100">
+        <div class="col-6">
+          <div class="position-relative imag4">
+            <img src="./slide2-image2.jpg" class="img-fluid thumbnail-image" alt="Small Shoe Image 2">
+            <div class="text-overlay">
+              <h6>Shoe Name 4</h6>
+              <p>Shoe Name 4</p>
+            </div>
+            <div class="price">$95</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="position-relative imag4">
+            <img src="./slide2-image2.jpg" class="img-fluid thumbnail-image" alt="Small Shoe Image 2">
+            <div class="text-overlay">
+              <h6>Shoe Name 4</h6>
+              <p>Shoe Name 4</p>
+            </div>
+            <div class="price">$95</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="position-relative imag4">
+            <img src="./slide2-image4.jpg" class="img-fluid thumbnail-image" alt="Small Shoe Image 3">
+            <div class="text-overlay">
+              <h6>Shoe Name 4</h6>
+              <p>Shoe Name 4</p>
+            </div>
+            <div class="price">$95</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="position-relative imag4">
+            <img src="./slide2-image6.jpg" class="img-fluid thumbnail-image" alt="Small Shoe Image 4">
+            <div class="text-overlay">
+              <h6>Shoe Name 4</h6>
+              <p>Shoe Name 4</p>
+            </div>
+            <div class="price">$95</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- gift Card -->
+
+
+<div class="row m-1 p-0">
+  <div class="col-lg-6 p-1 m-0">
+    <div class="image-container">
+      <img src="./slide2-image2.jpg" alt="Gift Card Image" class="img-fluid">
+      <div class="overlays">
+        <div>
+          <h2>Gift Cards</h2>
+          <p>Always Fits, Never Fails</p>
+        </div>
+        <div class="card-group mt-auto">
+          <button class="btn btn-light m-1 giftbtn">SHOP MEN</button>
+          <button class="btn btn-light m-1 giftbtn">SHOP WOMEN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 p-1 m-0">
+    <div class="image-container">
+      <img src="./slide2-image3.jpg" alt="Another Image" class="img-fluid">
+      <div class="overlays">
+        <div>
+          <h2>Another Title</h2>
+          <p>Another Subtitle or Description</p>
+        </div>
+        <div class="mt-auto">
+          <button class="btn btn-light giftbtn">SHOP NOW</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
