@@ -1,108 +1,107 @@
- <nav class="navbar navbar-expand-xl navbar-light bg-light">
+<nav class="navbar navbar-expand-xl navbar-light bg-light">
   <a routerLink="">
     <div class="navbar-brand mx-auto col-1" id="Allbirds">
-      <img src="images/Logo.svg" alt="Logo" class="navbar-logo img-fluid" >
+      <img src="/public/Images/mainlogo.svg" alt="Logo" class="navbar-logo img-fluid" >
     </div>
-
   </a>
 
 
 
 
-    <div class="container-fluid d-xl-none  m-0 p-0">
-      <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="toggler-icon"></span>
-        <span class="toggler-icon"></span>
-        <span class="toggler-icon"></span>    </button>
+  <div class="container-fluid d-xl-none  m-0 p-0">
+    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="toggler-icon"></span>
+      <span class="toggler-icon"></span>
+      <span class="toggler-icon"></span>    </button>
 
 
-      <ul class="flex-column  collapse navbar-collapse  justify-content-between   list-unstyled " id="navbarNav1">
+    <ul class="flex-column  collapse navbar-collapse  justify-content-between   list-unstyled " id="navbarNav1">
 
 
 
 
-        @for (parent of category; track parent.id ; let i =$index) {
+      @for (parent of category; track parent.id ; let i =$index) {
 
-          <li class="nav-item">
-            <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button" (click)="showing(parent.id,parent.level)" aria-expanded="false"  [attr.aria-controls]="parent.id + 'Menu'">
-              <p class="ms-3 mt-3  d-inline-block ">{{parent.nameEn}}</p>
-              @if(parent.isParentCategory){
-                <span class=" position-absolute end-0 me-3 mt-3 fs-5">→</span>
+        <li class="nav-item">
+          <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button" (click)="showing(parent.id,parent.level)" aria-expanded="false"  [attr.aria-controls]="parent.id + 'Menu'">
+            <p class="ms-3 mt-3  d-inline-block ">{{parent.nameEn}}</p>
+            @if(parent.isParentCategory){
+              <span class=" position-absolute end-0 me-3 mt-3 fs-5">→</span>
 
-              }
-              <hr>
-
-            </div>
-             @if(parent.isParentCategory){
-              <div [class]="'collapse ' +parent.id+'-content'" [id]="'Menu'+parent.id">
-                <h4 class="'collapse-header level0 centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(parent.id,parent.level)">
-                  <span class="back-button position-absolute start-0 ms-3">←</span>
-                {{parent.nameEn}}
-                </h4>
-
-
-                <ul class="nav flex-column sub-menu">
-                  @for (child of parent.children; track child.id;let y =$index) {
-                    <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" (click)="showing(child.id,child.level)" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
-                      <p class="ms-2 mt1  d-inline-block  ">{{child.nameEn}}
-                      </p>
-                      @if (child.isParentCategory) {
-                        <span class=" position-absolute end-0 me-3">→</span>
-                      }
-
-
-                        <hr>
-
-                    </li>
-                    @if (child.isParentCategory) {
-
-
-                      <div [class]="'collapse ' +child.id+'-content'" [id]="'Menu'+child.id">
-                        <h4 class="collapse-header  centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(child.id,child.level)">
-                          <span class="back-button position-absolute start-0 ms-3">←</span>
-                        {{child.nameEn}}
-                        </h4>
-
-
-                        <ul class="nav flex-column sub-menu">
-                          @for (grandChild of child.children; track grandChild.id;let x =$index) {
-                            <li  class="nav-item level2 fade-in p-3"  >{{grandChild.nameEn}}
-
-                            </li>
-                            <hr>
-
-                          }
-
-                        </ul>
-                        </div>
-                      }
-
-                  }
-
-                </ul>
-              </div>
             }
+            <hr>
+
+          </div>
+           @if(parent.isParentCategory){
+            <div [class]="'collapse ' +parent.id+'-content'" [id]="'Menu'+parent.id">
+              <h4 class="'collapse-header level0 centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(parent.id,parent.level)">
+                <span class="back-button position-absolute start-0 ms-3">←</span>
+              {{parent.nameEn}}
+              </h4>
 
 
-          </li>
-        }
+              <ul class="nav flex-column sub-menu">
+                @for (child of parent.children; track child.id;let y =$index) {
+                  <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" (click)="showing(child.id,child.level)" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
+                    <p class="ms-2 mt1  d-inline-block  ">{{child.nameEn}}
+                    </p>
+                    @if (child.isParentCategory) {
+                      <span class=" position-absolute end-0 me-3">→</span>
+                    }
 
-        <li class="nav-item nav-link level0">
-          <p class="ms-3 mt-3  d-inline-block ">Account</p>
-          <hr>
+
+                      <hr>
+
+                  </li>
+                  @if (child.isParentCategory) {
+
+
+                    <div [class]="'collapse ' +child.id+'-content'" [id]="'Menu'+child.id">
+                      <h4 class="collapse-header  centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(child.id,child.level)">
+                        <span class="back-button position-absolute start-0 ms-3">←</span>
+                      {{child.nameEn}}
+                      </h4>
+
+
+                      <ul class="nav flex-column sub-menu">
+                        @for (grandChild of child.children; track grandChild.id;let x =$index) {
+                          <li  class="nav-item level2 fade-in p-3"  >{{grandChild.nameEn}}
+
+                          </li>
+                          <hr>
+
+                        }
+
+                      </ul>
+                      </div>
+                    }
+
+                }
+
+              </ul>
+            </div>
+          }
+
 
         </li>
+      }
 
-        <li class="nav-item nav-link level0">
-          <p class="ms-3 mt-3  d-inline-block ">Help</p>
-          <hr>
+      <li class="nav-item nav-link level0">
+        <p class="ms-3 mt-3  d-inline-block ">Account</p>
+        <hr>
 
-        </li>
-      </ul>
+      </li>
+
+      <li class="nav-item nav-link level0">
+        <p class="ms-3 mt-3  d-inline-block ">Help</p>
+        <hr>
+
+      </li>
+    </ul>
 
 
 
-    </div>
+  </div>
 
 
 
@@ -173,7 +172,7 @@
 
           }@else {
 
-                   <li class="nav-item">
+                  <li class="nav-item">
                     @if(child.nameEn=="Sale"){
 
                       <a class="nav-link text-danger" href="#">{{child.nameEn}}</a>

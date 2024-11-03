@@ -6,7 +6,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 export const routes: Routes = [
-  {path:"Register",component:RegisterComponent,title:"Register"}
+  {path:"Register",component:RegisterComponent,title:"Register"},
   { path: 'Collections', component: MainProductComponent, title: 'Collections'},
   { path: 'Checkout', component: CheckoutComponent, title: 'Checkout'},
   //{path:"home",canActivate:[authoGuard],component:HomeComponent,title:"home"},
