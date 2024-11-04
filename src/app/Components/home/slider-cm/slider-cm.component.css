@@ -1,0 +1,77 @@
+.card {
+  width: 100%;
+  transition: transform 0.3s;
+  border-radius: 0;
+  border: 0;
+  box-shadow: 0;
+}
+
+.card img {
+  margin: 0 0;
+  width: 100%;
+  height: 15rem;
+  border-radius: 0;
+  object-fit: cover;
+  box-shadow: 0;
+}
+
+.card-body div {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  overflow: hidden;
+}
+
+.card-body div h2 {
+  font-size: 1.2rem;
+}
+
+.card-text {
+  text-align: start;
+  font-size: 0.9em;
+  margin: 1em 0;
+}
+
+/* إعدادات أزرار التنقل في Owl Carousel */
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
+  background-color: rgb(254, 254, 254);
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%; /* لتوسيط الأزرار عاموديًا */
+  transform: translateY(-50%); /* لتوسيط الأزرار بشكل دقيق */
+  z-index: 10;
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+  left: -2em; /* ضبط موضع الزر السابق */
+}
+
+.owl-carousel .owl-nav button.owl-next {
+  right: -2em;
+}
+
+.owl-carousel .owl-nav button.owl-next:hover,
+.owl-carousel .owl-nav button.owl-prev:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+
+.item {
+  box-shadow: 0px !important;
+}
+#custom-cards {
+  width: 100vw; /* عرض الشاشة بالكامل */
+  max-width: 100%;
+  text-align: center;
+  justify-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-right: .5rem;
+  margin-left: .5rem;
+  overflow: hidden;
+}

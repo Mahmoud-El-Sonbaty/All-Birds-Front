@@ -55,7 +55,7 @@
       <img [src]="item.src" class="card-img-top carimag" alt="...">
     </ng-container>
     <ng-template #videoTemplate>
-      <video [src]="item.src" autoplay muted></video>
+      <video [src]="item.src" autoplay muted loop></video>
     </ng-template>
 
     <div class="position-absolute carbody">
@@ -205,3 +205,6 @@
 
 
 
+
+<!-- more product -->
+ <app-slider-cm></app-slider-cm>

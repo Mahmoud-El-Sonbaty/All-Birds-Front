@@ -1,14 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { SliderCmComponent } from './slider-cm/slider-cm.component';
+import { CategeryServiceService } from '../../../Services/categery-service.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,SliderCmComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+  constructor(private category:CategeryServiceService) {
+    super();
+
+  }
   slides2 = [
     { img: 'images/slide2-image1.jpg',img2: 'images/slide2-image2.jpg', text: "Men's season ready" , text2: "Women's Fall Essentials", active:true },
     { img: 'images/slide2-image3.jpg',img2: 'images/slide2-image4.jpg', text: "Men's Sporty Styles" , text2: "Women's Athleisure Styles" , active:false },
@@ -36,6 +43,8 @@ export class HomeComponent {
       subtitle: 'Breezy High-Top Sneakers'
     }
   ];
+
+
 
 
 }
