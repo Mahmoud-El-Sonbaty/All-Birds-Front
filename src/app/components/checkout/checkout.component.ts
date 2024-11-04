@@ -9,11 +9,8 @@ import { ICreateOrderRequest, IPayPalConfig, NgxPayPalModule } from 'ngx-paypal'
   styleUrls: ['./checkout.component.css'],
   standalone: true,
   imports: [FormsModule, CommonModule, ReactiveFormsModule,NgxPayPalModule],
-
-
 })
 export class CheckoutComponent implements AfterViewInit ,OnInit{
-
 
   @ViewChildren('input') inputFields!: QueryList<ElementRef>;
   checkoutForm: FormGroup;
@@ -279,3 +276,5 @@ onFocus() {
     }
   }
 }
+
+//------------------------------------------------------------------------------ Sonbaty ------------------------------------------------------------------------------//
