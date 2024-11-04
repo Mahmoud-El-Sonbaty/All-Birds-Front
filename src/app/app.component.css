@@ -1,9 +1,21 @@
-/* <<<<<<< HEAD
-
-  
-=======
 body {
   font-family: 'Lexend', sans-serif;
   font-weight: 400;
 }
->>>>>>> main */
+
+/* .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .checkout-section {
+    width: 70%;
+  }
+  
+  .order-summary-section {
+    width: 25%;
+    position: sticky;
+    top: 0;
+  } */
+  

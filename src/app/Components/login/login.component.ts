@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
-import { Username } from '../../../model/username';
-import { UsernameCheck } from '../../../model/username-check';
+import { Username } from '../../../models/username';
+import { UsernameCheck } from '../../../models/username-check';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { UsernameServicesService } from '../../../services/username-services.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,JsonPipe,CommonModule],
+  imports: [FormsModule, JsonPipe, CommonModule, SidebarComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -74,7 +75,10 @@ this.showResetPasswordFormbool=true;
 
 
 
+
     return  (!!this.usernameCheck.Email && this.usernameCheck.Email.includes("@"));  
+
+
     
       }
       ispasswordvaild():boolean{
@@ -82,6 +86,26 @@ this.showResetPasswordFormbool=true;
         return /\d/.test(this.usernameCheck.Password); 
       }
  
+  
+isCanLogin():Boolean{
+
+  if(this.usernameCheck.Email!=undefined&&this.usernameCheck.Password!=undefined)
+  {
+    // console.log(false);
+  if(this.isEmailValid()==true&&this.ispasswordvaild()==true)
+    
+    {
+   
+      
+      return false;
+  
+    }
+    return true;
+  }
+  console.log(true);
+  
+  return true;
+  }
   
 }
 // getUserByEmail

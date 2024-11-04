@@ -1,16 +1,21 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './Components/home/home.component';
-import { RegisterComponent } from './Create an Account/register/register.component';
 import { authoGuard } from '../guards/autho.guard';
-// import { MainProductComponent } from './components/main-product/main-product.component';
+import { RegisterComponent } from './components/register/register.component';
+import { MainProductComponent } from './components/main-product/main-product.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { HomeComponent } from './components/home/home.component';
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 export const routes: Routes = [
-  // { path: 'Collections', component: MainProductComponent, title: 'Collections'},
-  // { path :'Product' ,component : MainProductComponent , title : 'Product Page' }
-{path:"home",canActivate:[authoGuard],component:HomeComponent,title:"home"},
-{path:"",component:RegisterComponent,title:"Register"}
-
-// ,canActivate:[authoGuard]
-
+  {path: '', component: MainLayoutComponent, children: [
+    // {path: '', redirectTo: 'checkout', pathMatch: 'full'},
+    {path: "register", component: RegisterComponent, title: "Register"},
+    {path: 'home', component: HomeComponent, title: "Home"},
+    {path: 'collections', component: MainProductComponent, title: 'Collections'},
+    {path:"Sidebar",component:SidebarComponent,title:"Sidebar"}
+  ]},
+  {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},
+  //{path:"home",canActivate:[authoGuard],component:HomeComponent,title:"home"},
 ];

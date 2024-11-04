@@ -44,7 +44,7 @@
            
       </div>
 
-    <button type="submit" [disabled]="myform1.invalid" class="btn btn-dark btn-lg w-100">Sign In</button>
+    <button type="submit" [disabled]="myform1.invalid||isCanLogin()" class="btn btn-dark btn-lg w-100">Sign In</button>
 
     <div style="display: flex; justify-content: center;" >
     <a > <button    type="button"  (click)="showResetPasswordForm()">Forgot Password</button> </a> 
@@ -82,10 +82,9 @@
           <div class="text-danger">Email must contain &#64;</div>
               }
               </div>
-            <button  id="Submitforget" type="submit" class="btn btn-dark btn-lg w-30" [disabled]="myform2.invalid" >Submit</button><br>
+            <button  id="Submitforget" type="submit" class="btn btn-dark btn-lg w-30" [disabled]="myform2.invalid||!isEmailValid()" >Submit</button><br>
             <button type="button" style="color: black;" class="btn btn-link"  (click)="hideResetPasswordForm()">Cancel</button><br>
           </form>
         </div>
-
 
 

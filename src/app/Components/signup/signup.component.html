@@ -111,9 +111,9 @@
 
   </div>
 
+<!-- <h1>{{myform.invalid}} + {{isCansignup()}} </h1> -->
 
-
- <button  type="submit" id="asd" class="btn btn-dark btn-lg w-100"  [disabled]="myform.invalid">Register</button>
+ <button  type="submit" id="asd" class="btn btn-dark btn-lg w-100"  [disabled]="myform.invalid||isCansignup()">Register</button>
   <br><br>
   <p class="text-center text-muted small">* REQUIRED FIELDS</p>
   
