@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { SliderCmComponent } from './slider-cm/slider-cm.component';
-import { ProductService } from '../../../Services/product.service';
+import { ProductService } from '../../../services/product.service';
 import { Subscription } from 'rxjs';
 import { Iproduct } from '../../../models/Product';
 import { error } from 'jquery';
@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment.development';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SidebarComponent,CommonModule,SliderCmComponent],
+  imports: [SidebarComponent, CommonModule, SliderCmComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
