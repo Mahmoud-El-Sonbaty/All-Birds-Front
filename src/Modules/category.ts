@@ -8,7 +8,7 @@ export interface Icategory {
   children:Icategory[]|null;
 
 }
-export interface Apiresponse{
+export interface ApiresponseCategory{
 
   data:Icategory[];
   msg:string;

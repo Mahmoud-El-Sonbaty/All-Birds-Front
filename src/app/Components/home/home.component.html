@@ -8,7 +8,7 @@
   <div class="carousel-inner position-relative w-100 ">
     <div class="carousel-item active" data-bs-interval="3000">
       <img src="images/2.avif" class="d-block w-100" alt="...">
-      <div class="carousel-caption capHeader d-none text-dark  d-xl-block position-absolute top-0 p-5  align-items-end justify-content-end text-end ">
+      <div class="carousel-caption capHeader d-none text-dark  d-lg-block position-absolute top-0 p-5  align-items-end justify-content-end text-end ">
           <h4>THE RUNNER COLLECTION</h4>
           <p>___________________</p>
           <h1 class="first mb-0" >Comfortable </h1>
@@ -16,7 +16,7 @@
 
       </div>
       <div class="carousel-caption capbutton d-none d-md-block position-absolute start-50 p-1 w-25 d-flex    ">
-          <p class="texts text-dark  mb-5 me-0 position-relative start-100 justify-content-end align-items-end text-align-end  "> <br>
+          <p class="texts text-dark  mb-5 me-0 position-relative start-100 justify-content-end align-items-end text-align-end  d-none  d-xxl-block "> <br>
               OUR ICONIC EVERYDAY SNEAKS ARE A SOFT,
               <br>PILLOWY RETREAT FOR YOUR FEET.</p>
           <div class="d-flex position-relative start-100 mb-3 me-4 ">
@@ -104,11 +104,11 @@
 </div>
 
 <!-- 4 product -->
-<div class="container-fluid m-1">
+<div class="container-fluid ">
   <div class="column-wrapper h-100 mb-1">
     <div class="col-lg-6 left-column m-0 p-0">
       <div class="position-relative h-100">
-        <img src="./slide1-image1.jpg" class="img-fluid main-image" alt="Large Shoe Image">
+        <img src="images/bigImage.jpg" class="img-fluid main-image" alt="Large Shoe Image">
         <div class="text-overlay-left">
           <p class="title">Shoe Name 4</p>
           <p class="subtitle">Shoe Name 4</p>
@@ -121,46 +121,20 @@
     </div>
     <div class="col-lg-6 right-column m-0 p-0 mb-1">
       <div class="row g-1 w-100">
-        <div class="col-6">
-          <div class="position-relative imag4">
-            <img src="./slide2-image2.jpg" class="img-fluid thumbnail-image" alt="Small Shoe Image 2">
-            <div class="text-overlay">
-              <h6>Shoe Name 4</h6>
-              <p>Shoe Name 4</p>
+        @for (prd of Products; track prd.id) {
+
+          <div class="col-6">
+            <div class="position-relative imag4">
+              <img [src]="imagepath+prd.mainImagePath" class="img-fluid images" alt="Small Shoe Image">
+              <div class="text-overlay">
+                <h6>{{prd.nameEn}}</h6>
+                <p>{{prd.colorNameEn}}</p>
+              </div>
+              <div class="price">{{prd.price}}</div>
             </div>
-            <div class="price">$95</div>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="position-relative imag4">
-            <img src="./slide2-image2.jpg" class="img-fluid thumbnail-image" alt="Small Shoe Image 2">
-            <div class="text-overlay">
-              <h6>Shoe Name 4</h6>
-              <p>Shoe Name 4</p>
-            </div>
-            <div class="price">$95</div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="position-relative imag4">
-            <img src="./slide2-image4.jpg" class="img-fluid thumbnail-image" alt="Small Shoe Image 3">
-            <div class="text-overlay">
-              <h6>Shoe Name 4</h6>
-              <p>Shoe Name 4</p>
-            </div>
-            <div class="price">$95</div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="position-relative imag4">
-            <img src="./slide2-image6.jpg" class="img-fluid thumbnail-image" alt="Small Shoe Image 4">
-            <div class="text-overlay">
-              <h6>Shoe Name 4</h6>
-              <p>Shoe Name 4</p>
-            </div>
-            <div class="price">$95</div>
-          </div>
-        </div>
+        }
+
       </div>
     </div>
   </div>
@@ -169,42 +143,43 @@
 
 <!-- gift Card -->
 
-
-<div class="row m-1 p-0">
-  <div class="col-lg-6 p-1 m-0">
-    <div class="image-container">
-      <img src="./slide2-image2.jpg" alt="Gift Card Image" class="img-fluid">
-      <div class="overlays">
-        <div>
-          <h2>Gift Cards</h2>
-          <p>Always Fits, Never Fails</p>
+<div class="container-fluid m-0  GiftCard">
+    <div class="row m-0 p-0 ">
+      <div class="col-lg-6 p-1 m-0">
+        <div class="image-container">
+          <img src="images/Gift2.jpg" alt="Gift Card Image" class="img-fluid">
+          <div class="overlays">
+            <div>
+              <h2>Gift Cards</h2>
+              <p>Always Fits, Never Fails</p>
+            </div>
+            <div class="card-group mt-auto">
+              <button class="btn btn-light m-1 giftbtn">SHOP MEN</button>
+              <button class="btn btn-light m-1 giftbtn">SHOP WOMEN</button>
+            </div>
+          </div>
         </div>
-        <div class="card-group mt-auto">
-          <button class="btn btn-light m-1 giftbtn">SHOP MEN</button>
-          <button class="btn btn-light m-1 giftbtn">SHOP WOMEN</button>
+      </div>
+
+      <div class="col-lg-6 p-1 m-0">
+        <div class="image-container">
+          <img src="images/Gift1.jpg" alt="Another Image" class="img-fluid">
+          <div class="overlays">
+            <div>
+              <h2>Another Title</h2>
+              <p>Another Subtitle or Description</p>
+            </div>
+            <div class="mt-auto">
+              <button class="btn btn-light giftbtn">SHOP NOW</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="col-lg-6 p-1 m-0">
-    <div class="image-container">
-      <img src="./slide2-image3.jpg" alt="Another Image" class="img-fluid">
-      <div class="overlays">
-        <div>
-          <h2>Another Title</h2>
-          <p>Another Subtitle or Description</p>
-        </div>
-        <div class="mt-auto">
-          <button class="btn btn-light giftbtn">SHOP NOW</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 
 
 
 <!-- more product -->
- <app-slider-cm></app-slider-cm>
+ <app-slider-cm class="m-1"></app-slider-cm>

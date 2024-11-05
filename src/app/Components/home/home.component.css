@@ -1,3 +1,6 @@
+/* html, body {
+  overflow-x: hidden;
+} */
 .shop {
   padding: 10px 20px;
   background-color: white;
@@ -186,25 +189,25 @@
 
 
   /* 4 product style  */
-  /* body {
-    box-sizing: border-box;
-    overflow-x: hidden;
-  } */
+
   .main-image {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    overflow: hidden !important;
+    scale: 1;
   }
-  .thumbnail-image {
+  .images {
     height: 100%;
-    object-fit: cover;
+    width: 100% !important;
+    /* object-fit: cover; */
   }
 
   .text-overlay {
     position: absolute;
     bottom: 1.3rem;
     left: 0.8rem;
-    color: aliceblue;
+    color: rgb(29, 29, 29);
   }
 
   .text-overlay p {
@@ -294,15 +297,21 @@
   }
   .col-lg-6 ,.imag4{
     overflow: hidden;
+    scale: 1;
   }
   .col-lg-6.left-column img,
   .right-column img {
     transition: transform .3s ease;
 
   }
+  .right-column img {
+    padding: 5px;
+    scale: 1;
+
+  }
   .col-lg-6.left-column img:hover,
   .right-column img:hover {
-    transform: scale(1.2);
+    transform: scale(1.09);
   }
 
 
@@ -358,6 +367,12 @@
     opacity: 1;
   }
 
+  .GiftCard{
+    /* box-sizing: border-box; */
+    /* overflow: hidden !important; */
+
+
+  }
 
 
 

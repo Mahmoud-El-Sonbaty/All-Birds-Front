@@ -1,7 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { SliderCmComponent } from './slider-cm/slider-cm.component';
 import { CategeryServiceService } from '../../../Services/categery-service.service';
+import { ProductService } from '../../../Services/product.service';
+import { Subscription } from 'rxjs';
+import { Iproduct } from '../../../Modules/Product';
+import { error } from 'jquery';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +15,35 @@ import { CategeryServiceService } from '../../../Services/categery-service.servi
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit,OnDestroy {
 
-  constructor(private category:CategeryServiceService) {
-    super();
+  sub:Subscription[]= []as Subscription[];
+  Products:Iproduct[]=[]as Iproduct[];
+  imagepath:string=environment.BaseIMageUrl;
+  constructor(private Product:ProductService) {
+
+  }
+  ngOnDestroy(): void {
+    for (const element of this.sub) {
+      element.unsubscribe();
+  }
+  }
+  ngOnInit(): void {
+    var pr = this.Product.GetTop(1,4).subscribe(
+      {
+        next:(res)=>{
+          this.Products=res.data;
+          console.log(this.Products)
+        },
+        error:(er)=>{
+
+          console.log(er);
+        }
+      }
+    );
+    this.sub.push(pr);
+
+
 
   }
   slides2 = [
