@@ -1,0 +1,268 @@
+
+  <owl-carousel-o [options]="customOptions">
+    <h3>More To Shop</h3>
+
+    <ng-container *ngFor="let slide of Products" class="owl-carousel owl-theme">
+      <ng-template carouselSlide [id]="''+slide.id" class=" item">
+        <div class="card topPrdCard">
+          <!-- <div class="car-img-top img-fluid">
+
+          </div> -->
+          <img [src]="imagepath+slide.mainImagePath" [alt]="slide.colorNameEn" [title]="slide.nameEn" style="background-color: rgb(248, 248, 248); margin: 0; padding: 0; width: 100%;">
+          <div class="card-body">
+          <div>
+              <h2>{{slide.nameEn}}</h2>
+          </div>
+          <p class="card-text">{{slide.colorNameEn}}</p>
+          <p class="card-text">{{slide.price}}$</p>
+      </div>
+        </div>
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
+
+
+  <!-- <owl-carousel-o [options]="customOptions">
+
+    <ng-container *ngFor="let slide of Products">
+      <ng-template carouselSlide [id]="''+slide.id">
+        <img [src]="imagepath+slide.mainImagePath" [alt]="slide.colorNameEn" [title]="slide.nameEn">
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o> -->
+
+
+
+
+
+<!--
+<div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide1-image2.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image4.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+                  </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image3.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+          <div class="card shadow-sm">
+              <img src="images/slide2-image5.jpg" />
+              <div class="card-body">
+                  <div>
+                      <h2>US Store</h2>
+                  </div>
+                  <p class="card-text">Dark Psychology Secrets</p>
+                  <p class="card-text">25$</p>
+              </div>
+          </div>
+      </div> -->

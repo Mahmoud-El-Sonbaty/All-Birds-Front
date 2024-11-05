@@ -7,10 +7,13 @@ import { HomeComponent } from './components/home/home.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
+import { HomeComponent } from './Components/home/home.component';
+import { ErrorComponent } from './Components/error/error.component';
 
 export const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
-    // {path: '', redirectTo: 'checkout', pathMatch: 'full'},
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path:'home',component:HomeComponent,title:"Home Page"},
     {path: "register", component: RegisterComponent, title: "Register"},
     {path: 'home', component: HomeComponent, title: "Home"},
     {path: 'collections', component: MainProductComponent, title: 'Collections'},
@@ -18,4 +21,7 @@ export const routes: Routes = [
   ]},
   {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},
   //{path:"home",canActivate:[authoGuard],component:HomeComponent,title:"home"},
+  //wild card route
+  {path:'**',component:ErrorComponent,title:"Not found"}
+
 ];
