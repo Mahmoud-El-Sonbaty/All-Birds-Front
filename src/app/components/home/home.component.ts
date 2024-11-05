@@ -2,17 +2,16 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { SliderCmComponent } from './slider-cm/slider-cm.component';
-import { CategeryServiceService } from '../../../Services/categery-service.service';
 import { ProductService } from '../../../Services/product.service';
 import { Subscription } from 'rxjs';
-import { Iproduct } from '../../../Modules/Product';
+import { Iproduct } from '../../../models/Product';
 import { error } from 'jquery';
 import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SidebarComponentCommonModule,SliderCmComponent],
+  imports: [SidebarComponent,CommonModule,SliderCmComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -20,7 +19,7 @@ export class HomeComponent implements OnInit,OnDestroy {
 
   sub:Subscription[]= []as Subscription[];
   Products:Iproduct[]=[]as Iproduct[];
-  imagepath:string=environment.BaseIMageUrl;
+  imagepath:string=environment.BaseImagePath;
   constructor(private Product:ProductService) {
 
   }

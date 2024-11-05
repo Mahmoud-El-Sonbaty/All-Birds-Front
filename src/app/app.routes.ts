@@ -3,12 +3,11 @@ import { authoGuard } from '../guards/autho.guard';
 import { RegisterComponent } from './components/register/register.component';
 import { MainProductComponent } from './components/main-product/main-product.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { HomeComponent } from './components/home/home.component';
+// import { HomeComponent } from './components/home/home.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-
-import { HomeComponent } from './Components/home/home.component';
-import { ErrorComponent } from './Components/error/error.component';
+import { HomeComponent } from './components/home/home.component';
+import { ErrorComponent } from './components/error/error.component';
 
 export const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [

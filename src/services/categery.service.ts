@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiresponseCategory, Icategory } from '../Modules/category';
+import { ApiresponseCategory } from '../models/category';
 import { environment } from '../environments/environment.development';
 
 @Injectable({
