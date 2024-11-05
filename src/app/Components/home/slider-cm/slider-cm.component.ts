@@ -1,4 +1,4 @@
-import { AfterViewInit, Component ,OnDestroy,OnInit,Renderer2} from '@angular/core';
+import { AfterViewInit, Component ,OnDestroy,OnInit,} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Iproduct } from '../../../../Modules/Product';
 import { ProductService } from '../../../../Services/product.service';
