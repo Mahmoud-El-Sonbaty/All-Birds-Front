@@ -3,7 +3,7 @@ import { Username } from '../../../models/username';
 import { UsernameCheck } from '../../../models/username-check';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { CommonModule, JsonPipe } from '@angular/common';
-import { UsernameServicesService } from '../../../services/username-services.service';
+import { UsernameService } from '../../../services/username.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
@@ -18,7 +18,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent {
   public forgotPasswordForm: FormGroup;
   message: string = '';
-  constructor(private _UsernameServicesService :UsernameServicesService,private cook :CookieService,private root :Router,private fb: FormBuilder, private http: HttpClient){
+  constructor(private _UsernameService :UsernameService,private cook :CookieService,private router :Router,private fb: FormBuilder, private http: HttpClient){
     this.forgotPasswordForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
     });
@@ -35,15 +35,17 @@ export class LoginComponent {
     console.log(this.usernameCheck);
     
    //add cooks
-   this.cook.set("Email",this.usernameCheck.Email);
-    this._UsernameServicesService.getUserByEmail(this.usernameCheck.Email).subscribe({
-
-      next:()=>{
-      this.root.navigateByUrl("/home");
-      
+    this.cook.set("Email",this.usernameCheck.Email);
+    this._UsernameService.getUserByEmail(this.usernameCheck).subscribe({
+      next:(res)=>{
+        console.log(res)
+        localStorage.setItem("userToken", res)
+        this.router.navigateByUrl("");
+      },
+      error:(err) => {
+        console.log(err);
       }
-      
-      })
+    })
 
   }
   public showResetPasswordForm(){
