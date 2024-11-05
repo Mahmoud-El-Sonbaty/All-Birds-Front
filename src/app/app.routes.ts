@@ -5,6 +5,7 @@ import { MainProductComponent } from './components/main-product/main-product.com
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HomeComponent } from './components/home/home.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
     {path: "register", component: RegisterComponent, title: "Register"},
     {path: 'home', component: HomeComponent, title: "Home"},
     {path: 'collections', component: MainProductComponent, title: 'Collections'},
+    {path:"Sidebar",component:SidebarComponent,title:"Sidebar"}
   ]},
   {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},
   //{path:"home",canActivate:[authoGuard],component:HomeComponent,title:"home"},

@@ -39,14 +39,39 @@ export class SignupComponent {
   }
   isEmailValid():Boolean{
 
+// console.log("sssssss");
 
-
-return this.username.Email.includes("@"); 
+// console.log(this.username.Email);
+return  (!!this.username.Email && this.username.Email.includes("@")); 
 
   }
   ispasswordvaild():boolean{
     
     return /\d/.test(this.username.Password); 
   }
+
+isCansignup():Boolean{
+
+if(this.username.Email!=undefined&&this.username.Password!=undefined&&this.username.Confirm_Password!=undefined)
+{
+  // console.log(false);
+if(this.isEmailValid()==true&&this.ispasswordvaild()==true&&(this.username.Password==this.username.Confirm_Password))
+  
+  {
+    console.log("sssssssssssss");
+  
+    console.log(this.isEmailValid());console.log(this.ispasswordvaild());console.log((this.username.Password==this.username.Confirm_Password));
+    
+    console.log("sssssssssss");
+    
+    return false;
+
+  }
+  return true;
+}
+console.log(true);
+
+return true;
+}
 
 }

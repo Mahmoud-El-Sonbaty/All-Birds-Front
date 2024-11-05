@@ -12,7 +12,7 @@
     <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="toggler-icon"></span>
       <span class="toggler-icon"></span>
-      <span class="toggler-icon"></span>    </button>
+      <span class="toggler-icon"></span>  </button>
 
 
     <ul class="flex-column  collapse navbar-collapse  justify-content-between   list-unstyled " id="navbarNav1">
@@ -282,16 +282,24 @@
         <li class="nav-item  d-none d-xl-block">
           <a class="nav-link" href="#"><i class="fas fa-question-circle text-dark"></i></a>
         </li>
+       
         <li class="nav-item cart-icon">
-          <a class="nav-link position-relative" href="#">
+          <button class="nav-link position-relative" >
 
-            <i class="fas fa-shopping-cart text-dark"></i>
+            <a   (click)="sidebar.toggleSidebar()"   >
 
-            <span class="position-absolute top-25 start-100 translate-middle p-2  border border-light rounded-circle" style="background-color:#b19776 ;"> </span>
-          </a>
 
-          <!-- <span class="badge bg-light text-dark ">+99</span> -->
+
+              <i class="fas fa-shopping-cart text-dark"></i>
+  
+              <span class="position-absolute top-25 start-100 translate-middle p-2  border border-light rounded-circle" style="background-color:#b19776 ;"> </span>
+            </a> 
+          </button>
+
+          
         </li>
+          <!-- <span class="badge bg-light text-dark ">+99</span> -->
+       
 
       </ul>
     </div>
@@ -309,7 +317,10 @@
 
 
 
-
+<!-- <button (click)="sidebar.toggleSidebar()" class="btn btn-dark m-3">☰ Open Sidebar</button> -->
+<!-- add hossam -->
+<!-- Sidebar Component -->
+<app-sidebar #sidebar></app-sidebar>
 
 
 

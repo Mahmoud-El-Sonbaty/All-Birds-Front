@@ -1,14 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Icategory } from '../../../models/category';
 import { CategeryService } from '../../../services/categery.service';
 import { Subscription } from 'rxjs';
 import { RouterLink } from '@angular/router';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, SidebarComponent],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
@@ -21,6 +22,13 @@ constructor(private categories:CategeryService) {
 
 
 }
+///add hossam
+@ViewChild('sidebar') sidebar!: SidebarComponent;
+
+toggleSidebar() {
+  this.sidebar.toggleSidebar();
+}
+///
   ngOnDestroy(): void {
     for (const element of this.sub) {
       element.unsubscribe();
