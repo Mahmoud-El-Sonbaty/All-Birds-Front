@@ -53,7 +53,7 @@
   </div>
    -->
 <!-- cart is empty -->
-@if(cartItems.length==0){
+@if(userCart == null){
 <!-- Sidebar Container -->
  <div class="sidebar bg-light shadow-lg" [ngClass]="{'open': isOpen}">
     <button class="close-btn" (click)="toggleSidebar()">&times;</button>
@@ -79,25 +79,25 @@
     <!-- <hr /> -->
     <p  class="free-shipping text-center text-muted">Congrats! You get free standard shipping</p>
     <div class="progres"></div><br>
-    <div *ngFor="let item of cartItems" class="d-flex mb-3">
+    <div *ngFor="let item of userCart.orderDetails" class="d-flex mb-3">
       <!-- 
        -->
       
        <!--  -->
-      <img [src]="item.imageUrl" alt="Product Image" class="img-fluid me-3" style="width: 60px; height: auto;">
+      <img [src]="baseImagePath + item.imagePath" alt="Product Image" class="img-fluid me-3" style="width: 60px; height: auto;">
       <div class="flex-grow-1">
-        <h6>{{ item.name }}</h6>
-        <small>{{ item.color }} | Size: {{ item.size }}</small>
+        <h6>{{ item.productNameEn }}</h6>
+        <small>{{ item.colorNameEn }} | Size: {{ item.sizeNumber }}</small>
         <div class=" d-flex align-items-center mt-1" >
-          <button class="" (click)="decreaseQuantity(item)">-</button>
+          <button class="" (click)="updateQuantity(item, false)">-</button>
           <span class="mx-2">{{ item.quantity }}</span>
-          <button class=" " (click)="increaseQuantity(item)">+</button>
+          <button class=" " (click)="updateQuantity(item, true)">+</button>
           
         </div>
 
         <hr />
       </div>
-      <h6 class="ms-auto">${{ item.price * item.quantity }}</h6>
+      <h6 class="ms-auto">${{ item.detailPrice }}</h6>
       <button class="close-btn1 ms-auto" (click)="removeItem(item)">
         &times;
       </button>
@@ -105,7 +105,7 @@
     <hr />
     <div class="d-flex justify-content-between">
       <span>Subtotal</span>
-      <strong>${{ subtotal }}</strong>
+      <strong>${{ userCart.total }}</strong>
     </div>
     <div class="d-flex justify-content-between">
       <span>Shipping</span>

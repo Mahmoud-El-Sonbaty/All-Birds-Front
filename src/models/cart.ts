@@ -18,8 +18,14 @@ export interface IOrderDetail {
   imagePath: string;
 }
 
-export interface ICartApiResponse{
+export interface ICartApiResponse {
   data: IOrderMaster;
+  msg: string;
+  isSuccess: boolean;
+}
+
+export interface IODetailApiResponse {
+  data: IOrderDetail;
   msg: string;
   isSuccess: boolean;
 }
