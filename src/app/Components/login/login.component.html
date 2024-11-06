@@ -38,10 +38,10 @@
           }
               }
           @else if(!ispasswordvaild()&&passwordlogInp.touched){
-    
+
             <div class="text-danger">password must contain at least one number </div>
               }
-           
+
       </div>
 
     <button type="submit" [disabled]="myform1.invalid||isCanLogin()" class="btn btn-dark btn-lg w-100">Sign In</button>

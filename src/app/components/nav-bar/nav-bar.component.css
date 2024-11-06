@@ -76,7 +76,7 @@ display: none !important;
    #Allbirds {
     position: absolute !important;
     top: 0px;
-    width: 20%;
+    width: 10%;
     /* padding-bottom: 10px; */
     left: 50%;
     height: auto;
@@ -166,7 +166,6 @@ display: none !important;
   height: auto;
   width: auto;
   object-fit: contain;
-  transition: max-width 0.5s ease, max-height 0.2s ease;
 }
 
 

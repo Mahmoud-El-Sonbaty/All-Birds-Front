@@ -1,8 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ICartApiResponse } from '../models/cart';
-import { Observable } from 'rxjs';
 import { environment } from '../environments/environment.development';
+import { Observable } from 'rxjs';
+import { ICartApiResponse } from '../models/cart';
 
 @Injectable({
   providedIn: 'root'
