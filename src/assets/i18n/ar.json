@@ -1,0 +1,129 @@
+{
+  "navBar":{
+
+   },
+   "signUp":{
+
+  },
+  "checkOut":{
+
+  },
+  "sideBar":{
+
+  },
+  "home":{
+
+  },
+  "register":{
+
+  },
+  "product-card":{
+
+  },
+  "Main-product":{
+
+  },
+  "error":{
+
+  },
+
+    "footer": {
+      "footerWhite": {
+        "title": "نهج Allbirds",
+        "sections": [
+          {
+            "title": "راحة طوال اليوم",
+            "description": "خفيفة الوزن، مرنة، ومريحة بشكل لا يصدق، أحذية Allbirds تجعل أي نشاط يبدو سهلاً. ارتدِها بسهولة وتمتع بالدعم المريح.",
+            "link": "تعرف على المزيد"
+          },
+          {
+            "title": "الاستدامة في كل خطوة",
+            "description": "من المواد إلى النقل، نعمل على تقليل بصمتنا الكربونية إلى ما يقرب من الصفر. مساءلتنا وهدفنا المناخي ليس هدفًا لثلاثين سنة—إنه الآن.",
+            "link": "تعرف على المزيد"
+          },
+          {
+            "title": "مواد من الطبيعة",
+            "description": "نستبدل المواد التركيبية المعتمدة على البترول ببدائل طبيعية حيثما أمكن. مثل استخدام الصوف، ألياف الشجر، وقصب السكر. إنها ناعمة، قابلة للتنفس، وأكثر صداقة للبيئة—فوز وفوز وفوز.",
+            "link": "تعرف على المزيد"
+          }
+        ]
+      },
+      "footerBlack": {
+        "sections": [
+          {
+            "title": "المساعدة",
+            "links": [
+              { "text": "تحدث معنا!" },
+              { "text": "1-888-963-8944" },
+              { "text": "1-814-251-9966 (نص)" },
+              { "text": "help@allbirds.com" },
+              { "text": "الإرجاع/التبديل" },
+              { "text": "الأسئلة الشائعة/تواصل معنا" },
+              { "text": "Afterpay" }
+            ]
+          },
+          {
+            "title": "التسوق",
+            "links": [
+              { "text": "أحذية الرجال" },
+              { "text": "أحذية النساء" },
+              { "text": "ملابس الرجال" },
+              { "text": "ملابس النساء" },
+              { "text": "جوارب" },
+              { "text": "بطاقات الهدايا" },
+              { "text": "أحِل صديقًا" }
+            ]
+          },
+          {
+            "title": "الشركة",
+            "links": [
+              { "text": "قصتنا" },
+              { "text": "موادنا" },
+              { "text": "الاستدامة" },
+              { "text": "المستثمرين" },
+              { "text": "العناية بالأحذية" },
+              { "text": "التسويق بالعمولة" },
+              { "text": "الطلبات الكبيرة" },
+              { "text": "الوظائف" },
+              { "text": "الإعلام" },
+              { "text": "برنامج الكشف المسؤول من Allbirds" },
+              { "text": "قانون الشفافية في كاليفورنيا" },
+              { "text": "عروض المجتمع" },
+              { "text": "مدونتنا - The Perch" }
+            ]
+          }
+        ],
+        "social_media": {
+          "title": "تابع القطيع",
+          "icons": [
+            { "platform": "إنستغرام" },
+            { "platform": "فيسبوك" },
+            { "platform": "تويتر" },
+            { "platform": "يوتيوب" },
+            { "platform": "بينترست" }
+          ]
+        },
+        "footer_flags": [
+          { "country": "الولايات المتحدة", "image_url": "https://flagpedia.net/data/flags/h80/us.png" },
+          { "country": "مصر", "image_url": "https://flagcdn.com/w2560/eg.png" },
+          { "country": "كندا", "image_url": "https://flagpedia.net/data/flags/h80/ca.png" },
+          { "country": "أستراليا", "image_url": "https://flagpedia.net/data/flags/h80/au.png" },
+          { "country": "المملكة المتحدة", "image_url": "https://flagpedia.net/data/flags/h80/gb.png" },
+          { "country": "البرازيل", "image_url": "https://flagcdn.com/w2560/br.png" },
+          { "country": "كوريا الجنوبية", "image_url": "https://flagcdn.com/w2560/kr.png" },
+          { "country": "البرتغال", "image_url": "https://flagcdn.com/w2560/pt.png" }
+        ],
+        "footer_bottom": {
+          "text": "© 2024 شركة Allbirds، جميع الحقوق محفوظة.",
+          "links": [
+            { "text": "الشروط" },
+            { "text": "الخصوصية وإمكانية الوصول" }
+          ]
+        }
+      }
+    }
+  ,
+  "General":{
+
+  }
+}

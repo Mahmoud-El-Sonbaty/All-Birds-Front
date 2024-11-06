@@ -1,18 +1,19 @@
 import { AfterViewInit, Component ,OnDestroy,OnInit,} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Iproduct } from '../../../../Modules/Product';
-import { ProductService } from '../../../../Services/product.service';
-import { environment } from '../../../../environments/environment.development';
+import { Iproduct } from '../../../Modules/Product';
+import { ProductService } from '../../../Services/product.service';
+import { environment } from '../../../environments/environment.development';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { SharedModule } from '../../../shared/shared.module';
 
 declare var $: any;
 
 @Component({
   selector: 'app-slider-cm',
   standalone: true,
-  imports: [CommonModule,CarouselModule],
+  imports: [CommonModule,CarouselModule,SharedModule],
   templateUrl: './slider-cm.component.html',
   styleUrl: './slider-cm.component.css'
 })

@@ -1,17 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { SliderCmComponent } from './slider-cm/slider-cm.component';
-import { CategeryServiceService } from '../../../Services/categery-service.service';
+import { SliderCmComponent } from '../slider-cm/slider-cm.component';
 import { ProductService } from '../../../Services/product.service';
 import { Subscription } from 'rxjs';
 import { Iproduct } from '../../../Modules/Product';
 import { error } from 'jquery';
 import { environment } from '../../../environments/environment.development';
+import { SharedModule } from '../../../shared/shared.module';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,SliderCmComponent],
+  imports: [CommonModule,SliderCmComponent,SharedModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

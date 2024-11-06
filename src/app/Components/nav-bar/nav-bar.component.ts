@@ -5,11 +5,12 @@ import { CategeryServiceService } from '../../../Services/categery-service.servi
 import { Subscription } from 'rxjs';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RouterLink } from '@angular/router';
+import { SharedModule } from '../../../shared/shared.module';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [CommonModule,RouterLink,SidebarComponent],
+  imports: [CommonModule,RouterLink,SidebarComponent,SharedModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
