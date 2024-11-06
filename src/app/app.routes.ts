@@ -3,6 +3,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { ProductCardComponent } from './Components/product-card/product-card.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { SidebarComponent } from './Components/sidebar/sidebar.component';
+import { RegisterComponent } from './Components/register/register.component';
 
 export const routes: Routes = [
 
@@ -13,6 +15,8 @@ export const routes: Routes = [
   {path:'home',component:HomeComponent,title:"Home Page"},
   {path:'home',component:HomeComponent,title:"Home Page"},
   {path:'Productcard',component:ProductCardComponent,title:"Productcard Page"},
+  {path:"Sidebar",component:SidebarComponent,title:"Sidebar"},
+  {path: "register", component: RegisterComponent, title: "Register"},
 
 
 ]},
