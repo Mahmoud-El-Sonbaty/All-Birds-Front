@@ -11,3 +11,11 @@ import { Component } from '@angular/core';
 export class ProductCardComponent {
 
 }
+
+// import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+// @Component({
+//   selector: 'app-product-card',
+//   standalone: true,
+//   imports: [CurrencyPipe , NgbCarouselModule ],
