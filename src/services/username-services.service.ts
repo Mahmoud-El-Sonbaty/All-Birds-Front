@@ -14,12 +14,12 @@ export class UsernameServicesService {
 
   
   CreateUser(prd:Username):Observable<Username>{
-    return this.httpClient.post<Username>(`${environment.BaseUrl}`,JSON.stringify(prd))
+    return this.httpClient.post<Username>(`${environment.BaseUrl+"/Account/Register"}`,JSON.stringify(prd))
     
       }
       getUserByEmail(email:string):Observable<Username>{
 
-        return this.httpClient.get<Username>(`${environment.BaseUrl}/${email}`);
+        return this.httpClient.get<Username>(`${environment.BaseUrl+"/Account/Login"}/${email}`);
       }
 
 
