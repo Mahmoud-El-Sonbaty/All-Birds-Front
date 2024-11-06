@@ -3,11 +3,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Icategory } from '../../../Modules/category';
 import { CategeryServiceService } from '../../../Services/categery-service.service';
 import { Subscription } from 'rxjs';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink,SidebarComponent],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })

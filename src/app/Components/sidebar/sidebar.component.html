@@ -1,0 +1,18 @@
+<!-- <p>sidebar works!</p> -->
+
+<!-- Sidebar Container -->
+<div class="sidebar bg-light shadow-lg" [ngClass]="{'open': isOpen}">
+  <button class="close-btn" (click)="toggleSidebar()">&times;</button>
+  <p  class="free-shipping text-center text-muted">You're $75 away from free shipping!</p>
+  <div class="progres"></div><br>
+  <h5 class="text-center">Your Cart is Empty</h5>
+  <div class="d-grid gap-2 mt-3">
+    <button class="btn btn-outline-dark">Shop Men's</button>
+    <button class="btn btn-outline-dark">Shop Women's</button>
+    <button class="btn btn-outline-dark">Shop Socks</button>
+    <button class="btn btn-outline-dark">Shop Men's Sale</button>
+    <button class="btn btn-outline-dark">Shop Women's Sale</button>
+  </div>
+</div>
+
+
