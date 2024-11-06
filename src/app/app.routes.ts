@@ -5,6 +5,7 @@ import { ProductCardComponent } from './Components/product-card/product-card.com
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { MainProductComponent } from './Components/main-product/main-product.component';
 
 export const routes: Routes = [
 
@@ -13,10 +14,11 @@ export const routes: Routes = [
 
   // {path:'main',component:MainComponent,title:"main Page"},
   {path:'home',component:HomeComponent,title:"Home Page"},
-  {path:'home',component:HomeComponent,title:"Home Page"},
+
   {path:'Productcard',component:ProductCardComponent,title:"Productcard Page"},
   {path:"Sidebar",component:SidebarComponent,title:"Sidebar"},
   {path: "register", component: RegisterComponent, title: "Register"},
+  {path: 'collections', component: MainProductComponent, title: 'Collections'},
 
 
 ]},
