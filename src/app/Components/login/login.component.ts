@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms'
 import { CommonModule, JsonPipe } from '@angular/common';
 import { UsernameService } from '../../../services/username.service';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+// import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { SidebarComponent } from "../sidebar/sidebar.component";
 
@@ -17,8 +17,8 @@ import { SidebarComponent } from "../sidebar/sidebar.component";
 })
 export class LoginComponent {
   public forgotPasswordForm: FormGroup;
-  message: string = '';
-  constructor(private _UsernameService :UsernameService,private cook :CookieService,private router :Router,private fb: FormBuilder, private http: HttpClient){
+  message: string = '';//private cook :CookieService,
+  constructor(private _UsernameService: UsernameService, private router: Router, private fb: FormBuilder, private http: HttpClient){
     this.forgotPasswordForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
     });
@@ -35,7 +35,7 @@ export class LoginComponent {
     console.log(this.usernameCheck);
     
    //add cooks
-    this.cook.set("Email",this.usernameCheck.Email);
+    // this.cook.set("Email",this.usernameCheck.Email);
     this._UsernameService.getUserByEmail(this.usernameCheck).subscribe({
       next:(res)=>{
         console.log(res)

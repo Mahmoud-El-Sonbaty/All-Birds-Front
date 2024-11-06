@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 import { ICreateOrderRequest, IPayPalConfig, NgxPayPalModule } from 'ngx-paypal';
 import { environment } from '../../../environments/environment.development';
-import { CartService } from '../../../Services/cart.service';
-import { IOrderMaster } from '../../../Modules/cart';
+import { CartService } from '../../../services/cart.service';
+import { IOrderMaster } from '../../../models/cart';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -281,7 +281,7 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
   }
   //------------------------------------------------------------------------------ Sonbaty ------------------------------------------------------------------------------//
   userCart: IOrderMaster = {} as IOrderMaster;
-  baseImagePath: string = environment.BaseIMageUrl;
+  baseImagePath: string = environment.BaseImagePath;
   private getCart() {
     if(localStorage.getItem("userToken")) {
       // check local cart recent or send request
@@ -302,6 +302,8 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
           },
           error:(err)=>{
             console.log(err);
+            if(localStorage.getItem("cart"))
+              this.userCart = JSON.parse(localStorage.getItem("cart")!);
           }
         })
       }
