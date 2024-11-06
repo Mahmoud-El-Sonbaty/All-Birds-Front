@@ -3,36 +3,35 @@
   height: 100vh;
   width: 0;
 
-  position: fixed;
-  top: 0;
-  right: 0;
-  overflow-x: hidden;
-  transition: width 0.4s ease; /* Transition for smooth opening and closing */
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    transition: width 0.4s ease; /* Transition for smooth opening and closing */
+    z-index: 1000; /* To ensure it's on top */
 
-  /* padding-top: 20px;
-  padding-left: 20px;
-padding-right: 20px; */
+    /* padding-top: 20px;
+    padding-left: 20px;
+  padding-right: 20px; */
 
-  z-index: 1000; /* To ensure it's on top */
-}
-
-/* Open state for sidebar */
-.sidebar.open {
-  /* width: 300px; */
-   /* Sidebar width on larger screens */
-   width: 450px;
-   padding-top: 20px;
-  padding-left: 20px;
-padding-right: 20px;
-
-}
-
-@media (max-width: 768px) {
-  /* Full-screen sidebar on small screens */
+  }
+  /*  */
+  .sidebar1 {
+    width: 300px;
+    max-height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    box-shadow: -3px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1050;
+  }
+  
+/*  */
+  /* Open state for sidebar */
   .sidebar.open {
     width: 100%; /* Full width on small screens */
   }
-}
 
 .close-btn {
   position: absolute;
@@ -43,7 +42,45 @@ padding-right: 20px;
   cursor: pointer;
 top: 3%;
 
-}
+  }
+  
+  .close-btn1 {
+    position: absolute;
+    /* bottom: 10px;
+    right: 15px; */
+    color:black; 
+  
+    cursor: pointer;
+     right: 5%;
+     background-color: white;
+margin-top: 10%; 
+   
+  }
+  .free-shipping {
+    /* color: #333;
+    font-size: 16px;
+    margin-bottom: 15px; */
+    color: rgb(33, 33, 33);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    vertical-align: baseline;
+    line-height: 35px;
+  }
+  
+  /* Sidebar buttons */
+  .sidebar .btn {
+    font-size: 16px;
+    padding: 10px 0;
+    margin: 10px 0;
+    
+  }
+  
+  .sidebar .btn:hover {
+    background-color: #333;
+    color: #fff;
+  }
+ .progres{
 
 .free-shipping {
   /* color: #333;
@@ -57,24 +94,6 @@ top: 3%;
   line-height: 35px;
 }
 
-/* Sidebar buttons */
-.sidebar .btn {
-  font-size: 16px;
-  padding: 10px 0;
-  margin: 10px 0;
-
-}
-
-.sidebar .btn:hover {
-  background-color: #333;
-  color: #fff;
-}
-.progres{
-
-  display: block;
-  position: relative;
-  background-color: rgb(238, 206, 206);
-  height: 8px;
-
-}
-/*  background-color: rgb(245, 245, 245); */
+ }
+ /*  background-color: rgb(245, 245, 245); */
+ /* / */
