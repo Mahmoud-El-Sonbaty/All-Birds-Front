@@ -13,3 +13,8 @@ export interface ApiresponseCategory{
   msg: string;
   isSuccess: boolean;
 }
+export interface ApiresponseCat{
+  data: Icategory;
+  msg: string;
+  isSuccess: boolean;
+}

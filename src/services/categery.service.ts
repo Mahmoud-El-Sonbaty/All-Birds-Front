@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ApiresponseCategory } from '../models/category';
+import { map, Observable } from 'rxjs';
+import {  ApiresponseCat, Icategory } from '../models/category';//Apiresponse,
 import { environment } from '../environments/environment.development';
 
 @Injectable({
@@ -23,5 +24,10 @@ getAllCategory():Observable<ApiresponseCategory>{
 //   })
 
 // }
+getCategorysByParentId(categoryId: number):Observable<ApiresponseCat>
+{
+  return this.httpclient.get<ApiresponseCat>(`${environment.BaseUrl}/Category/${categoryId}`);
+
+}
 
 }

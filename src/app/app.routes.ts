@@ -14,8 +14,10 @@ export const routes: Routes = [
     {path:'home',component:HomeComponent,title:"Home Page"},
     {path: "register", component: RegisterComponent, title: "Register"},
     {path: 'home', component: HomeComponent, title: "Home"},
-    {path: 'collections', component: MainProductComponent, title: 'Collections'},
-    {path:"Sidebar",component:SidebarComponent,title:"Sidebar"}
+    // {path: 'collections', component: MainProductComponent, title: 'Collections'},
+    {path:"Sidebar",component:SidebarComponent,title:"Sidebar"},
+    {path: 'collections', component: MainProductComponent , title : 'Product Page' },
+    {path: 'ProductCategory/:id', component : MainProductComponent , title : 'Product Page' }
   ]},
   {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},
   //{path:"home",canActivate:[authoGuard],component:HomeComponent,title:"home"},
