@@ -6,12 +6,14 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { MainProductComponent } from './Components/main-product/main-product.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
+import { LoginComponent } from './Components/login/login.component';
 
 export const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomeComponent,title:"Home Page"},
     {path: "register", component: RegisterComponent, title: "Register"},
+    {path: "login", component: LoginComponent, title: "Register"},
     {path: 'home', component: HomeComponent, title: "Home"},
     {path: 'collections', component: MainProductComponent, title: 'Collections'},
     {path:"Sidebar",component:SidebarComponent,title:"Sidebar"}

@@ -1,10 +1,10 @@
 
 <div  *ngIf="!showResetPasswordFormbool">
-  <h3 >LOGIN</h3>
+  <h3 >{{'login.login'|translate}}</h3>
   <form  (ngSubmit)="check()"  #myform1="ngForm">
 
     <div class="form-group mb-3">
-      <label for="email">Email</label>
+      <label for="email">{{'login.email'|translate}}</label>
       <input
       name="email"
       #EmaillogInp="ngModel"
@@ -12,7 +12,7 @@
       [(ngModel)]="usernameCheck.Email" type="email" id="email" class="form-control shadow-none" />
       @if(EmaillogInp.invalid&&EmaillogInp.touched){
   @if (EmaillogInp.hasError("required")) {
-    <div class="text-danger">Email is required</div>
+    <div class="text-danger">{{'login.EmailRequired'|translate}}</div>
   }
 
 
@@ -20,11 +20,11 @@
       @else if (!isEmailValid()&&EmaillogInp.touched) {
 
 
-  <div class="text-danger">Email must contain &#64;</div>
+  <div class="text-danger">{{'login.mustContain'|translate}} &#64;</div>
       }
       </div>
       <div class="form-group mb-3">
-        <label for="password">Password</label>
+        <label for="password">{{'login.password'|translate}}</label>
         <input
         required
         minlength="6"
@@ -33,21 +33,22 @@
         #passwordlogInp="ngModel"
         [(ngModel)]="usernameCheck.Password" type="password" id="password" class="form-control shadow-none" />
         @if( passwordlogInp.invalid &&passwordlogInp.touched){
-          @if(passwordlogInp.hasError("required")){<div class="text-danger"> Password is required </div>}
-          @if(passwordlogInp.hasError("minlength")){<div class="text-danger">minlength less then  6 </div>
+          @if(passwordlogInp.hasError("required")){<div class="text-danger">{{'login.PasswordRequired'|translate}}</div>}
+          @if(passwordlogInp.hasError("minlength")){<div class="text-danger">{{'login.Minlength'|translate}} </div>
           }
               }
           @else if(!ispasswordvaild()&&passwordlogInp.touched){
 
-            <div class="text-danger">password must contain at least one number </div>
+            <div class="text-danger">{{'login.passwordLeast'|translate}} </div>
               }
 
       </div>
 
-    <button type="submit" [disabled]="myform1.invalid||isCanLogin()" class="btn btn-dark btn-lg w-100">Sign In</button>
+    <button type="submit" [disabled]="myform1.invalid||isCanLogin()" class="btn btn-dark btn-lg w-100">{{'login.login'|translate}}</button>
 
     <div style="display: flex; justify-content: center;" >
-    <a > <button    type="button"  (click)="showResetPasswordForm()">Forgot Password</button> </a>
+
+    <a > <button    type="button"  (click)="showResetPasswordForm()">{{'login.forgetPassword'|translate}}</button> </a>
     </div>
   </form>
 
@@ -58,12 +59,13 @@
 <div  *ngIf="showResetPasswordFormbool">
 
         <div id="resetPasswordForm" class="form-group mb-3" >
-          <h3>Reset Your Password</h3>
-          <p>We will send you an email to reset your password.</p>
+
+          <h3>{{'login.resetPassword'|translate}}</h3>
+          <p>{{'login.emailBackToReset'|translate}}</p>
           <form (ngSubmit)="onSubmit()" #myform2="ngForm">
 
             <div class="form-group mb-3">
-              <label for="email">Email</label>
+              <label for="email">{{'login.email'|translate}}</label>
               <input
               name="email"
               #EmailforgetInp="ngModel"
@@ -71,7 +73,7 @@
               [(ngModel)]="usernameCheck.Email" type="email" id="email" class="form-control shadow-none" />
               @if(EmailforgetInp.invalid&&EmailforgetInp.touched){
           @if (EmailforgetInp.hasError("required")) {
-            <div class="text-danger">Email is required</div>
+            <div class="text-danger">{{'login.EmailRequired'|translate}}</div>
           }
 
 
@@ -79,11 +81,12 @@
               @else if (!isEmailValid()&&EmailforgetInp.touched) {
 
 
-          <div class="text-danger">Email must contain &#64;</div>
+          <div class="text-danger">{{'login.emailMustContain'|translate}}&#64;</div>
               }
               </div>
-            <button  id="Submitforget" type="submit" class="btn btn-dark btn-lg w-30" [disabled]="myform2.invalid||!isEmailValid()" >Submit</button><br>
-            <button type="button" style="color: black;" class="btn btn-link"  (click)="hideResetPasswordForm()">Cancel</button><br>
+
+            <button  id="Submitforget" type="submit" class="btn btn-dark btn-lg w-30" [disabled]="myform2.invalid||!isEmailValid()" >{{'login.submit'|translate}}</button><br>
+            <button type="button" style="color: black;" class="btn btn-link"  (click)="hideResetPasswordForm()">{{'login.Cancel'|translate}}</button><br>
           </form>
         </div>
 
