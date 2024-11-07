@@ -3,15 +3,16 @@
 <!-- Sidebar Container -->
 <div class="sidebar bg-light shadow-lg" [ngClass]="{'open': isOpen}">
   <button class="close-btn" (click)="toggleSidebar()">&times;</button>
-  <p  class="free-shipping text-center text-muted">You're $75 away from free shipping!</p>
+  <p  class="free-shipping text-center text-muted">{{'sidebar.freeShipping'|translate}}</p>
   <div class="progres"></div><br>
-  <h5 class="text-center">Your Cart is Empty</h5>
+  <h5 class="text-center">{{'sidebar.cartEmpty'|translate}}</h5>
   <div class="d-grid gap-2 mt-3">
-    <button class="btn btn-outline-dark">Shop Men's</button>
-    <button class="btn btn-outline-dark">Shop Women's</button>
-    <button class="btn btn-outline-dark">Shop Socks</button>
-    <button class="btn btn-outline-dark">Shop Men's Sale</button>
-    <button class="btn btn-outline-dark">Shop Women's Sale</button>
+    <button class="btn btn-outline-dark">{{'sidebar.cartEmpty'|translate}}</button>
+    <button class="btn btn-outline-dark">{{'sidebar.shopMens'|translate}}</button>
+    <button class="btn btn-outline-dark">{{'sidebar.shopWomens'|translate}}</button>
+    <button class="btn btn-outline-dark">{{'sidebar.shopSocks'|translate}}</button>
+    <button class="btn btn-outline-dark">{{'sidebar.shopMensSale'|translate}}</button>
+    <button class="btn btn-outline-dark">{{'sidebar.shopWomensSale'|translate}}</button>
   </div>
 </div>
 

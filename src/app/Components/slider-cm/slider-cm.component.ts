@@ -6,14 +6,13 @@ import { environment } from '../../../environments/environment.development';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { SharedModule } from '../../../shared/shared.module';
 
 declare var $: any;
 
 @Component({
   selector: 'app-slider-cm',
   standalone: true,
-  imports: [CommonModule,CarouselModule,SharedModule],
+  imports: [CommonModule,CarouselModule],
   templateUrl: './slider-cm.component.html',
   styleUrl: './slider-cm.component.css'
 })

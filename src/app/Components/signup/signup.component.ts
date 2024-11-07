@@ -5,12 +5,11 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
-import { SharedModule } from '../../../shared/shared.module';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule,JsonPipe,SharedModule],
+  imports: [FormsModule,JsonPipe],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })

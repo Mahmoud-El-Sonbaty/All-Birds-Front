@@ -1,132 +1,114 @@
 {
-  "navBar":{
+  "navBar": {
+    "Account":"Account",
+    "sustainability":"Sustainability",
+    "rerun":"rerun",
+    "stores":"stores",
+    "help":"help",
+    "search":"search"
 
-   },
-   "signUp":{
-
-  },
-  "checkOut":{
-
-  },
-  "sideBar":{
 
   },
-  "home":{
-
+  "signUp": {
   },
-  "register":{
-
+  "checkOut": {
   },
-  "product-card":{
-
+  "sidebar": {
+    "freeShipping": "You're $75 away from free shipping!",
+    "cartEmpty": "Your Cart is Empty",
+    "shopMens": "Shop Men's",
+    "shopWomens": "Shop Women's",
+    "shopSocks": "Shop Socks",
+    "shopMensSale": "Shop Men's Sale",
+    "shopWomensSale": "Shop Women's Sale"
   },
-  "Main-product":{
-
+  "home": {
   },
-  "error":{
-
+  "register": {
   },
-
+  "product-card": {
+  },
+  "Main-product": {
+  },
+  "error": {
+  },
   "footer": {
-      "footerWhite": {
-        "title": "The Allbirds Approach",
-        "sections": [
-          {
-            "title": "Wear-All-Day Comfort",
-            "description": "Lightweight, bouncy, and wildly comfortable, Allbirds shoes make any outing feel effortless. Slip in, lace up, or slide them on and enjoy the comfy support.",
-            "link": "Learn More"
-          },
-          {
-            "title": "Sustainability In Every Step",
-            "description": "From materials to transport, we’re working to reduce our carbon footprint to near zero. Holding ourselves accountable and striving for climate goals isn’t a 30-year goal—it’s now.",
-            "link": "Learn More"
-          },
-          {
-            "title": "Materials From The Earth",
-            "description": "We replace petroleum-based synthetics with natural alternatives wherever we can. Like using wool, tree fiber, and sugar cane. They’re soft, breathable, and better for the planet—win, win, win.",
-            "link": "Learn More"
-          }
-        ]
-      },
-      "footerBlack": {
-        "sections": [
-          {
-            "title": "Help",
-            "links": [
-              { "text": "Chat with us!" },
-              { "text": "1-888-963-8944" },
-              { "text": "1-814-251-9966 (Text)" },
-              { "text": "help@allbirds.com" },
-              { "text": "Returns/Exchanges" },
-              { "text": "FAQ/Contact Us" },
-              { "text": "Afterpay" }
-            ]
-          },
-          {
-            "title": "Shop",
-            "links": [
-              { "text": "Men's Shoes" },
-              { "text": "Women's Shoes" },
-              { "text": "Men's Apparel" },
-              { "text": "Women's Apparel" },
-              { "text": "Socks" },
-              { "text": "Gift cards" },
-              { "text": "Refer a friend" }
-            ]
-          },
-          {
-            "title": "Company",
-            "links": [
-              { "text": "Our Story" },
-              { "text": "Our Materials" },
-              { "text": "Sustainability" },
-              { "text": "Investors" },
-              { "text": "Shoe Care" },
-              { "text": "Affiliates" },
-              { "text": "Bulk Orders" },
-              { "text": "Careers" },
-              { "text": "Press" },
-              { "text": "Allbirds Responsible Disclosure Program" },
-              { "text": "California Transparency Act" },
-              { "text": "Community Offers" },
-              { "text": "Our Blog - The Perch" }
-            ]
-          }
-        ],
-        "social_media": {
-          "title": "Follow the flock",
-          "icons": [
-            { "platform": "Instagram" },
-            { "platform": "Facebook" },
-            { "platform": "Twitter" },
-            { "platform": "YouTube" },
-            { "platform": "Pinterest" }
-          ]
+    "footerWhite": {
+      "title": "The Allbirds Approach",
+      "sections": {
+        "wearAllDayComfort": {
+          "title": "Wear-All-Day Comfort",
+          "description": "Lightweight, bouncy, and wildly comfortable, Allbirds shoes make any outing feel effortless. Slip in, lace up, or slide them on and enjoy the comfy support.",
+          "link": "Learn More"
         },
-        "footer_flags": [
-          { "country": "US", "image_url": "https://flagpedia.net/data/flags/h80/us.png" },
-          { "country": "Egypt", "image_url": "https://flagcdn.com/w2560/eg.png" },
-          { "country": "Canada", "image_url": "https://flagpedia.net/data/flags/h80/ca.png" },
-          { "country": "Australia", "image_url": "https://flagpedia.net/data/flags/h80/au.png" },
-          { "country": "UK", "image_url": "https://flagpedia.net/data/flags/h80/gb.png" },
-          { "country": "Brazil", "image_url": "https://flagcdn.com/w2560/br.png" },
-          { "country": "South Korea", "image_url": "https://flagcdn.com/w2560/kr.png" },
-          { "country": "Portugal", "image_url": "https://flagcdn.com/w2560/pt.png" }
-        ],
-        "footer_bottom": {
-          "text": "© 2024 Allbirds, Inc. All Rights Reserved.",
-          "links": [
-            { "text": "Terms" },
-            { "text": "Privacy & Accessibility" }
-          ]
+        "sustainabilityInEveryStep": {
+          "title": "Sustainability In Every Step",
+          "description": "From materials to transport, we’re working to reduce our carbon footprint to near zero. Holding ourselves accountable and striving for climate goals isn’t a 30-year goal—it’s now.",
+          "link": "Learn More"
+        },
+        "materialsFromTheEarth": {
+          "title": "Materials From The Earth",
+          "description": "We replace petroleum-based synthetics with natural alternatives wherever we can. Like using wool, tree fiber, and sugar cane. They’re soft, breathable, and better for the planet—win, win, win.",
+          "link": "Learn More"
+        }
+      }
+    },
+    "footerBlack": {
+      "sections": {
+        "help": {
+          "title": "Help",
+          "links": {
+            "chatWithUs": "Chat with us!",
+            "phone1": "1-888-963-8944",
+            "phone2": "1-814-251-9966 (Text)",
+            "email": "help@allbirds.com",
+            "returnsExchanges": "Returns/Exchanges",
+            "faqContactUs": "FAQ/Contact Us",
+            "afterpay": "Afterpay"
+          }
+        },
+        "shop": {
+          "title": "Shop",
+          "links": {
+            "mensShoes": "Men's Shoes",
+            "womensShoes": "Women's Shoes",
+            "mensApparel": "Men's Apparel",
+            "womensApparel": "Women's Apparel",
+            "socks": "Socks",
+            "giftCards": "Gift cards",
+            "referAFriend": "Refer a friend"
+          }
+        },
+        "company": {
+          "title": "Company",
+          "links": {
+            "ourStory": "Our Story",
+            "ourMaterials": "Our Materials",
+            "sustainability": "Sustainability",
+            "investors": "Investors",
+            "shoeCare": "Shoe Care",
+            "affiliates": "Affiliates",
+            "bulkOrders": "Bulk Orders",
+            "careers": "Careers",
+            "press": "Press",
+            "responsibleDisclosure": "Allbirds Responsible Disclosure Program",
+            "californiaTransparencyAct": "California Transparency Act",
+            "communityOffers": "Community Offers",
+            "ourBlog": "Our Blog - The Perch"
+          }
+        }
+      },
+      "social_media": {
+        "title": "Follow the flock"
+
+      },
+      "footer_bottom": {
+        "text": "© 2024 Allbirds, Inc. All Rights Reserved.",
+        "links": {
+          "terms": "Terms",
+          "privacyAndAccessibility": "Privacy & Accessibility"
         }
       }
     }
-
-
-
-  ,
-  "General":{
-
   }
 }

@@ -6,12 +6,11 @@ import { Subscription } from 'rxjs';
 import { Iproduct } from '../../../Modules/Product';
 import { error } from 'jquery';
 import { environment } from '../../../environments/environment.development';
-import { SharedModule } from '../../../shared/shared.module';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,SliderCmComponent,SharedModule],
+  imports: [CommonModule,SliderCmComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

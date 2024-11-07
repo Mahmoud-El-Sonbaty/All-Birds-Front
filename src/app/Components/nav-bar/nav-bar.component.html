@@ -86,13 +86,13 @@
         }
 
         <li class="nav-item nav-link level0">
-          <p class="ms-3 mt-3  d-inline-block ">Account</p>
+          <p class="ms-3 mt-3  d-inline-block ">{{'navBar.Account'|translate}}</p>
           <hr>
 
         </li>
 
         <li class="nav-item nav-link level0">
-          <p class="ms-3 mt-3  d-inline-block ">Help</p>
+          <p class="ms-3 mt-3  d-inline-block ">{{'navBar.help'|translate}}</p>
           <hr>
 
         </li>
@@ -185,86 +185,20 @@
         }
 
 
-        <!-- <li class="nav-item">
-          <a class="nav-link dropdown-toggle" href="#" id="womenDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Women</a>
-          <div class="dropdown-menu" aria-labelledby="womenDropdown">
-            <div class="row fade-in">
-              <div class="col-lg-2 col-md-12">
-                <h6>Shoes</h6>
-                <a class="dropdown-item" href="#">Everyday Sneakers</a>
-                <a class="dropdown-item" href="#">Active Shoes</a>
-                <a class="dropdown-item" href="#">Water-Repellent Sneakers</a>
-                <a class="dropdown-item" href="#">Slip-Ons</a>
-                <a class="dropdown-item" href="#">High Tops</a>
-                <a class="dropdown-item" href="#">Hiking</a>
-                <a class="dropdown-item" href="#">Sale</a>
-                <a class="dropdown-item" href="#">Shop All</a>
-              </div>
-              <div class="col-lg-2 col-md-12">
-                <h6>Bestsellers</h6>
-                <a class="dropdown-item" href="#">Tree Runner</a>
-                <a class="dropdown-item" href="#">Wool Runner</a>
-                <a class="dropdown-item" href="#">Wool Runner Go</a>
-                <a class="dropdown-item" href="#">Tree Runner Go</a>
-                <a class="dropdown-item" href="#">Tree Glider</a>
-                <a class="dropdown-item" href="#">Wool Runner Mizzle</a>
-                <a class="dropdown-item" href="#">Tree Dasher 2</a>
-                <a class="dropdown-item" href="#">Wool Dasher Mizzle</a>
-                <a class="dropdown-item" href="#">Shop All</a>
-              </div>
-              <div class="col-lg-2 col-md-12">
-                <h6>Apparel & More</h6>
-                <a class="dropdown-item" href="#">Socks</a>
-                <a class="dropdown-item" href="#">Tees</a>
-                <a class="dropdown-item" href="#">Underwear</a>
-                <a class="dropdown-item" href="#">Hats</a>
-                <a class="dropdown-item" href="#">Insoles</a>
-                <a class="dropdown-item" href="#">Lace Kits</a>
-                <a class="dropdown-item" href="#">Gift Cards</a>
-                <a class="dropdown-item" href="#">Sale</a>
-              </div>
-              <div class="col-lg-6 col-md-12 ">
-                <h6>Featured</h6>
-                <div class="row">
-                  <div class="col-md-12 m-2 ">
-                    <div class="featured-image">
-                      <img src="https://placehold.co/100x30" alt="Shop Women's Sale">
-                      <div class="text">Shop Women's Sale</div>
-                    </div>
-                  </div>
-                  <div class=" col-md-12 m-2">
-                    <div class="featured-image">
-                      <img src="https://placehold.co/100x30" alt="Ultra-Soft Wool Sneaks">
-                      <div class="text">Ultra-Soft Wool Sneaks</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li> -->
-      </ul>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Socks</a>
-        </li> -->
+    </ul>
+
       </ul>
 
       <ul class="navbar-nav text-dark">
         <li class="nav-item ">
-          <a class="nav-link text-dark d-none d-xxl-block " href="#">Sustainability</a>
+          <a class="nav-link text-dark d-none d-xxl-block " href="#">{{'navBar.sustainability'|translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="#">Rerun</a>
+          <a class="nav-link text-dark" href="#">{{'navBar.rerun'|translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="#">Stores</a>
+          <a class="nav-link text-dark" href="#">{{'navBar.stores'|translate}}</a>
         </li>
-        <!-- <li class="nav-item d-xl-none">
-          <a class="nav-link text-dark" href="#">Account</a>
-        </li>
-        <li class="nav-item d-xl-none">
-          <a class="nav-link text-dark" href="#">Help</a>
-        </li> -->
       </ul>
 
     </div>
@@ -302,9 +236,9 @@
 
   </div>
 
-  <div class="search-container d-flex justify-content-start align-items-center d-xl-none m-2 p-2">
+  <div class="search-container d-flex justify-content-start align-items-center d-xl-none m-2 p-2 ">
     <a class="nav-link" href="#"><i class="fas fa-search text-dark"></i></a>
-    <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="width: 300px; margin-left: 10px;">
+    <input class="form-control" type="search" [placeholder]="'navBar.search'|translate" aria-label="Search" style=" margin-left: 10px;">
   </div>
 </nav>
 

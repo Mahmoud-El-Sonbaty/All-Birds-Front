@@ -220,4 +220,19 @@ body {
 .collapse-header {
   cursor: pointer;
 }
+.collapse {
+  max-height: 12rem;
+  overflow-y: auto;  /* Enable vertical scrolling */
+}
 
+/* Optional: Set max height to prevent items from pushing other content out */
+.navbar-collapse {
+  max-height: 72vh;
+  overflow-y: auto;
+}
+.search-container{
+  width: 100%;
+}
+.search-container .form-control{
+  width: 100%;
+}

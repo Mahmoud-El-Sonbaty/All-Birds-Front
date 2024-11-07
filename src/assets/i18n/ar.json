@@ -1,129 +1,114 @@
 {
-  "navBar":{
+  "navBar": {
+    "Account":"الحساب",
+    "sustainability":"الاستدامة",
+    "rerun":"التدوير",
+    "stores":"متاجرنا",
+    "help":"مساعدة",
+    "search":"بحث"
 
-   },
-   "signUp":{
-
-  },
-  "checkOut":{
-
-  },
-  "sideBar":{
 
   },
-  "home":{
-
+  "signUp": {
   },
-  "register":{
-
+  "checkOut": {
   },
-  "product-card":{
-
+  "sidebar": {
+    "freeShipping": "أنت على بعد 75 دولارًا من الشحن المجاني!",
+    "cartEmpty": "عربة التسوق الخاصة بك فارغة",
+    "shopMens": "تسوق للرجال",
+    "shopWomens": "تسوق للنساء",
+    "shopSocks": "تسوق الجوارب",
+    "shopMensSale": "تسوق تخفيضات الرجال",
+    "shopWomensSale": "تسوق تخفيضات النساء"
   },
-  "Main-product":{
-
+  "home": {
   },
-  "error":{
-
+  "register": {
   },
-
-    "footer": {
-      "footerWhite": {
-        "title": "نهج Allbirds",
-        "sections": [
-          {
-            "title": "راحة طوال اليوم",
-            "description": "خفيفة الوزن، مرنة، ومريحة بشكل لا يصدق، أحذية Allbirds تجعل أي نشاط يبدو سهلاً. ارتدِها بسهولة وتمتع بالدعم المريح.",
-            "link": "تعرف على المزيد"
-          },
-          {
-            "title": "الاستدامة في كل خطوة",
-            "description": "من المواد إلى النقل، نعمل على تقليل بصمتنا الكربونية إلى ما يقرب من الصفر. مساءلتنا وهدفنا المناخي ليس هدفًا لثلاثين سنة—إنه الآن.",
-            "link": "تعرف على المزيد"
-          },
-          {
-            "title": "مواد من الطبيعة",
-            "description": "نستبدل المواد التركيبية المعتمدة على البترول ببدائل طبيعية حيثما أمكن. مثل استخدام الصوف، ألياف الشجر، وقصب السكر. إنها ناعمة، قابلة للتنفس، وأكثر صداقة للبيئة—فوز وفوز وفوز.",
-            "link": "تعرف على المزيد"
-          }
-        ]
-      },
-      "footerBlack": {
-        "sections": [
-          {
-            "title": "المساعدة",
-            "links": [
-              { "text": "تحدث معنا!" },
-              { "text": "1-888-963-8944" },
-              { "text": "1-814-251-9966 (نص)" },
-              { "text": "help@allbirds.com" },
-              { "text": "الإرجاع/التبديل" },
-              { "text": "الأسئلة الشائعة/تواصل معنا" },
-              { "text": "Afterpay" }
-            ]
-          },
-          {
-            "title": "التسوق",
-            "links": [
-              { "text": "أحذية الرجال" },
-              { "text": "أحذية النساء" },
-              { "text": "ملابس الرجال" },
-              { "text": "ملابس النساء" },
-              { "text": "جوارب" },
-              { "text": "بطاقات الهدايا" },
-              { "text": "أحِل صديقًا" }
-            ]
-          },
-          {
-            "title": "الشركة",
-            "links": [
-              { "text": "قصتنا" },
-              { "text": "موادنا" },
-              { "text": "الاستدامة" },
-              { "text": "المستثمرين" },
-              { "text": "العناية بالأحذية" },
-              { "text": "التسويق بالعمولة" },
-              { "text": "الطلبات الكبيرة" },
-              { "text": "الوظائف" },
-              { "text": "الإعلام" },
-              { "text": "برنامج الكشف المسؤول من Allbirds" },
-              { "text": "قانون الشفافية في كاليفورنيا" },
-              { "text": "عروض المجتمع" },
-              { "text": "مدونتنا - The Perch" }
-            ]
-          }
-        ],
-        "social_media": {
-          "title": "تابع القطيع",
-          "icons": [
-            { "platform": "إنستغرام" },
-            { "platform": "فيسبوك" },
-            { "platform": "تويتر" },
-            { "platform": "يوتيوب" },
-            { "platform": "بينترست" }
-          ]
+  "product-card": {
+  },
+  "Main-product": {
+  },
+  "error": {
+  },
+  "footer": {
+    "footerWhite": {
+      "title": "نهج Allbirds",
+      "sections": {
+        "wearAllDayComfort": {
+          "title": "راحة طوال اليوم",
+          "description": "خفيفة الوزن، مرنة، ومريحة بشكل غير عادي، تجعل أحذية Allbirds أي رحلة تبدو سهلة. ادخل، اربط الحذاء، أو انزلق فيه واستمتع بالدعم المريح.",
+          "link": "تعرف على المزيد"
         },
-        "footer_flags": [
-          { "country": "الولايات المتحدة", "image_url": "https://flagpedia.net/data/flags/h80/us.png" },
-          { "country": "مصر", "image_url": "https://flagcdn.com/w2560/eg.png" },
-          { "country": "كندا", "image_url": "https://flagpedia.net/data/flags/h80/ca.png" },
-          { "country": "أستراليا", "image_url": "https://flagpedia.net/data/flags/h80/au.png" },
-          { "country": "المملكة المتحدة", "image_url": "https://flagpedia.net/data/flags/h80/gb.png" },
-          { "country": "البرازيل", "image_url": "https://flagcdn.com/w2560/br.png" },
-          { "country": "كوريا الجنوبية", "image_url": "https://flagcdn.com/w2560/kr.png" },
-          { "country": "البرتغال", "image_url": "https://flagcdn.com/w2560/pt.png" }
-        ],
-        "footer_bottom": {
-          "text": "© 2024 شركة Allbirds، جميع الحقوق محفوظة.",
-          "links": [
-            { "text": "الشروط" },
-            { "text": "الخصوصية وإمكانية الوصول" }
-          ]
+        "sustainabilityInEveryStep": {
+          "title": "الاستدامة في كل خطوة",
+          "description": "من المواد إلى وسائل النقل، نعمل على تقليل بصمتنا الكربونية إلى صفر تقريبًا. نحن نتحمل المسؤولية ونسعى لتحقيق أهداف المناخ الآن، وليس بعد 30 عامًا.",
+          "link": "تعرف على المزيد"
+        },
+        "materialsFromTheEarth": {
+          "title": "المواد من الأرض",
+          "description": "نستبدل المواد الاصطناعية المعتمدة على البترول بالبدائل الطبيعية كلما أمكن. مثل استخدام الصوف، وألياف الأشجار، وقصب السكر. إنها ناعمة وقابلة للتنفس وأفضل لكوكب الأرض - فوز، فوز، فوز.",
+          "link": "تعرف على المزيد"
+        }
+      }
+    },
+    "footerBlack": {
+      "sections": {
+        "help": {
+          "title": "مساعدة",
+          "links": {
+            "chatWithUs": "تحدث معنا!",
+            "phone1": "1-888-963-8944",
+            "phone2": "1-814-251-9966 (رسائل نصية)",
+            "email": "help@allbirds.com",
+            "returnsExchanges": "الإرجاع / الاستبدال",
+            "faqContactUs": "الأسئلة الشائعة / اتصل بنا",
+            "afterpay": "بعد الدفع"
+          }
+        },
+        "shop": {
+          "title": "تسوق",
+          "links": {
+            "mensShoes": "أحذية الرجال",
+            "womensShoes": "أحذية النساء",
+            "mensApparel": "ملابس الرجال",
+            "womensApparel": "ملابس النساء",
+            "socks": "جوارب",
+            "giftCards": "بطاقات الهدايا",
+            "referAFriend": "أرسل لصديق"
+          }
+        },
+        "company": {
+          "title": "الشركة",
+          "links": {
+            "ourStory": "قصتنا",
+            "ourMaterials": "موادنا",
+            "sustainability": "الاستدامة",
+            "investors": "المستثمرين",
+            "shoeCare": "العناية بالأحذية",
+            "affiliates": "المنتسبين",
+            "bulkOrders": "الطلبيات بالجملة",
+            "careers": "فرص العمل",
+            "press": "الصحافة",
+            "responsibleDisclosure": "برنامج الكشف المسؤول لـ Allbirds",
+            "californiaTransparencyAct": "قانون الشفافية في كاليفورنيا",
+            "communityOffers": "عروض المجتمع",
+            "ourBlog": "مدونتنا - The Perch"
+          }
+        }
+      },
+      "social_media": {
+        "title": "تابعنا "
+
+      },
+      "footer_bottom": {
+        "text": "© 2024 Allbirds، Inc. جميع الحقوق محفوظة.",
+        "links": {
+          "terms": "الشروط",
+          "privacyAndAccessibility": "الخصوصية والوصول"
         }
       }
     }
-  ,
-  "General":{
-
   }
 }

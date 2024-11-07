@@ -7,12 +7,11 @@ import { UsernameCheck } from '../../../Modules/username-check';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { SharedModule } from '../../../shared/shared.module';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [JsonPipe,FormsModule,CommonModule,SidebarComponent,SharedModule],
+  imports: [JsonPipe,FormsModule,CommonModule,SidebarComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

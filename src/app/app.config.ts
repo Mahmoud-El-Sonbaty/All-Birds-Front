@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 export const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: HttpClient) =>
@@ -11,7 +11,7 @@ import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }),  provideRouter(routes,withComponentInputBinding()),
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }),  provideRouter(routes,withComponentInputBinding(), withViewTransitions()),
     provideAnimationsAsync(),
     provideHttpClient(withFetch()),
     importProvidersFrom([TranslateModule.forRoot({
@@ -22,7 +22,8 @@ export const appConfig: ApplicationConfig = {
         useFactory: httpLoaderFactory,
         deps: [HttpClient],
       },
-    })])
+    })]),
+
 
   ]
 };
