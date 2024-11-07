@@ -16,35 +16,40 @@
     <div class="col-md-6 mb-4 ps-5 pe-5">
       <!-- Contact Section -->
       <div class="d-flex justify-content-between mt-4">
-        <h4>Contact</h4>
-        <a routerLink="Register" class="text-right text-dark">Login</a>
+        <h4>{{ 'checkOut.Contact' | translate }}        </h4>
+        <a routerLink="Register" class="text-right text-dark">{{ 'checkOut.Login' | translate }}        </a>
       </div>
       <form [formGroup]="checkoutForm" (ngSubmit)="submitForm()" autocomplete="off">
         <div class="form-group">
           <div class="floating-label">
             <input #input type="email" class="form-control shadow-none" placeholder="" required formControlName="email">
-            <label for="input">Email</label>
+            <label for="input">{{ 'checkOut.Email' | translate }}
+            </label>
           </div>
           <p *ngIf="checkoutForm.get('email')?.touched && checkoutForm.get('email')?.invalid" class="text-danger">
-            Enter a valid email address
+            {{ 'checkOut.email_invalid' | translate }}
           </p>
         </div>
         <div class="form-check">
           <input type="checkbox" class="form-check-input custom-checkbox-black shadow-none rounded-0" id="emailOffers" required>
-          <label class="form-check-label " for="emailOffers">Email me with news and offers</label>
+          <label class="form-check-label " for="emailOffers">{{ 'checkOut.EmailMe' | translate }}
+          </label>
         </div>
         <!-- Delivery Section -->
-        <h4 class="mt-4">Delivery</h4>
+        <h4 class="mt-4">{{ 'checkOut.Delivery' | translate }}
+        </h4>
         <div class="form-group">
           <div class="input">
             <div class="floating-label">
               <select #input class="form-control shadow-none" required>
                 <option value="" disabled selected hidden></option>
-                <option>Country/Region</option>
-                <option>Egypt</option>
+                <option>{{ 'checkOut.Region' | translate }}
+                </option>
+                <option>{{ 'checkOut.Egypt' | translate }}
+                </option>
                 <!-- Add more countries as needed -->
               </select>
-              <label for="input">Country/Region</label>
+              <label for="input">{{ 'checkOut.Region' | translate }}</label>
             </div>
             <i class="fas fa-chevron-down custom-select-icon" style="margin-left: 520px;"></i>
           </div>
@@ -53,27 +58,30 @@
           <div class="col ">
             <div class="floating-label">
               <input #input type="text" class="form-control shadow-none" placeholder="" name="firstName" required formControlName="firstName">
-              <label for="input">First name</label>
+              <label for="input">{{ 'checkOut.First_name' | translate }}
+              </label>
             </div>
             <p *ngIf="checkoutForm.get('firstName')?.touched && checkoutForm.get('firstName')?.invalid" class="text-danger">
-              Enter a first name
+              {{ 'checkOut.Enter_First_name' | translate }}
             </p>
           </div>
           <div class="col">
             <div class="floating-label">
               <input #input type="text" class="form-control shadow-none" placeholder="" required formControlName="lastName">
-              <label for="input">Last name</label>
+              <label for="input">{{ 'checkOut.Last_name' | translate }}
+              </label>
             </div>
             <p *ngIf="checkoutForm.get('lastName')?.touched && checkoutForm.get('lastName')?.invalid" class="text-danger">
-              Enter a last name
-            </p>
+              {{ 'checkOut.Enter_Last_name' | translate }}
+s            </p>
           </div>
         </div>
         <div class="form-group">
           <div class="input">
             <div class="floating-label">
               <input #input type="text" class="form-control shadow-none" placeholder="">
-              <label for="floating-label">Company (required for business addresses)</label>
+              <label for="floating-label">{{ 'checkOut.Company' | translate }}
+              </label>
             </div>
           </div>
         </div>
@@ -81,11 +89,12 @@
           <div class="input">
             <div class="floating-label">
               <input #input type="text" class="form-control shadow-none" placeholder=" " required formControlName="address">
-              <label for="input">Address</label>
+              <label for="input">{{ 'checkOut.Address' | translate }}
+            </label>
             </div>
             <i class="fas fa-search custom-select-icon text-secondary" style="margin-left: 520px;"></i>
             <p *ngIf="checkoutForm.get('address')?.touched && checkoutForm.get('address')?.invalid" class="text-danger">
-              Enter an address
+              {{ 'checkOut.Enter_Address' | translate }}
             </p>
           </div>
         </div>
@@ -93,7 +102,8 @@
           <div class="input">
             <div class="floating-label">
               <input #input type="text" class="form-control shadow-none" placeholder="" formControlName="address">
-              <label for="input">Apartment, suite, etc. (optional)</label>
+              <label for="input">{{ 'checkOut.Enter_Apartment' | translate }}
+              </label>
             </div>
           </div>
         </div>
@@ -101,21 +111,24 @@
           <div class="col">
             <div class="floating-label">
               <input #input type="text" class="form-control shadow-none" placeholder="" required formControlName="city">
-              <label for="input">City</label>
+              <label for="input">{{ 'checkOut.City' | translate }}
+              </label>
             </div>
             <p *ngIf="checkoutForm.get('city')?.touched && checkoutForm.get('city')?.invalid" class="text-danger">
-              Enter a city
+              {{ 'checkOut.Enter_City' | translate }}
             </p>
           </div>
           <div class="col">
             <div class="input">
               <select class="form-control shadow-none" required #input formControlName="state">
-                <option  hidden selected>State</option>
-                <option value="AL">Egypt</option>
-                <option value="NV">Syria</option>
+                <option  hidden selected>{{ 'checkOut.State' | translate }}
+                </option>
+                <option value="AL">{{ 'checkOut.Egypt' | translate }}</option>
+                <option value="NV"> {{ 'checkOut.Syria' | translate }}
+                </option>
               </select>
               <p *ngIf="checkoutForm.get('state')?.touched && checkoutForm.get('state')?.invalid" class="text-danger">
-                Select a state / province
+                {{ 'checkOut.Select_state' | translate }}
               </p>
               <!-- Custom arrow icon -->
               <i class="fas fa-chevron-down custom-select-icon"></i>
@@ -124,10 +137,11 @@
           <div class="col">
             <div class="floating-label">
               <input #input type="text" class="form-control shadow-none" placeholder="" required formControlName="zipCode">
-              <label for="input">ZIP code</label>
+              <label for="input">{{ 'checkOut.zip' | translate }}
+              </label>
             </div>
             <p *ngIf="checkoutForm.get('zipCode')?.touched && checkoutForm.get('zipCode')?.invalid" class="text-danger">
-              Enter a ZIP / postal code
+              {{ 'checkOut.Enter_zip' | translate }}
             </p>
           </div>
         </div>
@@ -136,7 +150,8 @@
               class="form-check-input shadow-none custom-checkbox-black rounded-0"
               id="textOffers" formControlName="textOffers"
               (change)="toggleMobileNumberField()">
-          <label class="form-check-label " for="textOffers">Text me with news and offers</label>
+          <label class="form-check-label " for="textOffers">{{ 'checkOut.TextMe' | translate }}
+          </label>
         </div>
         <!-- Mobile Number with Country Code -->
         <div class="form-group mt-4" *ngIf="showMobileField">
@@ -150,22 +165,27 @@
             <div class="text-secondary" style="font-size: 0.9em; line-height: 1.5em;">
               <p>
                 <span>
-                  By submitting this form, you agree to receive recurring automated promotional and personalized
-                  marketing text messages (e.g., cart reminders) from Allbirds at the cell number used when signing up.
-                  Consent is not a condition of any purchase. Reply HELP for help and STOP to cancel. Msg frequency
-                  varies. Msg and data rates may apply. View our
-                  <a href="#" style="color: black; text-decoration: underline;">Privacy Policy</a> &
-                  <a href="#" style="color: black; text-decoration: underline;">Terms of Service</a>.
+                  {{ 'checkOut.bigIfo' | translate }}
+
+                  <a href="#" style="color: black; text-decoration: underline;">{{ 'checkOut.Privacy' | translate }}
+                  </a>{{ 'checkOut.and' | translate }}
+
+                  <a href="#" style="color: black; text-decoration: underline;">{{ 'checkOut.terms' | translate }}
+                  </a>.
                 </span>
               </p>
             </div>
           </div>
         </div>
-        <h4 class="mt-4">Shipping method</h4>
-        <p class="text-secondary bg-light p-3">Enter your shipping address to view available shipping methods.</p>
+        <h4 class="mt-4">{{ 'checkOut.Shipping_method' | translate }}
+        </h4>
+        <p class="text-secondary bg-light p-3">{{ 'checkOut.Enter_Shipping_method' | translate }}
+        </p>
         <!-- Payment Section -->
-        <h4 class="mt-4">Payment</h4>
-        <p class="text-secondary">All transactions are secure and encrypted.</p>
+        <h4 class="mt-4">{{ 'checkOut.Payment' | translate }}
+        </h4>
+        <p class="text-secondary">{{ 'checkOut.transactions' | translate }}
+        </p>
         <div class="payment-methods border p-3"
           [ngClass]="{'selected-bg': selectedPaymentMethod === 'creditCard'}"
           (click)="selectPaymentMethod('creditCard')">
@@ -287,12 +307,14 @@
               value="paypal"
               formControlName="paymentMethod"
               (change)="updatePayButton(); selectPaymentMethod('paypal')">
-            <label class="form-check-label ms-2" for="paypal">PayPal</label>
+            <label class="form-check-label ms-2" for="paypal">{{ 'checkOut.PayPal' | translate }}
+            </label>
           </div>
         </div>
         <!-- Conditional Rendering for Payment Button or PayPal Component -->
         <div *ngIf="isPayPalSelected; else regularPayButton">
-          <ngx-paypal [config]="payPalConfig">Pay with PayPal</ngx-paypal>
+          <ngx-paypal [config]="payPalConfig">{{ 'checkOut.PayPayPal' | translate }}
+          </ngx-paypal>
         </div>
         <ng-template #regularPayButton>
           <button type="submit" class="btn pay-button mt-3 rounded-0">
@@ -332,21 +354,26 @@
           <!-- Discount Code Input -->
           <div class="discount-code">
             <input #input type="text" class="discount shadow-none p-3 w-75  border " placeholder="Gift card or discount code" />
-            <button class="btn apply-btn ms-4 p-3" type="button">Apply</button>
+            <button class="btn apply-btn ms-4 p-3" type="button">{{ 'checkOut.Apply' | translate }}
+            </button>
           </div>
           <!-- Subtotal and Shipping -->
           <div class="d-flex justify-content-between mb-2">
-            <p class="text-muted mt-4">Subtotal</p>
+            <p class="text-muted mt-4">{{ 'checkOut.Subtotal' | translate }}
+            </p>
             <p class="mt-3">${{userCart.total}}</p>
           </div>
           <div class="d-flex justify-content-between mb-4">
-            <p class="text-muted mb-0">Shipping</p>
-            <p class="shipping-placeholder text-muted mb-0">Enter shipping address</p>
+            <p class="text-muted mb-0">{{ 'checkOut.Shipping' | translate }}
+            </p>
+            <p class="shipping-placeholder text-muted mb-0">{{ 'checkOut.EnterShipping' | translate }}</p>
           </div>
           <!-- Total -->
           <div class="d-flex justify-content-between total-section">
-            <p class="fw-bold mb-0">Total</p>
-            <p class="total-amount mb-0">USD <span class="fw-bold">${{userCart.total}}</span></p>
+            <p class="fw-bold mb-0">{{ 'checkOut.Total' | translate }}
+            </p>
+            <p class="total-amount mb-0">{{ 'checkOut.USD' | translate }}
+              <span class="fw-bold">${{userCart.total}}</span></p>
           </div>
         </div>
       </div>

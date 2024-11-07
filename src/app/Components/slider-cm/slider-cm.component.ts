@@ -1,25 +1,26 @@
 import { AfterViewInit, Component ,OnDestroy,OnInit,} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Iproduct } from '../../../Modules/Product';
+import { IProduct } from '../../../Modules/Product';
 import { ProductService } from '../../../Services/product.service';
 import { environment } from '../../../environments/environment.development';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { TranslateModule } from '@ngx-translate/core';
 
 declare var $: any;
 
 @Component({
   selector: 'app-slider-cm',
   standalone: true,
-  imports: [CommonModule,CarouselModule],
+  imports: [CommonModule,CarouselModule,TranslateModule],
   templateUrl: './slider-cm.component.html',
   styleUrl: './slider-cm.component.css'
 })
 export class SliderCmComponent implements  AfterViewInit,OnDestroy,OnInit {
 
   sub:Subscription[]= []as Subscription[];
-  Products:Iproduct[]=[]as Iproduct[];
+  Products:IProduct[]=[]as IProduct[];
   imagepath:string=environment.BaseIMageUrl;
   customOptions!: OwlOptions;
 

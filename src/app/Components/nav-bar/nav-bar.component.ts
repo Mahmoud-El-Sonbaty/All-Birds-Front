@@ -4,7 +4,7 @@ import { Icategory } from '../../../Modules/category';
 import { CategeryServiceService } from '../../../Services/categery-service.service';
 import { Subscription } from 'rxjs';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { RouterLink } from '@angular/router';
+import { Route, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../../Services/language.service';
 
@@ -20,7 +20,7 @@ export class NavBarComponent implements OnInit,OnDestroy {
   sub:Subscription[]= []as Subscription[];
   category:Icategory[]=[]as Icategory[];
 
-constructor(private categories:CategeryServiceService,private lang:LanguageService) {
+constructor(private categories:CategeryServiceService,private lang:LanguageService ,private route :Router) {
 
 
 }
@@ -130,6 +130,7 @@ constructor(private categories:CategeryServiceService,private lang:LanguageServi
 
 
   toggleLanguage() {
-    this.lang.toggleLanguage(); // استدعاء الدالة من service لتبديل اللغة
+    this.lang.toggleLanguage();
+    this.route.navigateByUrl(this.route.url);
   }
 }

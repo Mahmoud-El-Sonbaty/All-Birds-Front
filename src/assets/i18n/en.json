@@ -40,6 +40,48 @@
     }
   },
   "checkOut": {
+    "Contact":"Contact",
+    "Login":"Login",
+    "Email":"Email",
+    "email_invalid":"Enter a valid email address",
+    "EmailMe":"Email me with news and offers",
+    "Delivery":"Delivery",
+    "Region":"Country/Region",
+    "First_name":"First name",
+    "Enter_First_name":"Enter a first name",
+    "Last_name":"Last name",
+    "Enter_Last_name":"Enter a last name",
+    "Company":"Company (required for business addresses)",
+    "Address":"Address",
+    "Enter_Address":"Enter an address",
+    "Enter_Apartment":"Apartment, suite, etc. (optional)",
+    "City":"City",
+    "Enter_City":"Enter the City",
+    "State":"State",
+    "Egypt":"Egypt",
+    "Syria":"Syria",
+    "zip":"ZIP code",
+    "Enter_zip":"Enter a ZIP / postal code",
+    "TextMe":"Text me with news and offers",
+    "Select_state":"Select a state / province",
+    "bigIfo":"By submitting this form, you agree to receive recurring automated promotional and personalized marketing text messages (e.g., cart reminders) from Allbirds at the cell number used when signing up. Consent is not a condition of any purchase. Reply HELP for help and STOP to cancel. Msg frequency varies. Msg and data rates may apply. View our",
+    "Privacy":"Privacy Policy",
+    "and":"&",
+    "terms":"Terms of Service",
+    "Shipping_method":"Shipping method",
+    "Enter_Shipping_method":"Enter your shipping address to view available shipping methods.",
+    "Payment":"Payment",
+    "transactions":"All transactions are secure and encrypted.",
+    "PayPal":"PayPal",
+    "PayPayPal":"Pay with PayPal",
+    "Apply":"Apply",
+    "Subtotal":"Subtotal",
+    "Shipping":"Shipping",
+    "EnterShipping":"Enter Shiping Address",
+    "USD":"USD",
+    "Total":"Total",
+
+
   },
   "login": {
     "welcome": "Welcome",
@@ -141,11 +183,17 @@
       }
     }
   },
-  "register": {
-  },
   "product-card": {
+    "Quick_Add":"Quick Add"
   },
-  "Main-product": {
+  "filter":{
+    "Home":"Home",
+    "FilterBy":"Filter By:",
+    "Sizes":"Sizes",
+    "Sizetitle":" Most of our shoes only come in full sizes. If you’re a half size, select your nearest whole size too."
+  },
+  "slider":{
+    "Best_Seller":"Best Seller"
   },
   "error": {
   },

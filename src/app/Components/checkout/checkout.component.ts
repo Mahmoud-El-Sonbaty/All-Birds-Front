@@ -6,11 +6,12 @@ import { environment } from '../../../environments/environment.development';
 import { CartService } from '../../../Services/cart.service';
 import { IOrderMaster } from '../../../Modules/cart';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [FormsModule,CommonModule,ReactiveFormsModule,NgxPayPalModule],
+  imports: [FormsModule,CommonModule,ReactiveFormsModule,NgxPayPalModule,TranslateModule],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css'
 })

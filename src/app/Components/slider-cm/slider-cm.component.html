@@ -1,6 +1,6 @@
 
   <owl-carousel-o [options]="customOptions">
-    <h3>More To Shop</h3>
+    <h3>{{'slider.Best_Seller'|translate}}</h3>
 
     <ng-container *ngFor="let slide of Products" class="owl-carousel owl-theme">
       <ng-template carouselSlide [id]="''+slide.id" class=" item">

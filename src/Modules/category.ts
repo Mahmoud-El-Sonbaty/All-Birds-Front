@@ -14,3 +14,9 @@ export interface ApiresponseCategory{
   msg:string;
   isSuccess:boolean;
 }
+export interface ApiresponseoneCategory{
+
+  data:Icategory;
+  msg:string;
+  isSuccess:boolean;
+}
