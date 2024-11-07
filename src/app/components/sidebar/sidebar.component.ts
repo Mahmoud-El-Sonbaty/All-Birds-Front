@@ -28,7 +28,7 @@ export class SidebarComponent implements OnChanges {
   }
   userCart: IOrderMaster = {} as IOrderMaster;
   baseImagePath: string = environment.BaseImagePath;
-// // 
+// //
 //  cartItems: CartItem[] = [
 //   {
 //     name: "Men's Runner Protect",
@@ -51,12 +51,13 @@ export class SidebarComponent implements OnChanges {
  //cartItems: CartItem[] = [];
 
 
-  constructor(private cartService: CartService, private router: Router){
+  constructor(private cartService: CartService, private router: Router) {
+    console.log(this.userCart)
     this.getCart();
   }
   ngOnChanges(): void {
     console.log("changes");
-    
+
     // this.getCart();
   }
   goToCheckout(): void {
@@ -123,7 +124,7 @@ removeItem(item: IOrderDetail) {
   // this.items = this.items.filter(cartItem => cartItem !== item);
   // this.updateTotalItems();
 }
-// 
+//
 private getCart() {
   console.log("getting cart")
   if(localStorage.getItem("userToken")) {
@@ -152,8 +153,10 @@ private getCart() {
       })
     }
   } else {
-    if (localStorage.getItem("cart"))
+    if (localStorage.getItem("cart")) {
+      console.log("found cart from local storage")
       this.userCart = JSON.parse(localStorage.getItem("cart")!)
+    }
     // else
     //   //redirect out of the page
     //     this.router.navigate([""])

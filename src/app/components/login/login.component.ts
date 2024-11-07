@@ -29,11 +29,11 @@ export class LoginComponent {
 
   // username:Username={} as Username;
   usernameCheck:UsernameCheck={} as UsernameCheck;
- 
+
   showResetPasswordFormbool:boolean=false;
   check(){
     console.log(this.usernameCheck);
-    
+
    //add cooks
     // this.cook.set("Email",this.usernameCheck.Email);
     this._UsernameService.getUserByEmail(this.usernameCheck).subscribe({
@@ -77,36 +77,36 @@ this.showResetPasswordFormbool=true;
 
 
 
-    return  (!!this.usernameCheck.Email && this.usernameCheck.Email.includes("@"));  
+    return  (!!this.usernameCheck.Email && this.usernameCheck.Email.includes("@"));
 
 
-    
+
       }
       ispasswordvaild():boolean{
-        
-        return /\d/.test(this.usernameCheck.Password); 
+
+        return /\d/.test(this.usernameCheck.Password);
       }
- 
-  
+
+
 isCanLogin():Boolean{
 
   if(this.usernameCheck.Email!=undefined&&this.usernameCheck.Password!=undefined)
   {
     // console.log(false);
   if(this.isEmailValid()==true&&this.ispasswordvaild()==true)
-    
+
     {
-   
-      
+
+
       return false;
-  
+
     }
     return true;
   }
   console.log(true);
-  
+
   return true;
   }
-  
+
 }
 // getUserByEmail

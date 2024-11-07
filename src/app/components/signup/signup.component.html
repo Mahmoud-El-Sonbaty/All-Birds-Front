@@ -9,7 +9,7 @@
   <!-- <div>{{myform.valid|json}}</div> -->
   <div class="form-group mb-3">
     <label for="firstName">First Name</label>
-    <input 
+    <input
 
     required="true"
     minlength="3"
@@ -21,24 +21,24 @@
     id="firstName"
     class="form-control shadow-none"
   />
-  
+
     @if(FirstNameInp.invalid &&FirstNameInp.touched){
       @if(FirstNameInp.hasError("required")){<div class="text-danger"> Name is required </div>}
       @if(FirstNameInp.hasError("minlength")){<div class="text-danger">minlength less then  3 </div>
       }
-          }  
-          
-           
+          }
+
+
   </div>
   <div class="form-group mb-3">
     <label for="lastName">Last Name</label>
-    <input  
+    <input
     required
     minlength="3"
     maxlength="40"
     name="lastName"
     #LastNameInp="ngModel"
-    
+
     [(ngModel)]="username.Lastname" type="text" id="lastName"   class="form-control shadow-none"  />
     @if(LastNameInp.invalid &&LastNameInp.touched){
       @if(LastNameInp.hasError("required")){<div class="text-danger"> Name is required </div>}
@@ -48,22 +48,22 @@
   </div>
    <div class="form-group mb-3">
     <label for="email">Email</label>
-    <input 
+    <input
     name="email"
     #EmailInp="ngModel"
     required
-    [(ngModel)]="username.Email" type="email" id="email"  class="form-control shadow-none" />
+    [(ngModel)]="username.Email" type="email" id="register-email"  class="form-control shadow-none" />
     @if(EmailInp.invalid&&EmailInp.touched){
 @if (EmailInp.hasError("required")) {
   <div class="text-danger">Email is required</div>
 }
     }
     @else if (!isEmailValid()&&EmailInp.touched) {
-   
+
 
 <div class="text-danger">Email must contain &#64;</div>
     }
-  </div> 
+  </div>
   <div class="form-group mb-3">
     <label for="password">Password</label>
     <input
@@ -72,7 +72,7 @@
     maxlength="40"
     name="password"
     #passwordInp="ngModel"
-    [(ngModel)]="username.Password" type="password" id="password"   class="form-control shadow-none" />
+    [(ngModel)]="username.Password" type="password" id="register-password"   class="form-control shadow-none" />
     @if( passwordInp.invalid &&passwordInp.touched){
       @if(passwordInp.hasError("required")){<div class="text-danger"> Password is required </div>}
       @if(passwordInp.hasError("minlength")){<div class="text-danger">minlength less then  6 </div>
@@ -86,7 +86,7 @@
 
   <div class="form-group mb-3">
     <label for="ConfirmPassword">Confirm Password</label>
-    <input 
+    <input
     required
     minlength="6"
     maxlength="40"
