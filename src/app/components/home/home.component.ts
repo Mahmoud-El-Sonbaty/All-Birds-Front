@@ -6,6 +6,7 @@ import { ProductService } from '../../../services/product.service';
 import { Subscription } from 'rxjs';
 import { Iproduct } from '../../../models/product';
 import { environment } from '../../../environments/environment.development';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +20,13 @@ export class HomeComponent implements OnInit,OnDestroy {
   sub:Subscription[]= []as Subscription[];
   Products:Iproduct[]=[]as Iproduct[];
   imagepath:string=environment.BaseImagePath;
-  constructor(private Product:ProductService) {
+  constructor(private Product:ProductService, private router: Router) {
 
   }
   ngOnDestroy(): void {
     for (const element of this.sub) {
       element.unsubscribe();
-  }
+    }
   }
   ngOnInit(): void {
     var pr = this.Product.GetTop(1,4).subscribe(
@@ -44,6 +45,18 @@ export class HomeComponent implements OnInit,OnDestroy {
 
 
 
+  }
+  navigateTo(rootValue: string, flag: number) {
+    switch (flag) {
+      case 1:// this means to navigate to category product
+        this.router.navigateByUrl(`ProductCategory/${rootValue}`);
+        break;
+      case 2: // this means to navigate to a single product details
+        this.router.navigateByUrl(`single-product/${rootValue}`)
+        break;
+      default:
+        break;
+    }
   }
   slides2 = [
     { img: 'images/slide2-image1.jpg',img2: 'images/slide2-image2.jpg', text: "Men's season ready" , text2: "Women's Fall Essentials", active:true },

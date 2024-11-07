@@ -10,17 +10,15 @@
   <div class="form-group mb-3">
     <label for="firstName">First Name</label>
     <input
-
     required="true"
     minlength="3"
     maxlength="40"
     name="firstName"
     #FirstNameInp="ngModel"
-    [(ngModel)]="username.Firstname"
+    [(ngModel)]="username.FirstName"
     type="text"
     id="firstName"
-    class="form-control shadow-none"
-  />
+    class="form-control shadow-none"/>
 
     @if(FirstNameInp.invalid &&FirstNameInp.touched){
       @if(FirstNameInp.hasError("required")){<div class="text-danger"> Name is required </div>}
@@ -39,7 +37,7 @@
     name="lastName"
     #LastNameInp="ngModel"
 
-    [(ngModel)]="username.Lastname" type="text" id="lastName"   class="form-control shadow-none"  />
+    [(ngModel)]="username.LastName" type="text" id="lastName"   class="form-control shadow-none"  />
     @if(LastNameInp.invalid &&LastNameInp.touched){
       @if(LastNameInp.hasError("required")){<div class="text-danger"> Name is required </div>}
       @if(LastNameInp.hasError("minlength")){<div class="text-danger">minlength less then  3 </div>
@@ -92,7 +90,7 @@
     maxlength="40"
     name="ConfirmPassword"
     #ConfirmpasswordInp="ngModel"
-    [(ngModel)]="username.Confirm_Password" type="password" class="form-control shadow-none" id="ConfirmPassword" >
+    [(ngModel)]="username.ConfirmPassword" type="password" class="form-control shadow-none" id="ConfirmPassword" >
     @if(ConfirmpasswordInp.invalid &&ConfirmpasswordInp.touched){
 
       @if(ConfirmpasswordInp.hasError("required")){<div class="text-danger"> Password is required </div>}
@@ -104,7 +102,7 @@
           @else if(!ispasswordvaild()&&ConfirmpasswordInp.touched){
             <div class="text-danger">password must contain at least one number </div>
               }
-              @else if(username.Confirm_Password!=username.Password){<div class="text-danger"> Confirm Password </div>}
+              @else if(username.ConfirmPassword!=username.Password){<div class="text-danger"> Confirm Password </div>}
 
   </div>
 
