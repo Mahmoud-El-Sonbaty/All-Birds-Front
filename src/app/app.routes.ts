@@ -7,6 +7,7 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 export const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
@@ -16,7 +17,7 @@ export const routes: Routes = [
     {path: 'home', component: HomeComponent, title: "Home"},
     // {path: 'collections', component: MainProductComponent, title: 'Collections'},
     {path:"Sidebar",component:SidebarComponent,title:"Sidebar"},
-    // {path: 'collections', component: MainProductComponent , title : 'Product Page' },
+    {path: 'single-product', component: ProductDetailsComponent , title : 'Product Details' },
     {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'}
   ]},
   {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},
