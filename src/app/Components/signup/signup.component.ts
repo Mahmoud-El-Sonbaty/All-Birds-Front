@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule,JsonPipe],
+  imports: [FormsModule,JsonPipe,TranslateModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })

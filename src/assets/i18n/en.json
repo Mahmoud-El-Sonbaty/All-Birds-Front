@@ -10,6 +10,34 @@
 
   },
   "signUp": {
+    "register": {
+      "create_account": "Create an Account",
+      "info_message": "We never save credit card information.\n\nRegistering makes checkout fast and easy and saves your order information in your account.",
+      "labels": {
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "email": "Email",
+        "password": "Password",
+        "confirm_password": "Confirm Password"
+      },
+      "errors": {
+        "name_required": "Name is required",
+        "min_length_firstname": "Minimum length is 3",
+        "min_length_lastname": "Minimum length is 3",
+        "email_required": "Email is required",
+        "email_invalid": "Email must contain @",
+        "password_required": "Password is required",
+        "min_length_password": "Minimum length is 6",
+        "password_invalid": "Password must contain at least one number",
+        "confirm_password_required": "Confirm Password is required",
+        "password_mismatch": "Confirm Password does not match"
+      },
+      "buttons": {
+        "submit": "Register",
+        "cancel": "Cancel"
+      },
+      "footer_note": "* REQUIRED FIELDS"
+    }
   },
   "checkOut": {
   },

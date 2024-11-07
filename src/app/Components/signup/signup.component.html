@@ -1,14 +1,13 @@
 
-
-<h3 >Create an Account</h3>
+<h3 >{{'signUp.register.create_account'|translate}}</h3>
 <p >
-  We never save credit card information.<br><br>
-  Registering makes checkout fast and easy and saves your order information in your account.
+  {{'signUp.register.info_message'|translate}}
 </p>
 <form  (ngSubmit)="Adduser()"  #myform="ngForm">
   <!-- <div>{{myform.valid|json}}</div> -->
   <div class="form-group mb-3">
-    <label for="firstName">First Name</label>
+    <label for="firstName">  {{'signUp.register.labels.first_name'|translate}}
+    </label>
     <input
 
     required="true"
@@ -23,15 +22,15 @@
   />
 
     @if(FirstNameInp.invalid &&FirstNameInp.touched){
-      @if(FirstNameInp.hasError("required")){<div class="text-danger"> Name is required </div>}
-      @if(FirstNameInp.hasError("minlength")){<div class="text-danger">minlength less then  3 </div>
+      @if(FirstNameInp.hasError("required")){<div class="text-danger">{{'signUp.register.errors.name_required'|translate}}</div>}
+      @if(FirstNameInp.hasError("minlength")){<div class="text-danger">{{'signUp.register.errors.min_length_firstname'|translate}}</div>
       }
           }
 
 
   </div>
   <div class="form-group mb-3">
-    <label for="lastName">Last Name</label>
+    <label for="lastName">{{'signUp.register.labels.last_name'|translate}}</label>
     <input
     required
     minlength="3"
@@ -41,13 +40,13 @@
 
     [(ngModel)]="username.Lastname" type="text" id="lastName"   class="form-control shadow-none"  />
     @if(LastNameInp.invalid &&LastNameInp.touched){
-      @if(LastNameInp.hasError("required")){<div class="text-danger"> Name is required </div>}
-      @if(LastNameInp.hasError("minlength")){<div class="text-danger">minlength less then  3 </div>
+      @if(LastNameInp.hasError("required")){<div class="text-danger">{{'signUp.register.errors.name_required'|translate}}</div>}
+      @if(LastNameInp.hasError("minlength")){<div class="text-danger">{{'signUp.register.errors.min_length_lastname'|translate}}</div>
       }
           }
   </div>
    <div class="form-group mb-3">
-    <label for="email">Email</label>
+    <label for="email">{{'signUp.register.labels.email'|translate}}</label>
     <input
     name="email"
     #EmailInp="ngModel"
@@ -55,17 +54,17 @@
     [(ngModel)]="username.Email" type="email" id="email"  class="form-control shadow-none" />
     @if(EmailInp.invalid&&EmailInp.touched){
 @if (EmailInp.hasError("required")) {
-  <div class="text-danger">Email is required</div>
+  <div class="text-danger">{{'signUp.register.errors.email_required'|translate}}</div>
 }
     }
     @else if (!isEmailValid()&&EmailInp.touched) {
 
 
-<div class="text-danger">Email must contain &#64;</div>
+<div class="text-danger">{{'signUp.register.errors.email_invalid'|translate}}</div>
     }
   </div>
   <div class="form-group mb-3">
-    <label for="password">Password</label>
+    <label for="password">{{'signUp.register.labels.password'|translate}}</label>
     <input
     required
     minlength="6"
@@ -74,19 +73,19 @@
     #passwordInp="ngModel"
     [(ngModel)]="username.Password" type="password" id="password"   class="form-control shadow-none" />
     @if( passwordInp.invalid &&passwordInp.touched){
-      @if(passwordInp.hasError("required")){<div class="text-danger"> Password is required </div>}
-      @if(passwordInp.hasError("minlength")){<div class="text-danger">minlength less then  6 </div>
+      @if(passwordInp.hasError("required")){<div class="text-danger">{{'signUp.register.errors.password_required'|translate}}</div>}
+      @if(passwordInp.hasError("minlength")){<div class="text-danger">{{'signUp.register.errors.min_length_password'|translate}}</div>
       }
           }
       @else if(!ispasswordvaild()&&passwordInp.touched){
 
-        <div class="text-danger">password must contain at least one number </div>
+        <div class="text-danger">{{'signUp.register.errors.password_invalid'|translate}}</div>
           }
 
   </div>
 
   <div class="form-group mb-3">
-    <label for="ConfirmPassword">Confirm Password</label>
+    <label for="ConfirmPassword">{{'signUp.register.labels.confirm_password'|translate}}</label>
     <input
     required
     minlength="6"
@@ -97,25 +96,25 @@
 
     @if(ConfirmpasswordInp.invalid &&ConfirmpasswordInp.touched){
 
-      @if(ConfirmpasswordInp.hasError("required")){<div class="text-danger"> Password is required </div>}
-   @if(ConfirmpasswordInp.hasError("minlength")){<div class="text-danger">minlength less then  6 </div>
+      @if(ConfirmpasswordInp.hasError("required")){<div class="text-danger">{{'signUp.register.errors.confirm_password_required'|translate}} </div>}
+   @if(ConfirmpasswordInp.hasError("minlength")){<div class="text-danger">{{'signUp.register.errors.min_length_password'|translate}}</div>
       }
           }
 
 
           @else if(!ispasswordvaild()&&ConfirmpasswordInp.touched){
 
-            <div class="text-danger">password must contain at least one number </div>
+            <div class="text-danger">{{' signUp.register.errors.password_invalid'|translate}}</div>
               }
-              @else if(username.Confirm_Password!=username.Password){<div class="text-danger"> Confirm Password </div>}
+              @else if(username.Confirm_Password!=username.Password){<div class="text-danger">{{'signUp.register.labels.confirm_password'|translate}}</div>}
 
   </div>
 
 <!-- <h1>{{myform.invalid}} + {{isCansignup()}} </h1> -->
 
- <button  type="submit" id="asd" class="btn btn-dark btn-lg w-100"  [disabled]="myform.invalid||isCansignup()">Register</button>
+ <button  type="submit" id="asd" class="btn btn-dark btn-lg w-100"  [disabled]="myform.invalid||isCansignup()">{{'signUp.register.buttons.submit'|translate}}</button>
   <br><br>
-  <p class="text-center text-muted small">* REQUIRED FIELDS</p>
+  <p class="text-center text-muted small">{{'signUp.register.footer_note'|translate}}</p>
 
 </form>
 

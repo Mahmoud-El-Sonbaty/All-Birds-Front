@@ -10,6 +10,37 @@
 
   },
   "signUp": {
+      "register": {
+        "create_account": "إنشاء حساب",
+        "info_message": "نحن لا نحفظ معلومات بطاقات الائتمان.\n\nتسجيل الحساب يجعل عملية الدفع أسرع وأسهل ويحفظ معلومات طلبك في حسابك.",
+        "labels": {
+          "first_name": "الاسم الأول",
+          "last_name": "اسم العائلة",
+          "email": "البريد الإلكتروني",
+          "password": "كلمة المرور",
+          "confirm_password": "تأكيد كلمة المرور"
+        },
+        "errors": {
+          "name_required": "الاسم مطلوب",
+          "min_length_firstname": "الحد الأدنى للطول هو 3",
+          "min_length_lastname": "الحد الأدنى للطول هو 3",
+          "email_required": "البريد الإلكتروني مطلوب",
+          "email_invalid": "يجب أن يحتوي البريد الإلكتروني على @",
+          "password_required": "كلمة المرور مطلوبة",
+          "min_length_password": "الحد الأدنى للطول هو 6",
+          "password_invalid": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
+          "confirm_password_required": "تأكيد كلمة المرور مطلوب",
+          "password_mismatch": "تأكيد كلمة المرور غير مطابق"
+        },
+        "buttons": {
+          "submit": "تسجيل",
+          "cancel": "إلغاء"
+        },
+        "footer_note": "* الحقول المطلوبة"
+      }
+
+
+
   },
   "checkOut": {
   },
