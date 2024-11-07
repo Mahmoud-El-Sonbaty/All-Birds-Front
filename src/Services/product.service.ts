@@ -12,18 +12,13 @@ export class ProductService {
 
   constructor(private httpclient:HttpClient) { }
 
-  /*
-  Ahmed Elghoul
-  */
+
 
   GetTop(Catid:number,numberOfProducts:number):Observable<ApiresponseProduct>{
     return  this.httpclient.get<ApiresponseProduct>(`${environment.BaseUrl}/Product?catId=${Catid}&numberofProduct=${numberOfProducts}`);
   }
 
 
-  /*
-  Ahmed Mosatfa
-  */
 
 
   getProductFilter(apiFilterBody : ApiFilterBody):Observable<ApiresponsePrd>
