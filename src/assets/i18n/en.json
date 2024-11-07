@@ -23,6 +23,68 @@
     "shopWomensSale": "Shop Women's Sale"
   },
   "home": {
+    "btn":{
+      "men":"Shop Men",
+      "Woman":"Shop Woman",
+      "now": "Shop Now"
+    },
+    "slider1":{
+      "slide1":{
+      "title":"THE RUNNER COLLECTION",
+      "subtitle":"Comfortable",
+      "thirdtitle":"By Nature",
+      "description1":"OUR ICONIC EVERYDAY SNEAKS ARE A SOFT,",
+      "description2":"PILLOWY RETREAT FOR YOUR FEET."
+      },
+      "slide2":{
+        "title":"ELEVATED",
+        "title2":"EARTH TONES",
+        "subtitle":"NEW NEUTRAL SHADES SO SUBTLE",
+        "description1":"THEY'T HELP BUT STAND OUT."
+        }
+    },
+    "3cards":{
+      "card1":{
+        "title": "Wool Runner Go",
+        "subtitle":"Sublimely Soft, Everyday Elevated"
+      },
+      "card2":{
+        "title": "Wool Runner Mizzle",
+        "subtitle":"Weather-ready, Everyday Sneaker"
+      },
+      "card3":{
+        "title": "Wool Runner Go",
+        "subtitle":"'Breezy High-Top Sneakers"
+      }
+    },
+    "slider2":{
+      "slide1":{
+        "card1":"Men's season ready",
+        "card2":"Women's Fall Essentials"
+      },
+      "slide2":{
+        "card1":"Men's Sporty Styles",
+        "card2":"Women's Athleisure Styles"
+      },
+      "slide3":{
+        "card1":"Men's Lightweight Styles",
+        "card2":"Women's Packable Shoes"
+      }
+    },
+    "4Product":{
+      "title":"New Season, New Styles",
+      "subtitle":"The latest shoes to start winter on the right foot."
+    },
+    "giftCards":{
+      "card1":{
+        "title":"Gifts Under $100",
+        "subtitle":"Cozy Gifts At Comfy Prices"
+      },
+      "card2":{
+           "title":"Gift Cards",
+        "subtitle":"Always Fits, Never Fails"
+      }
+    }
   },
   "register": {
   },
