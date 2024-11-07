@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IOrderDetail, IOrderMaster } from '../../../models/cart';
 import { environment } from '../../../environments/environment.development';
 import { CartService } from '../../../services/cart.service';
+import { Router } from '@angular/router';
 interface CartItem {
   name: string;
   color: string;
@@ -50,13 +51,16 @@ export class SidebarComponent implements OnChanges {
  //cartItems: CartItem[] = [];
 
 
-  constructor(private cartService: CartService){
-    // this.getCart();
+  constructor(private cartService: CartService, private router: Router){
+    this.getCart();
   }
   ngOnChanges(): void {
     console.log("changes");
     
     // this.getCart();
+  }
+  goToCheckout(): void {
+    this.router.navigateByUrl("checkout");
   }
 // get subtotal(): number {
 //   return this.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
