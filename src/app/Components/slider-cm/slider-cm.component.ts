@@ -1,6 +1,6 @@
 import { AfterViewInit, Component ,OnDestroy,OnInit,} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IProduct } from '../../../Modules/Product';
+import { Iproduct, IProduct } from '../../../Modules/Product';
 import { ProductService } from '../../../Services/product.service';
 import { environment } from '../../../environments/environment.development';
 import { CommonModule } from '@angular/common';
@@ -20,7 +20,7 @@ declare var $: any;
 export class SliderCmComponent implements  AfterViewInit,OnDestroy,OnInit {
 
   sub:Subscription[]= []as Subscription[];
-  Products:IProduct[]=[]as IProduct[];
+  Products:Iproduct[]=[]as Iproduct[];
   imagepath:string=environment.BaseIMageUrl;
   customOptions!: OwlOptions;
 

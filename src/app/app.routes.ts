@@ -12,7 +12,8 @@ export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomeComponent,title:"Home Page"},
     {path: "register", component: RegisterComponent, title: "Register"},
-    {path: 'home', component: HomeComponent, title: "Home"},
+    {path: "CheckOut", component: CheckoutComponent, title: "CheckOut"},
+    // {path: 'home', component: HomeComponent, title: "Home"},
     {path: 'collections', component: MainProductComponent, title: 'Collections'},
     {path:"Sidebar",component:SidebarComponent,title:"Sidebar"}
   ]},
