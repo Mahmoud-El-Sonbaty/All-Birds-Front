@@ -29,9 +29,7 @@ export class CheckoutComponent implements AfterViewInit ,OnInit{
   //
   //
   selectedPaymentMethod: string = ''; // Tracks the selected payment method to change bg
-  selectPaymentMethod(method: string): void {
-    this.selectedPaymentMethod = method;
-  }
+ 
   constructor(private fb: FormBuilder,private renderer:Renderer2) {
     this.checkoutForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -116,18 +114,25 @@ export class CheckoutComponent implements AfterViewInit ,OnInit{
   }
 
 // paypal button
-payButtonText: string = 'Pay Now'; // Default button text
+payButtonText: string = ''; // Default button text
 isPayPalSelected: boolean = false; // Track if PayPal is selected
 
+// Function to update the button text based on payment method selection
 updatePayButton() {
    const paymentMethod = this.checkoutForm.get('paymentMethod')?.value;
    if (paymentMethod === 'paypal') {
       this.payButtonText = 'Pay with PayPal';
       this.isPayPalSelected = true;
    } else {
-      this.payButtonText = 'Pay Now';
+      this.payButtonText = 'Confirm'; // Show "Confirm" for COD
       this.isPayPalSelected = false;
    }
+}
+
+// Handle payment method selection (this will be triggered when selecting either COD or PayPal)
+selectPaymentMethod(method: string) {
+   this.checkoutForm.get('paymentMethod')?.setValue(method); // Update the form value
+   this.updatePayButton();  // Update button text based on selected payment method
 }
 
 //
@@ -199,7 +204,7 @@ private renderPayPalButton() {
         },
         style: {
             label: 'paypal',   // Display "PayPal" on the button
-            layout: 'vertical', // Vertical layout
+            layout: 'horizontal', // Vertical layout
             color: 'blue',      // Blue button
             shape: 'rect',      // Rectangular shape
             tagline: false      // Disable tagline
