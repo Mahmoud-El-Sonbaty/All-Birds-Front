@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../../../Services/language.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,7 +20,7 @@ export class NavBarComponent implements OnInit,OnDestroy {
   sub:Subscription[]= []as Subscription[];
   category:Icategory[]=[]as Icategory[];
 
-constructor(private categories:CategeryServiceService) {
+constructor(private categories:CategeryServiceService,private lang:LanguageService) {
 
 
 }
@@ -43,6 +44,12 @@ constructor(private categories:CategeryServiceService) {
       }
     )
     this.sub.push(item);
+
+    let item2=this.lang.currentLang$.subscribe();
+
+    this.sub.push(item2);
+
+
   }
   toggleBackButton(menu: number, show: boolean): void {
     const backButton = document.querySelector(`#Menu${menu}`) as HTMLElement;
@@ -122,5 +129,7 @@ constructor(private categories:CategeryServiceService) {
   }
 
 
-
+  toggleLanguage() {
+    this.lang.toggleLanguage(); // استدعاء الدالة من service لتبديل اللغة
+  }
 }

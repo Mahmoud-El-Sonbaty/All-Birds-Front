@@ -1,7 +1,7 @@
  <nav class="navbar navbar-expand-xl navbar-light bg-light">
 
     <div class="navbar-brand mx-auto col-1" id="Allbirds">
-      <img src="Images/Logo.svg" alt="Logo" class="navbar-logo img-fluid" >
+      <img src="Images/Logo.svg"  routerLink="home" href="#" alt="Logo" class="navbar-logo img-fluid" >
     </div>
 
 
@@ -21,6 +21,7 @@
 
         @for (parent of category; track parent.id ; let i =$index) {
 
+         @if(parent.isParentCategory){
           <li class="nav-item">
             <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button" (click)="showing(parent.id,parent.level)" aria-expanded="false"  [attr.aria-controls]="parent.id + 'Menu'">
               <p class="ms-3 mt-3  d-inline-block ">{{parent.nameEn}}</p>
@@ -31,7 +32,7 @@
               <hr>
 
             </div>
-             @if(parent.isParentCategory){
+            @if(parent.isParentCategory){
               <div [class]="'collapse ' +parent.id+'-content'" [id]="'Menu'+parent.id">
                 <h4 class="'collapse-header level0 centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(parent.id,parent.level)">
                   <span class="back-button position-absolute start-0 ms-3">←</span>
@@ -41,17 +42,25 @@
 
                 <ul class="nav flex-column sub-menu">
                   @for (child of parent.children; track child.id;let y =$index) {
+                    @if (child.isParentCategory) {
                     <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" (click)="showing(child.id,child.level)" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
-                      <p class="ms-2 mt1  d-inline-block  ">{{child.nameEn}}
-                      </p>
-                      @if (child.isParentCategory) {
-                        <span class=" position-absolute end-0 me-3">→</span>
-                      }
+                      <p class="ms-2 mt1  d-inline-block   ">{{child.nameEn}}
+                    </p>
+                    <span class=" position-absolute end-0 me-3">→</span>
 
 
-                        <hr>
+                    <hr>
 
-                    </li>
+                  </li>
+                }@else {
+                  <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" [routerLink]="['/collections',parent.id+'-'+child.id]" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
+                    <p class="ms-2 mt1  d-inline-block   ">{{child.nameEn}}
+                  </p>
+
+                  <hr>
+
+                </li>
+                }
                     @if (child.isParentCategory) {
 
 
@@ -64,7 +73,7 @@
 
                         <ul class="nav flex-column sub-menu">
                           @for (grandChild of child.children; track grandChild.id;let x =$index) {
-                            <li  class="nav-item level2 fade-in p-3"  >{{grandChild.nameEn}}
+                            <li  class="nav-item level2 fade-in p-3" [routerLink]="['/collections',child.id+'-'+grandChild.id]"  >{{grandChild.nameEn}}
 
                             </li>
                             <hr>
@@ -83,6 +92,15 @@
 
 
           </li>
+         }@else {
+
+           <li class="nav-item">
+                     <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button"  aria-expanded="false"  [routerLink]="['/collections',parent.id]" [attr.aria-controls]="parent.id + 'Menu'">
+                       <p class="ms-3 mt-3  d-inline-block ">{{parent.nameEn}}</p>
+                       <hr>
+                     </div>
+                   </li>
+         }
         }
 
         <li class="nav-item nav-link level0">
@@ -138,7 +156,7 @@
                           <h5>{{kid.nameEn}}</h5>
                           @for (smaller of kid.children; track  smaller.id;let s= $index) {
 
-                            <a class="dropdown-item" href="#">{{smaller.nameEn}}</a>
+                            <a class="dropdown-item"  routerLinkActive="active_link" [routerLink]="['/collections',kid.id+'-'+smaller.id]">{{smaller.nameEn}}</a>
                           }
 
                         </div>
@@ -171,13 +189,13 @@
 
           }@else {
 
-                   <li class="nav-item">
+                   <li class="nav-item " >
                     @if(child.nameEn=="Sale"){
 
-                      <a class="nav-link text-danger" href="#">{{child.nameEn}}</a>
+                      <a class="nav-link text-danger" routerLinkActive="active_link" [routerLink]="['/collections',child.id]">{{child.nameEn}}</a>
                     }@else {
 
-                      <a class="nav-link text-dark" href="#">{{child.nameEn}}</a>
+                      <a class="nav-link text-dark" routerLinkActive="active_link" [routerLink]="['/collections',child.id]">{{child.nameEn}}</a>
                     }
 
                 </li>
@@ -186,8 +204,8 @@
 
 
     </ul>
+  </ul>
 
-      </ul>
 
       <ul class="navbar-nav text-dark">
         <li class="nav-item ">
@@ -204,6 +222,9 @@
     </div>
     <div class="d-flex align-items-center">
       <ul class="navbar-nav navbar-icons ms-auto d-flex flex-row " id="icons">
+          <li class="nav-item ">
+            <a class="nav-link" href="#" (click)="toggleLanguage()"><i class="fas fa-globe text-dark"></i></a>
+          </li>
 
         <li class="nav-item d-none d-md-block ">
           <a class="nav-link" href="#"><i class="fas fa-search text-dark"></i></a>

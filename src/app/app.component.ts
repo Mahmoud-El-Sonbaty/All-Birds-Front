@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from "./Components/nav-bar/nav-bar.component";
 import { FooterComponent } from "./Components/footer/footer.component";
-import {TranslateModule} from "@ngx-translate/core";
+import {Language, TranslateModule} from "@ngx-translate/core";
 import {TranslateService} from "@ngx-translate/core";
+import { LanguageService } from '../Services/language.service';
 
 
 @Component({
@@ -14,14 +15,16 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  constructor(private translate: TranslateService) {
-    this.translate.addLangs(['ar', 'en']);
-    // this.translate.setDefaultLang('en');
-    this.translate.use('ar');
+  currentLanguage!: string;
+
+  constructor(private languageservice: LanguageService) {
+    // this.languageservice.currentLang$.subscribe(lang => {
+    //   this.currentLanguage = lang;
+    // });
   }
   title = 'FrontAllbirds';
 
-  switchLanguage(language: string) {
-    this.translate.use(language);
-  }
+  // toggleLanguage() {
+  //   this.languageservice.toggleLanguage();
+  // }
 }

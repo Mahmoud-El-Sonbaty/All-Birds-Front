@@ -217,7 +217,7 @@ body {
     transform: translateX(0);
   }
 }
-.collapse-header {
+.collapse-header ,li,#Allbirds{
   cursor: pointer;
 }
 .collapse {
