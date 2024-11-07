@@ -4,7 +4,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { SliderCmComponent } from './slider-cm/slider-cm.component';
 import { ProductService } from '../../../services/product.service';
 import { Subscription } from 'rxjs';
-import { Iproduct } from '../../../models/Product';
+import { Iproduct } from '../../../models/product';
 import { environment } from '../../../environments/environment.development';
 
 @Component({

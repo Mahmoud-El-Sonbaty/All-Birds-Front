@@ -17,7 +17,7 @@ export const routes: Routes = [
     // {path: 'collections', component: MainProductComponent, title: 'Collections'},
     {path:"Sidebar",component:SidebarComponent,title:"Sidebar"},
     {path: 'collections', component: MainProductComponent , title : 'Product Page' },
-    {path: 'ProductCategory/:id', component : MainProductComponent , title : 'Product Page' }
+    // {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'}
   ]},
   {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},
   //{path:"home",canActivate:[authoGuard],component:HomeComponent,title:"home"},
