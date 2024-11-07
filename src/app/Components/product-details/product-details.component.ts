@@ -13,52 +13,52 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
   colors = [
     {
       name: 'Black', code: '#212121', images: [
-        'Images/product-details-images/1B.jpg',
-        'Images/product-details-images/2B.jpg',
-        'Images/product-details-images/3B.jpg',
-        'Images/product-details-images/4B.jpg',
-        'Images/product-details-images/5B.jpg',
-        'Images/product-details-images/6B.jpg'
+        'images/product-details-images/1B.jpg',
+        'images/product-details-images/2B.jpg',
+        'images/product-details-images/3B.jpg',
+        'images/product-details-images/4B.jpg',
+        'images/product-details-images/5B.jpg',
+        'images/product-details-images/6B.jpg'
       ]
     },
     {
       name: 'White', code: '#F5F5F5', images: [
-        'Images/product-details-images/1W.jpg',
-        'Images/product-details-images/2W.jpg',
-        'Images/product-details-images/3W.jpg',
-        'Images/product-details-images/4W.jpg',
-        'Images/product-details-images/5W.jpg',
-        'Images/product-details-images/6W.jpg'
+        'images/product-details-images/1W.jpg',
+        'images/product-details-images/2W.jpg',
+        'images/product-details-images/3W.jpg',
+        'images/product-details-images/4W.jpg',
+        'images/product-details-images/5W.jpg',
+        'images/product-details-images/6W.jpg'
       ]
     },
     {
       name: 'Navy', code: '#21384F', images: [
-        'Images/product-details-images/1N.jpg',
-        'Images/product-details-images/2N.jpg',
-        'Images/product-details-images/3N.jpg',
-        'Images/product-details-images/4N.jpg',
-        'Images/product-details-images/5N.jpg',
-        'Images/product-details-images/6N.jpg'
+        'images/product-details-images/1N.jpg',
+        'images/product-details-images/2N.jpg',
+        'images/product-details-images/3N.jpg',
+        'images/product-details-images/4N.jpg',
+        'images/product-details-images/5N.jpg',
+        'images/product-details-images/6N.jpg'
       ]
     },
     {
       name: 'Grey', code: '#787878', images: [
-        'Images/product-details-images/1G.jpg',
-        'Images/product-details-images/2G.jpg',
-        'Images/product-details-images/3G.jpg',
-        'Images/product-details-images/4G.jpg',
-        'Images/product-details-images/5G.jpg',
-        'Images/product-details-images/6G.jpg'
+        'images/product-details-images/1G.jpg',
+        'images/product-details-images/2G.jpg',
+        'images/product-details-images/3G.jpg',
+        'images/product-details-images/4G.jpg',
+        'images/product-details-images/5G.jpg',
+        'images/product-details-images/6G.jpg'
       ]
     },
     {
       name: 'Beige', code: '#F5F5DC', images: [
-        'Images/product-details-images/1BG.jpg',
-        'Images/product-details-images/2BG.jpg',
-        'Images/product-details-images/3BG.jpg',
-        'Images/product-details-images/4BG.jpg',
-        'Images/product-details-images/5BG.jpg',
-        'Images/product-details-images/6BG.jpg'
+        'images/product-details-images/1BG.jpg',
+        'images/product-details-images/2BG.jpg',
+        'images/product-details-images/3BG.jpg',
+        'images/product-details-images/4BG.jpg',
+        'images/product-details-images/5BG.jpg',
+        'images/product-details-images/6BG.jpg'
       ]
     },
   ];
