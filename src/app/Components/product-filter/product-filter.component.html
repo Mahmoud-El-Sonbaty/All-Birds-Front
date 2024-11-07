@@ -1,27 +1,49 @@
 <div>
   <div class="filter-container">
     <div class="p-category">
-      <span><a href="">Home</a></span> <span>/</span> <span><a href="">Men</a></span> <span>/</span>
+      <span><a style="font-weight:500;margin-right: 5px;font-size: 14px;margin-left: 10px;" href="">Home</a></span>
+      <span> <a style="font-weight: 500;font-size: 14px;" href="">/{{filterTypes.Category.nameEn}}/ </a> </span>
     </div>
     <div class="sub-category">
-      <p>Everyday Sneakers</p>
-      <span>Everyday Sneakers</span>
+      <p>{{CategorySelected?.nameEn}}</p>
     </div>
-    <div class="child-category">
-      <p><a href=""> Active Shoes</a></p>
-      <p><a href=""> Water-Repellent Shoes</a></p>
-      <p><a href=""> High Tops</a></p>
-      <p><a href=""> Hiking Shoes</a></p>
-      <p><a href=""> Sale Shoes</a></p>
+    <div class="child-category" *ngFor="let Sub of filterTypes.Category?.children;let i = index">
+      <p><a [routerLink]="['/ProductCategory',filterTypes.Category.id+'-'+Sub.id]"> {{Sub.nameEn}}</a></p>
     </div>
   </div>
   <div class="filter-size">
-    <p>Filter By:</p>
+    <p class="FilterBy">Filter By: <button (click)="ClearAll()" class="clear-all-btn">Clear All</button>
+
+
+      <span>
+        <button type="button" class="filter-btn" *ngFor="let item of filterSelected.SizesNumber">
+          {{item.sizeNumber}} <i class="bi bi-x close-icon"></i>
+        </button>
+        <button type="button" class="filter-btn" *ngFor="let item of filterSelected.Colors">
+          {{item.nameEn}} <i class="bi bi-x close-icon"></i>
+        </button>
+      </span>
+    </p>
     <hr>
-    <div class="size">
-      <p>Sizes</p>
-      <span> Most of our shoes only come in full sizes. If you’re a half size, select your nearest whole size
-        too.</span>
+    <div class="size row mx-auto">
+      <h4>Sizes</h4>
+      <p> Most of our shoes only come in full sizes. If you’re a half size, select your nearest whole size too.</p>
+      <span class="SizeNumber mx-2 text-center" (click)="FilterBySize(item)"
+        *ngFor="let item of filterTypes.SizesNumber;index as i;">{{item.sizeNumber}}</span>
+    </div>
+  </div>
+  <hr>
+  <div class="filter-color ">
+    <p class="headercolor">HUE</p>
+    <div class="colors  ">
+      <ng-container *ngFor="let color of filterTypes.Colors;index as i;">
+        <div class="d-flex align-items-center" (click)="FilterByColor(color)">
+          <p class="colorcode border rounded-circle d-inline-block me-2" [style.background-color]="color.code"
+            style="width: 25px; height: 25px;">
+          </p>
+          <span class="colorinfo text-center mb-3">{{ color.nameEn }}</span>
+        </div>
+      </ng-container>
     </div>
   </div>
 
