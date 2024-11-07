@@ -33,7 +33,7 @@
          @if(parent.isParentCategory){
           <li class="nav-item">
             <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button" (click)="showing(parent.id,parent.level)" aria-expanded="false"  [attr.aria-controls]="parent.id + 'Menu'">
-              <p class="ms-3 mt-3  d-inline-block ">{{parent.nameEn}}</p>
+              <p class="ms-3 mt-3  d-inline-block ">{{parent.name}}</p>
               @if(parent.isParentCategory){
                 <span class=" position-absolute end-0 me-3 mt-3 fs-5">→</span>
 
@@ -45,7 +45,7 @@
               <div [class]="'collapse ' +parent.id+'-content'" [id]="'Menu'+parent.id">
                 <h4 class="'collapse-header level0 centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(parent.id,parent.level)">
                   <span class="back-button position-absolute start-0 ms-3">←</span>
-                {{parent.nameEn}}
+                {{parent.name}}
                 </h4>
 
 
@@ -53,7 +53,7 @@
                   @for (child of parent.children; track child.id;let y =$index) {
                     @if (child.isParentCategory) {
                     <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" (click)="showing(child.id,child.level)" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
-                      <p class="ms-2 mt1  d-inline-block   ">{{child.nameEn}}
+                      <p class="ms-2 mt1  d-inline-block   ">{{child.name}}
                     </p>
                     <span class=" position-absolute end-0 me-3">→</span>
 
@@ -63,7 +63,7 @@
                   </li>
                 }@else {
                   <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" [routerLink]="['/collections',parent.id+'-'+child.id]" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
-                    <p class="ms-2 mt1  d-inline-block   ">{{child.nameEn}}
+                    <p class="ms-2 mt1  d-inline-block   ">{{child.name}}
                   </p>
 
                   <hr>
@@ -76,13 +76,13 @@
                       <div [class]="'collapse ' +child.id+'-content'" [id]="'Menu'+child.id">
                         <h4 class="collapse-header  centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(child.id,child.level)">
                           <span class="back-button position-absolute start-0 ms-3">←</span>
-                        {{child.nameEn}}
+                        {{child.name}}
                         </h4>
 
 
                         <ul class="nav flex-column sub-menu">
                           @for (grandChild of child.children; track grandChild.id;let x =$index) {
-                            <li  class="nav-item level2 fade-in p-3" [routerLink]="['/collections',child.id+'-'+grandChild.id]"  >{{grandChild.nameEn}}
+                            <li  class="nav-item level2 fade-in p-3" [routerLink]="['/collections',child.id+'-'+grandChild.id]"  >{{grandChild.name}}
 
                             </li>
                             <hr>
@@ -105,7 +105,7 @@
 
            <li class="nav-item">
                      <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button"  aria-expanded="false"  [routerLink]="['/collections',parent.id]" [attr.aria-controls]="parent.id + 'Menu'">
-                       <p class="ms-3 mt-3  d-inline-block ">{{parent.nameEn}}</p>
+                       <p class="ms-3 mt-3  d-inline-block ">{{parent.name}}</p>
                        <hr>
                      </div>
                    </li>
@@ -150,28 +150,28 @@
         @for (child of category; track child.id ; let i =$index){
           @if (child.isParentCategory) {
             <li class="nav-item">
-              <a class="nav-link dropdown-toggle" href="#" [id]="child.nameEn+'Dropdown'"
+              <a class="nav-link dropdown-toggle" href="#" [id]="child.name+'Dropdown'"
               role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              {{child.nameEn}}
+              {{child.name}}
               </a>
 
-              <div class="dropdown-menu" [attr.aria-labelledby]="child.nameEn + 'Dropdown'">
+              <div class="dropdown-menu" [attr.aria-labelledby]="child.name + 'Dropdown'">
                 <div class="row fade-in">
                     @for (kid of child.children; track  kid.id;let x= $index) {
 
 
-                      @if(kid.nameEn !="New Arrivals"){
+                      @if(kid.name !="New Arrivals"){
                           <div class="col-lg-2 col-md-12 mx-auto">
-                          <h5>{{kid.nameEn}}</h5>
+                          <h5>{{kid.name}}</h5>
                           @for (smaller of kid.children; track  smaller.id;let s= $index) {
 
-                            <a class="dropdown-item"  routerLinkActive="active_link" [routerLink]="['/collections',kid.id+'-'+smaller.id]">{{smaller.nameEn}}</a>
+                            <a class="dropdown-item"  routerLinkActive="active_link" [routerLink]="['/collections',kid.id+'-'+smaller.id]">{{smaller.name}}</a>
                           }
 
                         </div>
                         }@else {
                           <div class="col-lg-6 col-md-12">
-                            <h5>{{kid.nameEn}}</h5>
+                            <h5>{{kid.name}}</h5>
                               <div class="row">
                                   <div class="col-md-12 m-2">
                                     <div class="featured-image">
@@ -199,12 +199,12 @@
           }@else {
 
                    <li class="nav-item " >
-                    @if(child.nameEn=="Sale"){
+                    @if(child.name=="Sale"){
 
-                      <a class="nav-link text-danger" routerLinkActive="active_link" [routerLink]="['/collections',child.id]">{{child.nameEn}}</a>
+                      <a class="nav-link text-danger" routerLinkActive="active_link" [routerLink]="['/collections',child.id]">{{child.name}}</a>
                     }@else {
 
-                      <a class="nav-link text-dark" routerLinkActive="active_link" [routerLink]="['/collections',child.id]">{{child.nameEn}}</a>
+                      <a class="nav-link text-dark" routerLinkActive="active_link" [routerLink]="['/collections',child.id]">{{child.name}}</a>
                     }
 
                 </li>
@@ -232,7 +232,7 @@
     <div class="d-flex align-items-center">
       <ul class="navbar-nav navbar-icons ms-auto d-flex flex-row " id="icons">
           <li class="nav-item ">
-            <a class="nav-link"  (click)="toggleLanguage()"><i class="fas fa-globe text-dark"></i></a>
+            <a class="nav-link"   (click)="toggleLanguage()"><i class="fas fa-globe text-dark"></i></a>
           </li>
 
         <li class="nav-item d-none d-md-block ">
@@ -245,7 +245,7 @@
           <a class="nav-link" href="#"><i class="fas fa-question-circle text-dark"></i></a>
         </li>
         <li class="nav-item cart-icon">
-          <button class="nav-link position-relative" (click)="sidebar.toggleSidebar()" >
+          <button class="nav-link position-relative"  (click)="sidebar.toggleSidebar()" >
 
             <!-- <a     > -->
 

@@ -10,11 +10,9 @@ export interface IOrderDetail {
   quantity: number;
   detailPrice: number;
   notes: string;
-  colorNameAr: string;
-  colorNameEn: string;
+  colorName: string;
   sizeNumber?: string;
-  productNameAr?: string;
-  productNameEn?: string;
+  productName?: string;
   imagePath: string;
 }
 

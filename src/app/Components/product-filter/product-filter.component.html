@@ -12,13 +12,13 @@
   <div class="filter-container">
     <div class="p-category">
       <span><a style="font-weight:500;margin-right: 5px;font-size: 14px;margin-left: 10px;" href="">{{'filter.Home'|translate}}</a></span>
-      <span> <a style="font-weight: 500;font-size: 14px;" href="">/{{filterTypes.Category.nameEn}}/ </a> </span>
+      <span> <a style="font-weight: 500;font-size: 14px;" href="">/{{filterTypes.Category.name}}/ </a> </span>
     </div>
     <div class="sub-category">
-      <p>{{CategorySelected?.nameEn}}</p>
+      <p>{{CategorySelected?.name}}</p>
     </div>
     <div class="child-category" *ngFor="let Sub of filterTypes.Category?.children;let i = index">
-      <p><a [routerLink]="['/ProductCategory',filterTypes.Category.id+'-'+Sub.id]"> {{Sub.nameEn}}</a></p>
+      <p><a [routerLink]="['/ProductCategory',filterTypes.Category.id+'-'+Sub.id]"> {{Sub.name}}</a></p>
     </div>
   </div>
   <div class="filter-size">
@@ -30,7 +30,7 @@
           {{item.sizeNumber}} <i class="bi bi-x close-icon"></i>
         </button>
         <button type="button" class="filter-btn" *ngFor="let item of filterSelected.Colors">
-          {{item.nameEn}} <i class="bi bi-x close-icon"></i>
+          {{item.name}} <i class="bi bi-x close-icon"></i>
         </button>
       </span>
     </p>
@@ -51,7 +51,7 @@
           <p class="colorcode border rounded-circle d-inline-block me-2" [style.background-color]="color.code"
             style="width: 25px; height: 25px;">
           </p>
-          <span class="colorinfo text-center mb-3">{{ color.nameEn }}</span>
+          <span class="colorinfo text-center mb-3">{{ color.name }}</span>
         </div>
       </ng-container>
     </div>

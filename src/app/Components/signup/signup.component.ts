@@ -10,7 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule,JsonPipe,TranslateModule],
+  imports: [FormsModule,TranslateModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })

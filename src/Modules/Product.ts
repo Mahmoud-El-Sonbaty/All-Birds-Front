@@ -2,10 +2,8 @@ export interface Iproduct {
    id:number,
    mainImagePath :string
    price :number
-   colorNameEn :string
-   colorNameAr :string
-   nameAr :string
-   nameEn :string
+   colorName :string
+   name :string
 
 }
 export interface ApiresponseProduct{
@@ -19,8 +17,7 @@ export interface ApiresponseProduct{
 
 export interface IProduct {
   id: number;
-  nameEn: string;
-  nameAr: string;
+  name: string;
   price: number;
   productColors: IproductColor[];
 }
@@ -35,8 +32,7 @@ export interface IproductColor
 {
   productColorId : number;
   imagePath :string;
-  nameEn : string
-  nameAr : string
+  name : string
   code: string
   productSizes :IproductSize[];
 }

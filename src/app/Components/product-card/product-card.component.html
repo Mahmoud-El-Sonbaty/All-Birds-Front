@@ -13,7 +13,7 @@
     <img *ngIf="mainImagePath" [src]="mainImagePath" class="card-img-top" alt="Product Image"
       style="width: 100%; height: auto;">
 
-    <p class="card-text" style="font-weight: bolder;">{{ Products.nameEn }}</p>
+    <p class="card-text" style="font-weight: bolder;">{{ Products.name }}</p>
     <p class="card-text">{{ Products.price | currency: 'USD' }}</p>
 
     <div *ngIf="hasMultipleImages(Products.productColors)" id="carouselCard{{Products.id}}" class="carousel slide"

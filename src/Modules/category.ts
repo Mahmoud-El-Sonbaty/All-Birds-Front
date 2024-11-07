@@ -1,7 +1,6 @@
 export interface Icategory {
   id:number;
-  nameEn:string;
-  nameAr:string;
+  name:string;
   parentCategoryId:number;
   level: number;
   isParentCategory:Boolean;

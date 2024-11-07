@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Icategory } from '../../../Modules/category';
 import { CategeryServiceService } from '../../../Services/categery-service.service';
 import { Subscription } from 'rxjs';
@@ -19,11 +19,12 @@ export class NavBarComponent implements OnInit,OnDestroy {
 
   sub:Subscription[]= []as Subscription[];
   category:Icategory[]=[]as Icategory[];
+  routing:any;
 
 constructor(private categories:CategeryServiceService,private lang:LanguageService ,private route :Router) {
 
-
 }
+
   ngOnDestroy(): void {
     for (const element of this.sub) {
       element.unsubscribe();
@@ -130,7 +131,11 @@ constructor(private categories:CategeryServiceService,private lang:LanguageServi
 
 
   toggleLanguage() {
+    const currentUrl = this.route.url;
+
+    // Toggle the language
     this.lang.toggleLanguage();
-    this.route.navigateByUrl(this.route.url);
-  }
+
+    // Reapply the current URL to prevent redirecting
+    this.route.navigateByUrl(currentUrl);  }
 }
