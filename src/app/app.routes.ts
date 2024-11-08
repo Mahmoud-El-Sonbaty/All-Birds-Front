@@ -7,6 +7,7 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 export const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
@@ -17,7 +18,8 @@ export const routes: Routes = [
     // {path: 'collections', component: MainProductComponent, title: 'Collections'},
     {path:"Sidebar",component:SidebarComponent,title:"Sidebar"},
     // {path: 'collections', component: MainProductComponent , title : 'Product Page' },
-    {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'}
+    {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'},
+    {path:"orders",component:OrdersComponent,title:"Orders"}
   ]},
   {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},
   //{path:"home",canActivate:[authoGuard],component:HomeComponent,title:"home"},
