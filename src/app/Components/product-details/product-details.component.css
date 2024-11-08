@@ -15,7 +15,28 @@ a {
   color: black;
   font-weight: bold;
 }
+/*  */
 
+body[dir="rtl"] .row {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .thumbnail-container {
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+body[dir="rtl"] .main-product-image,
+body[dir="rtl"] .carousel-content {
+  direction: rtl;
+}
+
+body[dir="rtl"] .row {
+  flex-direction: row-reverse;
+}
+
+
+/*  */
 /* Left Side Styles */
 .d-flex {
   display: flex;

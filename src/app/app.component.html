@@ -10,7 +10,13 @@
 </head>
 <body> -->
   <!-- <app-nav-bar></app-nav-bar> -->
+   <!-- app.component.html -->
+<button (click)="toggleDirection()" class="toggle-btn">
+  Switch to {{ getDirection() === 'rtl' ? 'English' : 'Arabic' }}
+</button>
+
   <router-outlet />
-  <!-- <app-product-details></app-product-details> -->
+  <app-product-details></app-product-details>
+  
 <!-- </body>
 </html> -->
