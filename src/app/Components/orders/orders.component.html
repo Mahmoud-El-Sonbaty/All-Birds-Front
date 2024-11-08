@@ -1,0 +1,29 @@
+<div *ngIf="ordersData.isSuccess">
+  <div class="ordersContainer">
+    <div class="titleAndSearchContainer">
+      <h1>your orders</h1>
+      <div class="ordersSearchContainer">
+        <div class="ordersSearchInput">
+          <i class="ordersSearchIcon"></i>
+          <input type="text" placeholder="Search all orders" [(ngModel)]="searchQuery"/>
+        </div>
+      </div>
+    </div>
+    <div class="ordersNumberPerYear">
+      select year:
+      <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearChange()">
+        <option value="">All Years</option>
+        <option *ngFor="let year of getUniqueOrderYears()" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+      <div>
+        <div class="ordersContents">
+          <div class="ordersDisplay">
+            <div *ngFor="let order of getFilteredOrders()">
+              <app-order [order]="order"></app-order>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>  
+</div>

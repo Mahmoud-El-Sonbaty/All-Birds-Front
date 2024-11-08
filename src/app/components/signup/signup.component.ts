@@ -16,58 +16,38 @@ export class SignupComponent {
   username:Username={} as Username;
 
   constructor(private _UsernameService :UsernameService,private router :Router){}//private cook:CookieService,
-  
-    Adduser(){
+
+  Adduser(){
     //CreateUser
     console.log(this.username);
-    
-//add in cooks 
+    //add in cooks
     //this.cook.set("Email",this.username.Email);
 
     this._UsernameService.register(this.username).subscribe({
-      next:()=>{
-      this.router.navigateByUrl("/home");
-      
+      next: (res) => {
+        console.log(res);
+        this.router.navigateByUrl("/home");
+      },
+      error: (err) => {
+        console.log(err);
       }
-      
-      })
-
-
-
+    });
   }
   isEmailValid():Boolean{
-
-// console.log("sssssss");
-
-// console.log(this.username.Email);
-return  (!!this.username.Email && this.username.Email.includes("@")); 
-
+    return  (!!this.username.Email && this.username.Email.includes("@"));
   }
   ispasswordvaild():boolean{
-    
-    return /\d/.test(this.username.Password); 
+    return /\d/.test(this.username.Password);
   }
 
-isCansignup():Boolean{
-
-if(this.username.Email!=undefined&&this.username.Password!=undefined&&this.username.Confirm_Password!=undefined)
-{
-
-if(this.isEmailValid()==true&&this.ispasswordvaild()==true&&(this.username.Password==this.username.Confirm_Password))
-  
-  {
-
-  
-    // console.log(this.isEmailValid());console.log(this.ispasswordvaild());console.log((this.username.Password==this.username.Confirm_Password));
-    
- 
-    
-    return false;
-
+  isCansignup():Boolean{
+    if(this.username.Email!=undefined&&this.username.Password!=undefined&&this.username.ConfirmPassword!=undefined) {
+      if(this.isEmailValid()==true&&this.ispasswordvaild()==true&&(this.username.Password==this.username.ConfirmPassword)) {
+        // console.log(this.isEmailValid());console.log(this.ispasswordvaild());console.log((this.username.Password==this.username.Confirm_Password));
+        return false;
+      }
+      return true;
+    }
+    return true;
   }
-  return true;
-}
-return true;
-}
-
 }

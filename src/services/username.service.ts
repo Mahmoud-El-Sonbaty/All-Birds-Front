@@ -12,8 +12,8 @@ export class UsernameService {
 
   constructor(private httpClient:HttpClient) { }
 
-  register(user:Username):Observable<Username>{
-    return this.httpClient.post<Username>(`${environment.BaseUrl}/account/register`, user)
+  register(user: Username):Observable<Username>{
+    return this.httpClient.post<Username>(`${environment.BaseUrl}/Account/Register`, user)
   }
 
   getUserByEmail(loginCredentials: UsernameCheck):Observable<string>{

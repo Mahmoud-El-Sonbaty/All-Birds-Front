@@ -16,11 +16,11 @@
   </div>
    -->
 
-  
+
 
    <!--  -->
 
-<!-- 
+<!--
    <div class="sidebar bg-light p-3">
     <div class="d-flex justify-content-between align-items-center">
       <h5>Cart</h5>
@@ -53,7 +53,7 @@
   </div>
    -->
 <!-- cart is empty -->
-@if(userCart == null){
+@if(userCart.orderDetails == null){
 <!-- Sidebar Container -->
  <div class="sidebar bg-light shadow-lg" [ngClass]="{'open': isOpen}">
     <button class="close-btn" (click)="toggleSidebar()">&times;</button>
@@ -80,9 +80,9 @@
     <p  class="free-shipping text-center text-muted">Congrats! You get free standard shipping</p>
     <div class="progres"></div><br>
     <div *ngFor="let item of userCart.orderDetails" class="d-flex mb-3">
-      <!-- 
+      <!--
        -->
-      
+
        <!--  -->
       <img [src]="baseImagePath + item.imagePath" alt="Product Image" class="img-fluid me-3" style="width: 60px; height: auto;">
       <div class="flex-grow-1">
@@ -92,7 +92,7 @@
           <button class="" (click)="updateQuantity(item, false)">-</button>
           <span class="mx-2">{{ item.quantity }}</span>
           <button class=" " (click)="updateQuantity(item, true)">+</button>
-          
+
         </div>
 
         <hr />
