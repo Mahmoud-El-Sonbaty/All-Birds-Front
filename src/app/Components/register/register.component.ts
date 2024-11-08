@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import { LoginComponent } from "../../components/login/login.component";
-
-import { SignupComponent } from "../../components/signup/signup.component";
-
-// import { SidebarComponent } from "../sidebar/sidebar.component";
+import { LoginComponent } from '../login/login.component';
+import { SignupComponent } from '../signup/signup.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [LoginComponent, SignupComponent],
+  imports: [LoginComponent,SignupComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

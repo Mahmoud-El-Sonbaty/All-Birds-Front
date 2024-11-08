@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { Username } from '../../../models/username';
 import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
-// import { UsernameServicesService } from '../../username-services.service';
-import { UsernameServicesService } from '../../../services/username-services.service';
+import { UsernameService } from '../../../services/username.service';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-signup',
@@ -17,61 +15,39 @@ import { CookieService } from 'ngx-cookie-service';
 export class SignupComponent {
   username:Username={} as Username;
 
-  constructor(private _UsernameServicesService :UsernameServicesService,private cook:CookieService,private root :Router){}
-  
-    Adduser(){
+  constructor(private _UsernameService :UsernameService,private router :Router){}//private cook:CookieService,
+
+  Adduser(){
     //CreateUser
     console.log(this.username);
-    
-//add in cooks 
-this.cook.set("Email",this.username.Email);
+    //add in cooks
+    //this.cook.set("Email",this.username.Email);
 
-    this._UsernameServicesService.CreateUser(this.username).subscribe({
-
-      next:()=>{
-      this.root.navigateByUrl("/home");
-      
+    this._UsernameService.register(this.username).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.router.navigateByUrl("/home");
+      },
+      error: (err) => {
+        console.log(err);
       }
-      
-      })
-
-
-
+    });
   }
   isEmailValid():Boolean{
-
-// console.log("sssssss");
-
-// console.log(this.username.Email);
-return  (!!this.username.Email && this.username.Email.includes("@")); 
-///بترىن  
-//paddin in form 
+    return  (!!this.username.Email && this.username.Email.includes("@"));
   }
   ispasswordvaild():boolean{
-    
-    return /\d/.test(this.username.Password); 
+    return /\d/.test(this.username.Password);
   }
 
-isCansignup():Boolean{
-
-if(this.username.Email!=undefined&&this.username.Password!=undefined&&this.username.Confirm_Password!=undefined)
-{
-
-if(this.isEmailValid()==true&&this.ispasswordvaild()==true&&(this.username.Password==this.username.Confirm_Password))
-  
-  {
-
-  
-    // console.log(this.isEmailValid());console.log(this.ispasswordvaild());console.log((this.username.Password==this.username.Confirm_Password));
-    
- 
-    
-    return false;
-
+  isCansignup():Boolean{
+    if(this.username.Email!=undefined&&this.username.Password!=undefined&&this.username.ConfirmPassword!=undefined) {
+      if(this.ispasswordvaild()==true&&(this.username.Password==this.username.ConfirmPassword)) {
+        // console.log(this.isEmailValid());console.log(this.ispasswordvaild());console.log((this.username.Password==this.username.Confirm_Password));
+        return false;
+      }
+      return true;
+    }
+    return true;
   }
-  return true;
-}
-return true;
-}
-
 }

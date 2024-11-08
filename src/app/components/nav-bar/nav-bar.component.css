@@ -1,6 +1,8 @@
 .navbar{
   box-shadow: 0 5px 5px rgba(38, 38, 38, 0.137);
-  position: relative;
+  position: sticky; /* Set position to sticky */
+  top: 0;           /* Make it stick to the top of the viewport */
+  z-index: 1000;    /* Ensure it appears above other elements */
 }
 .navbar-nav .nav-link {
   text-transform: uppercase;
@@ -10,8 +12,8 @@
   color: red;
 }
 .navbar-brand {
-  font-family: cursive;
-  font-size: 1.5rem;
+  /* font-family: cursive; */
+  font-size: 1.5rem ;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -31,14 +33,13 @@
 }
 .dropdown-menu {
   position: absolute;
-  top: 100%; /* Positioned just below the navbar */
+  top: 100%;
   left: 0;
   right: 0;
-  width: 99.9vw; /* Full width dropdown */
+  width: 99.9vw;
   padding: 50px;
   background-color: white;
   border: none;
-  /* margin: -.vw!important; */
   z-index: -1;
   box-shadow: 0 5px 16px rgba(0,0,0,0.2);
 }
@@ -75,12 +76,15 @@ display: none !important;
    #Allbirds {
     position: absolute !important;
     top: 0px;
+    width: 10%;
+    /* padding-bottom: 10px; */
     left: 50%;
+    height: auto;
+
+    max-width: 200px;
+
   }
-  /* .navbar-logo {
-    max-width: 15vw;
-    max-height: 15vh;
-  }  */
+
 }
 
 
@@ -156,14 +160,13 @@ display: none !important;
 }
 
 
-/* .navbar-logo {
+.navbar-logo {
   max-width: 8vw;
   max-height: 9vh;
   height: auto;
   width: auto;
   object-fit: contain;
-  transition: max-width 0.5s ease, max-height 0.2s ease;
-} */
+}
 
 
 
@@ -217,5 +220,3 @@ body {
 .collapse-header {
   cursor: pointer;
 }
-
-

@@ -1,0 +1,185 @@
+<!-- first slide -->
+
+<div id="carouselExampleSlidesOnly " class="carousel slide p-0 position-relative" data-bs-ride="carousel">
+  <div class="carousel-indicators position-absolute  top-50 d-flex flex-column  justify-content-start ms-5  w-25 ">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active rounded-circle bg-secondary  " aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="rounded-circle bg-secondary" aria-label="Slide 2"></button>
+  </div>
+  <div class="carousel-inner position-relative w-100 ">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="images/2.avif" class="d-block w-100" alt="...">
+      <div class="carousel-caption capHeader d-none text-dark  d-lg-block position-absolute top-0 p-5  align-items-end justify-content-end text-end ">
+          <h4>THE RUNNER COLLECTION</h4>
+          <p>___________________</p>
+          <h1 class="first mb-0" >Comfortable </h1>
+          <Span class="third ">By Nature</Span>
+
+      </div>
+      <div class="carousel-caption capbutton d-none d-md-block position-absolute start-50 p-1 w-25 d-flex    ">
+          <p class="texts text-dark  mb-5 me-0 position-relative start-100 justify-content-end align-items-end text-align-end  d-none  d-xxl-block "> <br>
+              OUR ICONIC EVERYDAY SNEAKS ARE A SOFT,
+              <br>PILLOWY RETREAT FOR YOUR FEET.</p>
+          <div class="d-flex position-relative start-100 mb-3 me-4 ">
+              <button class="btn btn-light shop m-1" (click)="navigateTo('2-3', 1)">SHOP MEN</button>
+              <button class="btn btn-light shop m-1" (click)="navigateTo('17-18', 1)">SHOP WOMEN</button>
+
+               </div>
+           </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="images/1.avif" class="d-block w-100" alt="...">
+
+      <div class="carousel-caption capHeader d-none text-dark  d-xl-block position-absolute top-0 p-4  align-items-end justify-content-end text-end ">
+
+          <h1 class="first">ELEVATED <br> EARTH TONES</h1>
+          <p class="texts"><br>___________________<br>
+              NEW NEUTRAL SHADES SO SUBTLE
+             <br> THEY'T HELP BUT STAND OUT.</p>
+      </div>
+      <div class="carousel-caption capbutton d-md-block position-absolute  start-50 p-1 w-25 d-flex    ">
+
+          <div class="d-flex position-relative start-100 mb-3 me-4 ">
+              <button class="btn btn-light shop m-1">SHOP MEN</button>
+              <button class="btn btn-light shop m-1">SHOP WOMEN</button>
+           </div>
+    </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 3 cards -->
+<div class="card-group p-3 m-0">
+  <div class="card m-2 img card-1" *ngFor="let item of items">
+    <ng-container *ngIf="item.type === 'image'; else videoTemplate">
+      <img [src]="item.src" class="card-img-top carimag" alt="...">
+    </ng-container>
+    <ng-template #videoTemplate>
+      <video [src]="item.src" autoplay muted loop></video>
+    </ng-template>
+
+    <div class="position-absolute carbody">
+      <h2 class="product-title">{{ item.title }}</h2>
+      <p class="product-subtitle">{{ item.subtitle }}</p>
+    </div>
+
+    <div class="position-absolute carbtn">
+      <button class="btn btn-light carbtnshop m-1">SHOP MEN</button>
+      <button class="btn btn-light carbtnshop m-1">SHOP WOMEN</button>
+    </div>
+  </div>
+</div>
+
+<!-- slide 2 -->
+
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let slide of slides2; let i = index" [ngClass]="{'active': i===0}">
+      <div class="row p-5">
+        <div class="col-md-6 slide2 m-0 p-1">
+          <div class="card position-relative">
+            <img [src]="slide.img" class="card-img-top" alt="Card Image">
+            <a href="#" class="position-absolute textSlide">{{ slide.text }}</a>
+          </div>
+        </div>
+        <div class="col-md-6 slide2 m-0 p-1">
+          <div class="card position-relative">
+            <img [src]="slide.img2" class="card-img-top" alt="Card Image">
+            <a href="#" class="position-absolute textSlide">{{ slide.text2 }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+
+<!-- 4 product -->
+<div class="container-fluid ">
+  <div class="column-wrapper h-100 mb-1">
+    <div class="col-lg-6 left-column m-0 p-0">
+      <div class="position-relative h-100">
+        <img src="images/bigImage.jpg" class="img-fluid main-image" alt="Large Shoe Image">
+        <div class="text-overlay-left">
+          <p class="title">Shoe Name 4</p>
+          <p class="subtitle">Shoe Name 4</p>
+          <div class="card-group">
+            <button class="btn btn-light  m-1">SHOP MEN</button>
+            <button class="btn btn-light  m-1">SHOP WOMEN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 right-column m-0 p-0 mb-1">
+      <div class="row g-1 w-100">
+        @for (prd of Products; track prd.id) {
+
+          <div class="col-6">
+            <div class="position-relative imag4">
+              <img [src]="imagepath+prd.mainImagePath" class="img-fluid images" alt="Small Shoe Image">
+              <div class="text-overlay">
+                <h6>{{prd.nameEn}}</h6>
+                <p>{{prd.colorNameEn}}</p>
+              </div>
+              <div class="price">{{prd.price}}</div>
+            </div>
+          </div>
+        }
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- gift Card -->
+
+<div class="container-fluid m-0  GiftCard">
+    <div class="row m-0 p-0 ">
+      <div class="col-lg-6 p-1 m-0">
+        <div class="image-container">
+          <img src="images/Gift2.jpg" alt="Gift Card Image" class="img-fluid">
+          <div class="overlays">
+            <div>
+              <h2>Gift Cards</h2>
+              <p>Always Fits, Never Fails</p>
+            </div>
+            <div class="card-group mt-auto">
+              <button class="btn btn-light m-1 giftbtn">SHOP MEN</button>
+              <button class="btn btn-light m-1 giftbtn">SHOP WOMEN</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 p-1 m-0">
+        <div class="image-container">
+          <img src="images/Gift1.jpg" alt="Another Image" class="img-fluid">
+          <div class="overlays">
+            <div>
+              <h2>Another Title</h2>
+              <p>Another Subtitle or Description</p>
+            </div>
+            <div class="mt-auto">
+              <button class="btn btn-light giftbtn">SHOP NOW</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+<!-- more product -->
+ <app-slider-cm class="m-1"></app-slider-cm>

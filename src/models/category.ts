@@ -8,8 +8,13 @@ export interface Icategory {
   children: Icategory[]|null;
 }
 
-export interface Apiresponse{
+export interface ApiresponseCategory{
   data: Icategory[];
+  msg: string;
+  isSuccess: boolean;
+}
+export interface ApiresponseCat{
+  data: Icategory;
   msg: string;
   isSuccess: boolean;
 }

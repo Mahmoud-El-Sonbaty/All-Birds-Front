@@ -5,6 +5,7 @@ import { CategeryService } from '../../../services/categery.service';
 import { Subscription } from 'rxjs';
 import { RouterLink } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+// import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-nav-bar',

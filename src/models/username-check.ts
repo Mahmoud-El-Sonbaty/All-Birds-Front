@@ -1,4 +1,4 @@
 export interface UsernameCheck {
-    Email:string;
-    Password:string;
+  Email:string;
+  Password:string;
 }

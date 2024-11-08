@@ -2,26 +2,30 @@
 <div  *ngIf="!showResetPasswordFormbool">
   <h3 >LOGIN</h3>
   <form  (ngSubmit)="check()"  #myform1="ngForm">
-   
+
     <div class="form-group mb-3">
       <label for="email">Email</label>
-      <input 
+      <input
       name="email"
       #EmaillogInp="ngModel"
+      pattern="^[A-Za-z][A-Za-z0-9._%+-]{3,}@[A-Za-z0-9.-]+\.com$"
+
       required
-      [(ngModel)]="usernameCheck.Email" type="email" id="email" class="form-control shadow-none" />
+      [(ngModel)]="usernameCheck.Email" type="email" id="login-email" class="form-control shadow-none" />
       @if(EmaillogInp.invalid&&EmaillogInp.touched){
   @if (EmaillogInp.hasError("required")) {
     <div class="text-danger">Email is required</div>
   }
-  
-  
+  @if (EmaillogInp.hasError("pattern")) {
+    <div class="text-danger">Email must start with a letter, contain at least 4 characters before &#64; , and end with .com</div>
+  }
+
       }
-      @else if (!isEmailValid()&&EmaillogInp.touched) {
-     
-  
+      <!-- @else if (!isEmailValid()&&EmaillogInp.touched) {
+
+
   <div class="text-danger">Email must contain &#64;</div>
-      }
+      } -->
       </div>
       <div class="form-group mb-3">
         <label for="password">Password</label>
@@ -31,56 +35,60 @@
         maxlength="40"
         name="password"
         #passwordlogInp="ngModel"
-        [(ngModel)]="usernameCheck.Password" type="password" id="password" class="form-control shadow-none" />
+        [(ngModel)]="usernameCheck.Password" type="password" id="login-password" class="form-control shadow-none" />
         @if( passwordlogInp.invalid &&passwordlogInp.touched){
           @if(passwordlogInp.hasError("required")){<div class="text-danger"> Password is required </div>}
           @if(passwordlogInp.hasError("minlength")){<div class="text-danger">minlength less then  6 </div>
           }
               }
           @else if(!ispasswordvaild()&&passwordlogInp.touched){
-    
+
             <div class="text-danger">password must contain at least one number </div>
               }
-           
+
       </div>
 
     <button type="submit" [disabled]="myform1.invalid||isCanLogin()" class="btn btn-dark btn-lg w-100">Sign In</button>
 
     <div style="display: flex; justify-content: center;" >
-    <a > <button    type="button"  (click)="showResetPasswordForm()">Forgot Password</button> </a> 
+    <a > <button    type="button"  (click)="showResetPasswordForm()">Forgot Password</button> </a>
     </div>
   </form>
 
 </div>
-        
-     
+
+
 
 <div  *ngIf="showResetPasswordFormbool">
-        
+
         <div id="resetPasswordForm" class="form-group mb-3" >
           <h3>Reset Your Password</h3>
           <p>We will send you an email to reset your password.</p>
           <form (ngSubmit)="onSubmit()" #myform2="ngForm">
-           
+
             <div class="form-group mb-3">
               <label for="email">Email</label>
-              <input 
+              <input
               name="email"
               #EmailforgetInp="ngModel"
+              pattern="^[A-Za-z][A-Za-z0-9._%+-]{3,}@[A-Za-z0-9.-]+\.com$"
+
               required
               [(ngModel)]="usernameCheck.Email" type="email" id="email" class="form-control shadow-none" />
               @if(EmailforgetInp.invalid&&EmailforgetInp.touched){
           @if (EmailforgetInp.hasError("required")) {
             <div class="text-danger">Email is required</div>
           }
-          
-          
+          @if (EmailforgetInp.hasError("pattern")) {
+            <div class="text-danger">Email must start with a letter, contain at least 4 characters before &#64; , and end with .com</div>
+          }
+
               }
-              @else if (!isEmailValid()&&EmailforgetInp.touched) {
-             
-          
+              <!-- @else if (!isEmailValid()&&EmailforgetInp.touched) {
+
+
           <div class="text-danger">Email must contain &#64;</div>
-              }
+              } -->
               </div>
             <button  id="Submitforget" type="submit" class="btn btn-dark btn-lg w-30" [disabled]="myform2.invalid||!isEmailValid()" >Submit</button><br>
             <button type="button" style="color: black;" class="btn btn-link"  (click)="hideResetPasswordForm()">Cancel</button><br>
