@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-// import { authoGuard } from '../guards/autho.guard';
+import { authoGuard } from '../guards/autho.guard';
 import { RegisterComponent } from './components/register/register.component';
 import { MainProductComponent } from './components/main-product/main-product.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
@@ -18,8 +18,9 @@ export const routes: Routes = [
     {path: 'home', component: HomeComponent, title: "Home"},
     {path:"Sidebar",component:SidebarComponent,title:"Sidebar"},
     {path: 'single-product', component: ProductDetailsComponent , title : 'Product Details' },
+    {path:"orders", canActivate:[authoGuard], component:OrdersComponent, title:"Orders"},
     {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'},
-    {path:"orders",component:OrdersComponent,title:"Orders"}
+    //{path:"profile",canActivate:[authoGuard],component:ProfileComponent,title:"Profile"},
   ]},
   {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},
   //wild card route

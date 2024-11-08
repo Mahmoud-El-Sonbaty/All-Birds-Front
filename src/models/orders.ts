@@ -1,6 +1,7 @@
 export interface OrderDetail {
   id: number;
   productId: number;
+  ProductColorSizeId: number;
   productName: string;
   productImagePath: string;
   colorName: string;
@@ -12,6 +13,7 @@ export interface OrderDetail {
 
 export interface Order {
   id: number;
+  orderNo: string;
   clientId: number;
   clientName: string;
   clientAddress: string;
