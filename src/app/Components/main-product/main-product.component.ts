@@ -144,7 +144,7 @@ export class MainProductComponent implements OnInit, OnChanges {
     let item = this.categeryService.getCategorysByParentId(parentCategoryId).subscribe({
       next: (res) => {
         if (res.isSuccess) {
-          // console.log(res.data);
+          console.log(res.data);
           this.FilterTypes.Category = res.data;
           this.ParentCat_SubCat = this.FilterTypes.Category.children?.find(child => child.id == this.subCatId);
 

@@ -26,7 +26,7 @@ export class CategeryServiceService implements OnInit ,OnDestroy {
     getAllCategory():Observable<ApiresponseCategory>{
       const lang = this.Lang.getLanguage();
 
-      console.log(environment.BaseUrl)
+      console.log(`${environment.BaseUrl}/Category/${lang}`)
       return this.httpclient.get<ApiresponseCategory>(`${environment.BaseUrl}/Category/${lang}`)
     }
 
@@ -34,7 +34,7 @@ export class CategeryServiceService implements OnInit ,OnDestroy {
   getCategorysByParentId(categoryId: number):Observable<ApiresponseoneCategory>
   {
     const lang = this.Lang.getLanguage();
-
+    console.log(`${environment.BaseUrl}/Category/${categoryId}/${lang}`)
     return this.httpclient.get<ApiresponseoneCategory>(`${environment.BaseUrl}/Category/${categoryId}/${lang}`);
 
   }

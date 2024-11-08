@@ -13,23 +13,21 @@
 
 <!-- first slide -->
 
-<div id="carouselExampleSlidesOnly " class="carousel slide p-0 position-relative" data-bs-ride="carousel">
-  <div class="carousel-indicators position-absolute  top-50 d-flex flex-column  justify-content-start ms-5  w-25 ">
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active rounded-circle bg-secondary  " aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="rounded-circle bg-secondary" aria-label="Slide 2"></button>
+<div id="carouselExampleSlidesOnly " [class]="'carousel slide slider1 p-0 position-relative '+lang " data-bs-ride="carousel">
+  <div class="carousel-indicators FirstSlider position-absolute  top-50 d-flex flex-column  justify-content-start   w-25 ">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active rounded-circle A bg-secondary  " aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="rounded-circle B bg-secondary" aria-label="Slide 2"></button>
   </div>
   <div class="carousel-inner position-relative w-100 ">
     <div class="carousel-item active" data-bs-interval="3000">
       <img src="Images/2.avif" class="d-block w-100" alt="...">
-      <div class="carousel-caption capHeader d-none text-dark  d-lg-block position-absolute top-0 p-5  align-items-end justify-content-end text-end ">
-          <h4>{{'home.slider1.slide1.title'|translate}}</h4>
-          <p>___________________</p>
+      <div class="carousel-caption capHeader d-none text-dark  d-md-block position-absolute top-0 p-5   ">
           <h1 class="first mb-0" >{{'home.slider1.slide1.subtitle'|translate}} </h1>
           <Span class="third ">{{'home.slider1.slide1.thirdtitle'|translate}}</Span>
 
       </div>
-      <div class="carousel-caption capbutton d-none d-md-block position-absolute start-50 p-1 w-25 d-flex    ">
-          <p class="texts text-dark  mb-5 me-0 position-relative start-100 justify-content-end align-items-end text-align-end  d-none  d-xxl-block "> <br>
+      <div class="carousel-caption capbutton  d-md-block position-absolute start-50 p-1 w-25 d-flex    ">
+          <p class="texts text-dark  mb-4  position-relative    d-none  d-xxl-block "> <br>
             {{'home.slider1.slide1.description1'|translate}}
               <br>{{'home.slider1.slide1.description2'|translate}}</p>
           <div class="d-flex position-relative start-100 mb-3 me-4 ">
@@ -42,17 +40,15 @@
     <div class="carousel-item" data-bs-interval="3000">
       <img src="Images/1.avif" class="d-block w-100" alt="...">
 
-      <div class="carousel-caption capHeader d-none text-light  d-xl-block position-absolute top-0 p-4  align-items-end justify-content-end text-end ">
+      <div class="carousel-caption capHeader d-none text-light  d-md-block position-absolute top-0 p-5  align-items-end justify-content-end text-end ">
 
-          <h1 class="first">{{'home.slider1.slide2.title'|translate}} <br>{{'home.slider1.slide2.title2'|translate}}</h1>
-          <p class="texts"><br>___________________<br>
-
-              {{'home.slider1.slide2.subtitle'|translate}}
-             <br>{{'home.slider1.slide2.description1'|translate}}
-              </p>
+        <h1 class="first mb-0" >{{'home.slider1.slide1.subtitle'|translate}} </h1>
+        <Span class="third ">{{'home.slider1.slide1.thirdtitle'|translate}}</Span>
       </div>
       <div class="carousel-caption capbutton d-md-block position-absolute  start-50 p-1 w-25 d-flex    ">
-
+        <p class="texts text-dark  mb-4  position-relative  d-none  d-xxl-block  "> <br>
+          {{'home.slider1.slide1.description1'|translate}}
+            <br>{{'home.slider1.slide1.description2'|translate}}</p>
           <div class="d-flex position-relative start-100 mb-3 me-4 ">
               <button class="btn btn-light shop m-1">{{'home.btn.men'|translate}}</button>
               <button class="btn btn-light shop m-1">{{'home.btn.Woman'|translate}}</button>
@@ -94,13 +90,13 @@
         <div class="col-md-6 slide2 m-0 p-1">
           <div class="card position-relative">
             <img [src]="slide.img" class="card-img-top" alt="Card Image">
-            <a href="#" class="position-absolute textSlide">{{ slide.text }}</a>
+            <a [href]="'ProductCategory/' + slide.rootVal1"  class="position-absolute textSlide">{{ slide.text }}</a>
           </div>
         </div>
         <div class="col-md-6 slide2 m-0 p-1">
           <div class="card position-relative">
             <img [src]="slide.img2" class="card-img-top" alt="Card Image">
-            <a href="#" class="position-absolute textSlide">{{ slide.text2 }}</a>
+          <a [href]="'ProductCategory/' + slide.rootVal2" class="position-absolute textSlide">{{ slide.text2 }}</a>
           </div>
         </div>
       </div>
@@ -119,7 +115,7 @@
 </div>
 
 <!-- 4 product -->
-<div class="container-fluid ">
+<div [class]="'container-fluid '+ lang ">
   <div class="column-wrapper h-100 mb-1">
     <div class="col-lg-6 left-column m-0 p-0">
       <div class="position-relative h-100">

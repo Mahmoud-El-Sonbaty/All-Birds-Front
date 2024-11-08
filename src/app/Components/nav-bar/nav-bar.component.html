@@ -8,10 +8,12 @@
 
 
  <nav class="navbar navbar-expand-xl navbar-light bg-light">
+  <a href="">
 
     <div class="navbar-brand mx-auto col-1" id="Allbirds">
       <img src="Images/Logo.svg"  routerLink="home" href="#" alt="Logo" class="navbar-logo img-fluid" >
     </div>
+  </a>
 
 
 
@@ -165,7 +167,7 @@
                           <h5>{{kid.name}}</h5>
                           @for (smaller of kid.children; track  smaller.id;let s= $index) {
 
-                            <a class="dropdown-item"  routerLinkActive="active_link" [routerLink]="['/collections',kid.id+'-'+smaller.id]">{{smaller.name}}</a>
+                            <a class="dropdown-item"  routerLinkActive="active_link" [routerLink]="['/ProductCategory',kid.id+'-'+smaller.id]">{{smaller.name}}</a>
                           }
 
                         </div>
@@ -201,10 +203,10 @@
                    <li class="nav-item " >
                     @if(child.name=="Sale"){
 
-                      <a class="nav-link text-danger" routerLinkActive="active_link" [routerLink]="['/collections',child.id]">{{child.name}}</a>
+                      <a class="nav-link text-danger" routerLinkActive="active_link" [routerLink]="['/ProductCategory',child.id]">{{child.name}}</a>
                     }@else {
 
-                      <a class="nav-link text-dark" routerLinkActive="active_link" [routerLink]="['/collections',child.id]">{{child.name}}</a>
+                      <a class="nav-link text-dark" routerLinkActive="active_link" [routerLink]="['/ProductCategory',child.id]">{{child.name}}</a>
                     }
 
                 </li>

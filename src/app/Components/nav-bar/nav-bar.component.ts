@@ -137,5 +137,7 @@ constructor(private categories:CategeryServiceService,private lang:LanguageServi
     this.lang.toggleLanguage();
 
     // Reapply the current URL to prevent redirecting
-    this.route.navigateByUrl(currentUrl);  }
+    this.route.navigateByUrl(currentUrl);
+    window.location.reload();
+  }
 }

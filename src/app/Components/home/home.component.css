@@ -8,8 +8,6 @@
   color: #333;
   font-weight: bold;
   width: 50%;
-
-
   border-radius: 0;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -19,38 +17,248 @@
   color: white;
 }
 
-.capHeader
+.ar .capHeader
 {
-  right: 0;
-}
-.capbutton{
-  right: -40%;
-}
-.third{
-  font-family: Georgia, 'Times New Roman', Times, serif ;
-  font-size: 45px;
-}
-.first{
-  font-size: 85px;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  margin-left: 100px;
+  /* width: 100%; */
+  left: -48%;
+  text-align: end ;
+  justify-items: center;
 
+}
+.en .capHeader
+{
+  margin-right: 100px;
+
+  /* width: 100%; */
+  direction: right;
+  justify-content: start;
+  right: -60%;
+  text-align: start ;
+  justify-items: center;
+}
+
+
+.en .capbutton{
+  right: 10% !important;
+    text-align: end ;
+
+}
+
+.ar .capbutton{
+  text-align: start ;
+  right: 95% !important;
+}
+
+.en .third{
+  font-family: Georgia, 'Times New Roman', Times, serif ;
+  font-size: 3rem;
+  position: relative;
+  left: 42%;
+  color: white !important;
+
+}
+.ar .third{
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-size: 2.5rem;
+  top: 15px;
+  position: relative;
+  right:10%;
+  color: white !important;
+
+}
+.ar .first{
+  font-size: 5.8rem;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  color: white !important;
+
+}
+.en .first{
+  font-size: 6rem;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: white !important;
 }
 .rounded-circle{
-  width: 10px !important;
-  height: 10px !important;
-  margin: -5px !important;
+  width: .5em !important;
+  height: .5em !important;
+  margin: 0px !important;
   transition: opacity 0.3s, transform 0.3s !important;
+}
 
+
+.en .carousel-indicators.FirstSlider{
+ left: -10%;
+}
+
+.ar .carousel-indicators.FirstSlider{
+ right: -10%;
+}
+
+
+.ar .FirstSlider img {
+  transform: scaleX(-1);
+}
+.ar .FirstSlider img {
+  transform: scaleX(-1);
 
 }
+
 .rounded-circle.active{
   opacity: 1;
   background-color: #fdfdfd !important;
   transform: scale(1.5);
+
 }
-.texts{
-  font-size: 20px;
+
+
+
+.en .texts{
+  font-size: 1.3rem;
+  right: -93.5%;
+  text-align: end ;
+  font-weight:400 !important;
+
+  color:white !important;
 }
+.ar .texts{
+  font-size: 1.3rem;
+  left:   93.5%;
+  text-align: start ;
+  font-weight:400 !important;
+  color:white !important;
+}
+
+
+
+@media (max-width: 1200px) {
+
+  .ar .capHeader
+  {
+    left: 10%;
+    margin-bottom:25px !important;
+
+
+  }
+  .en .capHeader
+  {
+    margin-right: 100px;
+    right: -60%;
+  }
+
+
+
+
+  .en .capbutton{
+    justify-content: start;
+    left: -74%!important;
+    width: 85%!important;
+  }
+
+  .ar .capbutton{
+    right: 91% !important;
+    width: 85%!important;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .ar .capHeader
+  {
+    top: -3% !important;
+    margin-bottom: 150px !important;
+  }
+  .en .capHeader
+  {
+    margin-right: 100px;
+
+    direction: right;
+    justify-content: start;
+    right: -60%;
+    text-align: start ;
+    justify-items: center;
+  }
+
+  .en .capbutton{
+    justify-content: start;
+    left: -70%!important;
+    width: 85%!important;
+  }
+  .rounded-circle{
+    display: none;
+    }
+  .ar .capbutton{
+    right: 90% !important;
+    width: 85%!important;
+  }
+}
+
+        @media (max-width: 485px) {
+
+          .en .capbutton{
+            justify-content: start;
+            left: -69% !important;
+            width: 90% !important;
+          }
+          .rounded-circle{
+            display: none;
+            }
+          .ar .capbutton{
+            right: 95% !important;
+            width: 85%!important;
+          }
+        }
+
+    @media (max-width: 425px) {
+
+      .en .capbutton{
+        justify-content: start;
+        left: -74% !important;
+        width: 90% !important;
+      }
+      .rounded-circle{
+        display: none;
+        }
+      .ar .capbutton{
+        right: 90% !important;
+        width: 85%!important;
+      }
+    }
+  @media (max-width: 320px) {
+
+    .en .capbutton{
+      justify-content: start;
+      left: -70%!important;
+      width: 85%!important;
+    }
+    .rounded-circle{
+      display: none;
+      }
+    .ar .capbutton{
+      right: 85% !important;
+      width: 85%!important;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+3cards
+*/
+
+
 .card-group .card-1 {
   position: relative;
     overflow: hidden;
@@ -70,9 +278,12 @@
     transition: opacity 0.3s ease;
   }
 
+
   .card-group .card.img{
       overflow:hidden;
   }
+
+
   .card-group .card img{
 
       transition: transform 0.3s ease ;
@@ -124,12 +335,14 @@
 
   .textSlide {
     color: white;
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: center;
     width: 100%;
     font-weight: 700;
     top: 50%;
     transform: translateY(-50%);
+    text-decoration: none;
+
   }
 
   .carousel-control-prev, .carousel-control-next {
@@ -230,13 +443,16 @@
 
   }
 
-  .text-overlay-left {
+    .text-overlay-left {
     position: absolute;
     bottom: 1.3rem;
     left: 0.8rem;
+    right: 0.8rem;
     font-size: 2rem;
     font-weight: 700;
   }
+
+
 
   .left-column {
     display: flex;
@@ -260,19 +476,32 @@
   .text-overlay-left {
       font-size: 1rem;
       margin-left: 1rem;
-      width: 100%;
+      margin-right: 1rem;
+      width: 95%;
       color: aliceblue;
     }
-    .text-overlay-left .title {
+    .en .text-overlay-left .title {
       font-size: 3rem;
       margin: 0;
       text-align: left;
 
     }
-    .text-overlay-left .subtitle {
-      font-size: 1.5rem;
-        margin-bottom: 2rem;
+    .ar .text-overlay-left .title {
+      font-size: 3rem;
+      margin: 0;
+      text-align: right;
+
+    }
+
+    .en .text-overlay-left .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
       text-align: left;
+    }
+    .ar .text-overlay-left .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-align: right;
     }
 
   .text-overlay-left .card-group button{
@@ -290,9 +519,13 @@
 
   }
   @media (max-width: 992px) {
-    .column-wrapper {
-      flex-direction: column;
+    .text-overlay-left .card-group button {
+      width: 35%;
+
     }
+
+  }
+  @media (max-width: 320px) {
 
   }
   .col-lg-6 ,.imag4{
@@ -367,12 +600,6 @@
     opacity: 1;
   }
 
-  .GiftCard{
-    /* box-sizing: border-box; */
-    /* overflow: hidden !important; */
-
-
-  }
 
 
 
