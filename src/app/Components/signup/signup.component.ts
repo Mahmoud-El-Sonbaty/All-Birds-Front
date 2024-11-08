@@ -44,7 +44,8 @@ this.cook.set("Email",this.username.Email);
 
 // console.log(this.username.Email);
 return  (!!this.username.Email && this.username.Email.includes("@")); 
-
+///بترىن  
+//paddin in form 
   }
   ispasswordvaild():boolean{
     
