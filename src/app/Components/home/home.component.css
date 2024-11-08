@@ -95,10 +95,10 @@
 }
 
 
-.ar .FirstSlider img {
+.ar .imgFirstSlider {
   transform: scaleX(-1);
 }
-.ar .FirstSlider img {
+.en .imgFirstSlider {
   transform: scaleX(-1);
 
 }

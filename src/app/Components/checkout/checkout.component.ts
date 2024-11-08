@@ -309,9 +309,9 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
     } else {
       if (localStorage.getItem("cart"))
         this.userCart = JSON.parse(localStorage.getItem("cart")!)
-      else
-        //redirect out of the page
-          this.router.navigate([""])
+      // else
+      //   //redirect out of the page
+      //     this.router.navigate([""])
     }
   }
 

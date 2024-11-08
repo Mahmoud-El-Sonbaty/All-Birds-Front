@@ -7,7 +7,7 @@
 
 
 
- <nav class="navbar navbar-expand-xl navbar-light bg-light">
+ <nav [class]="'navbar navbar-expand-xl navbar-light bg-light '+ language ">
   <a href="">
 
     <div class="navbar-brand mx-auto col-1" id="Allbirds">
@@ -37,7 +37,7 @@
             <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button" (click)="showing(parent.id,parent.level)" aria-expanded="false"  [attr.aria-controls]="parent.id + 'Menu'">
               <p class="ms-3 mt-3  d-inline-block ">{{parent.name}}</p>
               @if(parent.isParentCategory){
-                <span class=" position-absolute end-0 me-3 mt-3 fs-5">→</span>
+                <span class=" position-absolute end-0 me-3 mt-3 fs-5 arrows">→</span>
 
               }
               <hr>
@@ -238,7 +238,7 @@
           </li>
 
         <li class="nav-item d-none d-md-block ">
-          <a class="nav-link" href="#"><i class="fas fa-search text-dark"></i></a>
+          <a class="nav-link" href="#"><i class="fas fa-search text-dark searchIcon"></i></a>
         </li>
         <li class="nav-item  d-none d-xl-block ">
           <a class="nav-link" routerLink="register"><i class="fas fa-user text-dark"></i></a>
@@ -269,7 +269,7 @@
   </div>
 
   <div class="search-container d-flex justify-content-start align-items-center d-xl-none m-2 p-2 ">
-    <a class="nav-link" href="#"><i class="fas fa-search text-dark"></i></a>
+    <a class="nav-link" ><i class="fas fa-search text-dark searchIcon2 "></i></a>
     <input class="form-control" type="search" [placeholder]="'navBar.search'|translate" aria-label="Search" style=" margin-left: 10px;">
   </div>
 </nav>

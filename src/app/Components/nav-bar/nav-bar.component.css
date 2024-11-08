@@ -21,9 +21,9 @@
 .navbar-icons .nav-link {
   padding: 0 10px;
 }
-.navbar-icons .cart-icon {
+/* .navbar-icons .cart-icon {
   position: relative;
-}
+} */
 .navbar-icons .cart-icon .badge {
   position: absolute;
   top: -10px;
@@ -80,20 +80,30 @@ display: none !important;
     /* padding-bottom: 10px; */
     left: 50%;
     height: auto;
-
     max-width: 200px;
-
   }
 
 }
 
+.ar .searchIcon{
+  transform: scaleX(-1);
+}
+.ar .searchIcon2{
+  transform: scaleX(-1);
+  margin-left: 10px;
+}
 
 @media (max-width: 1200px) {
- #icons {
+ .en #icons {
    position: absolute;
    top: 10px;
    right: 2%;
  }
+ .ar #icons {
+  position: absolute;
+  top: 10px;
+  left: 2%;
+}
   #Allbirds {
    top: -2px;
  }
@@ -105,24 +115,29 @@ display: none !important;
     max-width: 15vw;
     max-height: 15vh;
   } */
-  #icons {
+  .en  #icons {
     top: 12px;
     right: 2%;
   }
+  .ar #icons {
+   position: absolute;
+   top: 12px;
+   left: 2%;
+ }
 }
 
 
 @media (max-width: 576px) {
-  /* .navbar-logo {
-    max-width: 30vw;
-    max-height: 25vh;
-  } */
    #Allbirds {
     top: -3px;
   }
-  #icons {
+ .en #icons {
     top: 10px;
     right: 2%;
+  }
+ .ar #icons {
+    top: 10px;
+    left: 2%;
   }
 }
 
@@ -170,10 +185,7 @@ display: none !important;
 
 
 
-body {
-  font-family: 'Lexend', sans-serif;
-  font-weight: 500;
-}
+
 .back-button {
   display: flex;
   align-items: center;
@@ -194,6 +206,7 @@ body {
   opacity: 1;
   max-height: 300px;
 }
+
 .centered {
   display: flex;
   justify-content: center;
@@ -222,10 +235,9 @@ body {
 }
 .collapse {
   max-height: 12rem;
-  overflow-y: auto;  /* Enable vertical scrolling */
+  overflow-y: auto;
 }
 
-/* Optional: Set max height to prevent items from pushing other content out */
 .navbar-collapse {
   max-height: 72vh;
   overflow-y: auto;
@@ -235,4 +247,21 @@ body {
 }
 .search-container .form-control{
   width: 100%;
+}
+
+
+.en .arrows{
+  position: absolute;
+  right: 0;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+
+}
+.ar .arrows{
+  position: absolute;
+  left: 0;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  font-size: 1.25rem;
 }

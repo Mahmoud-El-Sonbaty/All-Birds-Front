@@ -15,6 +15,7 @@ export const routes: Routes = [
     {path: "register", component: RegisterComponent, title: "Register"},
     {path: 'home', component: HomeComponent, title: "Home"},
     {path:"Sidebar",component:SidebarComponent,title:"Sidebar"},
+    {path: "CheckOut", component: CheckoutComponent, title: "CheckOut"},
     {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'}
     //{path:"profile",canActivate:[authoGuard],component:ProfileComponent,title:"Profile"},
   ]},

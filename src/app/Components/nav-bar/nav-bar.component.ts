@@ -15,15 +15,22 @@ import { LanguageService } from '../../../Services/language.service';
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
-export class NavBarComponent implements OnInit,OnDestroy {
+export class NavBarComponent implements OnInit,OnDestroy ,OnChanges {
 
   sub:Subscription[]= []as Subscription[];
   category:Icategory[]=[]as Icategory[];
   routing:any;
-
+  language:string;
 constructor(private categories:CategeryServiceService,private lang:LanguageService ,private route :Router) {
-
+  this.language=lang.getLanguage();
 }
+  ngOnChanges(changes: SimpleChanges): void {
+
+    let language=this.lang.currentLang$.subscribe();
+
+
+
+  }
 
   ngOnDestroy(): void {
     for (const element of this.sub) {
@@ -136,7 +143,6 @@ constructor(private categories:CategeryServiceService,private lang:LanguageServi
     // Toggle the language
     this.lang.toggleLanguage();
 
-    // Reapply the current URL to prevent redirecting
     this.route.navigateByUrl(currentUrl);
     window.location.reload();
   }
