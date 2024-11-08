@@ -1,4 +1,13 @@
+<div *ngIf="isDataLoading">
+  <app-loader></app-loader>
+</div>
+<div *ngIf="!isDataLoading">
 <div *ngIf="ordersData.isSuccess">
+<div *ngIf="ordersData.data.length==0">
+  <div class="noOrdersToDisplay">
+    <h2>no orders to display</h2>
+  </div>
+</div>
   <div class="ordersContainer">
     <div class="titleAndSearchContainer">
       <h1>your orders</h1>
@@ -26,4 +35,5 @@
         </div>
       </div>
   </div>  
+</div>
 </div>

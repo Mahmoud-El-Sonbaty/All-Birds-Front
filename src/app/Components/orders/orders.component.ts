@@ -4,15 +4,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OrdersData, Order, OrderDetail } from '../../../models/orders';
 import { OrdersService } from '../../../services/orders.service';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [OrderComponent,CommonModule,FormsModule],
+  imports: [OrderComponent,CommonModule,FormsModule,LoaderComponent],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })
 export class OrdersComponent implements OnInit {
+  isDataLoading: boolean = true;
   ordersData: OrdersData = {
     data: [],
     isSuccess: true,
@@ -26,18 +28,17 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.ordersService.getUserOrders(localStorage.getItem("userToken")!).subscribe({
       next:(res)=>{
+        this.isDataLoading = false;
         console.log(res);
         if (res.isSuccess) {
           this.ordersData = res
-          // localStorage.setItem("cart", JSON.stringify(res.data))
         }
         else
           console.log(res.msg)
       },
       error:(err)=>{
+        this.isDataLoading = false;
         console.log(err);
-        // if(localStorage.getItem("cart"))
-          // this.userCart = JSON.parse(localStorage.getItem("cart")!);
       }
     })
   }

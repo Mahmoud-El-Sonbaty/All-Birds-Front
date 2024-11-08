@@ -29,7 +29,7 @@
 .orderFirstSection>div{
   margin-right: 19px;
 }
-.orderFirstSection h4{
+.orderFirstSection h5{
   margin-right: 19px;
   color: #ffffff;
 }
@@ -105,6 +105,12 @@
   height: fit-content;
 }
 @media (max-width: 991px) {
+  .orderFirstSection{
+    flex-wrap: wrap;
+  }
+  .orderPlaced{
+    margin-bottom: 10px;
+  }
   .orderProduct{
     flex-direction: column;
     align-items: center;

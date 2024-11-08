@@ -7,6 +7,18 @@
   margin: 0;
   padding: 0;
 }
+.noOrdersToDisplay{
+    width: 90vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    z-index: 99999;
+}
+.noOrdersToDisplay h2{
+  color: black;
+}
 .ordersContainer{
   margin-left: 4%;
   width: 90%;
