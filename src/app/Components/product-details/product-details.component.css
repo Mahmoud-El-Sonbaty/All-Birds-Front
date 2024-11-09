@@ -15,7 +15,28 @@ a {
   color: black;
   font-weight: bold;
 }
+/*  */
 
+body[dir="rtl"] .row {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .thumbnail-container {
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+body[dir="rtl"] .main-product-image,
+body[dir="rtl"] .carousel-content {
+  direction: rtl;
+}
+
+body[dir="rtl"] .row {
+  flex-direction: row-reverse;
+}
+
+
+/*  */
 /* Left Side Styles */
 .d-flex {
   display: flex;
@@ -412,24 +433,24 @@ h2 {
 
 /* Image with Text Styles */
 @media (max-width: 768px) {
+  .stickTop {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+  }
+
   .row {
       flex-direction: column;
   }
 
-  .thumbnail-container {
-      margin-right: 0; /* Ensure no extra space between thumbnails */
+  .col-7, .col-5 {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
   }
 
-  .carousel-content {
-      width: 95%;
-      height: 95%;
-  }
-  
-  .main-image-slider {
-      display: block;
-  }
-  
-  .color-circles {
-      flex-wrap: wrap; /* Allow wrapping of colors in smaller screens */
+  .flex-column-reverse {
+      flex-direction: column-reverse !important;
   }
 }

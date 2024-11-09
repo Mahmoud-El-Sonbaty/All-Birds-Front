@@ -7,9 +7,16 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './product-details.component.html',
+  template: `
+  <button (click)="toggleDirection()">
+    Switch to {{ getDirection() === 'rtl' ? 'English' : 'Arabic' }}
+  </button>
+  <router-outlet></router-outlet>
+`,
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit, AfterViewInit {
+  
   colors = [
     {
       name: 'Black', code: '#212121', images: [
