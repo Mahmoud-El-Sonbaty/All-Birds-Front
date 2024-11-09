@@ -13,12 +13,12 @@ import { OrdersComponent } from './components/orders/orders.component';
 export const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path:'home',component:HomeComponent,title:"Home Page"},
+    {path: 'home', component: HomeComponent, title: "Home Page"},
     {path: "register", component: RegisterComponent, title: "Register"},
     {path: 'home', component: HomeComponent, title: "Home"},
-    {path:"Sidebar",component:SidebarComponent,title:"Sidebar"},
-    {path: 'single-product', component: ProductDetailsComponent , title : 'Product Details' },
-    {path:"orders", canActivate:[authoGuard], component:OrdersComponent, title:"Orders"},
+    {path: "Sidebar", component: SidebarComponent, title: "Sidebar"},
+    {path: 'single-product/:id', component: ProductDetailsComponent , title : 'Product Details' },
+    {path: "orders", canActivate:[authoGuard], component:OrdersComponent, title:"Orders"},
     {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'},
     //{path:"profile",canActivate:[authoGuard],component:ProfileComponent,title:"Profile"},
   ]},
