@@ -22,7 +22,7 @@ export const routes: Routes = [
     {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'},
     //{path:"profile",canActivate:[authoGuard],component:ProfileComponent,title:"Profile"},
   ]},
-  {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},
+  {path: 'checkout', canActivate:[authoGuard], component: CheckoutComponent, title: 'Checkout'},
   //wild card route
   {path:'**',component:ErrorComponent,title:"Not found"}
 

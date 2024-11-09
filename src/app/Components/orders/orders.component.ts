@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { OrdersData, Order, OrderDetail } from '../../../models/orders';
 import { OrdersService } from '../../../services/orders.service';
 import { LoaderComponent } from '../loader/loader.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orders',
@@ -23,7 +24,7 @@ export class OrdersComponent implements OnInit {
   selectedYear: number | null = null;
   searchQuery: string = '';
 
-  constructor(private ordersService: OrdersService) {}
+  constructor(private ordersService: OrdersService, private router: Router) {}
 
   ngOnInit(): void {
     this.ordersService.getUserOrders(localStorage.getItem("userToken")!).subscribe({
@@ -38,7 +39,11 @@ export class OrdersComponent implements OnInit {
       },
       error:(err)=>{
         this.isDataLoading = false;
-        console.log(err);
+        if (err.status == 401) {
+          localStorage.removeItem("userToken");
+          this.router.navigateByUrl("register");
+        }
+        console.log(1);
       }
     })
   }
