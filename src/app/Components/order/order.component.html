@@ -1,0 +1,51 @@
+<div class="theOrder">
+  <div class="orderFirstSection">
+    <div class="orderPlaced">
+      <h5>ORDER NO</h5>
+      <h6>{{ order.orderNo }}</h6>
+    </div>
+    <div class="orderPlaced">
+      <h5>ORDER PLACED</h5>
+      <h6>{{order.dateOrdered}}</h6>
+    </div>
+    <div class="orderTotal">
+      <h5>TOTAL</h5>
+      <h6>{{ order.total }}$</h6>
+    </div>
+    <div class="orderTotal">
+      <h5>DISCOUNT PERCENTEGE</h5>
+      <h6>{{ order.discountPercentage }}%</h6>
+    </div>
+    <div class="orderTotal">
+      <h5>DISCOUNT AMOUNT</h5>
+      <h6>{{ order.discountAmount }}$</h6>
+    </div>
+    <div class="orderShipTo">
+      <h5>SHIP TO</h5>
+      <h6>{{ order.clientName }} - {{ order.clientAddress }}</h6>
+    </div>
+  </div>
+  <div class="orderSecondSection">
+    <h2 class='orderStateH2'>Order state</h2>
+    <app-stepper [orderState]="order.orderStateName"></app-stepper>
+    <div class="orderProducts">
+      <div *ngFor="let detail of order.details">
+        <div class="orderProduct">
+          <div class="orderProductImgAndInfos">
+            <img src='{{baseImagePath}}/{{detail.productImagePath}}' alt="" class="orderProductImg"/>
+            <div class="orderProductInfos">
+              <h3>{{detail.productName}}</h3>
+              <h4>{{detail.detailPrice}}$</h4>
+              <h4>{{detail.quantity}} Pieces</h4>
+              <div class="orderProductInfosButtons">
+                <button class="orderBuyAgain">Buy it again</button>
+                <button class="orderViewItem" (click)="navigateTo(detail.productId)">View your item</button>
+              </div>
+            </div>
+          </div>
+          <!-- <button class="orderProductReview">Write a product review</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
