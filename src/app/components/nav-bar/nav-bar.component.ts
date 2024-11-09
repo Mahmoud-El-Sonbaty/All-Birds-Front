@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Icategory } from '../../../models/category';
 import { CategeryService } from '../../../services/categery.service';
 import { Subscription } from 'rxjs';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,7 +17,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
   sub:Subscription[]= []as Subscription[];
   category:Icategory[]=[]as Icategory[];
 
-constructor(private categories:CategeryService) {
+constructor(private categories:CategeryService , private router: Router) {
 
 
 }
@@ -111,6 +111,10 @@ constructor(private categories:CategeryService) {
     }
   }
 
-
+  
+  goToSearch()
+  {
+    this.router.navigate(['/search']);
+  }
 
 }

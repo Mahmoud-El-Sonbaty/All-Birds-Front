@@ -1,7 +1,6 @@
 import { IproductColor, IproductSize } from './../../../models/product';
 import { CurrencyPipe } from '@angular/common';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { IProduct } from '../../../models/product';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../environments/environment.development';
@@ -11,7 +10,7 @@ import { environment } from '../../../environments/environment.development';
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CurrencyPipe , NgbCarouselModule , CommonModule ],
+  imports: [CurrencyPipe  , CommonModule ],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })

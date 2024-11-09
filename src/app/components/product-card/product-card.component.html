@@ -37,7 +37,7 @@
     <div class="row mx-auto size" *ngIf="PrdSizes && PrdSizes.length > 0">
       <p style="font-weight: bolder; display: flex; margin-left: -10px;" class="my-3">Quick Add</p>
       <div *ngFor="let colorSize of PrdSizes" class="col-2">
-        <p [ngClass]="{'out-of-stock': colorSize.unitsInStock == 0}">{{colorSize.sizeNumber}} </p>    
+        <p [ngClass]="{'out-of-stock': colorSize.unitsInStock == 0}">{{colorSize.sizeNumber}} </p>
       </div>
     </div>
   </div>

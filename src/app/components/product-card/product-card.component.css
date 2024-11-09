@@ -8,7 +8,7 @@ body {
   transition: box-shadow 0.1s ease-in-out;
   border: none;
   font-family: "Open Sans", sans-serif;
-  margin: 10px; /* لإضافة فراغات بين الكاردات */
+  /* margin: 10px; لإضافة فراغات بين الكاردات */
 }
 
 .card:hover {
@@ -18,8 +18,8 @@ body {
 
 .card-img-top {
   width: 100%;
-  height: 250px; /* تثبيت الطول لتجنب التداخل */
-  object-fit: cover; /* لتغطية المساحة بالكامل */
+  height: 250px;
+  object-fit: cover;
   border-radius: 5px 5px 0 0;
 }
 

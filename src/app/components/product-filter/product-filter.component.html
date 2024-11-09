@@ -8,8 +8,15 @@
       <p>{{CategorySelected?.nameEn}}</p>
     </div>
     <div class="child-category" *ngFor="let Sub of filterTypes.Category?.children;let i = index">
-      <p><a [routerLink]="['/ProductCategory',filterTypes.Category.id+'-'+Sub.id]"> {{Sub.nameEn}}</a></p>
-    </div>
+      <p>
+        <a 
+          [ngClass]="{ 'font-weight-bolder': CategorySelected?.id == Sub.id }" 
+          [routerLink]="['/ProductCategory', filterTypes.Category.id + '-' + Sub.id]"
+        > 
+          {{ Sub.nameEn }}
+        </a>
+      </p>
+          </div>
   </div>
   <div class="filter-size">
     <p class="FilterBy">Filter By: <button (click)="ClearAll()" class="clear-all-btn">Clear All</button>
@@ -17,10 +24,12 @@
 
       <span>
         <button type="button" class="filter-btn" *ngFor="let item of filterSelected.SizesNumber">
-          {{item.sizeNumber}} <i class="bi bi-x close-icon"></i>
+          {{item.sizeNumber}}
+          <i class="bi bi-x close-icon"></i>
         </button>
         <button type="button" class="filter-btn" *ngFor="let item of filterSelected.Colors">
-          {{item.nameEn}} <i class="bi bi-x close-icon"></i>
+          {{item.nameEn}}
+          <i class="bi bi-x close-icon"></i>
         </button>
       </span>
     </p>

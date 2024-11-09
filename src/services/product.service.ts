@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiresponsePrd } from '../models/product';
+import { ApiresponsePrd, ApiresponsePrdSearch } from '../models/product';
 import { ApiFilterBody } from '../models/FilterTypes';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment.development';
@@ -25,5 +25,11 @@ export class ProductService {
     return this.httpclient.get<ApiresponsePrd>(`${environment.BaseUrl}/Product/${_subCategoryId}`);
   }
 
+  getProductsByName(ProductName: string, Lang: string):Observable<ApiresponsePrdSearch>
+  {
+    console.log(ProductName , Lang);
+    
+    return this.httpclient.get<ApiresponsePrdSearch>(`${environment.BaseUrl}/Product/${ProductName}/${Lang}`)
+  }
 
 }

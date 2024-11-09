@@ -81,18 +81,18 @@ margin-left: 10px;
   align-items: center;
 }
 
-.FilterBy .close-icon {
+/* .FilterBy .close-icon {
   background-color: rgb(189, 189, 189);
   border-radius: 50%;
   font-weight:600;
   color: rgb(0, 0, 0);
   padding: 2px;
   margin-left: 5px;
-}
+} */
 .clear-all-btn {
   font-size: 14px;
-  color: #000000; 
-  text-decoration: none; 
+  color: #000000;
+  text-decoration: none;
   font-weight: 600;
   padding: 5px 10px;
   border: 1px solid #959595;
@@ -103,9 +103,9 @@ margin-left: 10px;
 
 .clear-all-btn:hover {
   background-color: #2d2f31;
-  color: white; 
+  color: white;
 }
 
 .clear-all-btn:focus {
-  outline: none;  
+  outline: none;
 }
