@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../environments/environment.development';
 import { ApiresponsePrd, ApiresponseProduct } from '../models/product';
 import { ApiFilterBody } from '../models/FilterTypes';
+import { ISingleProductAPIResponse } from '../models/singleProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,7 @@ export class ProductService {
     return this.httpclient.get<ApiresponsePrd>(`${environment.BaseUrl}/Product/${_subCategoryId}`);
   }
 
-
+  getSingleProduct(prdId: number): Observable<ISingleProductAPIResponse> {
+    return this.httpclient.get<ISingleProductAPIResponse>(`${environment.BaseUrl}/Product/SingleProduct/${prdId}`)
+  }
 }

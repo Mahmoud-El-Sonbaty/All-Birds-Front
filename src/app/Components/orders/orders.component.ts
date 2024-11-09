@@ -43,7 +43,7 @@ export class OrdersComponent implements OnInit {
           localStorage.removeItem("userToken");
           this.router.navigateByUrl("register");
         }
-        console.log(1);
+        console.log(err);
       }
     })
   }

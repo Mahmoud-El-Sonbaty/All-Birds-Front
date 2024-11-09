@@ -116,17 +116,17 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
   }
 
 // paypal button
-  payButtonText: string = ''; // Default button text
+  // payButtonText: string = ''; // Default button text
   isPayPalSelected: boolean = false; // Track if PayPal is selected
 
   // Function to update the button text based on payment method selection
   updatePayButton() {
     const paymentMethod = this.checkoutForm.get('paymentMethod')?.value;
     if (paymentMethod === 'paypal') {
-        this.payButtonText = 'Pay with PayPal';
+        // this.payButtonText = 'Pay with PayPal';
         this.isPayPalSelected = true;
     } else {
-        this.payButtonText = 'Confirm'; // Show "Confirm" for COD
+        // this.payButtonText = 'Confirm'; // Show "Confirm" for COD
         this.isPayPalSelected = false;
     }
   }
@@ -289,6 +289,11 @@ restrictNonNumeric(event: KeyboardEvent) {
   //------------------------------------------------------------------------------ Sonbaty ------------------------------------------------------------------------------//
   userCart: IOrderMaster = {} as IOrderMaster;
   baseImagePath: string = environment.BaseImagePath;
+
+  placeOrder() {
+    console.log("place order")
+  }
+
   private getCart() {
     if(localStorage.getItem("userToken")) {
       // check local cart recent or send request
@@ -309,8 +314,16 @@ restrictNonNumeric(event: KeyboardEvent) {
           },
           error:(err)=>{
             console.log(err);
-            if(localStorage.getItem("cart"))
-              this.userCart = JSON.parse(localStorage.getItem("cart")!);
+            if (err.status == 401) {
+              localStorage.removeItem("userToken");
+              this.router.navigateByUrl("register");
+            }
+            else if (err.status == 404) {
+              localStorage.removeItem("cart")
+              this.router.navigateByUrl("");
+            }
+            // if(localStorage.getItem("cart"))
+            //   this.userCart = JSON.parse(localStorage.getItem("cart")!);
           }
         })
       }

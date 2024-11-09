@@ -1,11 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ProductService } from '../../../services/product.service';
+import { Router } from '@angular/router';
+import { LoaderComponent } from "../loader/loader.component";
+import { ISingleProduct } from '../../../models/singleProduct';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, LoaderComponent],
   templateUrl: './product-details.component.html',
   template: `
   <button (click)="toggleDirection()">
@@ -73,7 +77,9 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
   // Hover color
   hoveredColorIndex: number | null = null;
   selectedColorIndex: number | null = null; // No color selected by default
-
+  @Input('id') prdId: number = 0;
+  isDataLoading: boolean = true;
+  singlePrdData: ISingleProduct = {} as ISingleProduct;
   sizes = [8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14];
   selectedSize = 9.5; // Default selected size
   selectedImageIndex = 0; // Default image index
@@ -87,7 +93,10 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
     return this.selectedColorImages[this.selectedImageIndex];
   }
 
+  constructor(private productService: ProductService, private router: Router) { }
+
   ngOnInit(): void {
+    this.getProductFromAPI(this.prdId);
     // Initialize with the first color and first image by default
     this.selectColor(0); // Select the first color
     this.selectImage(0); // Select the first image of that color
@@ -242,4 +251,20 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
     }
   }
 
+
+  // ----------------------------------------------------Sonbaty------------------------------------------------
+  getProductFromAPI(prdId: number) {
+    console.log("goiing to get single prd");
+    this.productService.getSingleProduct(prdId).subscribe({
+      next: (res) => {
+        this.singlePrdData = res.data;
+        console.log(this.singlePrdData.specifications.slice(1))
+        this.isDataLoading = false;
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+  }
 }
