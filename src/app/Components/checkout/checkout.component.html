@@ -4,7 +4,7 @@
 
  ==================================================================================================-->
 
-<div class="container-fluid checkout-page ">
+<div [class]="'container-fluid checkout-page '+lang  ">
   <div class="navbar-wrapper">
     <nav class="navbar">
       <div class="navbar-content">
@@ -17,7 +17,6 @@
     </nav>
   </div>
   <div class="row ms-5 ">
-    <!-- Left Section: Form -->
     <div class="col-md-6 mb-4 ps-5 pe-5">
       <!-- Contact Section -->
       <div class="d-flex justify-content-between mt-4">
@@ -27,9 +26,8 @@
       <form [formGroup]="checkoutForm" (ngSubmit)="submitForm()" autocomplete="off">
         <div class="form-group">
           <div class="floating-label">
-            <input #input type="email" class="form-control shadow-none" placeholder="" required formControlName="email">
-            <label for="input">{{ 'checkOut.Email' | translate }}
-            </label>
+            <input #input type="email" class="form-control shadow-none" [placeholder]="'checkOut.Email' | translate " required formControlName="email">
+
           </div>
           <p *ngIf="checkoutForm.get('email')?.touched && checkoutForm.get('email')?.invalid" class="text-danger">
             {{ 'checkOut.email_invalid' | translate }}
@@ -48,13 +46,13 @@
             <div class="floating-label">
               <select #input class="form-control shadow-none" required>
                 <option value="" disabled selected hidden></option>
-                <option>{{ 'checkOut.Region' | translate }}
+                <option selected>{{ 'checkOut.Region' | translate }}
                 </option>
                 <option>{{ 'checkOut.Egypt' | translate }}
                 </option>
                 <!-- Add more countries as needed -->
               </select>
-              <label for="input">{{ 'checkOut.Region' | translate }}</label>
+
             </div>
             <i class="fas fa-chevron-down custom-select-icon" style="margin-left: 520px;"></i>
           </div>
@@ -62,9 +60,8 @@
         <div class="form-row">
           <div class="col ">
             <div class="floating-label">
-              <input #input type="text" class="form-control shadow-none" placeholder="" name="firstName" required formControlName="firstName">
-              <label for="input">{{ 'checkOut.First_name' | translate }}
-              </label>
+              <input #input type="text" class="form-control shadow-none" [placeholder]="'checkOut.First_name' | translate" name="firstName" required formControlName="firstName">
+
             </div>
             <p *ngIf="checkoutForm.get('firstName')?.touched && checkoutForm.get('firstName')?.invalid" class="text-danger">
               {{ 'checkOut.Enter_First_name' | translate }}
@@ -72,9 +69,7 @@
           </div>
           <div class="col">
             <div class="floating-label">
-              <input #input type="text" class="form-control shadow-none" placeholder="" required formControlName="lastName">
-              <label for="input">{{ 'checkOut.Last_name' | translate }}
-              </label>
+              <input #input type="text" class="form-control shadow-none" [placeholder]="'checkOut.Last_name' | translate " required formControlName="lastName">
             </div>
             <p *ngIf="checkoutForm.get('lastName')?.touched && checkoutForm.get('lastName')?.invalid" class="text-danger">
               {{ 'checkOut.Enter_Last_name' | translate }}
@@ -84,20 +79,27 @@ s            </p>
         <div class="form-group">
           <div class="input">
             <div class="floating-label">
-              <input #input type="text" class="form-control shadow-none" placeholder="">
-              <label for="floating-label">{{ 'checkOut.Company' | translate }}
-              </label>
+              <input #input type="text" class="form-control shadow-none" [placeholder]="'checkOut.Company' | translate">
+
+
             </div>
           </div>
         </div>
         <div class="form-group">
           <div class="input">
             <div class="floating-label">
-              <input #input type="text" class="form-control shadow-none" placeholder=" " required formControlName="address">
-              <label for="input">{{ 'checkOut.Address' | translate }}
-            </label>
-            </div>
+              <input
+              #input
+              type="text"
+              class="form-control shadow-none"
+              [placeholder]="'checkOut.Address' | translate"
+              required
+              formControlName="address"
+
+            />
             <i class="fas fa-search custom-select-icon text-secondary" style="margin-left: 520px;"></i>
+
+            </div>
             <p *ngIf="checkoutForm.get('address')?.touched && checkoutForm.get('address')?.invalid" class="text-danger">
               {{ 'checkOut.Enter_Address' | translate }}
             </p>
@@ -106,18 +108,18 @@ s            </p>
         <div class="form-group">
           <div class="input">
             <div class="floating-label">
-              <input #input type="text" class="form-control shadow-none" placeholder="" formControlName="address">
-              <label for="input">{{ 'checkOut.Enter_Apartment' | translate }}
-              </label>
+
+              <input #input type="text" class="form-control shadow-none"  [placeholder]="'checkOut.Enter_Apartment' | translate"
+              formControlName="address">
+
             </div>
           </div>
         </div>
         <div class="form-row">
           <div class="col">
             <div class="floating-label">
-              <input #input type="text" class="form-control shadow-none" placeholder="" required formControlName="city">
-              <label for="input">{{ 'checkOut.City' | translate }}
-              </label>
+              <input #input type="text" class="form-control shadow-none" [placeholder]="'checkOut.City' | translate" required formControlName="city">
+
             </div>
             <p *ngIf="checkoutForm.get('city')?.touched && checkoutForm.get('city')?.invalid" class="text-danger">
               {{ 'checkOut.Enter_City' | translate }}
@@ -141,23 +143,21 @@ s            </p>
           </div>
           <div class="col">
             <div class="floating-label">
-              <input #input type="text" class="form-control shadow-none" placeholder="" required formControlName="zipCode">
-              <label for="input">{{ 'checkOut.zip' | translate }}
-              </label>
+              <input #input type="text" class="form-control shadow-none" [placeholder]="'checkOut.zip' | translate" required formControlName="zipCode">
             </div>
             <p *ngIf="checkoutForm.get('zipCode')?.touched && checkoutForm.get('zipCode')?.invalid" class="text-danger">
               {{ 'checkOut.Enter_zip' | translate }}
             </p>
           </div>
         </div>
-        <div class="form-check">
+        <!-- <div class="form-check">
           <input type="checkbox"
               class="form-check-input shadow-none custom-checkbox-black rounded-0"
               id="textOffers" formControlName="textOffers"
               (change)="toggleMobileNumberField()">
           <label class="form-check-label " for="textOffers">{{ 'checkOut.TextMe' | translate }}
           </label>
-        </div>
+        </div> -->
         <!-- Mobile Number with Country Code -->
         <div class="form-group mt-4" *ngIf="showMobileField">
           <div class="input-group">
@@ -166,7 +166,7 @@ s            </p>
                 <option *ngFor="let code of countryCodes" [value]="code.code"> {{ code.name }} ({{ code.code }}) </option>
               </select>
             </div>
-            <input type="number" class=" form-control shadow-none" placeholder="Mobile number" required >
+            <input type="number" class=" form-control shadow-none" [placeholder]="'checkOut.Mobile_number'|translate" required >
             <div class="text-secondary" style="font-size: 0.9em; line-height: 1.5em;">
               <p>
                 <span>
@@ -191,116 +191,69 @@ s            </p>
         </h4>
         <p class="text-secondary">{{ 'checkOut.transactions' | translate }}
         </p>
-        <div class="payment-methods border p-3"
-          [ngClass]="{'selected-bg': selectedPaymentMethod === 'creditCard'}"
-          (click)="selectPaymentMethod('creditCard')">
-          <!-- Payment Method Selection -->
-          <div class="form-check d-flex align-items-center p-3 mb-4" style="border: solid 1px gray;">
-            <input
-              class="form-check-input custom-radio-black mt-0 mr-2 mx-1"
-              type="radio" name="paymentMethod"
-              id="creditCard"
-              value="creditCard"
-              formControlName="paymentMethod"
-              (change)="updatePayButton(); selectPaymentMethod('creditCard')"
-              checked>
-            <label class="form-check-label font-weight-bold mb-0 mr-auto ms-2" for="creditCard">
-              Credit Card
-            </label>
-            <!-- Credit Card Logos -->
-            <div class="d-flex align-items-center">
-              <img src="https://via.placeholder.com/40x24?text=Visa" alt="Visa" class="mr-1">
-              <img src="https://via.placeholder.com/40x24?text=MC" alt="MasterCard" class="mr-1">
-              <img src="https://via.placeholder.com/40x24?text=Amex" alt="Amex" class="mr-1">
-              <img src="https://via.placeholder.com/40x24?text=Disc" alt="Discover" class="mr-1">
-              <span class="badge badge-secondary">+4</span>
-            </div>
-          </div>
-          <!-- Credit Card Fields -->
-          <div class="credit-card-fields" *ngIf="checkoutForm.get('paymentMethod')?.value === 'creditCard'">
-            <!-- Card Number -->
-            <div class="form-group position-relative mb-4">
-              <div class="floating-label">
-                <input #input type="text"
-                  class="form-control shadow-none"
-                  placeholder=" "
-                  formControlName="cardNumber"
-                  required
-                  maxlength="16"
-                  pattern="[0-9]*"
-                  inputmode="numeric"
-                  [ngClass]="{'is-invalid': f['cardNumber'].touched && f['cardNumber'].invalid}"
-                  (keypress)="restrictNonNumeric($event)">
-                <label for="input">Card number</label>
-              </div>
-              <p *ngIf="f['expirationDate'].touched && f['expirationDate'].invalid" class="text-danger">
-                Enter a valid expiration date
-              </p>
-            </div>
-            <!-- Expiration Date and CVV -->
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <div class="floating-label">
-                  <input type="text"
-                    class="form-control shadow-none"
-                    placeholder=""
-                    required
-                    formControlName="expirationDate"
-                    maxlength="7"
-                    pattern="(0[1-9]|1[0-2])\/\d{4}"
-                    inputmode="numeric"
-                    [ngClass]="{'is-invalid': f['expirationDate'].touched && f['expirationDate'].invalid}"
-                    (input)="formatExpirationDate($event)"
-                    (keypress)="restrictNonNumeric($event)">
-                    <label for="input">Expiration date (MM/YYYY)</label>
-                </div>
-                <p *ngIf="f['expirationDate'].touched && f['expirationDate'].invalid" class="text-danger">
-                  Enter a valid expiration date
-                </p>
-              </div>
-              <div class="form-group col-md-5 position-relative">
-                <div class="floating-label">
-                  <input #input type="text"
-                    class="form-control shadow-none"
-                    placeholder=""
 
-                    formControlName="cvv"
-                    required
-                    maxlength="3"
-                    pattern="[0-9]*"
-                    inputmode="numeric"
-                    [ngClass]="{'is-invalid': f['cvv'].touched && f['cvv'].invalid}"
-                    (keypress)="restrictNonNumeric($event)">
-                    <label for="input">security code (CVV)</label>
-                </div>
-                <p *ngIf="f['cvv'].touched && f['cvv'].invalid" class="text-danger">
-                  Enter the CVV or security code on your card
-                </p>
-                <i class="fas fa-question-circle position-absolute"
-                  style="right: 15px; top: 50%; transform: translateY(-50%); color: #aaa;"
-                  data-toggle="tooltip"
-                  title="The CVV is a 3-digit code on the back of your card.">
-                </i>
-              </div>
-            </div>
-            <!-- Name on Card -->
-            <div class="form-group mt-4">
-              <div class="floating-label">
-                <input #input type="text"
-                      class="form-control shadow-none"
-                      placeholder=" "
-                      formControlName="cardName"
-                      required
-                      [ngClass]="{'is-invalid': f['cardName'].touched && f['cardName'].invalid}">
-                <label for="input">Name on card</label>
-              </div>
-              <p *ngIf="f['cardName'].touched && f['cardName'].invalid" class="text-danger">
-                Enter your name exactly as it’s written on your card
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- PayPal Option -->
+
+
+
+        <div class="payment-methods border p-3"
+        [ngClass]="{'selected-bg': selectedPaymentMethod === 'cod'}"
+        (click)="selectPaymentMethod('cod')">
+
+       <!-- COD Payment Option Selection -->
+       <div class="form-check d-flex align-items-center p-3 mb-4"
+            style="border: solid 1px gray;">
+           <input
+               class="form-check-input custom-radio-black mt-0 mx-1"
+               type="radio" name="paymentMethod"
+               id="cod"
+               value="cod"
+               formControlName="paymentMethod"
+               (change)="selectPaymentMethod('cod')">
+           <label class="form-check-label mb-0 ms-2" for="cod">
+            {{ 'checkOut.cashOnDelevery.cashOn' | translate }}
+                     </label>
+       </div>
+
+       <!-- COD Summary Section -->
+       <div class="cod-summary mt-3" *ngIf="checkoutForm.get('paymentMethod')?.value === 'cod'">
+           <!-- Item Breakdown -->
+           <div class="d-flex justify-content-between mb-2">
+               <span> {{ 'checkOut.cashOnDelevery.items' | translate }}
+              </span>
+               <span>EGP 500.00</span>
+           </div>
+
+           <!-- Shipping and Handling -->
+           <div class="d-flex justify-content-between mb-2">
+               <span> {{ 'checkOut.cashOnDelevery.shippingHandling' | translate }}</span>
+               <span>EGP 50.00</span>
+           </div>
+
+           <!-- Free Delivery Notice -->
+           <div class="d-flex justify-content-between mb-2 text-success">
+               <span>{{ 'checkOut.cashOnDelevery.freeDelivery' | translate }}</span>
+               <span>{{ 'checkOut.cashOnDelevery.freeDeliveryAvailable' | translate }}</span>
+               <!-- <span>{{ 'checkOut.cashOnDelevery.orderTotal' | translate }}</span> -->
+           </div>
+
+           <!-- Order Total -->
+           <div class="d-flex justify-content-between mt-3">
+               <span class="fw-bold">{{ 'checkOut.cashOnDelevery.orderTotal' | translate }}</span>
+               <span class="fw-bold">EGP 550.00</span>
+           </div>
+       </div>
+
+       <!-- COD Information -->
+       <div class="cod-info text-secondary mt-3" *ngIf="checkoutForm.get('paymentMethod')?.value === 'cod'">
+           <p>{{ 'checkOut.cashOnDelevery.codInfo' | translate }}</p>
+       </div>
+   </div>
+
+
+
+
+
+
         <div class="payment-methods border p-3"
           [ngClass]="{'selected-bg': selectedPaymentMethod === 'paypal'}"
           (click)="selectPaymentMethod('paypal')">
@@ -385,3 +338,11 @@ s            </p>
     }
   </div>
 </div>
+
+
+
+
+
+
+
+

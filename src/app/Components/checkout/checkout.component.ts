@@ -7,6 +7,7 @@ import { CartService } from '../../../Services/cart.service';
 import { IOrderMaster } from '../../../Modules/cart';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../../../Services/language.service';
 
 @Component({
   selector: 'app-checkout',
@@ -20,6 +21,7 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
   @ViewChildren('input') inputFields!: QueryList<ElementRef>;
   checkoutForm: FormGroup;
   showMobileField: boolean = false;
+
   countryCodes = [
     { name: 'Egypt', code: '+20', flag: '🇪🇬' },
     { name: 'United States', code: '+1', flag: '🇺🇸' },
@@ -32,8 +34,16 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
   selectedPaymentMethod: string = ''; // Tracks the selected payment method to change bg
   selectPaymentMethod(method: string): void {
     this.selectedPaymentMethod = method;
+
   }
-  constructor(private fb: FormBuilder,private renderer:Renderer2, private cartService: CartService, private router: Router) {
+
+  // ahmed Elghoul
+  lang!:string;
+  constructor(private fb: FormBuilder,private renderer:Renderer2, private cartService: CartService, private router: Router,language:LanguageService) {
+
+   this.lang=language.getLanguage();
+
+
     this.checkoutForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       emailOffers: [false, Validators.requiredTrue],
@@ -139,7 +149,7 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
   ngOnInit(): void {
     this.getCart();
     this.initConfig();
-    // this.renderPayPalButton(); // Render the PayPal button on initialization
+    //  this.renderPayPalButton();
   }
 
   private initConfig(): void {
@@ -169,9 +179,21 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
             },
             onApprove: (data: any, actions: any) => {
               return actions.order.capture().then((details: any) => {
-                  console.log('Transaction completed by ' + details.payer.name.given_name);
+                console.log('Transaction completed by:', details.payer.name.given_name);
+                console.log('Payer Name:', details.payer.name.given_name, details.payer.name.surname);
+                console.log('Payer Email:', details.payer.email_address);
+                console.log('Order Status:', details.status);
+                console.log('Order ID:', details.id);
+
+                details.purchase_units.forEach((unit: any, index: number) => {
+                  console.log(`Purchase Unit ${index + 1}:`);
+                  console.log('Amount:', unit.amount.value);
+                  console.log('Currency:', unit.amount.currency_code);
                 });
-              },
+
+                console.log('Full details object:', details); // Log full details if needed
+              });
+            },
           onCancel: (data: any) => {
               console.log('Transaction was cancelled', data);
             },

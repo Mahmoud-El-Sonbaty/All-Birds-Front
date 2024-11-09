@@ -43,6 +43,7 @@
 
   },
   "checkOut": {
+    "Mobile_number":"رقم المحمول",
     "Contact": "التواصل",
     "Login": "تسجيل الدخول",
     "Email": "البريد الإلكتروني",
@@ -82,7 +83,18 @@
     "Shipping": "الشحن",
     "EnterShipping":"ادخل عنوان التوصيل",
     "USD": "دولار أمريكي",
-    "Total": "الإجمالي"
+    "Total": "الإجمالي",
+
+    "cashOnDelevery":{
+      "cashOn": "الدفع عند الاستلام",
+        "items": "العناصر:",
+        "shippingHandling": "الشحن والمعالجة:",
+        "freeDelivery": "التوصيل المجاني:",
+        "freeDeliveryAvailable": "متاح",
+        "orderTotal": "إجمالي الطلب:",
+        "codInfo": "يرجى توفير المبلغ بالضبط. قد يتم تطبيق رسوم إضافية على خدمات الدفع عند الاستلام."
+      }
+
   },
   "login": {
     "welcome": "مرحباً",
@@ -191,6 +203,12 @@
   },
   "slider":{
     "Best_Seller":"اعلي المبيعات"
+  },
+  "product_details":{
+    "CLASSICS":"الكلاسيكيات:",
+    "SELECT_SIZE":"اختر الحجم",
+    "ADD_TO_CART":"أضف إلى السلة - ",
+    "Free_Shipping_on_orders":"شحن مجاني على الطلبات بقيمة 75 دولارًا. عودة موسعة مجانية حتى 17 يناير"
   },
   "error": {
   },

@@ -5,6 +5,19 @@ body {
   overflow-x: hidden;
 
 }
+body[dir="rtl"] .row {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .thumbnail-container {
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+body[dir="rtl"] .main-product-image,
+body[dir="rtl"] .carousel-content {
+  direction: rtl;
+}
 
 /* Navbar Styles */
 .navbar {
@@ -101,6 +114,7 @@ select {
   pointer-events: none;
   margin-left:140px ;
 }
+
 
 
 /*  */
@@ -317,4 +331,13 @@ select {
       width: 30px; /* Smaller badge for mobile */
       height: 30px; /* Smaller badge for mobile */
   }
+}
+.form-check{
+  padding-top: 15px;
+
+}
+
+.en .input-group-prepend{
+
+  margin: 30px;
 }

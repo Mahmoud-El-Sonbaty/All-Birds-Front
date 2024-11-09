@@ -40,6 +40,7 @@
     }
   },
   "checkOut": {
+    "Mobile_number":"Mobile number",
     "Contact":"Contact",
     "Login":"Login",
     "Email":"Email",
@@ -79,8 +80,17 @@
     "Shipping":"Shipping",
     "EnterShipping":"Enter Shiping Address",
     "USD":"USD",
-    "Total":"Total"
+    "Total":"Total",
 
+    "cashOnDelevery":{
+      "cashOn":"Cash on Delivery",
+        "items": "Items:",
+        "shippingHandling": "Shipping & Handling:",
+        "freeDelivery": "Free Delivery:",
+        "freeDeliveryAvailable": "Available",
+        "orderTotal": "Order Total:",
+        "codInfo": "Please have the exact amount ready. Additional fees may apply for COD services."
+    }
 
   },
   "login": {
@@ -188,6 +198,13 @@
   },
   "slider":{
     "Best_Seller":"Best Seller"
+  },
+  "product_details":{
+    "CLASSICS":"Classics:",
+    "SELECT_SIZE":"SELECT SIZE",
+    "ADD_TO_CART":"ADD TO CART - ",
+    "Free_Shipping_on_orders":"Free Shipping on orders of $75. Free extended returns through January 17th"
+
   },
   "error": {
   },
