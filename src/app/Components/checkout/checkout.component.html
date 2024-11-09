@@ -318,7 +318,7 @@ s            </p>
         </div>
         <!-- Conditional Rendering for Payment Button or PayPal Component -->
         <div *ngIf="isPayPalSelected; else regularPayButton">
-          <ngx-paypal [config]="payPalConfig">{{ 'checkOut.PayPayPal' | translate }}
+          <ngx-paypal [config]="payPalConfig" >{{ 'checkOut.PayPayPal' | translate }}
           </ngx-paypal>
         </div>
         <ng-template #regularPayButton>

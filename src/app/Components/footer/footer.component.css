@@ -1,33 +1,58 @@
 .footer.a .row h2 {
   font-size: 2rem;
   font-weight:900px;
-  justify-content: start;
-  justify-items: start;
-  text-align: left;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin-bottom: 20px;
   color: rgb(8, 8, 8);
+}
+.en.footer.a .row h2 {
+  justify-content: start;
+  justify-items: start;
+  text-align: left;
+
+}
+.ar.footer.a .row h2 {
+  justify-content: end;
+  justify-items: end;
+  text-align: right;
+
 }
 
 .footer.a .col-md-4 h5 {
   font-size: 1.25rem;
   font-weight: bold;
-
   text-align: left;
   margin-top: 20px;
   color: rgb(23, 23, 23);
 }
+.en.footer.a .col-md-4 h5 {
+  text-align: left;
+}
+.ar.footer.a .col-md-4 h5 {
+  text-align: right;
+}
+
+
 
 .footer.a .col-md-4 p {
-
-  text-align: left;
   color: rgb(16, 16, 16);
   margin-bottom: 10px;
 }
-
-.footer.a .col-md-4  p a {
+.en.footer.a .col-md-4 p {
 
   text-align: left;
+}
+.ar.footer.a .col-md-4 p {
+
+  text-align: right;
+}
+.en.footer.a .col-md-4  p a {
+  text-align: left;
+  color: rgb(22, 22, 22);
+  text-decoration: underline;
+}
+.ar.footer.a .col-md-4  p a {
+  text-align: right;
   color: rgb(22, 22, 22);
   text-decoration: underline;
 }
@@ -79,3 +104,14 @@
       margin-right: .5rem;
 
     }
+    .flag {
+      width: 3rem;
+      height: 2rem;
+      margin-right: .5rem;
+      margin-bottom: 1rem;
+
+      object-fit: cover;
+    }
+
+
+

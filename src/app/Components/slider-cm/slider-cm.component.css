@@ -1,9 +1,12 @@
 .card.topPrdCard {
-  width: 100%;
+  width: 90%;
+  margin: 16px;
   transition: transform 0.3s;
   border-radius: 0;
-  box-shadow: 0;
-  height: auto; /* تأكد من أنه تلقائي */
+  border: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+
+  height: 540px; /* تأكد من أنه تلقائي */
   padding: 0 !important;
 }
 
@@ -30,12 +33,12 @@
 }
 
 .card-body div h2 {
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 .card-text {
   text-align: start;
-  font-size: 0.9em;
+  font-size: 1.2em;
   margin: 1em 0;
 }
 
@@ -76,7 +79,7 @@
 }
 
 
-
+/*
 #custom-cards {
   width: 100vw;
   max-width: 100%;
@@ -87,4 +90,15 @@
   margin-right: .5rem;
   margin-left: .5rem;
   overflow: hidden;
+} */
+.thetop{
+  width: 90% !important;
 }
+
+
+.ar .owl-prev,
+.ar #LeftICON{
+  transform: scaleX(-1) !important;
+}
+
+

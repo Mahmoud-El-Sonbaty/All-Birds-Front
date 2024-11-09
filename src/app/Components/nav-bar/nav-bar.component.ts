@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Icategory } from '../../../Modules/category';
 import { CategeryServiceService } from '../../../Services/categery-service.service';
 import { Subscription } from 'rxjs';
-import { SidebarComponent } from '../sidebar/sidebar.component';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 import { Route, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../../Services/language.service';
@@ -21,6 +21,9 @@ export class NavBarComponent implements OnInit,OnDestroy ,OnChanges {
   category:Icategory[]=[]as Icategory[];
   routing:any;
   language:string;
+  @ViewChild('sidebar') sidebar!: SidebarComponent;
+  local:any;
+
 constructor(private categories:CategeryServiceService,private lang:LanguageService ,private route :Router) {
   this.language=lang.getLanguage();
 }
@@ -38,6 +41,7 @@ constructor(private categories:CategeryServiceService,private lang:LanguageServi
   }
   }
   ngOnInit(): void {
+    this.local=localStorage.getItem("userToken");
     let item = this.categories.getAllCategory().subscribe(
       {
         next:(res)=>{

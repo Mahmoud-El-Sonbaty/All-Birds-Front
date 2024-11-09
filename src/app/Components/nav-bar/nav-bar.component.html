@@ -37,7 +37,7 @@
             <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button" (click)="showing(parent.id,parent.level)" aria-expanded="false"  [attr.aria-controls]="parent.id + 'Menu'">
               <p class="ms-3 mt-3  d-inline-block ">{{parent.name}}</p>
               @if(parent.isParentCategory){
-                <span class=" position-absolute end-0 me-3 mt-3 fs-5 arrows">→</span>
+                <span class="arrows">→</span>
 
               }
               <hr>
@@ -240,12 +240,17 @@
         <li class="nav-item d-none d-md-block ">
           <a class="nav-link" href="#"><i class="fas fa-search text-dark searchIcon"></i></a>
         </li>
+
         <li class="nav-item  d-none d-xl-block ">
           <a class="nav-link" routerLink="register"><i class="fas fa-user text-dark"></i></a>
         </li>
-        <li class="nav-item  d-none d-xl-block">
-          <a class="nav-link" href="#"><i class="fas fa-question-circle text-dark"></i></a>
-        </li>
+        @if (local!=null){
+          <li class="nav-item  cart-icon ">
+            <a class="nav-link" href="#"> <i class="fas fa-sign-out-alt text-dark"></i> </a>
+
+          </li>
+        }
+
         <li class="nav-item cart-icon">
           <button class="nav-link position-relative"  (click)="sidebar.toggleSidebar()" >
 
@@ -255,7 +260,7 @@
 
               <i class="fas fa-shopping-cart text-dark"></i>
 
-              <span class="position-absolute top-25 start-100 translate-middle p-2  border border-light rounded-circle" style="background-color:#b19776 ;"> </span>
+              <span class="border border-light rounded-circle" style="background-color:#ddbc00 ;"> </span>
             <!-- </a>  -->
           </button>
 

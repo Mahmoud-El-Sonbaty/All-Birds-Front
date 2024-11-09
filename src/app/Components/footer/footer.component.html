@@ -8,9 +8,9 @@
 
 
 
-<footer class="footer a mb-5 mt-4">
+<footer [class]="'footer a mb-5 mt-4 '+lang ">
   <div class="container">
-    <div class="row text-center">
+    <div class="row text-center ">
       <h2 class="mb-4">{{'footer.footerWhite.title'|translate}}</h2>
 
 
@@ -40,7 +40,7 @@
   </div>
 </footer>
 
-<footer class="footer b">
+<footer [class]="'footer b ' +lang">
   <div class="container m-1">
     <div class="row p-1 m-2">
 
@@ -109,14 +109,15 @@
       </div>
       <div class="col-md-6 text-center">
         <div class="footer-flags">
-          <img src="https://flagpedia.net/data/flags/h80/us.png" alt="US Flag">
-          <img src="https://flagcdn.com/w2560/eg.png" alt="Egypt Flag">
-          <img src="https://flagpedia.net/data/flags/h80/ca.png" alt="Canada Flag">
-          <img src="https://flagpedia.net/data/flags/h80/au.png" alt="Australia Flag">
-          <img src="https://flagpedia.net/data/flags/h80/gb.png" alt="UK Flag">
-          <img src="https://flagcdn.com/w2560/br.png" alt="Brazil Flag">
-          <img src="https://flagcdn.com/w2560/kr.png" alt="South Korea Flag">
-          <img src="https://flagcdn.com/w2560/pt.png" alt="Portugal Flag">
+          <img src="https://flagpedia.net/data/flags/h80/us.png" alt="US Flag" class="flag">
+          <img src="https://flagcdn.com/w2560/eg.png" alt="Egypt Flag" class="flag">
+          <img src="https://flagpedia.net/data/flags/h80/ca.png" alt="Canada Flag" class="flag">
+          <img src="https://flagpedia.net/data/flags/h80/au.png" alt="Australia Flag" class="flag">
+          <img src="https://flagpedia.net/data/flags/h80/gb.png" alt="UK Flag" class="flag">
+          <img src="https://flagcdn.com/w2560/br.png" alt="Brazil Flag" class="flag">
+          <img src="https://flagcdn.com/w2560/kr.png" alt="South Korea Flag" class="flag">
+          <img src="https://flagcdn.com/w2560/pt.png" alt="Portugal Flag" class="flag">
+
         </div>
       </div>
     </div>

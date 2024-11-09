@@ -98,10 +98,7 @@
 .ar .imgFirstSlider {
   transform: scaleX(-1);
 }
-.en .imgFirstSlider {
-  transform: scaleX(-1);
 
-}
 
 .rounded-circle.active{
   opacity: 1;
@@ -531,6 +528,11 @@
   .col-lg-6 ,.imag4{
     overflow: hidden;
     scale: 1;
+  }
+  .images{
+    overflow: hidden;
+
+    background-color: rgba(184, 184, 184, 0.126);
   }
   .col-lg-6.left-column img,
   .right-column img {

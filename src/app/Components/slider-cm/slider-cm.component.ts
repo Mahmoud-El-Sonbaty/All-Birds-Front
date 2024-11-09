@@ -91,7 +91,7 @@ export class SliderCmComponent implements  AfterViewInit,OnDestroy,OnInit {
       dots: false,
       navSpeed: 700,
       rewind:false,
-      margin: 1,
+      margin: 4,
       responsive: {
         0: { items: 1 },
         400: { items: 2 },
