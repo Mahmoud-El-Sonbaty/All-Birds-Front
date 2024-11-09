@@ -158,7 +158,7 @@ selectPaymentMethod(method: string) {
                 {
                   amount: {
                     currency_code: 'EUR',
-                    value: '9.99',
+                    value: this.userCart.total.toString(),
                       }
                     }
               ]
@@ -175,7 +175,8 @@ selectPaymentMethod(method: string) {
             },
             onApprove: (data: any, actions: any) => {
               return actions.order.capture().then((details: any) => {
-                  console.log('Transaction completed by ' + details.payer.name.given_name);
+                  console.log('Transaction completed by ' + details);
+                  // console.log('Transaction completed by ' + details.payer.name.given_name);
                 });
               },
           onCancel: (data: any) => {

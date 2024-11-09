@@ -4,22 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { ProductService } from '../../../services/product.service';
 import { Router } from '@angular/router';
 import { LoaderComponent } from "../loader/loader.component";
-import { ISingleProduct } from '../../../models/singleProduct';
+import { ISingleProduct, ISingleProductColor, ISingleProductColorImage, ISingleProductColorSize } from '../../../models/singleProduct';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
   imports: [CommonModule, FormsModule, LoaderComponent],
   templateUrl: './product-details.component.html',
-  template: `
-  <button (click)="toggleDirection()">
-    Switch to {{ getDirection() === 'rtl' ? 'English' : 'Arabic' }}
-  </button>
-  <router-outlet></router-outlet>
-`,
-  styleUrls: ['./product-details.component.css']
+//   template: `
+//   <button (click)="toggleDirection()">
+//     Switch to {{ getDirection() === 'rtl' ? 'English' : 'Arabic' }}
+//   </button>
+//   <router-outlet></router-outlet>
+// `,
+  styleUrl: './product-details.component.css'
 })
-export class ProductDetailsComponent implements OnInit, AfterViewInit {
+export class ProductDetailsComponent implements OnInit {
+// export class ProductDetailsComponent implements OnInit, AfterViewInit {
   
   colors = [
     {
@@ -73,13 +75,40 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
       ]
     },
   ];
+// ------------------------------ sonbaty code ----------------------------
+  prdColors: ISingleProductColor[] = [];
+  selectedPrdColorImages: ISingleProductColorImage[] = [];
+  hoveredPrdColorId: number = 0;
+  selectedPrdColorId: number = 0;
+  @Input('id') prdId: number = 0;
+  isDataLoading: boolean = true;
+  baseImagePath: string = environment.BaseImagePath;
+  singlePrdData: ISingleProduct = {} as ISingleProduct;
+  colorSizes: ISingleProductColorSize[] = [];
+  selectedPrdColorSizeId: number = 0;
+  selectedPrdColorImageId: number = 0;
+  selectedColorObj: ISingleProductColor = {} as ISingleProductColor;
+  selectedPrdColorImage: ISingleProductColorImage = {} as ISingleProductColorImage;
+  changeColor(prdColorSelected: ISingleProductColor) {
+    console.log(prdColorSelected);
+    this.selectedPrdColorId = prdColorSelected.prdColorId;
+    this.selectedPrdColorImageId = prdColorSelected.mainImageId;
+    this.selectedColorObj = prdColorSelected;
+    this.selectedPrdColorImage = prdColorSelected.prdColorImages.find(ele => ele["prdColorImageId"] == prdColorSelected.mainImageId) ?? {} as ISingleProductColorImage;
+    console.log(this.selectedPrdColorImage);
+    this.selectedPrdColorImages = prdColorSelected.prdColorImages;
+    console.log("changing");
+  }
 
+  changeImage(prdColorImageSelected: ISingleProductColorImage) {
+    console.log(prdColorImageSelected.prdColorImageId);
+    this.selectedPrdColorImageId = prdColorImageSelected.prdColorImageId;
+    this.selectedPrdColorImage = prdColorImageSelected;
+  }
+// ------------------------------------------------------------------------
   // Hover color
   hoveredColorIndex: number | null = null;
   selectedColorIndex: number | null = null; // No color selected by default
-  @Input('id') prdId: number = 0;
-  isDataLoading: boolean = true;
-  singlePrdData: ISingleProduct = {} as ISingleProduct;
   sizes = [8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14];
   selectedSize = 9.5; // Default selected size
   selectedImageIndex = 0; // Default image index
@@ -98,15 +127,16 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.getProductFromAPI(this.prdId);
     // Initialize with the first color and first image by default
-    this.selectColor(0); // Select the first color
-    this.selectImage(0); // Select the first image of that color
+    // this.selectColor(0); // Select the first color
+    // this.selectImage(0); // Select the first image of that color
   }
 
-  selectColor(index: number): void {
-    this.selectedColorIndex = index; // Set the selected color index
-    this.selectedImageIndex = 0; // Reset image index when color changes
+  // selectColor(index: number): void {
+  //   console.log("changing color")
+  //   this.selectedColorIndex = index; // Set the selected color index
+  //   this.selectedImageIndex = 0; // Reset image index when color changes
     
-  }
+  // }
   // text color when click circle
   get selectedColor() {
     return this.selectedColorIndex !== null ? this.colors[this.selectedColorIndex] : null;
@@ -150,41 +180,40 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
     }
 
   // Accordion functionality
-  ngAfterViewInit(): void {
-    const accordionButtons = document.querySelectorAll('.accordion-button');
+  // ngAfterViewInit(): void {
+  //   const accordionButtons = document.querySelectorAll('.accordion-button');
+  //   accordionButtons.forEach((button) => {
+  //     const btnElement = button as HTMLButtonElement;
 
-    accordionButtons.forEach((button) => {
-      const btnElement = button as HTMLButtonElement;
+  //     btnElement.addEventListener('click', () => {
+  //       const targetId = btnElement.getAttribute('data-bs-target');
 
-      btnElement.addEventListener('click', () => {
-        const targetId = btnElement.getAttribute('data-bs-target');
+  //       if (targetId) {
+  //         const collapse = document.querySelector(targetId) as HTMLElement;
 
-        if (targetId) {
-          const collapse = document.querySelector(targetId) as HTMLElement;
+  //         if (collapse) {
+  //           const isShown = collapse.classList.contains('show');
 
-          if (collapse) {
-            const isShown = collapse.classList.contains('show');
+  //           // Remove 'show' class from all other accordion sections
+  //           document.querySelectorAll('.accordion-collapse').forEach(section => {
+  //             if (section !== collapse) {
+  //               section.classList.remove('show');
+  //             }
+  //           });
 
-            // Remove 'show' class from all other accordion sections
-            document.querySelectorAll('.accordion-collapse').forEach(section => {
-              if (section !== collapse) {
-                section.classList.remove('show');
-              }
-            });
+  //           // Toggle the "show" class to activate the transition
+  //           collapse.classList.toggle('show', !isShown);
 
-            // Toggle the "show" class to activate the transition
-            collapse.classList.toggle('show', !isShown);
+  //           // Toggle 'collapsed' class to rotate arrow icon
+  //           btnElement.classList.toggle('collapsed', isShown);
 
-            // Toggle 'collapsed' class to rotate arrow icon
-            btnElement.classList.toggle('collapsed', isShown);
-
-            // Update aria-expanded attribute for accessibility
-            btnElement.setAttribute('aria-expanded', (!isShown).toString());
-          }
-        }
-      });
-    });
-  }
+  //           // Update aria-expanded attribute for accessibility
+  //           btnElement.setAttribute('aria-expanded', (!isShown).toString());
+  //         }
+  //       }
+  //     });
+  //   });
+  // }
   //image swaping
 
   isSwiping = false;
@@ -253,14 +282,49 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
 
 
   // ----------------------------------------------------Sonbaty------------------------------------------------
+  addAccordiansEventListener() {
+    const accordionButtons = document.querySelectorAll('.accordion-button');
+    console.groupCollapsed(accordionButtons, document.querySelectorAll('#headingOne'))
+    accordionButtons.forEach((button) => {
+      const btnElement = button as HTMLButtonElement;
+      btnElement.addEventListener('click', () => {
+        const targetId = btnElement.getAttribute('data-bs-target');
+        if (targetId) {
+          const collapse = document.querySelector(targetId) as HTMLElement;
+          if (collapse) {
+            const isShown = collapse.classList.contains('show');
+            // Remove 'show' class from all other accordion sections
+            document.querySelectorAll('.accordion-collapse').forEach(section => {
+              if (section !== collapse) {
+                section.classList.remove('show');
+              }
+            });
+            // Toggle the "show" class to activate the transition
+            collapse.classList.toggle('show', !isShown);
+            // Toggle 'collapsed' class to rotate arrow icon
+            btnElement.classList.toggle('collapsed', isShown);
+            // Update aria-expanded attribute for accessibility
+            btnElement.setAttribute('aria-expanded', (!isShown).toString());
+          }
+        }
+      });
+    });
+  }
   getProductFromAPI(prdId: number) {
     console.log("goiing to get single prd");
     this.productService.getSingleProduct(prdId).subscribe({
       next: (res) => {
         this.singlePrdData = res.data;
-        console.log(this.singlePrdData.specifications.slice(1))
+        this.prdColors = res.data.prdColors;
+        this.selectedPrdColorImages = res.data.prdColors.find(pc => pc["prdColorId"] == res.data.mainColorId)?.prdColorImages ?? [];
+        this.selectedPrdColorImage = this.selectedPrdColorImages.find(pci => pci["prdColorImageId"] == res.data.prdColors.find(pc => pc["prdColorId"] == res.data.mainColorId)?.mainImageId)??{} as ISingleProductColorImage;
+        this.selectedColorObj = res.data.prdColors.find(pc => pc.prdColorId == res.data.mainColorId) ?? {} as ISingleProductColor;
+        this.selectedPrdColorId = this.selectedColorObj.prdColorId;
+        this.selectedPrdColorImageId = this.selectedColorObj.mainImageId;
+        // console.log(this.singlePrdData.specifications.slice(1))
         this.isDataLoading = false;
-        console.log(res);
+        console.log(document.querySelectorAll('.accordion-button'));
+        this.addAccordiansEventListener();
       },
       error: (err) => {
         console.log(err)

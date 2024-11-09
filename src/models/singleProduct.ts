@@ -18,6 +18,7 @@ export interface ISingleProduct {
 export interface ISingleProductColor {
   prdColorId: number;
   colorName: string;
+  colorCode: string;
   mainImageId: number;
   prdColorImages: []
 }
