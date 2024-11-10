@@ -124,7 +124,7 @@ export class ProductDetailsComponent implements OnInit {
   hoveredColorIndex: number | null = null;
   selectedColorIndex: number | null = null; // No color selected by default
   sizes = [8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14];
-  selectedSize = 9.5; // Default selected size
+  selectedSize = 0; // Default selected size
   selectedImageIndex = 0; // Default image index
   isCarouselOpen = false; // State for full screen carousel
 
