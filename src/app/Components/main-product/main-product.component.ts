@@ -28,13 +28,23 @@ export class MainProductComponent implements OnInit, OnChanges {
   sub: Subscription[] = [] as Subscription[];
   filterSelected: IfilterType = {} as IfilterType;
   ApiFilterTypes: ApiFilterBody = {} as ApiFilterBody
-  constructor(private productService: ProductService, private route: ActivatedRoute, private categeryService :CategeryServiceService) {
+  isFilterVisible: boolean = false;
+  constructor(private productService: ProductService, private route: ActivatedRoute, private categeryService: CategeryServiceService) {
 
   }
+
+  showFilter() {
+    this.isFilterVisible = !this.isFilterVisible;
+  }
+
+  closeFilter() {
+    this.isFilterVisible = false;
+}
 
   onFilterSelectedChange(updatedFilter: IfilterType) {
 
     this.getProductWithFilter(updatedFilter)
+    this.isFilterVisible = false;
   }
 
 
@@ -46,8 +56,6 @@ export class MainProductComponent implements OnInit, OnChanges {
     this.subCatId = Number(this.ParentAndSubId.split('-')[1]);
 
     this.getProductsByCategoryId(Number(this.ParentAndSubId.split('-')[1]));
-
-
 
   }
   ngOnInit(): void {
@@ -61,13 +69,26 @@ export class MainProductComponent implements OnInit, OnChanges {
     console.log("going to api");
 
     this.ApiFilterTypes.categoryId = filtered.Category.id;
-    for (let item of filtered.Colors) {
-      this.ApiFilterTypes.colorCode.push(item.code);
+    if(filtered.Colors == null || filtered.Colors.length == 0)
+    {
+      this.ApiFilterTypes.colorCode = [];
     }
-    for (let item of filtered.SizesNumber) {
-      this.ApiFilterTypes.sizeNumber.push(item.sizeNumber);
+    else
+    {
+      for (let item of filtered.Colors) {
+        this.ApiFilterTypes.colorCode.push(item.code);
+      }
     }
-
+    if(filtered.SizesNumber == null || filtered.SizesNumber.length == 0)
+    {
+      this.ApiFilterTypes.sizeNumber = [];
+    }
+    else
+    {
+      for (let item of filtered.SizesNumber) {
+        this.ApiFilterTypes.sizeNumber.push(item.sizeNumber);
+      }
+    }
 
     let item = this.productService.getProductFilter(this.ApiFilterTypes).subscribe({
       next: (res) => {
@@ -144,7 +165,7 @@ export class MainProductComponent implements OnInit, OnChanges {
     let item = this.categeryService.getCategorysByParentId(parentCategoryId).subscribe({
       next: (res) => {
         if (res.isSuccess) {
-          console.log(res.data);
+
           this.FilterTypes.Category = res.data;
           this.ParentCat_SubCat = this.FilterTypes.Category.children?.find(child => child.id == this.subCatId);
 

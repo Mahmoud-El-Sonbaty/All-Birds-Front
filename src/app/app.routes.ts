@@ -38,28 +38,3 @@ export const routes: Routes = [
 
 
 
-
-
-
-
-// export const routes: Routes = [
-//   {path: '', component: MainLayoutComponent, children: [
-//     {path: '', redirectTo: 'home', pathMatch: 'full'},
-//     {path:'home',component:HomeComponent,title:"Home Page"},
-//     {path: "register", component: RegisterComponent, title: "Register"},
-//     {path: "CheckOut", component: CheckoutComponent, title: "CheckOut"},
-//     // {path: 'home', component: HomeComponent, title: "Home"},
-//     {path: 'collections', component: MainProductComponent, title: 'Collections'},
-//     {path:"Sidebar",component:SidebarComponent,title:"Sidebar"}
-//   ]},
-//   {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},
-//   //{path:"home",canActivate:[authoGuard],component:HomeComponent,title:"home"},
-//   //wild card route
-//   {path:'**',component:ErrorComponent,title:"Not found"}
-
-// ];
-
-
-
-
-
