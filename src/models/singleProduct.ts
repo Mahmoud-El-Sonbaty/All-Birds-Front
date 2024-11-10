@@ -10,6 +10,8 @@ export interface ISingleProduct {
   discount: number;
   freeShipping: boolean;
   mainColorId: number;
+  reviewsCount: number;
+  totalRate: number;
   prdColors: ISingleProductColor[];
   specifications: ISingleProductSpecifications[];
   details: ISingleProductDetails[];
@@ -20,7 +22,8 @@ export interface ISingleProductColor {
   colorName: string;
   colorCode: string;
   mainImageId: number;
-  prdColorImages: ISingleProductColorImage[]
+  prdColorImages: ISingleProductColorImage[];
+  prdColorSizes: ISingleProductColorSize[];
 }
 
 export interface ISingleProductColorImage {

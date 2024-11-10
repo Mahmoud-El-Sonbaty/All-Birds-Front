@@ -293,7 +293,7 @@ h2 {
   display: flex;
   justify-content: flex-start;
   gap: 20px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .color-circle {

@@ -125,10 +125,19 @@
               </div>
 
               <!-- Star Rating and Reviews -->
-              <!-- <div class="rating mb-4">
-                  <span class="stars">★★★★☆</span>
-                  <span class="reviews">(1169)</span>
-              </div> -->
+              @if(singlePrdData.reviewsCount > 0) {
+                <div class="rating mb-4">
+                    <span class="stars">
+                      @for (item of [].constructor(singlePrdData.totalRate); track $index) {
+                        ★
+                      }
+                      @for (item of [].constructor(5 - singlePrdData.totalRate); track $index) {
+                        ☆
+                      }
+                    </span>
+                    <span class="reviews">({{singlePrdData.reviewsCount}})</span>
+                </div>
+              }
 
               <!-- Color Options -->
           <div class="colors">
@@ -166,7 +175,24 @@
                   <h5>SELECT SIZE:</h5>
                   <form class="rtl">
                       <div class="size-options" role="group" aria-label="Size options">
-                          <ng-container *ngFor="let size of sizes">
+                        <ng-container *ngFor="let size of colorSizes">
+                          <input 
+                              type="radio" 
+                              class="btn-check" 
+                              name="size" 
+                              [disabled]="size.unitsInStock <= 0"
+                              [value]="size.sizeNumber" 
+                              [checked]="size.productColorSizeId === selectedPrdColorSizeId" 
+                              (change)="changeSize(size)" 
+                              id="size-{{ size.productColorSizeId }}">
+                          <label 
+                              class="size-box" 
+                              [class.selected]="size.productColorSizeId === selectedPrdColorSizeId" 
+                              for="size-{{ size.productColorSizeId }}">
+                              {{ size.sizeNumber }}
+                          </label>
+                        </ng-container>
+                          <!-- <ng-container *ngFor="let size of sizes">
                               <input 
                                   type="radio" 
                                   class="btn-check" 
@@ -181,7 +207,7 @@
                                   for="size-{{ size }}">
                                   {{ size }}
                               </label>
-                          </ng-container>
+                          </ng-container> -->
                       </div>
                   </form>
                   <!-- <p class="size-chart-link mt-2">See Size Chart</p> -->
@@ -189,7 +215,12 @@
               
 
               <!-- Add to Cart Button -->
-              <button class="stickTop btn btn-dark btn-lg add-to-cart-btn mt-3">ADD TO CART - ${{singlePrdData.price}}</button>
+              @if (selectedPrdColorSize.productColorSizeId == null) {
+                <button class="stickTop btn btn-dark btn-lg add-to-cart-btn mt-3 bg-secondary" disabled>Select A Size</button>
+              }
+              @else {
+                <button class="stickTop btn btn-dark btn-lg add-to-cart-btn mt-3" (click)="addToCart()">ADD TO CART - ${{singlePrdData.price}}</button>
+              }
 
               <!-- Additional Info -->
               <!-- <p class="shipping-info"> -->

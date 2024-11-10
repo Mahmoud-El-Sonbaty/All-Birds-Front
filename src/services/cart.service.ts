@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment.development';
 import { Observable } from 'rxjs';
-import { ICartApiResponse, IODetailApiResponse } from '../models/cart';
+import { IAddOrderDetail, IAddOrderDetailApiResponse, ICartApiResponse, IODetailApiResponse, IOrderDetail, IUpdateWholeOrder, IUpdateWholeOrderApiResponse } from '../models/cart';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +28,29 @@ export class CartService {
         newQuantity: newQuantity
       }
     });
+  }
+
+  addOrderDetail(orderDetail: IAddOrderDetail, userToken: string): Observable<IAddOrderDetailApiResponse> {
+    return this.httpclient.post<IAddOrderDetailApiResponse>(`${environment.BaseUrl}/order/AddOrderDetail`, orderDetail, {
+      headers: {
+        'Authorization': "Bearer " + userToken
+      }
+    })
+  }
+
+  updateWholeCart(orderMaster: IUpdateWholeOrder, userToken: string): Observable<IUpdateWholeOrderApiResponse> {
+    return this.httpclient.put<IUpdateWholeOrderApiResponse>(`${environment.BaseUrl}/order`, orderMaster, {
+      headers: {
+        'Authorization': "Bearer " + userToken
+      }
+    })
+  }
+
+  createNewOrder(orderMaster: IUpdateWholeOrder, userToken: string): Observable<IUpdateWholeOrderApiResponse> {
+    return this.httpclient.post<IUpdateWholeOrderApiResponse>(`${environment.BaseUrl}/order`, orderMaster, {
+      headers: {
+        'Authorization': "Bearer " + userToken
+      }
+    })
   }
 }

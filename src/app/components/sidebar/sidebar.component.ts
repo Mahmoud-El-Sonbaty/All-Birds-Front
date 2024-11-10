@@ -25,6 +25,8 @@ export class SidebarComponent implements OnChanges {
 
   toggleSidebar() {
     this.isOpen = !this.isOpen;
+    if (localStorage.getItem("cart"))
+      this.userCart = JSON.parse(localStorage.getItem("cart")!)
   }
   userCart: IOrderMaster = {} as IOrderMaster;
   baseImagePath: string = environment.BaseImagePath;
@@ -90,7 +92,7 @@ export class SidebarComponent implements OnChanges {
               item.quantity = res.data.quantity;
               this.userCart.total += item.detailPrice;
               // this.userCart = res.data
-              // localStorage.setItem("cart", JSON.stringify(res.data))
+              localStorage.setItem("cart", JSON.stringify(this.userCart))
             }
             else
               console.log(res.msg)
