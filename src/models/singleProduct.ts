@@ -20,7 +20,7 @@ export interface ISingleProductColor {
   colorName: string;
   colorCode: string;
   mainImageId: number;
-  prdColorImages: []
+  prdColorImages: ISingleProductColorImage[]
 }
 
 export interface ISingleProductColorImage {

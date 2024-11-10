@@ -105,6 +105,20 @@ export class ProductDetailsComponent implements OnInit {
     this.selectedPrdColorImageId = prdColorImageSelected.prdColorImageId;
     this.selectedPrdColorImage = prdColorImageSelected;
   }
+  showNextImage() {
+    let selectedImageIndex = this.selectedPrdColorImages.findIndex(i => i == this.selectedPrdColorImage);
+    if (this.selectedPrdColorImages[selectedImageIndex + 1]) {
+      this.selectedPrdColorImageId = this.selectedPrdColorImages[selectedImageIndex + 1].prdColorImageId;
+      this.selectedPrdColorImage = this.selectedPrdColorImages[selectedImageIndex + 1];
+    }
+  }
+  showPrevImage() {
+    let selectedImageIndex = this.selectedPrdColorImages.findIndex(i => i == this.selectedPrdColorImage);
+    if (this.selectedPrdColorImages[selectedImageIndex - 1]) {
+      this.selectedPrdColorImageId = this.selectedPrdColorImages[selectedImageIndex - 1].prdColorImageId;
+      this.selectedPrdColorImage = this.selectedPrdColorImages[selectedImageIndex - 1];
+    }
+  }
 // ------------------------------------------------------------------------
   // Hover color
   hoveredColorIndex: number | null = null;
@@ -282,33 +296,68 @@ export class ProductDetailsComponent implements OnInit {
 
 
   // ----------------------------------------------------Sonbaty------------------------------------------------
-  addAccordiansEventListener() {
-    const accordionButtons = document.querySelectorAll('.accordion-button');
-    console.groupCollapsed(accordionButtons, document.querySelectorAll('#headingOne'))
-    accordionButtons.forEach((button) => {
-      const btnElement = button as HTMLButtonElement;
-      btnElement.addEventListener('click', () => {
-        const targetId = btnElement.getAttribute('data-bs-target');
-        if (targetId) {
-          const collapse = document.querySelector(targetId) as HTMLElement;
-          if (collapse) {
-            const isShown = collapse.classList.contains('show');
-            // Remove 'show' class from all other accordion sections
-            document.querySelectorAll('.accordion-collapse').forEach(section => {
-              if (section !== collapse) {
-                section.classList.remove('show');
-              }
-            });
-            // Toggle the "show" class to activate the transition
-            collapse.classList.toggle('show', !isShown);
-            // Toggle 'collapsed' class to rotate arrow icon
-            btnElement.classList.toggle('collapsed', isShown);
-            // Update aria-expanded attribute for accessibility
-            btnElement.setAttribute('aria-expanded', (!isShown).toString());
+  // addAccordiansEventListener() {
+    // setTimeout(() => {
+    //   const accordionButtons = document.querySelectorAll('accordion-button');
+    //   console.log(accordionButtons.length)
+    //   console.log(accordionButtons);
+      
+    // }, 3000);
+    // let accordsLen = accordionButtons.length;
+    // console.log(accordsLen);
+    // for (let i = 0; i < accordsLen; i++) {
+    //   console.log(i, "in foooor")
+    //   const btnElement = accordionButtons[i] as HTMLButtonElement;
+    //   console.log(btnElement)
+    // }
+    // accordionButtons.forEach((button) => {
+    //   const btnElement = button as HTMLButtonElement;
+    //   btnElement.addEventListener('click', () => {
+    //     const targetId = btnElement.getAttribute('data-bs-target');
+    //     if (targetId) {
+    //       const collapse = document.querySelector(targetId) as HTMLElement;
+    //       if (collapse) {
+    //         const isShown = collapse.classList.contains('show');
+    //         // Remove 'show' class from all other accordion sections
+    //         document.querySelectorAll('.accordion-collapse').forEach(section => {
+    //           if (section !== collapse) {
+    //             section.classList.remove('show');
+    //           }
+    //         });
+    //         // Toggle the "show" class to activate the transition
+    //         collapse.classList.toggle('show', !isShown);
+    //         // Toggle 'collapsed' class to rotate arrow icon
+    //         btnElement.classList.toggle('collapsed', isShown);
+    //         // Update aria-expanded attribute for accessibility
+    //         btnElement.setAttribute('aria-expanded', (!isShown).toString());
+    //       }
+    //     }
+    //   });
+    // });
+  // }
+
+  openAccordion(evt: Event) {
+    const btnElement = evt.target as HTMLButtonElement;
+    const targetId = btnElement.getAttribute('data-bs-target');
+    if (targetId) {
+      const collapse = document.querySelector(targetId) as HTMLElement;
+      if (collapse) {
+        const isShown = collapse.classList.contains('show');
+        // Remove 'show' class from all other accordion sections
+        console.log(targetId, collapse, isShown, document.querySelectorAll('.accordion-button'))
+        document.querySelectorAll('.accordion-collapse').forEach(section => {
+          if (section !== collapse) {
+            section.classList.remove('show');
           }
-        }
-      });
-    });
+        });
+        // Toggle the "show" class to activate the transition
+        collapse.classList.toggle('show', !isShown);
+        // Toggle 'collapsed' class to rotate arrow icon
+        btnElement.classList.toggle('collapsed', isShown);
+        // Update aria-expanded attribute for accessibility
+        btnElement.setAttribute('aria-expanded', (!isShown).toString());
+      }
+    }
   }
   getProductFromAPI(prdId: number) {
     console.log("goiing to get single prd");
@@ -322,9 +371,11 @@ export class ProductDetailsComponent implements OnInit {
         this.selectedPrdColorId = this.selectedColorObj.prdColorId;
         this.selectedPrdColorImageId = this.selectedColorObj.mainImageId;
         // console.log(this.singlePrdData.specifications.slice(1))
+        console.log(res.data.careGuide.split("\r\n").filter(c => c != ""));
         this.isDataLoading = false;
-        console.log(document.querySelectorAll('.accordion-button'));
-        this.addAccordiansEventListener();
+        console.log("try get query selector after api data recieved at line 326")
+        // console.log(document.querySelectorAll('.accordion-button'));
+        // this.addAccordiansEventListener();
       },
       error: (err) => {
         console.log(err)
