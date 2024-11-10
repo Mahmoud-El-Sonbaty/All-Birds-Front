@@ -7,6 +7,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { MainProductComponent } from './Components/main-product/main-product.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { SearchComponent } from './Components/search/search.component';
 
 
 export const routes: Routes = [
@@ -18,7 +19,9 @@ export const routes: Routes = [
     {path:"Sidebar",component:SidebarComponent,title:"Sidebar"},
     {path: "CheckOut", component: CheckoutComponent, title: "CheckOut"},
     {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'},
-    {path: 'productDetails', component: ProductDetailsComponent, title: 'Product Page'}
+    {path: 'productDetails', component: ProductDetailsComponent, title: 'Product Details  Page'},
+    {path: 'search', component: SearchComponent, title: 'search Page'},
+
     //{path:"profile",canActivate:[authoGuard],component:ProfileComponent,title:"Profile"},
   ]},
   {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},

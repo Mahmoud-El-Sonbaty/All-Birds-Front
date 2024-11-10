@@ -150,4 +150,10 @@ constructor(private categories:CategeryServiceService,private lang:LanguageServi
     this.route.navigateByUrl(currentUrl);
     window.location.reload();
   }
+
+  goToSearch()
+  {
+    this.route.navigate(['/search']);
+  }
+
 }
