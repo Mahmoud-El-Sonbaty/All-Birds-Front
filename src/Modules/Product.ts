@@ -42,3 +42,18 @@ export interface IproductSize {
   sizeNumber: string;
   unitsInStock : number;
 }
+
+
+export interface IproductSearch{
+  id :number;
+  mainImagePath : string;
+  colorName : string;
+  name : string
+  price : number
+}
+
+export interface ApiresponsePrdSearch {
+  msg: string;
+  isSuccess: boolean;
+  data: IproductSearch[];
+}

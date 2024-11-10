@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { environment } from '../environments/environment.development';
-import { ApiresponsePrd, ApiresponseProduct } from '../Modules/Product';
+import { ApiresponsePrd, ApiresponsePrdSearch, ApiresponseProduct } from '../Modules/Product';
 import { ApiFilterBody } from '../Modules/FilterTypes';
 import { LanguageService } from './language.service';
 
@@ -26,7 +26,7 @@ ngOnInit(): void {
 
 
   GetTop(Catid:number,numberOfProducts:number):Observable<ApiresponseProduct>{
-    return  this.httpclient.get<ApiresponseProduct>(`${environment.BaseUrl}/Product/product/${Catid}/${numberOfProducts}/${this.lang.getLanguage()}`);
+    return  this.httpclient.get<ApiresponseProduct>(`${environment.BaseUrl}/Product/${Catid}/${numberOfProducts}/${this.lang.getLanguage()}`);
   }
 
 
@@ -43,6 +43,15 @@ ngOnInit(): void {
   getAllProducts(_subCategoryId : number):Observable<ApiresponsePrd>
   {
     return this.httpclient.get<ApiresponsePrd>(`${environment.BaseUrl}/Product/${_subCategoryId}/${this.lang.getLanguage()}`);
+  }
+
+
+
+  getProductsByName(ProductName: string, Lang: string):Observable<ApiresponsePrdSearch>
+  {
+    console.log(ProductName , Lang);
+
+    return this.httpclient.get<ApiresponsePrdSearch>(`${environment.BaseUrl}/Product/${ProductName}/${Lang}`)
   }
 
 }

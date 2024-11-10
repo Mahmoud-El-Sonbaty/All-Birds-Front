@@ -2,11 +2,14 @@ import { Component, Input } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { Subscription } from 'rxjs';
 import { ProductService } from '../../../Services/product.service';
+import { IproductSearch } from '../../../Modules/Product';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [],
+  imports: [CurrencyPipe,CommonModule,TranslateModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
