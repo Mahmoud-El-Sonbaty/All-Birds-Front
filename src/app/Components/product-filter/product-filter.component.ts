@@ -33,18 +33,12 @@ export class ProductFilterComponent implements OnInit , OnChanges{
   }
   ngOnChanges(): void {
 
-
-
-
   }
-
 
 
   updateFilter() {
     this.filterSelectedChange.emit(this.filterSelected);
   }
-
-
 
 
 
@@ -69,21 +63,21 @@ export class ProductFilterComponent implements OnInit , OnChanges{
       this.updateFilter();
   }
 }
-  RemoveSizeFromFilter(Size : IproductSize)
-  {
-    let index = this.filterSelected.SizesNumber?.findIndex((P) => P.productColorSizeId === Size.productColorSizeId);
+//   RemoveSizeFromFilter(Size : IproductSize)
+//   {
+//     let index = this.filterSelected.SizesNumber?.findIndex((P) => P.productColorSizeId === Size.productColorSizeId);
 
-    if (index != -1 && index != undefined) {
-      this.filterSelected.SizesNumber.splice(index, 1);
-      console.log("Selected Size:", Size);
+//     if (index != -1 && index != undefined) {
+//       this.filterSelected.SizesNumber.splice(index, 1);
+//       console.log("Selected Size:", Size);
 
-  }
-}
+//   }
+// }
 
 ClearAll()
 {
   this.filterSelected.Colors = [];
   this.filterSelected.SizesNumber = [];
-
+  this.updateFilter();
 }
 }

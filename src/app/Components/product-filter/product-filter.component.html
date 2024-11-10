@@ -6,8 +6,6 @@
 
 
 
-
-
 <div>
   <div class="filter-container">
     <div class="p-category">
@@ -18,33 +16,42 @@
       <p>{{CategorySelected?.name}}</p>
     </div>
     <div class="child-category" *ngFor="let Sub of filterTypes.Category?.children;let i = index">
-      <p><a [routerLink]="['/ProductCategory',filterTypes.Category.id+'-'+Sub.id]"> {{Sub.name}}</a></p>
-    </div>
+      <p>
+        <a
+          [ngClass]="{ 'font-weight-bolder': CategorySelected?.id == Sub.id }"
+          [routerLink]="['/ProductCategory', filterTypes.Category.id + '-' + Sub.id]"
+        >
+          {{ Sub.name }}
+        </a>
+      </p>
+          </div>
   </div>
   <div class="filter-size">
-    <p class="FilterBy">{{'filter.FilterBy'|translate}}<button (click)="ClearAll()" class="clear-all-btn">Clear All</button>
+    <p class="FilterBy">{{'filter.FilterBy'|translate}}<button (click)="ClearAll()" class="clear-all-btn">{{'filter.Clear_All'|translate}}</button>
 
 
       <span>
         <button type="button" class="filter-btn" *ngFor="let item of filterSelected.SizesNumber">
-          {{item.sizeNumber}} <i class="bi bi-x close-icon"></i>
+          {{item.sizeNumber}}
+          <i class="bi bi-x close-icon"></i>
         </button>
         <button type="button" class="filter-btn" *ngFor="let item of filterSelected.Colors">
-          {{item.name}} <i class="bi bi-x close-icon"></i>
+          {{item.name}}
+          <i class="bi bi-x close-icon"></i>
         </button>
       </span>
     </p>
     <hr>
     <div class="size row mx-auto">
       <h4>{{'filter.Sizes'|translate}}</h4>
-      <p>{{'filter.Sizetitle'|translate}}</p>
+      <p> {{'filter.Sizetitle'|translate}}</p>
       <span class="SizeNumber mx-2 text-center" (click)="FilterBySize(item)"
         *ngFor="let item of filterTypes.SizesNumber;index as i;">{{item.sizeNumber}}</span>
     </div>
   </div>
   <hr>
   <div class="filter-color ">
-    <p class="headercolor">HUE</p>
+    <p class="headercolor">{{'filter.HUE'|translate}}</p>
     <div class="colors  ">
       <ng-container *ngFor="let color of filterTypes.Colors;index as i;">
         <div class="d-flex align-items-center" (click)="FilterByColor(color)">

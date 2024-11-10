@@ -81,14 +81,14 @@ margin-left: 10px;
   align-items: center;
 }
 
-.FilterBy .close-icon {
+/* .FilterBy .close-icon {
   background-color: rgb(189, 189, 189);
   border-radius: 50%;
   font-weight:600;
   color: rgb(0, 0, 0);
   padding: 2px;
   margin-left: 5px;
-}
+} */
 .clear-all-btn {
   font-size: 14px;
   color: #000000;

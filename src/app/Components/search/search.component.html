@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row mt-lg-5">
+    <div class="input-group">
+      <div class="input-group-append" style="width: 100%; text-align: center;">
+        <input type="text" class="w-100 p-1 m-2 form-control" placeholder="Product Name" aria-label="Search input"
+          #inpuValue aria-describedby="button-search">
+        <button class="btn btn-search" (click)="OnSearch(inpuValue.value)" type="button"
+          id="button-search">Search</button>
+      </div>
+
+      <ng-container *ngIf="ProductCards && ProductCards.length > 0; else noProducts">
+        <ng-container *ngFor="let prd of ProductCards; let i = index">
+          <div class="card-body col-sm-5 col-md-5 col-lg-2 m-1">
+            <img [src]="BaseImage + prd.mainImagePath" class="card-img-top p-3" alt="Product Image">
+            <p class="card-text m-2 mt-3 p-1" style="font-weight: bolder;">{{ prd.name }}</p>
+            <p class="card-text m-2 mt-3 p-1" style="font-weight: bolder;">{{ prd.colorName }}</p>
+            <p class="card-text m-2 mt-3 p-1">{{ prd.price | currency: 'USD' }}</p>
+          </div>
+        </ng-container>
+      </ng-container>
+
+      <ng-template #noProducts>
+        <h2 class="text-center text-danger mt-lg-5">{{ Msg }}</h2>
+      </ng-template>
+
+    </div>
+  </div>

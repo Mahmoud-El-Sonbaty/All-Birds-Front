@@ -194,7 +194,9 @@
     "Home":"Home",
     "FilterBy":"Filter By:",
     "Sizes":"Sizes",
-    "Sizetitle":" Most of our shoes only come in full sizes. If you’re a half size, select your nearest whole size too."
+    "Sizetitle":" Most of our shoes only come in full sizes. If you’re a half size, select your nearest whole size too.",
+    "Clear_All":"Clear All",
+    "HUE":"HUE"
   },
   "slider":{
     "Best_Seller":"Best Seller"
