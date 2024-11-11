@@ -134,7 +134,8 @@
     "Subtotal":"Subtotal",
     "Shipping":"Shipping",
     "Free":"Free",
-    "Proceed":"Proceed to Checkout"
+    "Proceed":"Proceed to Checkout",
+    "productName":"product name"
 
 
   },
