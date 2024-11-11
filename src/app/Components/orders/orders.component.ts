@@ -81,9 +81,10 @@ export class OrdersComponent implements OnInit {
         matchesSearch(detail.productName) ||
         matchesSearch(detail.price) ||
         matchesSearch(detail.detailPrice) ||
-        matchesSearch(detail.colorName)
+        matchesSearch(detail.colorName) ||
+        matchesSearch(detail.sizeNumber) ||
+        matchesSearch(detail.quantity)
       );
-
       // Check if it matches the selected year
       const matchesYear = selectedYearNumber ? orderYear === selectedYearNumber : true;
 

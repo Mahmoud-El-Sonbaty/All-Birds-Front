@@ -10,7 +10,7 @@
     </div>
     <div class="orderTotal">
       <h5>TOTAL</h5>
-      <h6>{{ order.total }}$</h6>
+      <h6>${{ order.total }}</h6>
     </div>
     <div class="orderTotal">
       <h5>DISCOUNT PERCENTEGE</h5>
@@ -18,7 +18,7 @@
     </div>
     <div class="orderTotal">
       <h5>DISCOUNT AMOUNT</h5>
-      <h6>{{ order.discountAmount }}$</h6>
+      <h6>${{ order.discountAmount }}</h6>
     </div>
     <div class="orderShipTo">
       <h5>SHIP TO</h5>
@@ -34,11 +34,13 @@
           <div class="orderProductImgAndInfos">
             <img src='{{baseImagePath}}/{{detail.productImagePath}}' alt="" class="orderProductImg"/>
             <div class="orderProductInfos">
-              <h3>{{detail.productName}}</h3>
-              <h4>{{detail.detailPrice}}$</h4>
-              <h4>{{detail.quantity}} Pieces</h4>
+              <h5>{{detail.productName}}</h5>
+              <h6>Color: {{detail.colorName}}</h6>
+              <h6>Size: {{detail.sizeNumber}}</h6>
+              <h6>Sub-Total: ${{detail.detailPrice}}</h6>
+              <h6>Quantity: {{detail.quantity}} {{detail.quantity > 1 ? 'Pieces' : 'Piece'}}</h6>
               <div class="orderProductInfosButtons">
-                <button class="orderBuyAgain">Buy it again</button>
+                <!-- <button class="orderBuyAgain">Buy it again</button> -->
                 <button class="orderViewItem" (click)="navigateTo(detail.productId)">View your item</button>
               </div>
             </div>
