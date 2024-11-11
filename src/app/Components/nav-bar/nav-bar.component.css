@@ -292,3 +292,8 @@ display: none !important;
   box-shadow: none;
   border-color: black;
 }
+
+.dropdown-menu .dropdown-item:hover {
+  color: #ddbc00;
+  background-color: transparent;
+}

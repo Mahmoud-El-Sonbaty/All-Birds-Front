@@ -68,3 +68,30 @@
 .filter-btn button:focus {
   outline: none;
 }
+
+
+.errormsg {
+  color: rgba(121, 121, 121, 0.789);
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+
+}
+.errormsg img {
+  margin-left: 15px !important;
+  margin-right: 15px !important;
+  color: rgb(0, 0, 0);
+
+}
+
+.container{
+  margin-top: 5rem;
+  margin-bottom:5rem;
+}

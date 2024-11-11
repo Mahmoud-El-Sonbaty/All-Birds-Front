@@ -125,6 +125,14 @@
           <hr>
 
         </li>
+        @if (local!=null){
+
+        <li class="nav-item nav-link level0">
+          <p class="ms-3 mt-3  d-inline-block ">{{'navBar.SignOut'|translate}}</p>
+          <hr>
+
+        </li>
+      }
       </ul>
 
 
@@ -246,7 +254,7 @@
           <a class="nav-link" routerLink="register"><i class="fas fa-user text-dark"></i></a>
         </li>
         @if (local!=null){
-          <li class="nav-item  cart-icon ">
+          <li class="nav-item  d-none d-xl-block cart-icon ">
             <a class="nav-link" href="#"> <i class="fas fa-sign-out-alt text-dark"></i> </a>
 
           </li>
