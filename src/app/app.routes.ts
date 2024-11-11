@@ -12,27 +12,6 @@ import { authoGuard } from '../guards/autho.guard';
 import { OrdersComponent } from './Components/orders/orders.component';
 
 
-// export const routes: Routes = [
-//   {path: '', component: MainLayoutComponent, children: [
-//     {path: '', redirectTo: 'home', pathMatch: 'full'},
-//     {path:'home',component:HomeComponent,title:"Home Page"},
-//     {path: "register", component: RegisterComponent, title: "Register"},
-//     {path: 'home', component: HomeComponent, title: "Home"},
-//     {path:"Sidebar",component:SidebarComponent,title:"Sidebar"},
-//     {path: "CheckOut", component: CheckoutComponent, title: "CheckOut"},
-//     {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'},
-//     {path: 'productDetails', component: ProductDetailsComponent, title: 'Product Details  Page'},
-//     {path: 'search', component: SearchComponent, title: 'search Page'},
-
-//     //{path:"profile",canActivate:[authoGuard],component:ProfileComponent,title:"Profile"},
-//   ]},
-//   {path: 'checkout', component: CheckoutComponent, title: 'Checkout'},
-//   //wild card route
-//   {path:'**',component:ErrorComponent,title:"Not found"}
-
-// ];
-
-
 
 
 export const routes: Routes = [
@@ -45,11 +24,6 @@ export const routes: Routes = [
     {path: 'single-product/:id', component: ProductDetailsComponent , title : 'Product Details' },
     {path: "orders", canActivate:[authoGuard], component:OrdersComponent, title:"Orders"},
     {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'},
-    {path: 'search', component: SearchComponent, title: 'search Page'},
-    {path: 'order', component: OrdersComponent, title: 'search Page'},
-
-    {path: "CheckOut", component: CheckoutComponent, title: "CheckOut"},
-
     //{path:"profile",canActivate:[authoGuard],component:ProfileComponent,title:"Profile"},
   ]},
   {path: 'checkout', canActivate:[authoGuard], component: CheckoutComponent, title: 'Checkout'},
@@ -57,6 +31,43 @@ export const routes: Routes = [
   {path:'**',component:ErrorComponent,title:"Not found"}
 
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const routes: Routes = [
+//   {path: '', component: MainLayoutComponent, children: [
+//     {path: '', redirectTo: 'home', pathMatch: 'full'},
+//     {path: 'home', component: HomeComponent, title: "Home Page"},
+//     {path: "register", component: RegisterComponent, title: "Register"},
+//     {path: 'home', component: HomeComponent, title: "Home"},
+//     {path: "Sidebar", component: SidebarComponent, title: "Sidebar"},
+//     {path: 'single-product/:id', component: ProductDetailsComponent , title : 'Product Details' },
+//     {path: "orders", canActivate:[authoGuard], component:OrdersComponent, title:"Orders"},
+//     {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'},
+//     {path: 'search', component: SearchComponent, title: 'search Page'},
+//     {path: 'order', component: OrdersComponent, title: 'search Page'},
+
+//     {path: "CheckOut", component: CheckoutComponent, title: "CheckOut"},
+
+//     //{path:"profile",canActivate:[authoGuard],component:ProfileComponent,title:"Profile"},
+//   ]},
+//   {path: 'checkout', canActivate:[authoGuard], component: CheckoutComponent, title: 'Checkout'},
+//   //wild card route
+//   {path:'**',component:ErrorComponent,title:"Not found"}
+
+// ];
 
 
 
