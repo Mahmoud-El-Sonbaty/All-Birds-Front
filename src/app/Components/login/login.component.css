@@ -4,26 +4,18 @@ input.form-control {
   font-size: 1.2rem;      /* Increase the font size inside the input */
 }
 
-/* Style labels */
-label {
-  font-size: 1.1rem;      /* Increase label font size */
-  color: #555;            /* Change label color */
-  font-weight: 600;       /* Make label text bold */
-}
 
-/* Style for Create Account section heading and description */
 h3 {
   font-size: 1.5rem;      /* Adjust heading size */
-  color: #333;            /* Match color to the original page */
+  color: #212121;            /* Match color to the original page */
   font-weight: bold;
 }
 
 p.text-center {
-  font-size: 1rem;        /* Adjust font size to match the original page */
-  color: #666;            /* Match color to the original page */
+  font-size: 1rem;
+  color: #666;
 }
 
-/*  */
 
 
 
@@ -53,4 +45,61 @@ input{
 input:focus{
 
   border-color:black ;
+  border-width: 3px;
+}
+
+.form-control{
+
+  border-radius: 2px;
+}
+
+label{
+  margin-bottom: .5rem;
+  text-transform: uppercase;
+  font-size: .9rem;
+  font-weight: 600;
+  color: #171717;
+
+}
+
+
+.btn{
+  margin-top:.5rem ;
+  margin-bottom:.5rem ;
+  border-radius: 0;
+  background-color: #212121 ;
+  font-weight: 700;
+}
+.btn:hover{
+
+  background-color: white;
+  color: #212121  ;
+}
+
+
+.btn:disabled {
+  background-color: #212121;
+  color: white;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+
+.forgetPassword{
+  border: 0;
+  text-decoration: underline;
+}
+
+
+button.cancel {
+  background-color: transparent; /* إزالة الخلفية */
+  border: none; /* إزالة الحدود */
+  color: #212121; /* لون النص */
+  cursor: pointer; /* تغيير مؤشر الفأرة */
+}
+
+button.cancel:hover {
+  text-decoration: underline;
+  background-color: transparent; /* إزالة الخلفية */
+  /* إضافة تأثير عند التحويم إذا كنت ترغب */
 }

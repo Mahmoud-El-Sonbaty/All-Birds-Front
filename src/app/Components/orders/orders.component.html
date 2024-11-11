@@ -5,13 +5,13 @@
   <div *ngIf="ordersData.isSuccess">
     @if (ordersData.data.length==0) {
       <div class="noOrdersToDisplay">
-        <h2>No Orders To Display</h2>
+        <h2>{{ 'orders.noOrders' | translate }}</h2>
       </div>
     }
     @else{
       <div class="ordersContainer">
         <div class="titleAndSearchContainer">
-          <h1>your orders</h1>
+          <h1>{{ 'orders.yourOrders' | translate }}</h1>
           <div class="ordersSearchContainer">
             <div class="ordersSearchInput">
               <i class="ordersSearchIcon"></i>
@@ -20,9 +20,9 @@
           </div>
         </div>
         <div class="ordersNumberPerYear">
-          select year:
+          {{ 'orders.selectYear' | translate }}:
           <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearChange()">
-            <option value="">All Years</option>
+            <option value="">{{ 'orders.allYears' | translate }}</option>
             <option *ngFor="let year of getUniqueOrderYears()" [value]="year">{{ year }}</option>
           </select>
         </div>

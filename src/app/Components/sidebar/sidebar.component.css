@@ -8,10 +8,10 @@
   right: 0;
   overflow-x: hidden;
   transition: width 0.4s ease; /* Transition for smooth opening and closing */
+  /* transition: opacity 0.1s ease; */
+  padding: 1.25rem;
+  opacity: 0;
 
-  /* padding-top: 20px;
-  padding-left: 20px;
-padding-right: 20px; */
 
   z-index: 1000; /* To ensure it's on top */
 }
@@ -20,35 +20,39 @@ padding-right: 20px; */
 .sidebar.open {
   /* width: 300px; */
    /* Sidebar width on larger screens */
-   width: 450px;
-   padding-top: 20px;
+   opacity: 1;
+
+  width: 35%;
+  padding-top: 20px;
   padding-left: 20px;
-padding-right: 20px;
+  padding-right: 20px;
 
 }
 
 @media (max-width: 768px) {
-  /* Full-screen sidebar on small screens */
   .sidebar.open {
-    width: 100%; /* Full width on small screens */
+    width: 50%;
   }
-}
-
-.close-btn {
+}.close-btn {
   position: absolute;
-  /* bottom: 10px;
-  right: 15px; */
-  color:black;
-
+  color: black;
+  font-size: 2rem;
+  border: 0;
+  background-color: transparent;
   cursor: pointer;
-top: 3%;
-
+  top: 2%;
+  left: 2%;
+  transform-origin: center;
+  transition: transform 0.5s ease;
 }
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
 
 .free-shipping {
-  /* color: #333;
-  font-size: 16px;
-  margin-bottom: 15px; */
+
   color: rgb(33, 33, 33);
   font-size: 11px;
   font-weight: 400;
@@ -57,7 +61,6 @@ top: 3%;
   line-height: 35px;
 }
 
-/* Sidebar buttons */
 .sidebar .btn {
   font-size: 16px;
   padding: 10px 0;
@@ -77,4 +80,3 @@ top: 3%;
   height: 8px;
 
 }
-/*  background-color: rgb(245, 245, 245); */

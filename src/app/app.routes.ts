@@ -46,6 +46,8 @@ export const routes: Routes = [
     {path: "orders", canActivate:[authoGuard], component:OrdersComponent, title:"Orders"},
     {path: 'ProductCategory/:id', component: MainProductComponent, title: 'Products Page'},
     {path: 'search', component: SearchComponent, title: 'search Page'},
+    {path: 'order', component: OrdersComponent, title: 'search Page'},
+
     {path: "CheckOut", component: CheckoutComponent, title: "CheckOut"},
 
     //{path:"profile",canActivate:[authoGuard],component:ProfileComponent,title:"Profile"},

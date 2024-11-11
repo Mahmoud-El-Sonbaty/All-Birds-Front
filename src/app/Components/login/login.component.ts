@@ -12,7 +12,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [JsonPipe,FormsModule,CommonModule,SidebarComponent,TranslateModule],
+  imports: [FormsModule,CommonModule,TranslateModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

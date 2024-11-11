@@ -13,7 +13,7 @@
 
 
 <div  *ngIf="!showResetPasswordFormbool">
-  <h3 >{{'login.login'|translate}}</h3>
+  <h3 class="mb-4" >{{'login.login'|translate}}</h3>
   <form  (ngSubmit)="check()"  #myform1="ngForm">
 
     <div class="form-group mb-3">
@@ -61,7 +61,7 @@
 
     <div style="display: flex; justify-content: center;" >
 
-    <a > <button    type="button"  (click)="showResetPasswordForm()">{{'login.forgetPassword'|translate}}</button> </a>
+    <a > <button  class="forgetPassword"  type="button"  (click)="showResetPasswordForm()">{{'login.forgetPassword'|translate}}</button> </a>
     </div>
   </form>
 
@@ -98,8 +98,8 @@
               }
               </div>
 
-            <button  id="Submitforget" type="submit" class="btn btn-dark btn-lg w-30" [disabled]="myform2.invalid||!isEmailValid()" >{{'login.submit'|translate}}</button><br>
-            <button type="button" style="color: black;" class="btn btn-link"  (click)="hideResetPasswordForm()">{{'login.Cancel'|translate}}</button><br>
+            <button  id="Submitforget" type="submit" class="btn btn-dark btn-lg w-80" [disabled]="myform2.invalid||!isEmailValid()" >{{'login.submit'|translate}}</button><br>
+            <button type="button"  class="btn btn-link cancel "  (click)="hideResetPasswordForm()">{{'login.Cancel'|translate}}</button><br>
           </form>
         </div>
 

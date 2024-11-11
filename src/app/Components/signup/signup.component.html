@@ -5,7 +5,7 @@
  ==================================================================================================-->
 
 
-<h3 >{{'signUp.register.create_account'|translate}}</h3>
+<h3>{{'signUp.register.create_account'|translate}}</h3>
 <p >
   {{'signUp.register.info_message'|translate}}
 </p>
@@ -28,7 +28,7 @@
   />
 
     @if(FirstNameInp.invalid &&FirstNameInp.touched){
-      @if(FirstNameInp.hasError("required")){<div class="text-danger">{{'signUp.register.errors.name_required'|translate}}</div>}
+      @if(FirstNameInp.hasError("required")){<div class="text-danger">{{'signUp.register.errors.Fname_required'|translate}}</div>}
       @if(FirstNameInp.hasError("minlength")){<div class="text-danger">{{'signUp.register.errors.min_length_firstname'|translate}}</div>
       }
           }
@@ -46,7 +46,7 @@
 
     [(ngModel)]="username.Lastname" type="text" id="lastName"   class="form-control shadow-none"  />
     @if(LastNameInp.invalid &&LastNameInp.touched){
-      @if(LastNameInp.hasError("required")){<div class="text-danger">{{'signUp.register.errors.name_required'|translate}}</div>}
+      @if(LastNameInp.hasError("required")){<div class="text-danger">{{'signUp.register.errors.Lname_required'|translate}}</div>}
       @if(LastNameInp.hasError("minlength")){<div class="text-danger">{{'signUp.register.errors.min_length_lastname'|translate}}</div>
       }
           }
@@ -118,9 +118,13 @@
 
 <!-- <h1>{{myform.invalid}} + {{isCansignup()}} </h1> -->
 
- <button  type="submit" id="asd" class="btn btn-dark btn-lg w-100"  [disabled]="myform.invalid||isCansignup()">{{'signUp.register.buttons.submit'|translate}}</button>
-  <br><br>
-  <p class="text-center text-muted small">{{'signUp.register.footer_note'|translate}}</p>
+ <button  type="submit" id="asd" class="btn btn-lg w-100"  [disabled]="myform.invalid||isCansignup()">{{'signUp.register.buttons.submit'|translate}}</button>
+  <br>
+  <br>
+  <p class="text-center text-muted Note">{{'signUp.register.footer_note'|translate}}</p>
+  <br>
+  <br>
+  <br>
 
 </form>
 

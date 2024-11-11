@@ -21,7 +21,8 @@
         "confirm_password": "Confirm Password"
       },
       "errors": {
-        "name_required": "Name is required",
+        "Fname_required": "First Name is required",
+        "Lname_required": "Last Name is required",
         "min_length_firstname": "Minimum length is 3",
         "min_length_lastname": "Minimum length is 3",
         "email_required": "Email is required",
@@ -208,7 +209,33 @@
     "Free_Shipping_on_orders":"Free Shipping on orders of $75. Free extended returns through January 17th"
 
   },
+  "order":{
+    "orderSummary": {
+      "orderNo": "ORDER NO",
+      "orderPlaced": "ORDER PLACED",
+      "total": "TOTAL",
+      "discountPercentage": "DISCOUNT PERCENTAGE",
+      "discountAmount": "DISCOUNT AMOUNT",
+      "shipTo": "SHIP TO",
+      "Pieces":"Pieces"
+    },
+    "orderState": "Order state",
+    "buttons": {
+      "buyAgain": "Buy it again",
+      "viewItem": "View your item"
+    }
+  },
+  "orders": {
+    "loading": "Loading...",
+    "noOrders": "No Orders To Display",
+    "yourOrders": "Your Orders",
+    "searchPlaceholder": "Search all orders",
+    "selectYear": "Select Year",
+    "allYears": "All Years",
+    "OrderCanceled":"Order Canceled"
+  },
   "error": {
+
   },
   "footer": {
     "footerWhite": {

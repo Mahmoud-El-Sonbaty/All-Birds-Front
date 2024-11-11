@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from '../loader/loader.component';
 import { OrderComponent } from '../order/order.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [OrderComponent,CommonModule,FormsModule,LoaderComponent],
+  imports: [OrderComponent,CommonModule,FormsModule,LoaderComponent,TranslateModule],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })

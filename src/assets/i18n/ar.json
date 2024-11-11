@@ -21,7 +21,8 @@
           "confirm_password": "تأكيد كلمة المرور"
         },
         "errors": {
-          "name_required": "الاسم مطلوب",
+          "Fname_required": "الاسم الاول مطلوب",
+          "Lname_required": "الاسم الاخير مطلوب",
           "min_length_firstname": "الحد الأدنى للطول هو 3",
           "min_length_lastname": "الحد الأدنى للطول هو 3",
           "email_required": "البريد الإلكتروني مطلوب",
@@ -213,6 +214,33 @@
     "SELECT_SIZE":"اختر الحجم",
     "ADD_TO_CART":"أضف إلى السلة - ",
     "Free_Shipping_on_orders":"شحن مجاني على الطلبات بقيمة 75 دولارًا. عودة موسعة مجانية حتى 17 يناير"
+  },
+  "order": {
+    "orderSummary": {
+      "orderNo": "رقم الطلب",
+      "orderPlaced": "تم الطلب",
+      "total": "الإجمالي",
+      "discountPercentage": "نسبة الخصم",
+      "discountAmount": "مقدار الخصم",
+      "shipTo": "الشحن إلى",
+      "Pieces":"قطعة"
+
+    },
+    "orderState": "حالة الطلب",
+    "buttons": {
+      "buyAgain": "اشترِ مرة أخرى",
+      "viewItem": "عرض المنتج"
+    }
+  },
+  "orders": {
+    "loading": "جاري التحميل...",
+    "noOrders": "لا توجد طلبات لعرضها",
+    "yourOrders": "طلبك",
+    "searchPlaceholder": "ابحث في جميع الطلبات",
+    "selectYear": "اختر السنة",
+    "allYears": "جميع السنوات",
+    "OrderCanceled":"الاورد اتلغي"
+
   },
   "error": {
   },
