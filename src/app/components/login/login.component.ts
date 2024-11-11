@@ -6,6 +6,7 @@ import { UsernameService } from '../../../services/username.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CartService } from '../../../services/cart.service';
+import { IOrderDetail, IOrderMaster, IUpdateWholeOrder } from '../../../models/cart';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,32 @@ export class LoginComponent {
     });
   }
 
-
+  getCartFromAPI() {
+    this.cartService.getCart(localStorage.getItem("userToken")!).subscribe({
+      next:(res)=>{
+        console.log(res);
+        if (res.isSuccess) {
+          // this.userCart = res.data
+          localStorage.setItem("cart", JSON.stringify(res.data))
+          localStorage.removeItem("flag");
+        }
+        else
+          console.log(res.msg)
+      },
+      error:(err)=>{
+        console.log(err);
+        if (err.status == 401) {
+          console.log(`this token ${localStorage.getItem("userToken")} is invalid`);
+          localStorage.removeItem("userToken");
+          this.router.navigateByUrl("register");
+        }
+        else if (err.status == 404) {
+          localStorage.removeItem("cart");
+          this.router.navigateByUrl("");
+        }
+      }
+    })
+  }
 
 
   // username:Username={} as Username;
@@ -40,11 +66,56 @@ export class LoginComponent {
         console.log(res)
         localStorage.setItem("userToken", res)
         if(localStorage.getItem("cart") && localStorage.getItem("flag")) {
-          // here we should update the whole order in the api
+          // here we should update update whole cart in the api
+          let localCart: IOrderMaster = JSON.parse(localStorage.getItem("cart")!);
+          let order: IUpdateWholeOrder = {
+            id: localCart.id,
+            clientId: localCart.clientId,
+            total: localCart.total,
+            productColorSizeId: []
+          };
+          for (const det of localCart.orderDetails) {
+            order.productColorSizeId.push({
+              id: det.id,
+              productId: det.productColorSizeId,
+              orderMasterId: localCart.id,
+              detailPrice: det.detailPrice,
+              quantity: det.quantity
+            });
+          }
+          console.log(order);
+          if (order.id == 0) { // create new order
+            this.cartService.createNewOrder(order, res).subscribe({
+              next: (res) => {
+                if (res.isSuccess)
+                  this.getCartFromAPI();
+                else
+                  console.log(res.msg);
+              }
+            })
+          }
+          else { // update the cart
+            this.cartService.updateWholeCart(order, res).subscribe({
+              next: (res) => {
+                console.log(res);
+                if (res.isSuccess) {
+                  console.log(res.data);
+                  console.log("going to api");
+                  this.getCartFromAPI();
+                }
+                else {
+                  console.log(res.msg);
+                }
+              },
+              error: (err) => {
+                console.log(err);
+              }
+            });
+          }
         }
         else if (localStorage.getItem("cart") == null && localStorage.getItem("flag")) {// he deleted all the cart from the local storage while he was not authenticated
           // here delete all the cart
-          this.cartService.deleteOrderMaster(localStorage.getItem("userToken")!).subscribe({
+          this.cartService.deleteOrderMaster(res).subscribe({
             next: (res) => {
               console.log(res);
               if (res.isSuccess) {
@@ -85,8 +156,6 @@ export class LoginComponent {
                 localStorage.removeItem("cart")
                 this.router.navigateByUrl("");
               }
-              // if(localStorage.getItem("cart"))
-              //   this.userCart = JSON.parse(localStorage.getItem("cart")!);
             }
           })
         }
