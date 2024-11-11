@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
 import { UsernameCheck } from '../../../models/username-check';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { UsernameService } from '../../../services/username.service';
 import { Router } from '@angular/router';
-// import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
-import { SidebarComponent } from "../sidebar/sidebar.component";
 import { CartService } from '../../../services/cart.service';
-import { error } from 'jquery';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, JsonPipe, CommonModule, SidebarComponent],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
