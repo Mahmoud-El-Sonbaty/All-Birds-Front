@@ -24,9 +24,13 @@
       </div>
 
       <ng-container *ngIf="ProductCards && ProductCards.length > 0; else noProducts">
-        <ng-container *ngFor="let prd of ProductCards; trackBy: trackById">
-          <app-product-card [Products]="prd"></app-product-card>
-        </ng-container>
+        <div class="row d-inlineBlock justify-content-center text-center">
+
+          <ng-container *ngFor="let prd of ProductCards; trackBy: trackById">
+            <app-product-card [Products]="prd" class="cc"></app-product-card>
+          </ng-container>
+
+        </div>
       </ng-container>
 
       <ng-template #noProducts>

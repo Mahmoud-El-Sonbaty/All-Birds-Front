@@ -8,7 +8,7 @@
 
 
 
-<div class="card col-sm-6 col-md-3 text-center">
+<div class="card col-sm-6 col-md-4 text-center ">
   <div class="card-body">
     <img *ngIf="mainImagePath" [src]="mainImagePath" class="card-img-top" alt="Product Image">
 
@@ -43,16 +43,22 @@
       </button>
     </div>
 
-    <div class="row mx-auto size" *ngIf="PrdSizes && PrdSizes.length > 0">
+    <!-- <div class="row mx-auto size" *ngIf="PrdSizes && PrdSizes.length > 0">
       <p class="my-3">{{'product-card.Quick_Add'|translate}}</p>
       <div *ngFor="let colorSize of PrdSizes" class="size d-flex flex-wrap my-3  text-center justify-content-center">
         <p [ngClass]="{'out-of-stock': colorSize.unitsInStock == 0}">{{colorSize.sizeNumber}} </p>
       </div>
-    </div>
-<!--
-     <div class="size d-flex flex-wrap my-3  text-center justify-content-center">
-          <p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p>
-        </div>
-      </div> -->
+    </div> -->
+      @if ((PrdSizes && PrdSizes.length)> 0) {
+
+
+        <p class="my-3">{{'product-card.Quick_Add'|translate}}</p>
+        <div class="size d-flex flex-wrap my-1 text-center justify-content-center">
+           @for (colorSize of PrdSizes; track $index) {
+
+             <p [ngClass]="{'out-of-stock': colorSize.unitsInStock == 0}" class="col-1">{{colorSize.sizeNumber}}</p>
+           }
+         </div>
+      }
   </div>
 </div>
