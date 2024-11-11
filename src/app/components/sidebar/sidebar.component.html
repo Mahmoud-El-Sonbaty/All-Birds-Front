@@ -61,11 +61,11 @@
     <div class="progres"></div><br>
     <h5 class="text-center">Your Cart is Empty</h5>
     <div class="d-grid gap-2 mt-3">
-      <button class="btn btn-outline-dark">Shop Men's</button>
-      <button class="btn btn-outline-dark">Shop Women's</button>
-      <button class="btn btn-outline-dark">Shop Socks</button>
-      <button class="btn btn-outline-dark">Shop Men's Sale</button>
-      <button class="btn btn-outline-dark">Shop Women's Sale</button>
+      <button class="btn btn-outline-dark" (click)="navigateTo('ProductCategory/1-2')">Shop Men's</button>
+      <button class="btn btn-outline-dark" (click)="navigateTo('ProductCategory/17-18')">Shop Women's</button>
+      <button class="btn btn-outline-dark" (click)="navigateTo('socks')">Shop Socks</button>
+      <button class="btn btn-outline-dark" (click)="navigateTo('ProductCategory/35-36')">Shop Men's Sale</button>
+      <button class="btn btn-outline-dark" (click)="navigateTo('ProductCategory/35-39')">Shop Women's Sale</button>
     </div>
   </div>
 }
@@ -79,17 +79,22 @@
     <!-- <hr /> -->
     <p  class="free-shipping text-center text-muted">Congrats! You get free standard shipping</p>
     <div class="progres"></div><br>
-    <div *ngFor="let item of userCart.orderDetails" class="d-flex mb-3">
+    <div *ngFor="let item of userCart.orderDetails" class="d-flex mb-3 cart-item">
       <!--
        -->
 
        <!--  -->
-      <img [src]="baseImagePath + item.imagePath" alt="Product Image" class="img-fluid me-3" style="width: 60px; height: auto;">
-      <div class="flex-grow-1">
+      <img [src]="baseImagePath + item.imagePath" alt="Product Image" class="img-fluid me-3" style="width: 60px; height: auto;" (click)="navigateTo('single-product/'+item.productId)">
+      <div class="flex-grow-1" (click)="navigateTo('single-product/'+item.productId)">
         <h6>{{ item.productName }}</h6>
         <small>{{ item.colorName }} | Size: {{ item.sizeNumber }}</small>
         <div class=" d-flex align-items-center mt-1" >
-          <button class="" (click)="updateQuantity(item, false)">-</button>
+          @if (item.quantity > 0) {
+            <button class="" (click)="updateQuantity(item, false)">-</button>
+          }
+          @else {
+            <button class="" disabled>-</button>
+          }
           <span class="mx-2">{{ item.quantity }}</span>
           <button class=" " (click)="updateQuantity(item, true)">+</button>
 
@@ -111,7 +116,7 @@
       <span>Shipping</span>
       <strong>Free</strong>
     </div>
-    <button class="btn btn-dark w-100 mt-3" (click)="goToCheckout()">Proceed to Checkout</button>
+    <button class="btn btn-dark w-100 mt-3" [disabled]="notLoggedIn" (click)="goToCheckout()">Proceed to Checkout</button>
     <div class="payment-options mt-3 d-flex justify-content-between">
       <button class="btn btn-light border p-2 flex-grow-1 me-2">
            <a href="">  <img src="data:image/png;base64,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" alt="Shop Pay" style="height: 20px;"> </a>

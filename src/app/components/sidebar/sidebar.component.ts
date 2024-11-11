@@ -4,14 +4,6 @@ import { IOrderDetail, IOrderMaster } from '../../../models/cart';
 import { environment } from '../../../environments/environment.development';
 import { CartService } from '../../../services/cart.service';
 import { Router } from '@angular/router';
-interface CartItem {
-  name: string;
-  color: string;
-  size: string;
-  price: number;
-  quantity: number;
-  imageUrl: string;
-}
 
 @Component({
   selector: 'app-sidebar',
@@ -30,6 +22,7 @@ export class SidebarComponent implements OnChanges {
   }
   userCart: IOrderMaster = {} as IOrderMaster;
   baseImagePath: string = environment.BaseImagePath;
+  notLoggedIn: boolean = localStorage.getItem("userToken") == null;
 // //
 //  cartItems: CartItem[] = [
 //   {
@@ -59,9 +52,14 @@ export class SidebarComponent implements OnChanges {
   }
   ngOnChanges(): void {
     console.log("changes");
-
     // this.getCart();
   }
+
+  navigateTo(path: string) {
+    this.isOpen = !this.isOpen;
+    this.router.navigateByUrl(path);
+  }
+
   goToCheckout(): void {
     this.router.navigateByUrl("checkout");
   }
@@ -105,12 +103,14 @@ export class SidebarComponent implements OnChanges {
     }
     else {
       let newQ: number = increase ? item.quantity + 1 : item.quantity - 1;
-      this.userCart.total -= item.detailPrice;
-      item.detailPrice = item.detailPrice / item.quantity * newQ;
-      this.userCart.total += item.detailPrice;
-      item.quantity = newQ;
-      localStorage.setItem("flag", "true");
-      localStorage.setItem("cart", JSON.stringify(this.userCart))
+      if (newQ > 0) {
+        this.userCart.total -= item.detailPrice;
+        item.detailPrice = item.detailPrice / item.quantity * newQ;
+        this.userCart.total += item.detailPrice;
+        item.quantity = newQ;
+        localStorage.setItem("flag", "true");
+        localStorage.setItem("cart", JSON.stringify(this.userCart))
+      }
     }
   }
 // increaseQuantity(item: IOrderDetail) {
@@ -166,10 +166,15 @@ removeItem(item: IOrderDetail) {
   else {// he is not authenticated so just update it locally and set the flag
     let detailIndex = this.userCart.orderDetails.findIndex(od => od.id == item.id);
     if (detailIndex != -1) {
-      this.userCart.orderDetails.splice(detailIndex, 1);
-      this.userCart.total -= item.detailPrice;
-      console.log(this.userCart);
-      localStorage.setItem("cart", JSON.stringify(this.userCart));
+      if (this.userCart.orderDetails.length == 1) {
+        this.userCart = {} as IOrderMaster;
+        localStorage.removeItem("cart");
+      }
+      else {
+        this.userCart.orderDetails.splice(detailIndex, 1);
+        this.userCart.total -= item.detailPrice;
+        localStorage.setItem("cart", JSON.stringify(this.userCart));
+      }
       localStorage.setItem("flag", "true");
     }
   }
@@ -197,6 +202,9 @@ private getCart() {
         },
         error:(err)=>{
           console.log(err);
+          if (err.status == 401) {
+            localStorage.removeItem("userToken");
+          }
           if(localStorage.getItem("cart"))
             this.userCart = JSON.parse(localStorage.getItem("cart")!);
         }
