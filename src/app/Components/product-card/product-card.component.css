@@ -8,7 +8,6 @@ body {
   transition: box-shadow 0.1s ease-in-out;
   border: none;
   font-family: "Open Sans", sans-serif;
-  /* margin: 10px;  */
   padding: 10px;
 }
 
@@ -21,52 +20,30 @@ body {
   width: 100%;
   height: 250px;
   object-fit: cover;
-  border-radius: 5px 5px 0 0;
 }
 
-.carousel-control-prev {
-  left: -15px;
-}
-/* .ar .carousel-control-prev {
-  right: -15px;
-}
-.en .carousel-control-prev {
-  left: -15px;
-} */
-
-.carousel-control-next {
-  right: -15px;
-}
-/* .ar .carousel-control-next {
-  right: -15px;
-}
-.en .carousel-control-next {
-  left: -15px;
-} */
-
-.carousel-control-prev i,
-.carousel-control-next i {
-  color: black !important;
-  font-size: 1.5rem;
-  border: 1px solid rgb(132, 132, 132);
+.carousel-control-prev, .carousel-control-next {
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1;
+  background-color: white;
+  font-size: 1.5rem;
+  color: black !important;
+  border: 1px solid rgb(132, 132, 132);
 }
 
-.carousel-control-prev i:hover,
-.carousel-control-next i:hover {
-  background-color: rgb(255, 254, 254);
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  background-color: #fff;
   border-color: black;
-  /* border-width: 1px; */
   opacity: 1;
 }
 
 .carousel-item img {
   width: 40px;
-  height: 40px; /* تثبيت الطول والعرض للصور الصغيرة */
+  height: 40px;
   border: 1px solid transparent;
   transition: border 0.2s ease;
 }
@@ -75,33 +52,22 @@ body {
   border: 1px solid rgb(189, 189, 189);
 }
 
-.size div {
-  /* opacity: 0; */
-  /* visibility: hidden; */
-  /* transition: opacity 0.1s ease; */
-}
-
-.card:hover .size div {
-  opacity: 1;
-  visibility: visible;
-  z-index: 13;
-}
-
-.size div p {
+.size p {
   border: 1px solid rgb(132, 132, 132);
   width: 45px;
   height: 45px;
-  padding: 5px;
-  text-align: center;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  justify-items: center;
-  /* padding-top: 2px; */
+  margin: 4px;
+  transition: background-color 0.2s ease;
 }
 
-.size div p:hover {
+.size p:hover {
   background-color: rgb(225, 225, 226);
-  border-radius: 10px;
+  border-radius: 2px;
 }
-.out-of-stock{
+
+.out-of-stock {
   text-decoration: line-through;
 }
