@@ -236,11 +236,12 @@
           <li class="nav-item ">
             <a class="nav-link"   (click)="toggleLanguage()"><i class="fas fa-globe text-dark"></i></a>
           </li>
+          @if (!currentURl.includes('search')) {
 
         <li class="nav-item d-none d-md-block ">
           <a class="nav-link" (click)="goToSearch()"><i class="fas fa-search text-dark searchIcon"></i></a>
         </li>
-
+      }
         <li class="nav-item  d-none d-xl-block ">
           <a class="nav-link" routerLink="register"><i class="fas fa-user text-dark"></i></a>
         </li>
@@ -272,11 +273,13 @@
     </div>
 
   </div>
+  @if (!currentURl.includes('search')) {
 
-  <div class="search-container d-flex justify-content-start align-items-center d-xl-none m-2 p-2 ">
-    <a class="nav-link" ><i class="fas fa-search text-dark searchIcon2 "></i></a>
-    <input class="form-control" (mouseenter)="goToSearch()" type="search" [placeholder]="'navBar.search'|translate" aria-label="Search" style=" margin-left: 10px;">
-  </div>
+    <div  class="search-container d-flex justify-content-start align-items-center d-xl-none m-2 p-2 ">
+      <a class="nav-link" ><i class="fas fa-search text-dark searchIcon2 "></i></a>
+      <input class="form-control" (click)="goToSearch()" type="search" [placeholder]="'navBar.search'|translate" aria-label="Search" style=" margin-left: 10px;">
+    </div>
+  }
 </nav>
 
 

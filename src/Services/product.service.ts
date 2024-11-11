@@ -47,11 +47,11 @@ ngOnInit(): void {
 
 
 
-  getProductsByName(ProductName: string, Lang: string):Observable<ApiresponsePrdSearch>
+  getProductsByName(ProductName: string):Observable<ApiresponsePrdSearch>
   {
-    console.log(ProductName , Lang);
+    console.log(ProductName ,this.lang);
 
-    return this.httpclient.get<ApiresponsePrdSearch>(`${environment.BaseUrl}/Product/${ProductName}/${Lang}`)
+    return this.httpclient.get<ApiresponsePrdSearch>(`${environment.BaseUrl}/Product/${ProductName}/${this.lang.getLanguage()}`)
   }
 
 }

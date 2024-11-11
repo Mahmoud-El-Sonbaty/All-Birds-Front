@@ -5,7 +5,7 @@ body {
 
 .card {
   border-radius: 0;
-
+  display: inline-block;
   transition: box-shadow 0.1s ease-in-out;
   border: none;
   font-family: "Open Sans", sans-serif;
@@ -64,7 +64,17 @@ body {
   transition: background-color 0.2s ease;
 
 }
+.size  {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s ease;
+}
 
+.card:hover .size  {
+  opacity: 1;
+  visibility: visible;
+  z-index: 13;
+}
 .size p:hover {
   background-color: rgb(225, 225, 226);
   border-radius: 2px;

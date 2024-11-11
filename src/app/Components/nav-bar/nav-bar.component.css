@@ -287,3 +287,8 @@ display: none !important;
   transform: scaleX(-1);
 
 }
+
+.form-control:focus-visible{
+  box-shadow: none;
+  border-color: black;
+}

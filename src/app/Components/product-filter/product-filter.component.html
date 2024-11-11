@@ -27,15 +27,15 @@
           </div>
   </div>
   <div class="filter-size">
-    <p class="FilterBy">{{'filter.FilterBy'|translate}}<button (click)="ClearAll()" class="clear-all-btn">{{'filter.Clear_All'|translate}}</button>
+    <p class="FilterBy">{{'filter.FilterBy'|translate}}<button (click)="ClearAll()" class="clear-all-btn m-2">{{'filter.Clear_All'|translate}}</button>
 
 
       <span>
-        <button type="button" class="filter-btn" *ngFor="let item of filterSelected.SizesNumber">
+        <button type="button" class="filter-btn d-inline-block m-1" *ngFor="let item of filterSelected.SizesNumber">
           {{item.sizeNumber}}
-          <i class="bi bi-x close-icon"></i>
+          <i class="bi bi-x close-icon m-1"></i>
         </button>
-        <button type="button" class="filter-btn" *ngFor="let item of filterSelected.Colors">
+        <button type="button" class="filter-btn d-inline-block " *ngFor="let item of filterSelected.Colors">
           {{item.name}}
           <i class="bi bi-x close-icon"></i>
         </button>

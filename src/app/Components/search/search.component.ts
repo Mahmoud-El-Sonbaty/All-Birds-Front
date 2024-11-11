@@ -21,7 +21,7 @@ export class SearchComponent  {
   @Input('id') CatIdURL: string = '';
   public Msg: string = '';
   public NamePrdSearch: string = '';
-  public Lang : string = 'Ar'
+  public Lang !: string ;
   constructor(private productService: ProductService) {
 
   }
@@ -35,13 +35,13 @@ export class SearchComponent  {
 
   OnSearch(Input: string) {
     this.NamePrdSearch = Input;
-    this.getProductByName(this.NamePrdSearch , this.Lang)
+    this.getProductByName(this.NamePrdSearch )
 
   }
 
-  getProductByName(NamePrdSearch: string, Lang: string) {
+  getProductByName(NamePrdSearch: string) {
 
-    let item = this.productService.getProductsByName(NamePrdSearch , Lang).subscribe({
+    let item = this.productService.getProductsByName(NamePrdSearch).subscribe({
       next: (res) => {
         if (!res.isSuccess) {
           this.ProductCards = []

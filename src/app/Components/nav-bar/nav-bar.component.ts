@@ -4,7 +4,7 @@ import { Icategory } from '../../../Modules/category';
 import { CategeryServiceService } from '../../../Services/categery-service.service';
 import { Subscription } from 'rxjs';
 import { SidebarComponent } from "../sidebar/sidebar.component";
-import { Route, Router, RouterLink } from '@angular/router';
+import { NavigationEnd, Route, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../../Services/language.service';
 
@@ -23,9 +23,14 @@ export class NavBarComponent implements OnInit,OnDestroy ,OnChanges {
   language:string;
   @ViewChild('sidebar') sidebar!: SidebarComponent;
   local:any;
-
+  currentURl:string='';
 constructor(private categories:CategeryServiceService,private lang:LanguageService ,private route :Router) {
   this.language=lang.getLanguage();
+  this.route.events.subscribe(event => {
+    if (event instanceof NavigationEnd) {
+        this.currentURl = event.url;
+    }
+});
 }
   ngOnChanges(changes: SimpleChanges): void {
 
