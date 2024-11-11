@@ -8,6 +8,10 @@
           id="button-search">{{'navBar.search'|translate}}</button>
       </div>
 
+      <ng-container *ngIf="loading">
+        <app-loader></app-loader>
+      </ng-container>
+
       <ng-container *ngIf="ProductCards && ProductCards.length > 0; else noProducts">
         <ng-container *ngFor="let prd of ProductCards; let i = index">
           <div class="card-body col-sm-5 col-md-5 col-lg-2 mt-5 mx-1">

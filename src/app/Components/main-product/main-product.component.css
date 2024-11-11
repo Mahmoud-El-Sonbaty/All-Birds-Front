@@ -68,10 +68,3 @@
 .filter-btn button:focus {
   outline: none;
 }
-
-
-.cc {
-  display: inline-block; /* Ensures cards don’t take full width */
-  vertical-align: top;
-  width: 100%; /* Optional: allows responsive width */
-}

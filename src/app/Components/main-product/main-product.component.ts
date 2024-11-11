@@ -9,11 +9,12 @@ import { ProductService } from '../../../Services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { CategeryServiceService } from '../../../Services/categery-service.service';
 import { CommonModule } from '@angular/common';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-main-product',
   standalone: true,
-  imports: [ProductCardComponent,ProductFilterComponent,CommonModule],
+  imports: [ProductCardComponent,ProductFilterComponent,CommonModule,LoaderComponent],
   templateUrl: './main-product.component.html',
   styleUrl: './main-product.component.css'
 })
@@ -29,6 +30,9 @@ export class MainProductComponent implements OnInit, OnChanges {
   filterSelected: IfilterType = {} as IfilterType;
   ApiFilterTypes: ApiFilterBody = {} as ApiFilterBody
   isFilterVisible: boolean = false;
+  // loadingGetProductFilter:boolean=true;
+  loadingGetAllProducts:boolean=true;
+  loadingGetCategorysByParentId:boolean=true;
   constructor(private productService: ProductService, private route: ActivatedRoute, private categeryService: CategeryServiceService) {
 
   }
@@ -107,12 +111,15 @@ export class MainProductComponent implements OnInit, OnChanges {
       },
       error: (error) => {
         console.log(error);
+
       }
     })
     this.sub.push(item);
   }
 
   getProductsByCategoryId(_subCategoryId: number): void {
+    this.loadingGetAllProducts=true;
+
     console.log(this.ParentAndSubId)
     let item = this.productService.getAllProducts(_subCategoryId).subscribe({
       next: (res) => {
@@ -121,6 +128,8 @@ export class MainProductComponent implements OnInit, OnChanges {
         if (!res.isSuccess) {
           this.ProductCards = []
           this.Msg = res.msg;
+          this.loadingGetAllProducts=false;
+
         }
         else {
           this.ProductCards = res.data;
@@ -148,11 +157,14 @@ export class MainProductComponent implements OnInit, OnChanges {
               ).map((size) => [size.sizeNumber, size])
             ).values()
           );
+          this.loadingGetAllProducts=false;
 
         }
       },
       error: (error) => {
         console.log(error);
+        this.loadingGetAllProducts=false;
+
       }
 
     })
@@ -162,16 +174,21 @@ export class MainProductComponent implements OnInit, OnChanges {
 
   // Get All Category By Parent Category Id
   getAllCatByParentId(parentCategoryId: number) {
+
+    this.loadingGetCategorysByParentId=true;
     let item = this.categeryService.getCategorysByParentId(parentCategoryId).subscribe({
       next: (res) => {
         if (res.isSuccess) {
 
           this.FilterTypes.Category = res.data;
           this.ParentCat_SubCat = this.FilterTypes.Category.children?.find(child => child.id == this.subCatId);
+          this.loadingGetCategorysByParentId=false;
 
         }
         else {
           this.Msg = res.msg;
+          this.loadingGetCategorysByParentId=false;
+
         }
       }
     })
