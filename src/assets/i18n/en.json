@@ -128,7 +128,15 @@
     "shopWomens": "Shop Women's",
     "shopSocks": "Shop Socks",
     "shopMensSale": "Shop Men's Sale",
-    "shopWomensSale": "Shop Women's Sale"
+    "shopWomensSale": "Shop Women's Sale",
+    "Congrats":"Congrats! You get free standard shipping",
+    "Size":"Size:",
+    "Subtotal":"Subtotal",
+    "Shipping":"Shipping",
+    "Free":"Free",
+    "Proceed":"Proceed to Checkout"
+
+
   },
   "home": {
     "btn":{

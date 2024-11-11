@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { CartService } from '../../../Services/cart.service';
 import { Router } from '@angular/router';
-import { IOrderDetail } from '../../../Modules/cart';
+import { IOrderDetail, IOrderMaster } from '../../../Modules/cart';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-sidebar',
@@ -21,7 +22,7 @@ export class SidebarComponent implements OnChanges {
       this.userCart = JSON.parse(localStorage.getItem("cart")!)
   }
   userCart: IOrderMaster = {} as IOrderMaster;
-  baseImagePath: string = environment.BaseImagePath;
+  baseImagePath: string = environment.BaseIMageUrl;
 // //
 //  cartItems: CartItem[] = [
 //   {
