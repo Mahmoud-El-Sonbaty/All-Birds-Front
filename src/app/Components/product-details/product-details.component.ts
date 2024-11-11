@@ -343,12 +343,13 @@ export class ProductDetailsComponent implements OnInit {
   };
   addToCart() {
     if (localStorage.getItem("cart")) {
+      console.log("found cart");
       //here we need to add the detail
       let cart: IOrderMaster = JSON.parse(localStorage.getItem("cart")!);
       if (localStorage.getItem("userToken")) {
         // he is logged in so we check for flag
         if (localStorage.getItem("flag")) {
-          // here only put in the local storage then send the api request to update all of the order then set the response to the local storage
+          // here only put in the local storage then send the api request to update whole then set the response to the local storage
           let tryFindPrdColorSize = cart.orderDetails.find(d => d.productColorSizeId == this.selectedPrdColorSizeId);
           // this product already exist in the cart so we just increase the quantity
           if (tryFindPrdColorSize) { 
@@ -400,6 +401,7 @@ export class ProductDetailsComponent implements OnInit {
             let newDetail: IOrderDetail = {
               id: 0,
               productColorSizeId: this.selectedPrdColorSizeId,
+              productId: this.singlePrdData.id,
               detailPrice: this.singlePrdData.price,
               quantity: 1,
               imagePath: this.selectedPrdColorImage.imagePath,
@@ -484,6 +486,7 @@ export class ProductDetailsComponent implements OnInit {
                   let newDetail: IOrderDetail = {
                     id: res.data.id,
                     productColorSizeId: res.data.productId,
+                    productId: this.singlePrdData.id,
                     detailPrice: res.data.detailPrice,
                     quantity: res.data.quantity,
                     imagePath: this.selectedPrdColorImage.imagePath,
@@ -509,11 +512,15 @@ export class ProductDetailsComponent implements OnInit {
       else { // here he is not logged in so we add the detail to local storage and set the flag
         let tryFindPrdColorSize = cart.orderDetails.find(d => d.productColorSizeId == this.selectedPrdColorSizeId);
         // this product already exist in the cart so we just increase the quantity
+        console.log("not auth");
         if (tryFindPrdColorSize) { 
+          console.log("found prdcolorsize")
           if (this.selectedPrdColorSize.unitsInStock > tryFindPrdColorSize.quantity){
             // there is enough stock to add to the cart
+            console.log("stock available")
             tryFindPrdColorSize.detailPrice += tryFindPrdColorSize.detailPrice / tryFindPrdColorSize.quantity;
             tryFindPrdColorSize.quantity += 1;
+            console.log(tryFindPrdColorSize.quantity, tryFindPrdColorSize.detailPrice);
             cart.total += tryFindPrdColorSize.detailPrice / tryFindPrdColorSize.quantity;
             localStorage.setItem("cart", JSON.stringify(cart));
             localStorage.setItem("flag", "true");
@@ -523,9 +530,11 @@ export class ProductDetailsComponent implements OnInit {
           }
         }
         else { // this product is new so we add it
+          console.log("adding new detail");
           let newDetail: IOrderDetail = {
             id: 0,
             productColorSizeId: this.selectedPrdColorSizeId,
+            productId: this.singlePrdData.id,
             detailPrice: this.singlePrdData.price,
             quantity: 1,
             imagePath: this.selectedPrdColorImage.imagePath,
@@ -534,6 +543,7 @@ export class ProductDetailsComponent implements OnInit {
             sizeNumber: this.selectedPrdColorSize.sizeNumber
           };
           cart.orderDetails.push(newDetail);
+          cart.total += newDetail.detailPrice;
           localStorage.setItem("cart", JSON.stringify(cart));
           localStorage.setItem("flag", "true");
         }
@@ -550,6 +560,7 @@ export class ProductDetailsComponent implements OnInit {
           orderDetails: [{
             id: 0,
             productColorSizeId: this.selectedPrdColorSizeId,
+            productId: this.singlePrdData.id,
             detailPrice: this.singlePrdData.price,
             quantity: 1,
             colorName: this.selectedColorObj.colorName,
@@ -595,6 +606,7 @@ export class ProductDetailsComponent implements OnInit {
           orderDetails: [{
             id: 0,
             productColorSizeId: this.selectedPrdColorSizeId,
+            productId: this.singlePrdData.id,
             detailPrice: this.singlePrdData.price,
             quantity: 1,
             colorName: this.selectedColorObj.colorName,
@@ -603,6 +615,7 @@ export class ProductDetailsComponent implements OnInit {
             sizeNumber: this.selectedPrdColorSize.sizeNumber
           }]
         }
+        console.log("adding new cart from the begining");
         localStorage.setItem("cart", JSON.stringify(cart));
         localStorage.setItem("flag", "true");
       }
@@ -665,6 +678,7 @@ export class ProductDetailsComponent implements OnInit {
 //     return {
 //         id: 0,
 //         productColorSizeId: this.selectedPrdColorSizeId,
+//         productId: this.singlePrdData.id,
 //         detailPrice: this.singlePrdData.price,
 //         quantity: 1,
 //         imagePath: this.selectedPrdColorImage.imagePath,
