@@ -18,7 +18,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
 
   sub:Subscription[]= []as Subscription[];
   category:Icategory[]=[]as Icategory[];
-
+  cartItemsCount: number = 0;
 constructor(private categories:CategeryService) {
 
 
