@@ -135,6 +135,7 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
 selectPaymentMethod(method: string) {
    this.checkoutForm.get('paymentMethod')?.setValue(method); // Update the form value
    this.updatePayButton();  // Update button text based on selected payment method
+   this.selectedPaymentMethod = method;
 }
 
 //
@@ -292,7 +293,35 @@ restrictNonNumeric(event: KeyboardEvent) {
   baseImagePath: string = environment.BaseImagePath;
 
   placeOrder() {
-    console.log("place order")
+    console.log("place order");
+    if (localStorage.getItem("userToken")) {
+      if (localStorage.getItem("cart") && localStorage.getItem("flag") == null) {
+        this.cartService.placeOrder(localStorage.getItem("userToken")!).subscribe({
+          next: (res) => {
+            console.log(res);
+            if (res.isSuccess) {
+              localStorage.removeItem("cart");
+            }
+            else {
+              console.log(res.msg);
+            }
+          },
+          error: (err) => {
+            console.log(err);
+            if (err.status == 401) {
+              localStorage.removeItem("userToken");
+              this.router.navigateByUrl("home");
+            }
+          }
+        })
+      }
+      else {
+        this.router.navigateByUrl("home");
+      }
+    }
+    else {
+      this.router.navigateByUrl("home");
+    }
   }
 
   private getCart() {
@@ -319,7 +348,7 @@ restrictNonNumeric(event: KeyboardEvent) {
               localStorage.removeItem("userToken");
               this.router.navigateByUrl("register");
             }
-            else if (err.status == 404) {
+            else if (err.status == 400 && err.error.msg == "No Cart Found For This Client") {
               localStorage.removeItem("cart")
               this.router.navigateByUrl("");
             }

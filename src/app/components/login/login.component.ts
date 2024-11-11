@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { SidebarComponent } from "../sidebar/sidebar.component";
 import { CartService } from '../../../services/cart.service';
+import { error } from 'jquery';
 
 @Component({
   selector: 'app-login',
@@ -44,7 +45,28 @@ export class LoginComponent {
         if(localStorage.getItem("cart") && localStorage.getItem("flag")) {
           // here we should update the whole order in the api
         }
-        else {
+        else if (localStorage.getItem("cart") == null && localStorage.getItem("flag")) {// he deleted all the cart from the local storage while he was not authenticated
+          // here delete all the cart
+          this.cartService.deleteOrderMaster(localStorage.getItem("userToken")!).subscribe({
+            next: (res) => {
+              console.log(res);
+              if (res.isSuccess) {
+                localStorage.removeItem("flag");
+                localStorage.removeItem("cart");
+              }
+              else {
+                console.log(res.msg);
+              }
+            },
+            error: (err) => {
+              console.log(err);
+              if (err.status == 401) {
+                localStorage.removeItem("userToken");
+              }
+            }
+          })
+        }
+        else { // here update the cart from the back end
           console.log("going to api");
           this.cartService.getCart(localStorage.getItem("userToken")!).subscribe({
             next:(res)=>{

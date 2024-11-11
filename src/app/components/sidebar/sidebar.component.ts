@@ -65,9 +65,7 @@ export class SidebarComponent implements OnChanges {
   goToCheckout(): void {
     this.router.navigateByUrl("checkout");
   }
-// get subtotal(): number {
-//   return this.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-// }
+
   updateQuantity(item: IOrderDetail, increase: boolean) {
     if (localStorage.getItem("userToken")) {
       if (localStorage.getItem("flag")) {
@@ -125,6 +123,56 @@ export class SidebarComponent implements OnChanges {
 removeItem(item: IOrderDetail) {
   // this.items = this.items.filter(cartItem => cartItem !== item);
   // this.updateTotalItems();
+  console.log(item);
+  if (localStorage.getItem("userToken")) {
+    // he is authenticated so check for flag
+    if (localStorage.getItem("flag")) {
+      // local is advanced so delete from local then update whole cart
+    }
+    else { // local is not advanced so just send the request
+      this.cartService.deleteOrderDetail(item.id, localStorage.getItem("userToken")!).subscribe({
+        next: (res) => {
+          console.log(res);
+          if (res.isSuccess) {
+            let detailIndex = this.userCart.orderDetails.findIndex(od => od.id == item.id);
+            this.userCart.orderDetails.splice(detailIndex, 1);
+            this.userCart.total -= item.detailPrice;
+            if (this.userCart.orderDetails.length == 0) {
+              this.userCart = {} as IOrderMaster;
+              localStorage.removeItem("cart");
+            }
+            else {
+              localStorage.setItem("cart", JSON.stringify(this.userCart));
+            }
+          }
+          else {
+            console.log(res.msg);
+          }
+        },
+        error: (err) => {
+          console.log(err);
+          if (err.status == 401) { // the token is invalid so we just update it locally and delete the token from the local storage and put the flag
+            let detailIndex = this.userCart.orderDetails.findIndex(od => od.id == item.id);
+            this.userCart.orderDetails.splice(detailIndex, 1);
+            this.userCart.total -= item.detailPrice;
+            localStorage.setItem("flag", "true");
+            localStorage.removeItem("userToken");
+            localStorage.setItem("cart", JSON.stringify(this.userCart));
+          }
+        }
+      })
+    }
+  }
+  else {// he is not authenticated so just update it locally and set the flag
+    let detailIndex = this.userCart.orderDetails.findIndex(od => od.id == item.id);
+    if (detailIndex != -1) {
+      this.userCart.orderDetails.splice(detailIndex, 1);
+      this.userCart.total -= item.detailPrice;
+      console.log(this.userCart);
+      localStorage.setItem("cart", JSON.stringify(this.userCart));
+      localStorage.setItem("flag", "true");
+    }
+  }
 }
 //
 private getCart() {

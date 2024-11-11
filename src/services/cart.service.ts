@@ -53,4 +53,28 @@ export class CartService {
       }
     })
   }
+
+  deleteOrderDetail(orderDetailId: number, userToken: string): Observable<IAddOrderDetailApiResponse> {
+    return this.httpclient.delete<IAddOrderDetailApiResponse>(`${environment.BaseUrl}/order/DeleteOrderDetail/${orderDetailId}`, {
+      headers: {
+        'Authorization': "Bearer " + userToken
+      }
+    })
+  }
+
+  deleteOrderMaster(userToken: string): Observable<IUpdateWholeOrderApiResponse> {
+    return this.httpclient.delete<IUpdateWholeOrderApiResponse>(`${environment.BaseUrl}/order/deleteordermaster`, {
+      headers: {
+        'Authorization': "Bearer " + userToken
+      }
+    })
+  }
+
+  placeOrder(userToken: string): Observable<{data: any, isSuccess: boolean, msg: string}> {
+    return this.httpclient.get<{data: any, isSuccess: boolean, msg: string}>(`${environment.BaseUrl}/order/placeOrder`, {
+      headers: {
+        'Authorization': "Bearer " + userToken
+      }
+    })
+  }
 }
