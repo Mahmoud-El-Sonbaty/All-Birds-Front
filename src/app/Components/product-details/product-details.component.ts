@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { IAddOrderDetail, IAddOrderDetailResponseData, IOrderDetail, IOrderMaster, IUpdateWholeOrder } from '../../../Modules/cart';
 import { LoaderComponent } from '../loader/loader.component';
 import { AlertMessageComponent } from "../alert-message/alert-message.component";
+import { LanguageService } from '../../../Services/language.service';
 
 @Component({
   selector: 'app-product-details',
@@ -149,7 +150,14 @@ export class ProductDetailsComponent implements OnInit {
       return this.selectedColorImages[this.selectedImageIndex];
     }
 
-    constructor(private productService: ProductService, private cartService: CartService, private router: Router) { }
+    lang:string=''
+    constructor(private productService: ProductService, private cartService: CartService, private router: Router,private language:LanguageService) {
+
+
+      this.lang=language.getLanguage()
+
+
+     }
 
     ngOnInit(): void {
       this.getProductFromAPI(this.prdId);
