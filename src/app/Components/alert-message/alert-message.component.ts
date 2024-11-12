@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class AlertMessageComponent  {
   @Input() title: string = '';
   @Input() message: string = '';
-  @Input() isSuccess: boolean = true; // default to true for success messages
+  @Input() isSuccess: boolean = true;
+  @Input() Path:string='/home'// default to true for success messages
 
   /**
    *
@@ -23,6 +24,6 @@ export class AlertMessageComponent  {
     return this.isSuccess ? 'alert-success' : 'alert-danger';
   }
   clossing(){
-    this.route.navigate(['/home'])
+    this.route.navigateByUrl(this.Path)
   }
 }

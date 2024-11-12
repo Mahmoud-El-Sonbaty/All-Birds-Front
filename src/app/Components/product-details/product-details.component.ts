@@ -9,11 +9,12 @@ import { CartService } from '../../../Services/cart.service';
 import { Router } from '@angular/router';
 import { IAddOrderDetail, IAddOrderDetailResponseData, IOrderDetail, IOrderMaster, IUpdateWholeOrder } from '../../../Modules/cart';
 import { LoaderComponent } from '../loader/loader.component';
+import { AlertMessageComponent } from "../alert-message/alert-message.component";
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [FormsModule,CommonModule, TranslateModule,LoaderComponent],
+  imports: [FormsModule, CommonModule, TranslateModule, LoaderComponent, AlertMessageComponent],
   templateUrl: './product-details.component.html',
   template: `
   <!-- <button (click)="toggleDirection()">
@@ -84,7 +85,8 @@ export class ProductDetailsComponent implements OnInit {
     hoveredPrdColorId: number = 0;
     selectedPrdColorId: number = 0;
     @Input('id') prdId: number = 0;
-    isDataLoading: boolean = false;
+    errors:boolean=false;
+    isDataLoading: boolean = true;
     baseImagePath: string = environment.BaseIMageUrl;
     singlePrdData: ISingleProduct = {} as ISingleProduct;
     colorSizes: ISingleProductColorSize[] = [];
@@ -874,6 +876,8 @@ export class ProductDetailsComponent implements OnInit {
       }
     }
     getProductFromAPI(prdId: number) {
+      // this.isDataLoading = true;
+
       console.log("goiing to get single prd");
       this.productService.getSingleProduct(prdId).subscribe({
         next: (res) => {
@@ -891,6 +895,8 @@ export class ProductDetailsComponent implements OnInit {
           console.log("removed loader")
         },
         error: (err) => {
+          this.isDataLoading = false;
+          this.errors=true;
           console.log(err)
           // here we should redirect some where
         }

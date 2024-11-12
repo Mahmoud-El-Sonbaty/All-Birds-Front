@@ -18,6 +18,6 @@ export class OrderComponent {
   baseImagePath: string = environment.BaseIMageUrl;
   constructor(private router: Router) {}
   navigateTo(prdId: number) {
-    this.router.navigateByUrl(`single-product`);
+    this.router.navigateByUrl(`single-product/${prdId}`);
   }
 }

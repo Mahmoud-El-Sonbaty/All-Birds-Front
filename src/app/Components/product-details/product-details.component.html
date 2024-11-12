@@ -1,5 +1,9 @@
 @if(isDataLoading) {
   <app-loader></app-loader>
+}@else if (errors) {
+
+    <app-alert-message  [title]="'orders.error' | translate" [message]="'orders.No_Product' | translate" [isSuccess]="false"></app-alert-message>
+
 }
 @else{
   <div class="row pt-5">

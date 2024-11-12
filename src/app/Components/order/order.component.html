@@ -10,7 +10,7 @@
     </div>
     <div class="orderTotal">
       <h5>{{ 'order.orderSummary.total' | translate }}</h5>
-      <h6>{{ order.total }}$</h6>
+      <h6>${{ order.total }}</h6>
     </div>
     <div class="orderTotal">
       <h5>{{ 'order.orderSummary.discountPercentage' | translate }}</h5>
@@ -18,7 +18,7 @@
     </div>
     <div class="orderTotal">
       <h5>{{ 'order.orderSummary.discountAmount' | translate }}</h5>
-      <h6>{{ order.discountAmount }}$</h6>
+      <h6>${{ order.discountAmount }}</h6>
     </div>
     <div class="orderShipTo">
       <h5>{{ 'order.orderSummary.shipTo' | translate }}</h5>
@@ -34,12 +34,25 @@
           <div class="orderProductImgAndInfos">
             <img src='{{baseImagePath}}/{{detail.productImagePath}}' alt="" class="orderProductImg"/>
             <div class="orderProductInfos">
-              <h3>{{detail.productName}}</h3>
-              <h4>{{detail.detailPrice}}$</h4>
-              <h4>{{detail.quantity}} {{ 'order.orderSummary.Pieces' | translate }}</h4>
-              <div class="orderProductInfosButtons">
-                <button class="orderBuyAgain">{{ 'order.buttons.buyAgain' | translate }}</button>
-                <button class="orderViewItem" (click)="navigateTo(detail.productId)"> {{ 'order.buttons.viewItem' | translate }}</button>
+              <h5>{{detail.productName}}</h5>
+              "Pieces":"Pieces",
+              "2Pieces":"Pieces",
+              "Piece":"Piece"
+              <h6>{{ 'order.orderSummary.Color' | translate }} {{detail.colorName}}</h6>
+              <h6>{{ 'order.orderSummary.size' | translate }} {{detail.sizeNumber}}</h6>
+              <h6>{{ 'order.orderSummary.sub_total' | translate }} ${{detail.detailPrice}}</h6>
+              <h6>
+                {{ 'order.orderSummary.quantity' | translate }} {{ detail.quantity }}
+                {{
+                  detail.quantity == 2
+                    ? ('order.orderSummary.2Pieces' | translate)
+                    : (detail.quantity > 1 && detail.quantity < 11
+                        ? ('order.orderSummary.Pieces' | translate)
+                        : ('order.orderSummary.Piece' | translate))
+                }}
+              </h6>              <div class="orderProductInfosButtons">
+                <!-- <button class="orderBuyAgain">Buy it again</button> -->
+                <button class="orderViewItem" (click)="navigateTo(detail.productId)">{{ 'order.buttons.viewItem' | translate }}</button>
               </div>
             </div>
           </div>
@@ -47,5 +60,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>
 </div>

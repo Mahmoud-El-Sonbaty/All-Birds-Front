@@ -59,17 +59,17 @@
 
     <button type="submit" [disabled]="myform1.invalid||isCanLogin()" class="btn btn-dark btn-lg w-100">{{'login.login'|translate}}</button>
 
-    <div style="display: flex; justify-content: center;" >
+    <!-- <div style="display: flex; justify-content: center;" >
 
     <a > <button  class="forgetPassword"  type="button"  (click)="showResetPasswordForm()">{{'login.forgetPassword'|translate}}</button> </a>
-    </div>
+    </div> -->
   </form>
 
 </div>
 
 
 
-<div  *ngIf="showResetPasswordFormbool">
+<!-- <div  *ngIf="showResetPasswordFormbool">
 
         <div id="resetPasswordForm" class="form-group mb-3" >
 
@@ -101,6 +101,6 @@
             <button  id="Submitforget" type="submit" class="btn btn-dark btn-lg w-80" [disabled]="myform2.invalid||!isEmailValid()" >{{'login.submit'|translate}}</button><br>
             <button type="button"  class="btn btn-link cancel "  (click)="hideResetPasswordForm()">{{'login.Cancel'|translate}}</button><br>
           </form>
-        </div>
+        </div> -->
 
 

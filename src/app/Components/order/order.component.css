@@ -64,14 +64,14 @@
   display: flex;
 }
 .orderProductImg{
-  width: 110px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
   margin-right: 15px;
 }
 .orderProductInfos>*{
   margin-bottom: 5px;
 }
-.orderProductInfos>h3{
+.orderProductInfos>h5{
   color: #007bff;
 }
 .orderProductInfos>h4{
@@ -90,10 +90,15 @@
 .orderViewItem{
   color: black;
   background-color:#f8f9fa ;
-  padding: 10px;
+  padding: 8px;
   border-radius: 10px;
   border: 2px solid #c5c5c5;
   cursor: pointer;
+}
+.orderViewItem:hover {
+  background-color: #222222;
+  color: #ffffff;
+  transition: background-color 200ms linear;
 }
 .orderProductReview{
   padding: 7px 65px;

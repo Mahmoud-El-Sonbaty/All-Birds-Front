@@ -227,7 +227,13 @@
       "discountPercentage": "DISCOUNT PERCENTAGE",
       "discountAmount": "DISCOUNT AMOUNT",
       "shipTo": "SHIP TO",
-      "Pieces":"Pieces"
+      "Pieces":"Pieces",
+      "2Pieces":"Pieces",
+      "Piece":"Piece",
+      "Color":"Color :",
+      "size":"Size :",
+      "sub_total":"Sub-Total :",
+      "َquantity":"Quantity :"
     },
     "orderState": "Order state",
     "buttons": {
@@ -238,6 +244,8 @@
   "orders": {
     "loading": "Loading...",
     "noOrders": "No Orders To Display",
+    "No_Product": "This Product Doesn't Exist",
+    "error":"Error",
     "yourOrders": "Your Orders",
     "searchPlaceholder": "Search all orders",
     "selectYear": "Select Year",

@@ -15,9 +15,9 @@
 
 
 
-<div class="card col-sm-6 col-md-6 col-lg-4" style="display: inline-block;">
-  <div class="card-body">
-    <img *ngIf="mainImagePath" [src]="mainImagePath" class="card-img-top" alt="Product Image"
+<div class="card col-sm-6 col-md-6 col-lg-4" style="display: inline-block;" >
+  <div class="card-body" >
+    <img *ngIf="mainImagePath" [src]="mainImagePath" class="card-img-top" [routerLink]="'/single-product/'+Products.id" alt="Product Image"
       style="width: 100%; height: auto;">
 
     <p class="card-text" style="font-weight: bolder;">{{ Products.name }}</p>

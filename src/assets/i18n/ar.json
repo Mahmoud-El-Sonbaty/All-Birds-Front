@@ -233,7 +233,13 @@
       "discountPercentage": "نسبة الخصم",
       "discountAmount": "مقدار الخصم",
       "shipTo": "الشحن إلى",
-      "Pieces":"قطعة"
+      "Pieces":"قطع",
+      "2Pieces":"قطعتين",
+      "Piece":"قطعة",
+      "Color":"اللون :",
+      "size":"المقاس :",
+      "sub_total":"المجموع الجزئي:",
+      "َquantity":"الكمية :"
 
     },
     "orderState": "حالة الطلب",
@@ -245,6 +251,8 @@
   "orders": {
     "loading": "جاري التحميل...",
     "noOrders": "لا توجد طلبات لعرضها",
+    "No_Product":"هذا المنتج غير موجود",
+    "error":"يوجد خطأ",
     "yourOrders": "طلبك",
     "searchPlaceholder": "ابحث في جميع الطلبات",
     "selectYear": "اختر السنة",

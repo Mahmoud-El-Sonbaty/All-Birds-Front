@@ -3,11 +3,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IProduct, IproductColor, IproductSize } from '../../../Modules/Product';
 import { environment } from '../../../environments/environment.development';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CurrencyPipe,CommonModule,TranslateModule],
+  imports: [CurrencyPipe,CommonModule,TranslateModule , RouterLink],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })
