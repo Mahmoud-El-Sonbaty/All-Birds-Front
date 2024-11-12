@@ -2,6 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+
+
+
+
 @Component({
   selector: 'app-product-details',
   standalone: true,

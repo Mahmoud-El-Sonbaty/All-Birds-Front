@@ -1,0 +1,154 @@
+<div class="hero-image col-12">
+    <div class="center">
+        <h1>Anytime Socks</h1>
+        <p class="img-p">Made with a blend of light, breathable materials like
+            tree fiber and Organic Cotton, our socks keep your feet cool, dry,
+            and smiling (if feet could smile).</p>
+    </div>
+</div>
+
+<div *ngFor="let _ of repetitions" class="container-fluid col-12 row m-3">
+    <h2 class="mt-5 py-2">{{ heading }}</h2>
+    <p class="mb-5">{{ description }}</p>
+
+    <div *ngFor="let product of products"
+        class="card m-2 col-12 col-md-6 col-lg-3 border-0 product-card"
+        style="width: 19rem;">
+        <img [src]="product.image" class="card-img-top bg-light rounded-0"
+            alt="{{ product.title }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p class="card-text">{{ product.color }}</p>
+            <p class="card-text">{{ product.price }}</p>
+        </div>
+
+        <!-- Quick div, initially hidden, placed below card-body -->
+        <div class="quick">
+            <div class="card-body">
+                <h5 class="card-title">{{titleAdd}}</h5>
+
+                <div class="size-boxes">
+                    <div class="size-box">
+                        <button class="size-btn">S
+                            <p>(W5-7)</p>
+                        </button>
+                    </div>
+                    <div class="size-box">
+                        <button class="size-btn">M
+                            <p>(W8-10 / M8)</p>
+                        </button>
+                    </div>
+                    <div class="size-box">
+                        <button class="size-btn">L
+                            <p>(W11 / M9-12)</p>
+                        </button>
+                    </div>
+                    <div class="size-box">
+                        <button class="size-btn">XL
+                            <p>(M13-14)</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5" style="border: 1px solid gray;"></div>
+</div>
+
+<!-- Accordion -->
+<div class="accordion col-12 mt-4 pt-2" id="accordionExample">
+
+    <!-- Accordion Item 1 -->
+    <div class="accordion-item rounded-0">
+        <h2 class="accordion-header" id="headingOne">
+            <button
+                class="border-0 accordion-button collapsed text-uppercase text-dark fw-bold"
+                type="button"
+                data-bs-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne">
+
+                No-show socks versus crew socks: Which is better?
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse"
+            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body pt-5 ps-0">
+                <p>
+                    Hey, everyone has a preference—but there’s no way to say
+                    which one is better. So, whether you want to hide your socks
+                    or show them off, we have some good news. The Allbirds
+                    Anytime sock collection has options available in no-show and
+                    crew styles.
+                    Need something a little more in-between? We also have ankle
+                    socks, of course! Each pair, regardless of style, is made
+                    with a blend of light, breathable materials like tree fiber
+                    and organic cotton that keep your feet cool, dry, and happy.
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <div class="mt-5" style="border: 1px solid gray;"></div>
+
+    <!-- Accordion Item 2 -->
+    <div class="accordion-item rounded-0 border-0 my-3">
+        <h2 class="accordion-header" id="headingTwo">
+            <button
+                class="accordion-button collapsed text-uppercase text-dark fw-bold"
+                type="button"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo">
+
+                What is the most sustainable material for socks?
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse"
+            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body pt-5 ps-0">
+                <p>One of the most sustainable materials for socks is our
+                    TENCEL™ Lyocell, made from renewable eucalyptus tree fibers.
+                    This eco-friendly fabric has minimal environmental impact
+                    during production because it uses less water and energy when
+                    compared to traditional materials. We combine this material
+                    with organic cotton to enhance softness and durability even
+                    more. Organic cotton is grown without harmful chemicals,
+                    further reducing the environmental footprint. Together,
+                    these materials create socks that are gentler on the planet
+                    and exceptionally comfy and breathable.</p>
+            </div>
+        </div>
+    </div>
+    <div class="mt-5" style="border: 1px solid gray;"></div>
+    <!-- Accordion Item 3 -->
+    <div class="accordion-item rounded-0 border-0 my-3">
+        <h2 class="accordion-header" id="headingTwo">
+            <button
+                class="accordion-button collapsed text-uppercase text-dark fw-bold"
+                type="button"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo">
+
+                
+                What are sustainable socks?
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse"
+            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body pt-5 ps-0">
+                <p>Simple: sustainable socks are made from sustainable
+                    materials. The blend of materials in Allbirds Anytime socks
+                    includes organic cotton and TENCEL™ Lyocell, a sustainable
+                    fabric crafted from eucalyptus tree fibers. Choosing a
+                    sustainable option for frequently purchased essentials like
+                    socks is an easy way to help preserve the health of our
+                    planet.</p>
+            </div>
+        </div>
+        <div class="mt-5" style="border: 1px solid gray;"></div>
+
+    </div>
+</div>
