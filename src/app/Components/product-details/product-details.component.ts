@@ -84,7 +84,7 @@ export class ProductDetailsComponent implements OnInit {
     hoveredPrdColorId: number = 0;
     selectedPrdColorId: number = 0;
     @Input('id') prdId: number = 0;
-    isDataLoading: boolean = true;
+    isDataLoading: boolean = false;
     baseImagePath: string = environment.BaseIMageUrl;
     singlePrdData: ISingleProduct = {} as ISingleProduct;
     colorSizes: ISingleProductColorSize[] = [];
