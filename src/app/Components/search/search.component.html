@@ -2,7 +2,7 @@
   <div class="row mt-lg-5">
     <div class="input-group">
       <div class="input-group-append" style="width: 100%; text-align: center;">
-        <input type="text" class="w-100 p-2 m-3 form-control" [placeholder]="'sidebar.productName'|translate" aria-label="Search input"
+        <input type="text" class="w-100 p-2 mt-3 mb-3 form-control" [placeholder]="'sidebar.productName'|translate" aria-label="Search input"
           #inpuValue aria-describedby="button-search">
         <button class="btn btn-search" (click)="OnSearch(inpuValue.value)" type="button"
           id="button-search">{{'navBar.search'|translate}}</button>

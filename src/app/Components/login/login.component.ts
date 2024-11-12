@@ -41,8 +41,10 @@ export class LoginComponent {
       next:(res)=>{
         console.log(res)
         localStorage.setItem("userToken", res)
-        this.router.navigateByUrl("");
+        this.router.navigate(["/home"]);
+
       },
+
       error:(err) => {
         console.log(err);
       }

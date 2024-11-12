@@ -127,7 +127,7 @@
         </li>
         @if (local!=null){
 
-        <li class="nav-item nav-link level0">
+        <li class="nav-item nav-link level0" (click)="logOut()">
           <p class="ms-3 mt-3  d-inline-block ">{{'navBar.SignOut'|translate}}</p>
           <hr>
 
@@ -250,12 +250,19 @@
           <a class="nav-link" (click)="goToSearch()"><i class="fas fa-search text-dark searchIcon"></i></a>
         </li>
       }
+      @if (isLoggedIn()) {
+        <li class="nav-item  d-none d-xl-block ">
+          <a class="nav-link" routerLink="orders"><i class="fas fa-user text-dark"></i></a>
+        </li>
+      }@else {
+
         <li class="nav-item  d-none d-xl-block ">
           <a class="nav-link" routerLink="register"><i class="fas fa-user text-dark"></i></a>
         </li>
+      }
         @if (local!=null){
           <li class="nav-item  d-none d-xl-block cart-icon ">
-            <a class="nav-link" href="#"> <i class="fas fa-sign-out-alt text-dark"></i> </a>
+            <a class="nav-link" (click)="logOut()"> <i class="fas fa-sign-out-alt text-dark"></i> </a>
 
           </li>
         }

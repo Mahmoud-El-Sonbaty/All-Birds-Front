@@ -7,11 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from '../loader/loader.component';
 import { OrderComponent } from '../order/order.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { AlertMessageComponent } from "../alert-message/alert-message.component";
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [OrderComponent,CommonModule,FormsModule,LoaderComponent,TranslateModule],
+  imports: [OrderComponent, CommonModule, FormsModule, LoaderComponent, TranslateModule, AlertMessageComponent],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })

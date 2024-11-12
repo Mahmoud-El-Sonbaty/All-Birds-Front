@@ -134,7 +134,9 @@ export class HomeComponent implements OnInit,OnDestroy {
   ];
 
 
-
+  trackById(index: number, product: any) {
+    return product.id;
+  }
 
 
 }

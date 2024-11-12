@@ -400,7 +400,7 @@
 
   /* 4 product style  */
 
-  .main-image {
+  /* .main-image {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -410,7 +410,7 @@
   .images {
     height: 100%;
     width: 100% !important;
-    /* object-fit: cover; */
+     object-fit: cover;
   }
 
   .text-overlay {
@@ -548,7 +548,244 @@
   .right-column img:hover {
     transform: scale(1.09);
   }
+ */
 
+ .container-fluid {
+  width: 100%;
+}
+
+.column-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .column-wrapper {
+    flex-direction: row;
+  }
+}
+
+.left-column, .right-column .row {
+  height: 100%;
+  overflow: hidden;
+}
+
+.main-image, .images {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.images {
+  overflow: hidden !important;
+  scale: 1;
+}
+
+@media (max-width: 768px) {
+  .main-image {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-image {
+    width: 100% !important;
+    object-fit: cover;
+  }
+}
+
+.en .text-overlay {
+  position: absolute;
+  bottom: 1.3rem;
+  left: 0.8rem;
+  color: rgb(29, 29, 29);
+}
+.ar .text-overlay {
+  position: absolute;
+  bottom: 1.3rem;
+  right: 0.8rem;
+  color: rgb(29, 29, 29);
+}
+
+.text-overlay p {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.text-overlay h6 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.ar .price {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 4.3rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+}
+.en .price {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 4.3rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+}
+
+.en .text-overlay-left {
+  position: absolute;
+  bottom: 1.3rem;
+  left: 0.8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 95%;
+  color: aliceblue;
+}
+.ar .text-overlay-left {
+  position: absolute;
+  bottom: 1.3rem;
+  right: 0.8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 95%;
+  color: aliceblue;
+}
+
+
+.en .text-overlay-left .title, .ar .text-overlay-left .title {
+  font-size: 2rem;
+}
+
+.en .text-overlay-left .subtitle, .ar .text-overlay-left .subtitle {
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+
+  .en .text-overlay-left .title {
+    font-size: 2rem;
+    text-align: left;
+  }
+  .ar .text-overlay-left .title {
+    font-size: 2rem;
+    text-align: right;
+  }
+
+  .en .text-overlay-left .subtitle {
+    font-size: 1rem;
+    text-align: left;
+  }
+  .ar .text-overlay-left .subtitle {
+    font-size: 1rem;
+    text-align: right;
+  }
+}
+@media (min-width: 425px) {
+
+  .en .text-overlay-left .title ,.ar .text-overlay-left .title{
+    font-size: 1.7rem;
+  }
+
+
+  .en .text-overlay-left .subtitle ,.ar .text-overlay-left .subtitle{
+    font-size: .8rem;
+  }
+
+}
+@media (min-width: 375px) {
+
+
+  .en .text-overlay-left .title ,.ar .text-overlay-left .title{
+    font-size: 1.5rem;
+  }
+
+
+  .en .text-overlay-left .subtitle ,.ar .text-overlay-left .subtitle{
+    font-size: .7rem;
+  }
+
+}
+@media (min-width: 320px) {
+
+
+  .en .text-overlay-left .title ,.ar .text-overlay-left .title{
+    font-size: 1.2rem;
+  }
+
+
+  .en .text-overlay-left .subtitle ,.ar .text-overlay-left .subtitle{
+    font-size: .6rem;
+  }
+
+}
+
+
+.text-overlay-left .card-group button {
+  border-radius: 0;
+  padding: 1rem;
+  width: 30%;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+.text-overlay-left .card-group button:hover {
+  color: aliceblue;
+  background-color: black;
+}
+
+@media (max-width: 576px) {
+  .text-overlay-left .card-group button {
+    /* width: 80%; */
+    width: 40%;
+    height: 70px;
+    font-size: 0.8rem;
+  }
+}
+
+.col-6 {
+  width: 100%;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .col-6 {
+    width: 50%;
+  }
+}
+
+.col-lg-6.left-column img:hover,
+.right-column img:hover {
+  transform: scale(1.09);
+}
+
+@media (max-width: 992px) {
+  .col-lg-6.left-column img:hover,
+  .right-column img:hover {
+    transform: none;
+  }
+}
+
+.imag4 {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+@media (min-width: 768px) {
+  .left-column, .right-column {
+    width: 50%; /* تحديد نصف العرض للشاشات الأكبر */
+  }
+}
 
 
 

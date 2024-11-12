@@ -7,6 +7,7 @@ import { SidebarComponent } from "../sidebar/sidebar.component";
 import { NavigationEnd, Route, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../../Services/language.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -24,7 +25,7 @@ export class NavBarComponent implements OnInit,OnDestroy ,OnChanges {
   @ViewChild('sidebar') sidebar!: SidebarComponent;
   local:any;
   currentURl:string='';
-constructor(private categories:CategeryServiceService,private lang:LanguageService ,private route :Router) {
+constructor(private categories:CategeryServiceService,private lang:LanguageService ,private route :Router ,private cook:CookieService) {
   this.language=lang.getLanguage();
   this.route.events.subscribe(event => {
     if (event instanceof NavigationEnd) {
@@ -161,4 +162,15 @@ constructor(private categories:CategeryServiceService,private lang:LanguageServi
     this.route.navigate(['/search']);
   }
 
+  logOut(){
+    localStorage.removeItem('userToken');
+    this.cook.delete('Email');
+    this.route.navigate(['/home'])
+    window.location.reload();
+
+  }
+  isLoggedIn(): boolean {
+    const userToken = localStorage.getItem('userToken');
+    return !!userToken;
+  }
 }

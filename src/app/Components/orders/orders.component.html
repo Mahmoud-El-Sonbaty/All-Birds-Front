@@ -4,9 +4,12 @@
 <div *ngIf="!isDataLoading">
   <div *ngIf="ordersData.isSuccess">
     @if (ordersData.data.length==0) {
-      <div class="noOrdersToDisplay">
-        <h2>{{ 'orders.noOrders' | translate }}</h2>
-      </div>
+
+      <app-alert-message [title]="'Error'" [message]="'orders.noOrders' | translate" [isSuccess]="false"></app-alert-message>
+      <!-- <div class="noOrdersToDisplay">
+        <p class="errormsg "> {{ 'orders.noOrders' | translate }}   <img  src="Images/sad.png" alt="Frustrated Icon" style="width: 50px; height: 50px;">
+        </p>
+      </div> -->
     }
     @else{
       <div class="ordersContainer">
