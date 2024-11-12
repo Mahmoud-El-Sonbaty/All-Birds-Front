@@ -4,6 +4,11 @@
 
  ==================================================================================================-->
 
+ @if(loading){
+  <app-loader></app-loader>
+ }@else if(allert) {
+  <app-alert-message [title]="errtitel" [message]="errmsg" [isSuccess]="isSucces" [Path]="Path" ></app-alert-message>
+ }
 <div [class]="'container-fluid checkout-page '+lang  ">
   <div class="navbar-wrapper">
     <nav class="navbar">
@@ -221,13 +226,13 @@ s            </p>
            <div class="d-flex justify-content-between mb-2">
                <span> {{ 'checkOut.cashOnDelevery.items' | translate }}
               </span>
-               <span>EGP 500.00</span>
+               <span>{{'checkOut.USD'|translate}} {{userCart.total}}</span>
            </div>
 
            <!-- Shipping and Handling -->
            <div class="d-flex justify-content-between mb-2">
                <span> {{ 'checkOut.cashOnDelevery.shippingHandling' | translate }}</span>
-               <span>EGP 50.00</span>
+               <span>{{'checkOut.USD'|translate}} 0.00</span>
            </div>
 
            <!-- Free Delivery Notice -->
@@ -240,7 +245,7 @@ s            </p>
            <!-- Order Total -->
            <div class="d-flex justify-content-between mt-3">
                <span class="fw-bold">{{ 'checkOut.cashOnDelevery.orderTotal' | translate }}</span>
-               <span class="fw-bold">EGP 550.00</span>
+               <span class="fw-bold">{{'checkOut.USD'|translate}} {{userCart.total}}</span>
            </div>
        </div>
 
@@ -271,6 +276,10 @@ s            </p>
           </div>
         </div>
         <!-- Conditional Rendering for Payment Button or PayPal Component -->
+        <div *ngIf="isPayPalSelected; else regularPayButton">
+          <ngx-paypal [config]="payPalConfig">{{ 'checkOut.PayPal' | translate }}</ngx-paypal>
+      </div>
+
         <ng-template #regularPayButton>
           <button type="submit" [disabled]="selectedPaymentMethod != 'cod'" (click)="placeOrder()" class="btn pay-button mt-3 rounded-0">
             {{selectedPaymentMethod == 'cod' ? "Confirm" : "Select Payment Method"}}

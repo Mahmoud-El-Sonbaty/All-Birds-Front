@@ -8,11 +8,14 @@ import { IOrderMaster } from '../../../Modules/cart';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../../Services/language.service';
+import { LoaderComponent } from "../loader/loader.component";
+import { AlertMessageComponent } from "../alert-message/alert-message.component";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [FormsModule,CommonModule,ReactiveFormsModule,NgxPayPalModule,TranslateModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, NgxPayPalModule, TranslateModule, LoaderComponent, AlertMessageComponent],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css'
 })
@@ -39,7 +42,13 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
 
   // ahmed Elghoul
   lang!:string;
-  constructor(private fb: FormBuilder,private renderer:Renderer2, private cartService: CartService, private router: Router,language:LanguageService) {
+  loading:boolean=true;
+  errtitel:string='';
+  errmsg:string="";
+  allert:boolean=false;
+  isSucces:boolean=false;
+  Path:string='';
+  constructor(private fb: FormBuilder,private renderer:Renderer2, private cartService: CartService, private router: Router,language:LanguageService,) {
 
    this.lang=language.getLanguage();
 
@@ -321,16 +330,24 @@ selectPaymentMethod(method: string) {
             console.log(res);
             if (res.isSuccess) {
               localStorage.removeItem("cart");
+              this.errtitel=(this.lang='en')?"Succssful":'تم بنجاح';
+              this.errmsg=(this.lang='en')?"Order Placed Succssfully":'حاجتك جاية قريب ان شاءالله ';
+              this.Path='orders';
+              this.isSucces=true;
             }
             else {
               console.log(res.msg);
+              this.errtitel=(this.lang='en')?"some thing is Wrong":'هناك خطا';
+              this.errmsg=res.msg
             }
           },
           error: (err) => {
             console.log(err);
             if (err.status == 401) {
               localStorage.removeItem("userToken");
-              this.router.navigateByUrl("home");
+              this.errtitel=(this.lang='en')?"Error":'في خطأ';
+              this.errmsg=(this.lang='en')?"token is not valid":'تذكرتك فيها حاجة يمعلم ';
+              this.Path='register';
             }
           }
         })
@@ -343,68 +360,111 @@ selectPaymentMethod(method: string) {
       this.router.navigateByUrl("home");
     }
   }
+  // private getCart() {
+  //   if(localStorage.getItem("userToken")) {
+  //     // check local cart recent or send request
+  //     if(localStorage.getItem("cart") && localStorage.getItem("flag")) {
+  //       this.userCart = JSON.parse(localStorage.getItem("cart")!);
+  //       // here we should update the whole order in the api
+  //     }
+  //     else {
+  //       console.log("going to api");
+  //       this.cartService.getCart(localStorage.getItem("userToken")!).subscribe({
+  //         next:(res)=>{
+  //           console.log(res);
+  //           if (res.isSuccess) {
+  //             this.userCart = res.data
+  //             localStorage.setItem("cart", JSON.stringify(res.data))
+  //             this.loading=false
+  //           }
+  //           else{
+  //           console.log(res.msg)
+  //           this.allert=true;
+  //           this.errmsg=res.msg;
+  //           this.errtitel=(this.lang=='en')?'Error':"خطأ",
+  //           }
+  //         },
+  //         error:(err)=>{
+  //           console.log(err);
+  //           this.loading=false;
+  //           this.allert=true;
+  //           this.errtitel=(this.lang=='en')?'Error':"خطأ",
+
+  //           if(err.status == 401) {
+  //             localStorage.removeItem("userToken");
+  //             this.router.navigateByUrl("register");
+  //             this.errmsg=this.lang=='en'?'Wrong Token':"تذكرة غير صالحة";
+
+
+  //           }
+  //           else if (err.status == 400 && err.error.msg == "No Cart Found For This Client") {
+  //             localStorage.removeItem("cart")
+  //             this.router.navigateByUrl("");
+  //             this.errmsg=(this.lang=='en')?'No Cart Found For This Client':"عربيتك فاضية يمعلم";
+
+  //           }
+  //           // if(localStorage.getItem("cart"))
+  //           //   this.userCart = JSON.parse(localStorage.getItem("cart")!);
+  //         }
+  //       })
+  //     }
+  //   } else {
+  //     if (localStorage.getItem("cart"))
+  //       this.userCart = JSON.parse(localStorage.getItem("cart")!)
+  //     else
+  //       //redirect out of the page
+  //         this.router.navigate([""])
+  //   }
+  // }
   private getCart() {
-    if(localStorage.getItem("userToken")) {
-      // check local cart recent or send request
-      if(localStorage.getItem("cart") && localStorage.getItem("flag")) {
+    if (localStorage.getItem("userToken")) {
+      // Check if local cart exists or send request
+      if (localStorage.getItem("cart") && localStorage.getItem("flag")) {
         this.userCart = JSON.parse(localStorage.getItem("cart")!);
-        // here we should update the whole order in the api
+        // Here we should update the whole order in the API
       } else {
         console.log("going to api");
         this.cartService.getCart(localStorage.getItem("userToken")!).subscribe({
-          next:(res)=>{
+          next: (res) => {
             console.log(res);
             if (res.isSuccess) {
-              this.userCart = res.data
-              localStorage.setItem("cart", JSON.stringify(res.data))
+              this.userCart = res.data;
+              localStorage.setItem("cart", JSON.stringify(res.data));
+              this.loading = false;
+            } else {
+              console.log(res.msg);
+              this.allert = true;
+              this.errmsg = res.msg;
+              this.errtitel = this.lang == 'en' ? 'Error' : 'خطأ';
             }
-            else
-              console.log(res.msg)
           },
-          error:(err)=>{
+          error: (err) => {
             console.log(err);
+            this.loading = false;
+            this.allert = true;
+            this.errtitel = this.lang == 'en' ? 'Error' : 'خطأ';
+
             if (err.status == 401) {
               localStorage.removeItem("userToken");
-              this.router.navigateByUrl("register");
+              this.errmsg = this.lang == 'en' ? 'Wrong Token' : "تذكرة غير صالحة";
+              this.Path="register";
+            } else if (err.status == 400 && err.error.msg == "No Cart Found For This Client") {
+              localStorage.removeItem("cart");
+              this.errmsg = this.lang == 'en' ? 'No Cart Found For This Client' : "عربيتك فاضية يمعلم";
             }
-            else if (err.status == 400 && err.error.msg == "No Cart Found For This Client") {
-              localStorage.removeItem("cart")
-              this.router.navigateByUrl("");
-            }
-            // if(localStorage.getItem("cart"))
-            //   this.userCart = JSON.parse(localStorage.getItem("cart")!);
           }
-        })
+        });
       }
     } else {
-      if (localStorage.getItem("cart"))
-        this.userCart = JSON.parse(localStorage.getItem("cart")!)
-      else
-        //redirect out of the page
-          this.router.navigate([""])
+      if (localStorage.getItem("cart")) {
+        this.userCart = JSON.parse(localStorage.getItem("cart")!);
+      } else {
+        // Redirect out of the page
+        this.router.navigate([""]);
+      }
     }
   }
 
-
-  fdf = {
-    "ClientId": 1,
-    "Total": 264,
-    "Notes": "some Notes if available",
-    "ProductColorSizeId": [
-      {
-        "ProductId": 77,
-        "Quantity": 2,
-        "detailPrice": 144,
-        "Notes": "some notes if available"
-      },
-      {
-        "ProductId": 173,
-        "Quantity": 1,
-        "DetailPrice": 120,
-        "Notes": "some notes if available"
-      }
-    ]
-  }
 
 
 

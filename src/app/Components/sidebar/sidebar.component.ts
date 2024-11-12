@@ -5,6 +5,7 @@ import { CartService } from '../../../Services/cart.service';
 import { Router } from '@angular/router';
 import { IOrderDetail, IOrderMaster } from '../../../Modules/cart';
 import { environment } from '../../../environments/environment.development';
+import { LanguageService } from '../../../Services/language.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,7 +16,7 @@ import { environment } from '../../../environments/environment.development';
 })
 export class SidebarComponent implements OnChanges {
   isOpen = false;
-
+  lang:string='en';
   toggleSidebar() {
     this.isOpen = !this.isOpen;
     if (localStorage.getItem("cart"))
@@ -49,9 +50,10 @@ export class SidebarComponent implements OnChanges {
  //cartItems: CartItem[] = [];
 
 
- constructor(private cartService: CartService, private router: Router) {
+ constructor(private cartService: CartService, private router: Router ,private language:LanguageService) {
   console.log(this.userCart)
   this.getCart();
+  this.lang=language.getLanguage();
 }
 ngOnChanges(): void {
   console.log("changes");

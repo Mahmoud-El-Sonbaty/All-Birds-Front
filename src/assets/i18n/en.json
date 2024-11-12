@@ -216,8 +216,16 @@
     "CLASSICS":"Classics:",
     "SELECT_SIZE":"SELECT SIZE",
     "ADD_TO_CART":"ADD TO CART - ",
-    "Free_Shipping_on_orders":"Free Shipping on orders of $75. Free extended returns through January 17th"
-
+    "Free_Shipping_on_orders":"Free Shipping on orders of $75. Free extended returns through January 17th",
+    "FREE_SHIPPING" :"FREE SHIPPING",
+    "Highlights":"Highlights",
+    "Sustainability":"Sustainability",
+    "CarGuid":"Care Guide",
+    "CarGuidmsg":"Handy tips: Don’t put them in the dryer. They’ll go back to their original shape in no time. You can hand wash your insoles on their own.",
+    "CarGuidmsg2":"Want the full refresh experience? Swap in some new insoles. Check out our guide for more info on how to wash your running shoes.",
+    "Shipping_Returns":"Shipping & Returns",
+    "shipingMsg1":" Free shipping on orders over $75. Lightly worn shoes get donated to Soles4Souls.",
+    "shipingMsg2":"Gift with confidence; orders purchased between November 1, 2024 - December 24, 2024 are eligible for returns until January 17, 2025. Apparel labels need to be intact. For socks and undies, packaging must be unopened. Final Sale items cannot be returned or exchanged. Final Sale items include: gift cards, insoles, and items tagged final sale on our website and in Allbirds retail stores."
   },
   "order":{
     "orderSummary": {
