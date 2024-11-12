@@ -8,11 +8,12 @@ import { ProductService } from '../../../Services/product.service';
 import { CartService } from '../../../Services/cart.service';
 import { Router } from '@angular/router';
 import { IAddOrderDetail, IAddOrderDetailResponseData, IOrderDetail, IOrderMaster, IUpdateWholeOrder } from '../../../Modules/cart';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [FormsModule,CommonModule, TranslateModule],
+  imports: [FormsModule,CommonModule, TranslateModule,LoaderComponent],
   templateUrl: './product-details.component.html',
   template: `
   <!-- <button (click)="toggleDirection()">

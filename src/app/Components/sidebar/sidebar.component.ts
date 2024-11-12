@@ -23,6 +23,9 @@ export class SidebarComponent implements OnChanges {
   }
   userCart: IOrderMaster = {} as IOrderMaster;
   baseImagePath: string = environment.BaseIMageUrl;
+  notLoggedIn: boolean = localStorage.getItem("userToken") == null;
+
+
 // //
 //  cartItems: CartItem[] = [
 //   {
