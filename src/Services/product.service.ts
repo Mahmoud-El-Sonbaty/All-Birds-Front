@@ -5,6 +5,7 @@ import { environment } from '../environments/environment.development';
 import { ApiresponsePrd, ApiresponsePrdSearch, ApiresponseProduct } from '../Modules/Product';
 import { ApiFilterBody } from '../Modules/FilterTypes';
 import { LanguageService } from './language.service';
+import { ISingleProductAPIResponse } from '../Modules/singleProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,9 @@ ngOnInit(): void {
     console.log(ProductName ,this.lang);
 
     return this.httpclient.get<ApiresponsePrdSearch>(`${environment.BaseUrl}/Product/${ProductName}/${this.lang.getLanguage()}`)
+  }
+  getSingleProduct(prdId: number): Observable<ISingleProductAPIResponse> {
+    return this.httpclient.get<ISingleProductAPIResponse>(`${environment.BaseUrl}/Product/SingleProduct/${prdId}/${this.lang.getLanguage()}`)
   }
 
 }
