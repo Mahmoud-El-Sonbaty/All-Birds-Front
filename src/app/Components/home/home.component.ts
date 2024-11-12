@@ -9,12 +9,12 @@ import { environment } from '../../../environments/environment.development';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../../Services/language.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,SliderCmComponent,TranslateModule],
+  imports: [CommonModule,SliderCmComponent,TranslateModule , RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit,OnDestroy {
   Products:Iproduct[]=[]as Iproduct[];
   imagepath:string=environment.BaseIMageUrl;
   lang!:string;
-  constructor(private Product: ProductService, private translate: TranslateService ,language:LanguageService,private router:Router) {
+  constructor(private Product: ProductService, private translate: TranslateService ,language:LanguageService,private router:Router ) {
     this.lang=language.getLanguage();
   }
 
@@ -71,8 +71,8 @@ export class HomeComponent implements OnInit,OnDestroy {
           img2: 'Images/slide2-image2.jpg',
           text: translations['home.slider2.slide1.card1'],
           text2: translations['home.slider2.slide1.card2'],
-          rootVal1: "2-3",
-          rootVal2: "2-3",
+          rootVal1: "2-6",
+          rootVal2: "18-23",
           active: true
         },
         {
@@ -135,7 +135,7 @@ export class HomeComponent implements OnInit,OnDestroy {
   //   { img: 'Images/slide2-image5.jpg', img2: 'Images/slide2-image6.jpg', text: "Men's Lightweight Styles", text2: "Women's Packable Shoes", active: false }
   // ];
   slides2 = [
-    { img: 'images/slide2-image1.jpg',img2: 'images/slide2-image2.jpg', rootVal1: "2-3", rootVal2: "2-3", text: "Men's season ready" , text2: "Women's Fall Essentials", active:true },
+    { img: 'images/slide2-image1.jpg',img2: 'images/slide2-image2.jpg', rootVal1: "2-6", rootVal2: "18-23", text: "Men's season ready" , text2: "Women's Fall Essentials", active:true },
     { img: 'images/slide2-image3.jpg',img2: 'images/slide2-image4.jpg', rootVal1: "2-4", rootVal2: "17-19", text: "Men's Sporty Styles" , text2: "Women's Athleisure Styles" , active:false },
     { img: 'images/slide2-image5.jpg',img2: 'images/slide2-image6.jpg', rootVal1: "2-3", rootVal2: "17-18", text: "Men's Lightweight Styles" , text2: "Women's Packable Shoes" , active:false },
   ];
