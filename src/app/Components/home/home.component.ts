@@ -9,6 +9,7 @@ import { environment } from '../../../environments/environment.development';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../../Services/language.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit,OnDestroy {
   Products:Iproduct[]=[]as Iproduct[];
   imagepath:string=environment.BaseIMageUrl;
   lang!:string;
-  constructor(private Product: ProductService, private translate: TranslateService ,language:LanguageService) {
+  constructor(private Product: ProductService, private translate: TranslateService ,language:LanguageService,private router:Router) {
     this.lang=language.getLanguage();
   }
 
@@ -115,7 +116,18 @@ export class HomeComponent implements OnInit,OnDestroy {
       }
   }
 
-
+  navigateTo(rootValue: string, flag: number) {
+    switch (flag) {
+      case 1:// this means to navigate to category product
+        this.router.navigateByUrl(`ProductCategory/${rootValue}`);
+        break;
+      case 2: // this means to navigate to a single product details
+        this.router.navigateByUrl(`single-product/${rootValue}`)
+        break;
+      default:
+        break;
+    }
+  }
 
   // slides2 = [
   //   { img: 'Images/slide2-image1.jpg', img2: 'Images/slide2-image2.jpg', text: "Men's season ready", text2: "Women's Fall Essentials", active: true },
