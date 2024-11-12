@@ -3,7 +3,10 @@ body {
   margin: 0;
   padding: 0;
 }
-
+.accordion-button:focus {
+  outline: none;
+  box-shadow: none;
+}
 /* Container Styles */
 .row {
   display: flex;
@@ -290,7 +293,7 @@ h2 {
   display: flex;
   justify-content: flex-start;
   gap: 20px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .color-circle {

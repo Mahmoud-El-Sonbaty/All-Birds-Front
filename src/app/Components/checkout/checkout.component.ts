@@ -32,10 +32,10 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
   //
   //
   selectedPaymentMethod: string = ''; // Tracks the selected payment method to change bg
-  selectPaymentMethod(method: string): void {
-    this.selectedPaymentMethod = method;
+  // selectPaymentMethod(method: string): void {
+  //   this.selectedPaymentMethod = method;
 
-  }
+  // }
 
   // ahmed Elghoul
   lang!:string;
@@ -127,21 +127,26 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
   }
 
 // paypal button
-  payButtonText: string = 'Pay Now'; // Default button text
+  // payButtonText: string = 'Pay Now'; // Default button text
   isPayPalSelected: boolean = false; // Track if PayPal is selected
 
   updatePayButton() {
     const paymentMethod = this.checkoutForm.get('paymentMethod')?.value;
     if (paymentMethod === 'paypal') {
-      this.payButtonText = 'Pay with PayPal';
+      // this.payButtonText = 'Pay with PayPal';
         this.isPayPalSelected = true;
     } else {
-      this.payButtonText = 'Pay Now';
+      // this.payButtonText = 'Pay Now';
         this.isPayPalSelected = false;
     }
   }
 
-//
+selectPaymentMethod(method: string) {
+  this.checkoutForm.get('paymentMethod')?.setValue(method); // Update the form value
+  this.updatePayButton();  // Update button text based on selected payment method
+  this.selectedPaymentMethod = method;
+}
+
   paypal: any; // Declare the PayPal variable
 
   public payPalConfig?: IPayPalConfig;
@@ -162,7 +167,7 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
                 {
                   amount: {
                     currency_code: 'EUR',
-                    value: '9.99',
+                    value:this.userCart.total.toString(),
                       }
                     }
               ]
@@ -179,20 +184,22 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
             },
             onApprove: (data: any, actions: any) => {
               return actions.order.capture().then((details: any) => {
-                console.log('Transaction completed by:', details.payer.name.given_name);
-                console.log('Payer Name:', details.payer.name.given_name, details.payer.name.surname);
-                console.log('Payer Email:', details.payer.email_address);
-                console.log('Order Status:', details.status);
-                console.log('Order ID:', details.id);
-
-                details.purchase_units.forEach((unit: any, index: number) => {
-                  console.log(`Purchase Unit ${index + 1}:`);
-                  console.log('Amount:', unit.amount.value);
-                  console.log('Currency:', unit.amount.currency_code);
+                console.log('Transaction completed by ' + details);
                 });
+                // console.log('Transaction completed by:', details.payer.name.given_name);
+                // console.log('Payer Name:', details.payer.name.given_name, details.payer.name.surname);
+                // console.log('Payer Email:', details.payer.email_address);
+                // console.log('Order Status:', details.status);
+                // console.log('Order ID:', details.id);
 
-                console.log('Full details object:', details); // Log full details if needed
-              });
+                // details.purchase_units.forEach((unit: any, index: number) => {
+                //   console.log(`Purchase Unit ${index + 1}:`);
+                //   console.log('Amount:', unit.amount.value);
+                //   console.log('Currency:', unit.amount.currency_code);
+                // });
+
+                // console.log('Full details object:', details); // Log full details if needed
+              // });
             },
           onCancel: (data: any) => {
               console.log('Transaction was cancelled', data);
@@ -305,6 +312,37 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
   //------------------------------------------------------------------------------ Sonbaty ------------------------------------------------------------------------------//
   userCart: IOrderMaster = {} as IOrderMaster;
   baseImagePath: string = environment.BaseIMageUrl;
+  placeOrder() {
+    console.log("place order");
+    if (localStorage.getItem("userToken")) {
+      if (localStorage.getItem("cart") && localStorage.getItem("flag") == null) {
+        this.cartService.placeOrder(localStorage.getItem("userToken")!).subscribe({
+          next: (res) => {
+            console.log(res);
+            if (res.isSuccess) {
+              localStorage.removeItem("cart");
+            }
+            else {
+              console.log(res.msg);
+            }
+          },
+          error: (err) => {
+            console.log(err);
+            if (err.status == 401) {
+              localStorage.removeItem("userToken");
+              this.router.navigateByUrl("home");
+            }
+          }
+        })
+      }
+      else {
+        this.router.navigateByUrl("home");
+      }
+    }
+    else {
+      this.router.navigateByUrl("home");
+    }
+  }
   private getCart() {
     if(localStorage.getItem("userToken")) {
       // check local cart recent or send request
@@ -325,18 +363,27 @@ export class CheckoutComponent implements  AfterViewInit ,OnInit{
           },
           error:(err)=>{
             console.log(err);
+            if (err.status == 401) {
+              localStorage.removeItem("userToken");
+              this.router.navigateByUrl("register");
+            }
+            else if (err.status == 400 && err.error.msg == "No Cart Found For This Client") {
+              localStorage.removeItem("cart")
+              this.router.navigateByUrl("");
+            }
+            // if(localStorage.getItem("cart"))
+            //   this.userCart = JSON.parse(localStorage.getItem("cart")!);
           }
         })
       }
     } else {
       if (localStorage.getItem("cart"))
         this.userCart = JSON.parse(localStorage.getItem("cart")!)
-      // else
-      //   //redirect out of the page
-      //     this.router.navigate([""])
+      else
+        //redirect out of the page
+          this.router.navigate([""])
     }
   }
-
 
 
   fdf = {

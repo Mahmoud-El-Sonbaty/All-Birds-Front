@@ -19,12 +19,12 @@
   <div class="row ms-5 ">
     <div class="col-md-6 mb-4 ps-5 pe-5">
       <!-- Contact Section -->
-      <div class="d-flex justify-content-between mt-4">
+      <!-- <div class="d-flex justify-content-between mt-4">
         <h4>{{ 'checkOut.Contact' | translate }}        </h4>
         <a routerLink="Register" class="text-right text-dark">{{ 'checkOut.Login' | translate }}        </a>
-      </div>
+      </div> -->
       <form [formGroup]="checkoutForm" (ngSubmit)="submitForm()" autocomplete="off">
-        <div class="form-group">
+        <!-- <div class="form-group">
           <div class="floating-label">
             <input #input type="email" class="form-control shadow-none" [placeholder]="'checkOut.Email' | translate " required formControlName="email">
 
@@ -32,16 +32,16 @@
           <p *ngIf="checkoutForm.get('email')?.touched && checkoutForm.get('email')?.invalid" class="text-danger">
             {{ 'checkOut.email_invalid' | translate }}
           </p>
-        </div>
-        <div class="form-check">
+        </div> -->
+        <!-- <div class="form-check">
           <input type="checkbox" class="form-check-input custom-checkbox-black shadow-none rounded-0" id="emailOffers" required>
           <label class="form-check-label " for="emailOffers">{{ 'checkOut.EmailMe' | translate }}
           </label>
-        </div>
+        </div> -->
         <!-- Delivery Section -->
         <h4 class="mt-4">{{ 'checkOut.Delivery' | translate }}
         </h4>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <div class="input">
             <div class="floating-label">
               <select #input class="form-control shadow-none" required>
@@ -50,13 +50,12 @@
                 </option>
                 <option>{{ 'checkOut.Egypt' | translate }}
                 </option>
-                <!-- Add more countries as needed -->
               </select>
 
             </div>
             <i class="fas fa-chevron-down custom-select-icon" style="margin-left: 520px;"></i>
           </div>
-        </div>
+        </div> -->
         <div class="form-row">
           <div class="col ">
             <div class="floating-label">
@@ -76,7 +75,7 @@
 s            </p>
           </div>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <div class="input">
             <div class="floating-label">
               <input #input type="text" class="form-control shadow-none" [placeholder]="'checkOut.Company' | translate">
@@ -84,7 +83,8 @@ s            </p>
 
             </div>
           </div>
-        </div>
+        </div> -->
+
         <div class="form-group">
           <div class="input">
             <div class="floating-label">
@@ -105,6 +105,8 @@ s            </p>
             </p>
           </div>
         </div>
+
+<!--
         <div class="form-group">
           <div class="input">
             <div class="floating-label">
@@ -114,7 +116,7 @@ s            </p>
 
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="form-row">
           <div class="col">
             <div class="floating-label">
@@ -125,7 +127,7 @@ s            </p>
               {{ 'checkOut.Enter_City' | translate }}
             </p>
           </div>
-          <div class="col">
+          <!-- <div class="col">
             <div class="input">
               <select class="form-control shadow-none" required #input formControlName="state">
                 <option  hidden selected>{{ 'checkOut.State' | translate }}
@@ -137,10 +139,9 @@ s            </p>
               <p *ngIf="checkoutForm.get('state')?.touched && checkoutForm.get('state')?.invalid" class="text-danger">
                 {{ 'checkOut.Select_state' | translate }}
               </p>
-              <!-- Custom arrow icon -->
               <i class="fas fa-chevron-down custom-select-icon"></i>
             </div>
-          </div>
+          </div> -->
           <div class="col">
             <div class="floating-label">
               <input #input type="text" class="form-control shadow-none" [placeholder]="'checkOut.zip' | translate" required formControlName="zipCode">
@@ -270,15 +271,12 @@ s            </p>
           </div>
         </div>
         <!-- Conditional Rendering for Payment Button or PayPal Component -->
-        <div *ngIf="isPayPalSelected; else regularPayButton">
-          <ngx-paypal [config]="payPalConfig" >{{ 'checkOut.PayPayPal' | translate }}
-          </ngx-paypal>
-        </div>
         <ng-template #regularPayButton>
-          <button type="submit" class="btn pay-button mt-3 rounded-0">
-            {{ payButtonText }}
+          <button type="submit" [disabled]="selectedPaymentMethod != 'cod'" (click)="placeOrder()" class="btn pay-button mt-3 rounded-0">
+            {{selectedPaymentMethod == 'cod' ? "Confirm" : "Select Payment Method"}}
           </button>
         </ng-template>
+
         <!-- Bootstrap JS (Optional) for Tooltip -->
         <script>
           $(function () {
@@ -310,13 +308,13 @@ s            </p>
         </div>
         <div class="col-9">
           <!-- Discount Code Input -->
-          <div class="discount-code">
+          <!-- <div class="discount-code">
             <input #input type="text" class="discount shadow-none p-3 w-75  border " placeholder="Gift card or discount code" />
             <button class="btn apply-btn ms-4 p-3" type="button">{{ 'checkOut.Apply' | translate }}
             </button>
-          </div>
+          </div> -->
           <!-- Subtotal and Shipping -->
-          <div class="d-flex justify-content-between mb-2">
+          <!-- <div class="d-flex justify-content-between mb-2">
             <p class="text-muted mt-4">{{ 'checkOut.Subtotal' | translate }}
             </p>
             <p class="mt-3">${{userCart.total}}</p>
@@ -325,7 +323,7 @@ s            </p>
             <p class="text-muted mb-0">{{ 'checkOut.Shipping' | translate }}
             </p>
             <p class="shipping-placeholder text-muted mb-0">{{ 'checkOut.EnterShipping' | translate }}</p>
-          </div>
+          </div> -->
           <!-- Total -->
           <div class="d-flex justify-content-between total-section">
             <p class="fw-bold mb-0">{{ 'checkOut.Total' | translate }}

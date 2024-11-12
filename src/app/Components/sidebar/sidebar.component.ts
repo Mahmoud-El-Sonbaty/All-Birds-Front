@@ -46,96 +46,49 @@ export class SidebarComponent implements OnChanges {
  //cartItems: CartItem[] = [];
 
 
-  constructor(private cartService: CartService, private router: Router) {
-    console.log(this.userCart)
-    this.getCart();
-  }
-  ngOnChanges(): void {
-    console.log("changes");
+ constructor(private cartService: CartService, private router: Router) {
+  console.log(this.userCart)
+  this.getCart();
+}
+ngOnChanges(): void {
+  console.log("changes");
+  // this.getCart();
+}
 
-    // this.getCart();
-  }
-  goToCheckout(): void {
-    this.router.navigateByUrl("checkout");
-  }
-// get subtotal(): number {
-//   return this.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-// }
-  updateQuantity(item: IOrderDetail, increase: boolean) {
-    if (localStorage.getItem("userToken")) {
-      if (localStorage.getItem("flag")) {
-        let newQ: number = increase ? item.quantity + 1 : item.quantity - 1;
-        this.userCart.total -= item.detailPrice;
-        item.detailPrice = item.detailPrice / item.quantity * newQ;
-        this.userCart.total += item.detailPrice;
-        item.quantity = newQ;
-        localStorage.setItem("cart", JSON.stringify(this.userCart))
-        // here update the whole cart
-        localStorage.removeItem("flag");
-      }
-      else {
-        this.cartService.updateQuantity(item.id, increase ? item.quantity + 1 : item.quantity - 1, localStorage.getItem("userToken")!).subscribe({
-          next:(res)=>{
-            console.log(res);
-            if (res.isSuccess) {
-              localStorage.removeItem("flag");
-              console.log(item.quantity)
-              this.userCart.total -= item.detailPrice;
-              item.detailPrice = res.data.detailPrice;
-              item.quantity = res.data.quantity;
-              this.userCart.total += item.detailPrice;
-              // this.userCart = res.data
-              localStorage.setItem("cart", JSON.stringify(this.userCart))
-            }
-            else
-              console.log(res.msg)
-          },
-          error:(err)=>{
-            console.log(err);
-            if(localStorage.getItem("cart"))
-              this.userCart = JSON.parse(localStorage.getItem("cart")!);
-          }
-        })
-      }
-    }
-    else {
+navigateTo(path: string) {
+  this.isOpen = !this.isOpen;
+  this.router.navigateByUrl(path);
+}
+
+goToCheckout(): void {
+  this.router.navigateByUrl("checkout");
+}
+
+updateQuantity(item: IOrderDetail, increase: boolean) {
+  if (localStorage.getItem("userToken")) {
+    if (localStorage.getItem("flag")) {
       let newQ: number = increase ? item.quantity + 1 : item.quantity - 1;
       this.userCart.total -= item.detailPrice;
       item.detailPrice = item.detailPrice / item.quantity * newQ;
       this.userCart.total += item.detailPrice;
       item.quantity = newQ;
-      localStorage.setItem("flag", "true");
       localStorage.setItem("cart", JSON.stringify(this.userCart))
+      // here update the whole cart
+      localStorage.removeItem("flag");
     }
-  }
-// increaseQuantity(item: IOrderDetail) {
-//   item.quantity++;
-// }
-
-// decreaseQuantity(item: IOrderDetail) {
-//   if (item.quantity > 1) item.quantity--;
-// }
-removeItem(item: IOrderDetail) {
-  // this.items = this.items.filter(cartItem => cartItem !== item);
-  // this.updateTotalItems();
-}
-//
-private getCart() {
-  console.log("getting cart")
-  if(localStorage.getItem("userToken")) {
-    // check local cart recent or send request
-    if(localStorage.getItem("cart") && localStorage.getItem("flag")) {
-      this.userCart = JSON.parse(localStorage.getItem("cart")!);
-      // here we should update the whole order in the api
-    } else {
-      console.log("going to api");
-      this.cartService.getCart(localStorage.getItem("userToken")!).subscribe({
+    else {
+      this.cartService.updateQuantity(item.id, increase ? item.quantity + 1 : item.quantity - 1, localStorage.getItem("userToken")!).subscribe({
         next:(res)=>{
           console.log(res);
           if (res.isSuccess) {
-            this.userCart = res.data
-            localStorage.setItem("cart", JSON.stringify(res.data))
             localStorage.removeItem("flag");
+            console.log(item.quantity)
+            this.userCart.total -= item.detailPrice;
+            item.detailPrice = res.data.detailPrice;
+            item.quantity = res.data.quantity;
+            this.userCart.total += item.detailPrice;
+            // this.userCart = res.data
+            localStorage.setItem("cart", JSON.stringify(this.userCart))
           }
           else
             console.log(res.msg)
@@ -147,14 +100,124 @@ private getCart() {
         }
       })
     }
-  } else {
-    if (localStorage.getItem("cart")) {
-      console.log("found cart from local storage")
-      this.userCart = JSON.parse(localStorage.getItem("cart")!)
-    }
-    // else
-    //   //redirect out of the page
-    //     this.router.navigate([""])
   }
+  else {
+    let newQ: number = increase ? item.quantity + 1 : item.quantity - 1;
+    if (newQ > 0) {
+      this.userCart.total -= item.detailPrice;
+      item.detailPrice = item.detailPrice / item.quantity * newQ;
+      this.userCart.total += item.detailPrice;
+      item.quantity = newQ;
+      localStorage.setItem("flag", "true");
+      localStorage.setItem("cart", JSON.stringify(this.userCart))
+    }
+  }
+}
+// increaseQuantity(item: IOrderDetail) {
+//   item.quantity++;
+// }
+
+// decreaseQuantity(item: IOrderDetail) {
+//   if (item.quantity > 1) item.quantity--;
+// }
+removeItem(item: IOrderDetail) {
+// this.items = this.items.filter(cartItem => cartItem !== item);
+// this.updateTotalItems();
+console.log(item);
+if (localStorage.getItem("userToken")) {
+  // he is authenticated so check for flag
+  if (localStorage.getItem("flag")) {
+    // local is advanced so delete from local then update whole cart
+  }
+  else { // local is not advanced so just send the request
+    this.cartService.deleteOrderDetail(item.id, localStorage.getItem("userToken")!).subscribe({
+      next: (res) => {
+        console.log(res);
+        if (res.isSuccess) {
+          let detailIndex = this.userCart.orderDetails.findIndex(od => od.id == item.id);
+          this.userCart.orderDetails.splice(detailIndex, 1);
+          this.userCart.total -= item.detailPrice;
+          if (this.userCart.orderDetails.length == 0) {
+            this.userCart = {} as IOrderMaster;
+            localStorage.removeItem("cart");
+          }
+          else {
+            localStorage.setItem("cart", JSON.stringify(this.userCart));
+          }
+        }
+        else {
+          console.log(res.msg);
+        }
+      },
+      error: (err) => {
+        console.log(err);
+        if (err.status == 401) { // the token is invalid so we just update it locally and delete the token from the local storage and put the flag
+          let detailIndex = this.userCart.orderDetails.findIndex(od => od.id == item.id);
+          this.userCart.orderDetails.splice(detailIndex, 1);
+          this.userCart.total -= item.detailPrice;
+          localStorage.setItem("flag", "true");
+          localStorage.removeItem("userToken");
+          localStorage.setItem("cart", JSON.stringify(this.userCart));
+        }
+      }
+    })
+  }
+}
+else {// he is not authenticated so just update it locally and set the flag
+  let detailIndex = this.userCart.orderDetails.findIndex(od => od.id == item.id);
+  if (detailIndex != -1) {
+    if (this.userCart.orderDetails.length == 1) {
+      this.userCart = {} as IOrderMaster;
+      localStorage.removeItem("cart");
+    }
+    else {
+      this.userCart.orderDetails.splice(detailIndex, 1);
+      this.userCart.total -= item.detailPrice;
+      localStorage.setItem("cart", JSON.stringify(this.userCart));
+    }
+    localStorage.setItem("flag", "true");
+  }
+}
+}
+//
+private getCart() {
+console.log("getting cart")
+if(localStorage.getItem("userToken")) {
+  // check local cart recent or send request
+  if(localStorage.getItem("cart") && localStorage.getItem("flag")) {
+    this.userCart = JSON.parse(localStorage.getItem("cart")!);
+    // here we should update the whole order in the api
+  } else {
+    console.log("going to api");
+    this.cartService.getCart(localStorage.getItem("userToken")!).subscribe({
+      next:(res)=>{
+        console.log(res);
+        if (res.isSuccess) {
+          this.userCart = res.data
+          localStorage.setItem("cart", JSON.stringify(res.data))
+          localStorage.removeItem("flag");
+        }
+        else
+          console.log(res.msg)
+      },
+      error:(err)=>{
+        console.log(err);
+        if (err.status == 401) {
+          localStorage.removeItem("userToken");
+        }
+        if(localStorage.getItem("cart"))
+          this.userCart = JSON.parse(localStorage.getItem("cart")!);
+      }
+    })
+  }
+} else {
+  if (localStorage.getItem("cart")) {
+    console.log("found cart from local storage")
+    this.userCart = JSON.parse(localStorage.getItem("cart")!)
+  }
+  // else
+  //   //redirect out of the page
+  //     this.router.navigate([""])
+}
 }
 }
