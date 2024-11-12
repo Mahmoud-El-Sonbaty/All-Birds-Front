@@ -9,6 +9,7 @@ export interface IOrderMaster {
 export interface IOrderDetail {
   id: number;
   productColorSizeId: number;
+  productId: number;
   quantity: number;
   detailPrice: number;
   notes?: string;
