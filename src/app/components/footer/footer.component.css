@@ -1,0 +1,117 @@
+.footer.a .row h2 {
+  font-size: 2rem;
+  font-weight:900px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-bottom: 20px;
+  color: rgb(8, 8, 8);
+}
+.en.footer.a .row h2 {
+  justify-content: start;
+  justify-items: start;
+  text-align: left;
+
+}
+.ar.footer.a .row h2 {
+  justify-content: end;
+  justify-items: end;
+  text-align: right;
+
+}
+
+.footer.a .col-md-4 h5 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 20px;
+  color: rgb(23, 23, 23);
+}
+.en.footer.a .col-md-4 h5 {
+  text-align: left;
+}
+.ar.footer.a .col-md-4 h5 {
+  text-align: right;
+}
+
+
+
+.footer.a .col-md-4 p {
+  color: rgb(16, 16, 16);
+  margin-bottom: 10px;
+}
+.en.footer.a .col-md-4 p {
+
+  text-align: left;
+}
+.ar.footer.a .col-md-4 p {
+
+  text-align: right;
+}
+.en.footer.a .col-md-4  p a {
+  text-align: left;
+  color: rgb(22, 22, 22);
+  text-decoration: underline;
+}
+.ar.footer.a .col-md-4  p a {
+  text-align: right;
+  color: rgb(22, 22, 22);
+  text-decoration: underline;
+}
+
+.footer.a .col-md-4 a:hover {
+
+  text-align: left;
+  text-decoration: none;
+}
+
+
+
+
+
+    .footer.b {
+      justify-content: center;
+      justify-items: center;
+      background-color: #222;
+      color: white;
+      padding: 40px 0;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .footer h5 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .social-icons a {
+      margin-right: 10px;
+      font-size: 1.5rem;
+    }
+    .footer-bottom {
+      padding-top: 20px;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .footer-icons img {
+      width: 2rem;
+      margin-right: 1rem;
+    }
+    .footer-flags img {
+      width: 4rem;
+      margin-right: .5rem;
+
+    }
+    .flag {
+      width: 3rem;
+      height: 2rem;
+      margin-right: .5rem;
+      margin-bottom: 1rem;
+
+      object-fit: cover;
+    }
+
+
+
