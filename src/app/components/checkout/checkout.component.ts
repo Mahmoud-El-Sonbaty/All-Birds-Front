@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 import { ICreateOrderRequest, IPayPalConfig, NgxPayPalModule } from 'ngx-paypal';
 import { environment } from '../../../environments/environment.development';
-import { CartService } from '../../../Services/cart.service';
-import { IOrderMaster } from '../../../Modules/cart';
+import { CartService } from '../../../services/cart.service';
+import { IOrderMaster } from '../../../models/cart';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { LanguageService } from '../../../Services/language.service';
+import { LanguageService } from '../../../services/language.service';
 import { LoaderComponent } from "../loader/loader.component";
 import { AlertMessageComponent } from "../alert-message/alert-message.component";
 import { Title } from '@angular/platform-browser';

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Username } from '../../../Modules/username';
-import { UsernameService } from '../../../Services/username.service';
+import { Username } from '../../../models/username';
+import { UsernameService } from '../../../services/username.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';

@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { environment } from '../environments/environment.development';
-import { ApiresponsePrd, ApiresponsePrdSearch, ApiresponseProduct } from '../Modules/Product';
-import { ApiFilterBody } from '../Modules/FilterTypes';
+import { ApiresponsePrd, ApiresponsePrdSearch, ApiresponseProduct } from '../models/Product';
+import { ApiFilterBody } from '../models/FilterTypes';
 import { LanguageService } from './language.service';
-import { ISingleProductAPIResponse } from '../Modules/singleProduct';
+import { ISingleProductAPIResponse } from '../models/singleProduct';
 
 @Injectable({
   providedIn: 'root'

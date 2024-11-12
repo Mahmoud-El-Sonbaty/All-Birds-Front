@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
-import { UsernameService } from '../../../Services/username.service';
+import { UsernameService } from '../../../services/username.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { UsernameCheck } from '../../../Modules/username-check';
+import { UsernameCheck } from '../../../models/username-check';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { SidebarComponent } from '../sidebar/sidebar.component';

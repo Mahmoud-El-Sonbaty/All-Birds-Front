@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { ApiresponseCategory, ApiresponseoneCategory, Icategory } from '../Modules/category';
+import { ApiresponseCategory, ApiresponseoneCategory, Icategory } from '../models/category';
 import { environment } from '../environments/environment.development';
 import { LanguageService } from './language.service';
 

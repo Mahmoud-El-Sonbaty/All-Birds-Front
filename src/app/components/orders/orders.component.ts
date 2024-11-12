@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdersService } from '../../../Services/orders.service';
+import { OrdersService } from '../../../services/orders.service';
 import { Router } from '@angular/router';
-import { OrdersData } from '../../../Modules/orders';
+import { OrdersData } from '../../../models/orders';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from '../loader/loader.component';

@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Username } from '../Modules/username';
+import { Username } from '../models/username';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment.development';
-import { UsernameCheck } from '../Modules/username-check';
+import { UsernameCheck } from '../models/username-check';
 
 @Injectable({
   providedIn: 'root'

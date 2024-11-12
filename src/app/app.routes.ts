@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './Components/home/home.component';
-import { ErrorComponent } from './Components/error/error.component';
-import { CheckoutComponent } from './Components/checkout/checkout.component';
-import { SidebarComponent } from './Components/sidebar/sidebar.component';
-import { RegisterComponent } from './Components/register/register.component';
-import { MainProductComponent } from './Components/main-product/main-product.component';
-import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
-import { ProductDetailsComponent } from './Components/product-details/product-details.component';
-import { SearchComponent } from './Components/search/search.component';
+import { HomeComponent } from './components/home/home.component';
+import { ErrorComponent } from './components/error/error.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { RegisterComponent } from './components/register/register.component';
+import { MainProductComponent } from './components/main-product/main-product.component';
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { SearchComponent } from './components/search/search.component';
 import { authoGuard } from '../guards/autho.guard';
-import { OrdersComponent } from './Components/orders/orders.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 

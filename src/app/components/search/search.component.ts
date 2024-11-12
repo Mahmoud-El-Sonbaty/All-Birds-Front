@@ -1,8 +1,8 @@
   import { Component, Input } from '@angular/core';
   import { environment } from '../../../environments/environment.development';
   import { Subscription } from 'rxjs';
-  import { ProductService } from '../../../Services/product.service';
-  import { IproductSearch } from '../../../Modules/Product';
+  import { ProductService } from '../../../services/product.service';
+  import { IproductSearch } from '../../../models/Product';
   import { CommonModule, CurrencyPipe } from '@angular/common';
   import { TranslateModule } from '@ngx-translate/core';
   import { LoaderComponent } from '../loader/loader.component';

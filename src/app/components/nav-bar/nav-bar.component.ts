@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { Icategory } from '../../../Modules/category';
-import { CategeryServiceService } from '../../../Services/categery-service.service';
+import { Icategory } from '../../../models/category';
+import { CategeryServiceService } from '../../../services/categery-service.service';
 import { Subscription } from 'rxjs';
 import { SidebarComponent } from "../sidebar/sidebar.component";
 import { NavigationEnd, Route, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { LanguageService } from '../../../Services/language.service';
+import { LanguageService } from '../../../services/language.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({

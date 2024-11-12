@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { environment } from '../environments/environment.development';
 import { Observable, Subscription } from 'rxjs';
-import { IAddOrderDetail, IAddOrderDetailApiResponse, ICartApiResponse, IODetailApiResponse, IUpdateWholeOrder, IUpdateWholeOrderApiResponse } from '../Modules/cart';
+import { IAddOrderDetail, IAddOrderDetailApiResponse, ICartApiResponse, IODetailApiResponse, IUpdateWholeOrder, IUpdateWholeOrderApiResponse } from '../models/cart';
 import { LanguageService } from './language.service';
 
 @Injectable({

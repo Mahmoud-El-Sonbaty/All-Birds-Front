@@ -1,7 +1,7 @@
 import { AfterViewInit, Component ,OnDestroy,OnInit,} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Iproduct, IProduct } from '../../../Modules/Product';
-import { ProductService } from '../../../Services/product.service';
+import { Iproduct, IProduct } from '../../../models/Product';
+import { ProductService } from '../../../services/product.service';
 import { environment } from '../../../environments/environment.development';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';

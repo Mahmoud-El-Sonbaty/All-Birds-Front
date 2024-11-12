@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { SliderCmComponent } from '../slider-cm/slider-cm.component';
-import { ProductService } from '../../../Services/product.service';
+import { ProductService } from '../../../services/product.service';
 import { Subscription } from 'rxjs';
-import { Iproduct } from '../../../Modules/Product';
+import { Iproduct } from '../../../models/Product';
 import { error } from 'jquery';
 import { environment } from '../../../environments/environment.development';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LanguageService } from '../../../Services/language.service';
+import { LanguageService } from '../../../services/language.service';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({

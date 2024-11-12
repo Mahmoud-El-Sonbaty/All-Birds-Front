@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { Icategory } from '../../../Modules/category';
-import { IfilterType } from '../../../Modules/FilterTypes';
-import { IproductColor, IproductSize } from '../../../Modules/Product';
+import { Icategory } from '../../../models/category';
+import { IfilterType } from '../../../models/FilterTypes';
+import { IproductColor, IproductSize } from '../../../models/Product';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';

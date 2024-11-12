@@ -1,6 +1,6 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { IProduct, IproductColor, IproductSize } from '../../../Modules/Product';
+import { IProduct, IproductColor, IproductSize } from '../../../models/Product';
 import { environment } from '../../../environments/environment.development';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';

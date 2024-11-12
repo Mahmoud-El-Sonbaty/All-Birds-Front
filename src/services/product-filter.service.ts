@@ -3,8 +3,8 @@
 // import { Observable } from 'rxjs';
 // import { environment } from '../environments/environment.development';
 // import { HttpClient } from '@angular/common/http';
-// import { ApiFilterBody } from '../Modules/FilterTypes';
-// import { ApiresponsePrd } from '../Modules/Product';
+// import { ApiFilterBody } from '../models/FilterTypes';
+// import { ApiresponsePrd } from '../models/Product';
 
 // @Injectable({
 //   providedIn: 'root'

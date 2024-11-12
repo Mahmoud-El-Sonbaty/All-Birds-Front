@@ -1,13 +1,13 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductFilterComponent } from '../product-filter/product-filter.component';
-import { IProduct } from '../../../Modules/Product';
-import { Icategory } from '../../../Modules/category';
-import { ApiFilterBody, IfilterType } from '../../../Modules/FilterTypes';
+import { IProduct } from '../../../models/Product';
+import { Icategory } from '../../../models/category';
+import { ApiFilterBody, IfilterType } from '../../../models/FilterTypes';
 import { Subscription } from 'rxjs';
-import { ProductService } from '../../../Services/product.service';
+import { ProductService } from '../../../services/product.service';
 import { ActivatedRoute } from '@angular/router';
-import { CategeryServiceService } from '../../../Services/categery-service.service';
+import { CategeryServiceService } from '../../../services/categery-service.service';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from '../loader/loader.component';
 

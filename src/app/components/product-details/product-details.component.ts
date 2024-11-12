@@ -2,15 +2,15 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { ISingleProduct, ISingleProductColor, ISingleProductColorImage, ISingleProductColorSize } from '../../../Modules/singleProduct';
+import { ISingleProduct, ISingleProductColor, ISingleProductColorImage, ISingleProductColorSize } from '../../../models/singleProduct';
 import { environment } from '../../../environments/environment.development';
-import { ProductService } from '../../../Services/product.service';
-import { CartService } from '../../../Services/cart.service';
+import { ProductService } from '../../../services/product.service';
+import { CartService } from '../../../services/cart.service';
 import { Router } from '@angular/router';
-import { IAddOrderDetail, IAddOrderDetailResponseData, IOrderDetail, IOrderMaster, IUpdateWholeOrder } from '../../../Modules/cart';
+import { IAddOrderDetail, IAddOrderDetailResponseData, IOrderDetail, IOrderMaster, IUpdateWholeOrder } from '../../../models/cart';
 import { LoaderComponent } from '../loader/loader.component';
 import { AlertMessageComponent } from "../alert-message/alert-message.component";
-import { LanguageService } from '../../../Services/language.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-product-details',

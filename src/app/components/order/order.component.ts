@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Order } from '../../../Modules/orders';
+import { Order } from '../../../models/orders';
 import { environment } from '../../../environments/environment.development';
 import { Route, Router } from '@angular/router';
 import { StepperComponent } from '../stepper/stepper.component';

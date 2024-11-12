@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnChanges } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { CartService } from '../../../Services/cart.service';
+import { CartService } from '../../../services/cart.service';
 import { Router } from '@angular/router';
-import { IOrderDetail, IOrderMaster } from '../../../Modules/cart';
+import { IOrderDetail, IOrderMaster } from '../../../models/cart';
 import { environment } from '../../../environments/environment.development';
-import { LanguageService } from '../../../Services/language.service';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-sidebar',
