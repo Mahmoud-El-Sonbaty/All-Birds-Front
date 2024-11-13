@@ -1,0 +1,68 @@
+input.form-control {
+  height: 50px;
+  font-size: 1.2rem;
+}
+/* Style labels */
+label {
+  margin-bottom: .5rem;
+  text-transform: uppercase;
+  font-size: .9rem;
+  font-weight: 600;
+  color: #171717;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #212121;
+  font-weight: bold;
+}
+
+p.text-center {
+  font-size: 1rem;
+  color: #666;
+}
+
+
+
+input{
+  padding:30px 10px !important;
+}
+input:focus{
+
+  border-color:black ;
+  border-width: 3px;
+}
+
+
+.form-control{
+
+  border-radius: 2px;
+}
+
+
+
+.btn{
+  margin-top:.5rem ;
+  margin-bottom:.5rem ;
+  border-radius: 0;
+  background-color: #212121 ;
+  font-weight: 700;
+}
+.btn:hover{
+
+  background-color: white;
+  color: #212121  ;
+}
+
+
+.btn:disabled {
+  background-color: #212121;
+  color: white;
+  cursor: not-allowed;
+  opacity: 1;
+}
+p.Note {
+  font-size: .8rem;
+  font-weight: 600;
+  color: #040101;
+}

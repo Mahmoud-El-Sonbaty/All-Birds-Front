@@ -1,5 +1,5 @@
 import { Icategory } from "./category";
-import { IproductColor, IproductSize } from "./product";
+import { IproductColor, IproductSize } from "./Product";
 
 export interface IfilterType
 {

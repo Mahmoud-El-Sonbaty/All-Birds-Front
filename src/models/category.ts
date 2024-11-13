@@ -1,20 +1,21 @@
 export interface Icategory {
-  id: number;
-  nameEn: string;
-  nameAr: string;
-  parentCategoryId: number;
+  id:number;
+  name:string;
+  parentCategoryId:number;
   level: number;
-  isParentCategory: Boolean;
-  children: Icategory[]|null;
-}
+  isParentCategory:Boolean;
+  children:Icategory[]|null;
 
-export interface Apiresponse{
-  data: Icategory[];
-  msg: string;
-  isSuccess: boolean;
 }
-export interface ApiresponseCat{
-  data: Icategory;
-  msg: string;
-  isSuccess: boolean;
+export interface ApiresponseCategory{
+
+  data:Icategory[];
+  msg:string;
+  isSuccess:boolean;
+}
+export interface ApiresponseoneCategory{
+
+  data:Icategory;
+  msg:string;
+  isSuccess:boolean;
 }

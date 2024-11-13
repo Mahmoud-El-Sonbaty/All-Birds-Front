@@ -1,0 +1,408 @@
+@if(isDataLoading) {
+  <app-loader></app-loader>
+}@else if (errors) {
+
+    <app-alert-message  [title]="'orders.error' | translate" [message]="'orders.No_Product' | translate" [isSuccess]="false"></app-alert-message>
+
+}
+@else{
+  <div [class]="'row pt-5 '+ lang ">
+          <!-- Left Side: Image Slider with Thumbnails -->
+          <div class="col-7 d-flex">
+              <!-- Thumbnail Images -->
+              <div class="thumbnail-container">
+                  <img *ngFor="let thumb of selectedPrdColorImages; let i = index"
+                      [src]="baseImageUrl+thumb.imagePath"
+                      [class.active]="thumb.prdColorImageId === selectedPrdColorImageId"
+                      (click)="changeImage(thumb)"
+                      class="thumbnail img-thumbnail"
+                      alt="Thumbnail {{ thumb.prdColorImageId }}">
+              </div>
+              <!-- <div class="thumbnail-container">
+                  <img *ngFor="let thumb of selectedColorImages; let i = index"
+                      [src]="thumb"
+                      [class.active]="i === selectedImageIndex"
+                      (click)="selectImage(i)"
+                      class="thumbnail img-thumbnail"
+                      alt="Thumbnail {{ i + 1 }}">
+              </div> -->
+
+              <!-- Main Product Image -->
+
+              <div class="main-image-slider"
+              (mouseenter)="showMagnifier()"
+              (mouseleave)="hideMagnifier()"
+              (mousedown)="startSwipe($event)"
+              (touchstart)="startSwipe($event)"
+              (mousemove)="onMouseMove($event)"
+              (touchmove)="onMouseMove($event)"
+              (mouseup)="resetSwipe()"
+              (touchend)="resetSwipe()"
+              >
+                  <!-- Main Product Image with Swiper and Zoom functionality -->
+                  <img [src]="baseImageUrl+selectedPrdColorImage.imagePath"
+                  (click)="openFullScreenCarousel()"
+                  class="main-product-image"
+                  alt="Product Image">
+                  <!-- <img [src]="selectedImage"
+                  (click)="openFullScreenCarousel()"
+                  class="main-product-image"
+                  alt="Product Image"> -->
+
+                  <!-- Bottom Controls -->
+                  <div class="slider-controls">
+                      <button (click)="showPrevImage()" class="btn custom-button m-2 fs-4" aria-label="Previous Image">
+                          <i class="fas fa-chevron-left"></i>
+                      </button>
+                      <!-- <button (click)="previousImage()" class="btn custom-button m-2 fs-4" aria-label="Previous Image">
+                          <i class="fas fa-chevron-left"></i>
+                      </button> -->
+                      <button (click)="showNextImage()" class="btn custom-button m-2 fs-4" aria-label="Next Image">
+                          <i class="fas fa-chevron-right"></i>
+                      </button>
+                      <!-- <button (click)="nextImage()" class="btn custom-button m-2 fs-4" aria-label="Next Image">
+                          <i class="fas fa-chevron-right"></i>
+                      </button> -->
+
+                  </div>
+
+                  <!-- Magnifier Icon -->
+          <button class="magnifier-icon" *ngIf="isMagnifierVisible" (click)="openFullScreenCarousel()">
+              <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="jsx-2022988330"><title>Zoom</title><path fill-rule="evenodd" clip-rule="evenodd" d="M17 11a6 6 0 1 1-12 0 6 6 0 0 1 12 0Zm-1.094 6.32a8 8 0 1 1 1.414-1.414l3.387 3.387a1 1 0 0 1-1.414 1.414l-3.387-3.387ZM12 12v3h-2v-3H7v-2h3V7h2v3h3v2h-3Z" fill="#4d5559"></path></svg>    </button>
+              </div>
+              <!-- Full-Screen Carousel Popup -->
+      <div *ngIf="isCarouselOpen" class="carousel-popup">
+          <div class="carousel-content">
+              <div class="rotaX">
+
+                  <button class="close-btn"
+                  (mouseenter)="onMouseEnter()"
+                  (mouseleave)="onMouseLeave()"
+                  (click)="closeFullScreenCarousel()"><i class="fas fa-xmark"></i></button>
+              </div>
+
+          <!-- Carousel Image -->
+          <div *ngFor="let image of selectedPrdColorImages; let i = index"
+              class="carousel-slide"
+              [class.active]="image.prdColorImageId === selectedPrdColorImageId">
+              <img [src]="baseImageUrl+image.imagePath" alt="Product Image {{ image.prdColorImageId }}" class="carousel-image">
+          </div>
+          <!-- <div *ngFor="let image of selectedColorImages; let i = index"
+              class="carousel-slide"
+              [class.active]="i === selectedImageIndex">
+              <img [src]="image" alt="Product Image {{ i + 1 }}" class="carousel-image">
+          </div> -->
+
+          <!-- Navigation Controls -->
+          <div class="carousel-controls">
+              <button (click)="showPrevImage()" class="carousel-button prev-btn">❮</button>
+              <!-- <button (click)="previousImage()" class="carousel-button prev-btn">❮</button> -->
+              <button (click)="showNextImage()" class="carousel-button next-btn">❯</button>
+              <!-- <button (click)="nextImage()" class="carousel-button next-btn">❯</button> -->
+          </div>
+
+          <!-- Carousel Indicators -->
+          <div class="carousel-indicators">
+              <span *ngFor="let image of selectedPrdColorImages; let i = index"
+                  class="indicator"
+                  [class.active]="image.prdColorImageId === selectedPrdColorImageId"
+                  (click)="changeImage(image)"></span>
+          </div>
+          </div>
+      </div>
+
+
+          </div>
+
+          <!-- Right Side: Product Details -->
+          <div class="col-5 ps-5">
+              <!-- Breadcrumb -->
+              <!-- <p class="breadcrumb">Home / Men’s Shoes / Active Shoes</p> -->
+
+              <!-- Product Title and Price -->
+              <h2>{{singlePrdData.name}}</h2>
+              <div class="price-container">
+                  <span class="price">${{singlePrdData.price}}</span>
+                  @if(singlePrdData.freeShipping) {
+                    <span class="free-shipping">{{'product_details.FREE_SHIPPING'|translate}}</span>
+                  }
+              </div>
+
+              <!-- Star Rating and Reviews -->
+              <!-- @if(singlePrdData.reviewsCount > 0) {
+                <div class="rating mb-4">
+                    <span class="stars">
+                      @for (item of [].constructor(singlePrdData.totalRate); track $index) {
+                        ★
+                      }
+                      @for (item of [].constructor(5 - singlePrdData.totalRate); track $index) {
+                        ☆
+                      }
+                    </span>
+                    <span class="reviews">({{singlePrdData.reviewsCount}})</span>
+                </div>
+              } -->
+
+              <!-- Color Options -->
+          <div class="colors">
+              <h5>{{'product_details.CLASSICS'|translate}} <span style="color: #949292;" class="fs-6">{{ selectedColorObj.colorName }}</span></h5>
+              <div class="color-circles">
+                <div *ngFor="let color of prdColors; let i = index"
+                  [style.background-color]="color.colorCode"
+                  (click)="changeColor(color)"
+                  [class.active]="color.prdColorId === selectedPrdColorId"
+                  class="color-circle"
+                  [class.hovered]="hoveredPrdColorId === color.prdColorId"
+                  (mouseenter)="hoveredPrdColorId = color.prdColorId"
+                  (mouseleave)="hoveredPrdColorId = 0">
+                </div>
+              </div>
+          </div>
+          <!-- <div class="colors">
+              <h5>CLASSICS: <span style="color: #949292;" class="fs-6">{{ selectedColor?.name }}</span></h5>
+              <div class="color-circles">
+                <div *ngFor="let color of colors; let i = index"
+                  [style.background-color]="color.code"
+                  (click)="selectColor(i)"
+                  [class.active]="i === selectedColorIndex"
+                  class="color-circle"
+                  [class.hovered]="hoveredColorIndex === i"
+                  (mouseenter)="hoveredColorIndex = i"
+                  (mouseleave)="hoveredColorIndex = null">
+                </div>
+              </div>
+          </div> -->
+
+
+              <!-- Size Options -->
+              <div class="sizes mt-4">
+                  <h5>{{'product_details.SELECT_SIZE'|translate}}</h5>
+                  <form class="rtl">
+                      <div class="size-options" role="group" aria-label="Size options">
+                        <ng-container *ngFor="let size of colorSizes">
+                          <input
+                              type="radio"
+                              class="btn-check"
+                              name="size"
+                              [disabled]="size.unitsInStock <= 0"
+                              [value]="size.sizeNumber"
+                              [checked]="size.productColorSizeId === selectedPrdColorSizeId"
+                              (change)="changeSize(size)"
+                              id="size-{{ size.productColorSizeId }}">
+                          <label
+                              class="size-box"
+                              [class.selected]="size.productColorSizeId === selectedPrdColorSizeId"
+                              for="size-{{ size.productColorSizeId }}">
+                              {{ size.sizeNumber }}
+                          </label>
+                        </ng-container>
+                          <!-- <ng-container *ngFor="let size of sizes">
+                              <input
+                                  type="radio"
+                                  class="btn-check"
+                                  name="size"
+                                  [value]="size"
+                                  [checked]="size === selectedSize"
+                                  (change)="selectSize(size)"
+                                  id="size-{{ size }}">
+                              <label
+                                  class="size-box"
+                                  [class.selected]="size === selectedSize"
+                                  for="size-{{ size }}">
+                                  {{ size }}
+                              </label>
+                          </ng-container> -->
+                      </div>
+                  </form>
+                  <!-- <p class="size-chart-link mt-2">See Size Chart</p> -->
+              </div>
+
+
+              <!-- Add to Cart Button -->
+              @if (selectedPrdColorSize.productColorSizeId == null) {
+                <button class="stickTop btn btn-dark btn-lg add-to-cart-btn mt-3 bg-secondary" disabled>{{'product_details.SELECT_SIZE'|translate}}</button>
+              }
+              @else {
+                <button class="stickTop btn btn-dark btn-lg add-to-cart-btn mt-3" (click)="addToCart()">{{'product_details.ADD_TO_CART'|translate}} ${{singlePrdData.price}}</button>
+              }
+
+              <!-- Additional Info -->
+              <!-- <p class="shipping-info"> -->
+                  <!-- <strong>SHOPRUNNER</strong> FREE 2-Day Shipping. <a href="#">Sign Up FREE </a> | <a href="#"> Sign In</a> -->
+              <!-- </p> -->
+              <p class="free-shipping-info d-flex justify-content-center">{{'product_details.Free_Shipping_on_orders'|translate}}</p>
+          </div>
+      </div>
+
+      <!-- second part -->
+      <div class="row px-5">
+
+          <div class="main-badg col-7 mt-5">
+              <div class="badg rounded-0" >
+                  <h2 class="mt-3 fs-5 p-2">{{singlePrdData.name}} {{'product_details.Highlights'|translate}}</h2>
+                  @for (item of singlePrdData.highlights.split("~@#$%&"); track $index) {
+                    <hr>
+                    <p>{{item}}</p>
+                  }
+                  <!-- <hr>
+                  <p>Lightly padded heel collar locks ankle in place</p>
+                  <hr>
+                  <p>Flexible, cushioned midsole offers a smoother ride</p> -->
+              </div>
+          </div>
+
+          <!-- accordian -->
+
+          <div class="accordion col-7 mt-4 pt-2" id="accordionExample">
+
+              <hr>
+                  <!-- Accordion Item 1 -->
+                  <div class="accordion-item rounded-0">
+                      <h2 class="accordion-header" id="headingOne">
+                          <button class="border-0 accordion-button collapsed text-uppercase text-dark fw-bold"
+                                  type="button"
+                                  (click)="openAccordion($event)"
+                                  data-bs-target="#collapseOne"
+                                  aria-expanded="false"
+                                  aria-controls="collapseOne">
+                              {{singlePrdData.specifications[0].name}}
+                          </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                          <div class="accordion-body pt-5 ps-0">
+                              <p>
+                                  {{singlePrdData.specifications[0].content}}
+                              </p>
+                              @for (item of singlePrdData.specifications.slice(1); track $index) {
+                                <p>
+                                    <strong>{{item.name}}:</strong> {{item.content}}
+                                </p>
+                              }
+                          </div>
+                      </div>
+                  </div>
+                  <hr>
+                  <!-- Accordion Item 2 -->
+                  <div class="accordion-item rounded-0 border-0 my-3">
+                      <h2 class="accordion-header" id="headingTwo">
+                          <button class="accordion-button collapsed text-uppercase text-dark fw-bold"
+                                  type="button"
+                                  (click)="openAccordion($event)"
+                                  data-bs-target="#collapseTwo"
+                                  aria-expanded="false"
+                                  aria-controls="collapseTwo">
+                                  {{'product_details.Sustainability'|translate}}
+                          </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                          <div class="accordion-body pt-5 ps-0">
+                              <p>
+                                {{singlePrdData.sustainability}}
+                                  <!-- Our Tree Dasher Relay has a carbon footprint of 5.47 kg CO2e.  Learn more about <a href="">carbon footprint labeling</a>
+                                  and <a href="">our commitments</a> to reduce our impact. -->
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <hr>
+                  <!-- Accordion Item 3 -->
+                  <div class="accordion-item rounded-0 border-0 my-3">
+                      <h2 class="accordion-header" id="headingThree">
+                          <button class="accordion-button collapsed text-uppercase text-dark fw-bold"
+                                  type="button"
+                                  (click)="openAccordion($event)"
+                                  data-bs-target="#collapseThree"
+                                  aria-expanded="false"
+                                  aria-controls="collapseThree">
+                                  {{'product_details.CarGuid'|translate}}
+                          </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                          <div class="accordion-body mt-5 ps-0">
+                              <p>
+                                @for(care of singlePrdData.careGuide.split("\r\n"); track $index) {
+                                  <li>{{care.trim()}}</li>
+                                }
+                                  <!-- <li>{{singlePrdData.careGuide.split("\r\n")}}</li>
+                                  <li>Choose a gentle cycle with cold water & mild detergent.</li>
+                                  <li>Shake out any excess water & set aside to air dry.</li>
+                                  <li>Shoes will regain their original shape with one or two wears.</li> -->
+                              </p>
+                              <p>
+                                {{'product_details.CarGuidmsg'|translate}}
+
+                              </p>
+                              <p>
+                                {{'product_details.CarGuidmsg2'|translate}}
+
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <hr>
+                  <!-- Accordion Item 4 -->
+                  <div class="accordion-item rounded-0 border-0 my-3">
+                      <h2 class="accordion-header" id="headingFour">
+                          <button class="accordion-button collapsed text-uppercase text-dark fw-bold"
+                                  type="button"
+                                  (click)="openAccordion($event)"
+                                  data-bs-target="#collapseFour"
+                                  aria-expanded="false"
+                                  aria-controls="collapseFour">
+                                  {{'product_details.Shipping_Returns'|translate}}
+                                </button>
+                      </h2>
+                      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                          <div class="accordion-body mt-5 ps-0">
+                              <p>
+                                {{'product_details.shipingMsg1'|translate}}
+                              </p>
+                              <p>
+                                {{'product_details.shipingMsg2'|translate}}
+
+                              </p>
+
+                          </div>
+                      </div>
+              </div>
+              <hr>
+
+
+          </div>
+          <!-- image and text part -->
+          <!-- 1 -->
+          @for (item of singlePrdData.details; track $index; let i = $index;) {
+            <div class="container my-5">
+                <div class="row align-items-center">
+                    <!-- Image Section -->
+                    @if (i % 2 == 0) {
+                      <div class="col-md-6 text-center ms-0">
+                        <img [src]="baseImageUrl+item.imagePath" alt="Shoe Image" class="img-fluid">
+                      </div>
+                      <div class="col-md-6">
+                        <!-- <h5 class="text-uppercase text-secondary mb-3" style="letter-spacing: 2px;">TREE UPPER</h5> -->
+                        <h2 class="fw-bold text-dark mb-4">{{item.title}}
+                        </h2>
+                        <p class="text-muted " style="font-size: 1.1rem; line-height: 1.6;">
+                          {{item.description}}
+                        </p>
+                      </div>
+                    }
+                    @else {
+                      <div class="col-md-6">
+                        <!-- <h5 class="text-uppercase text-secondary mb-3" style="letter-spacing: 2px;">SUGARCANE MIDSOLE</h5> -->
+                        <h2 class="fw-bold text-dark mb-4">{{item.title}}</h2>
+                        <p class="text-muted " style="font-size: 1.1rem; line-height: 1.6;">
+                          {{item.description}}
+                        </p>
+                      </div>
+                      <!-- Image Section -->
+                      <div class="col-md-6 text-center ms-0">
+                        <img [src]="baseImageUrl+item.imagePath" alt="Shoe Image" class="img-fluid">
+                      </div>
+                    }
+                </div>
+            </div>
+          }
+      </div>
+}
