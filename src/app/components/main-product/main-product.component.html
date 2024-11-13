@@ -1,0 +1,48 @@
+
+@if (loadingGetAllProducts||loadingGetCategorysByParentId) {
+
+  <app-loader></app-loader>
+
+
+}@else{
+
+  <div class="container ">
+    <div class="row mt-lg-5 " >
+      <div class="filter-btn d-block d-md-none">
+        <button  (click)="showFilter()"> Filter </button>
+      </div>
+
+
+      <div class="col-lg-3 col-md-3 col-sm d-none d-md-block ">
+        <app-product-filter routerLinkActive="active_link" (filterSelectedChange)="onFilterSelectedChange($event)"  [filterTypes]="FilterTypes" [CategorySelected]="ParentCat_SubCat"></app-product-filter>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-12">
+        <div class="mobile-filter-wrapper" *ngIf="isFilterVisible">
+          <div class="overlay" (click)="closeFilter()"></div>
+
+          <div class="mobile-filter" (click)="$event.stopPropagation()">
+            <button class="close-btn" (click)="closeFilter()">×</button>
+            <app-product-filter
+              routerLinkActive="active_link"
+              (filterSelectedChange)="onFilterSelectedChange($event)"
+              [filterTypes]="FilterTypes"
+              [CategorySelected]="ParentCat_SubCat">
+            </app-product-filter>
+          </div>
+        </div>
+
+        <ng-container *ngIf="ProductCards && ProductCards.length > 0; else noProducts">
+          <ng-container *ngFor="let prd of ProductCards; trackBy: trackById">
+            <app-product-card [Products]="prd"></app-product-card>
+          </ng-container>
+        </ng-container>
+
+        <ng-template #noProducts>
+          <p class="errormsg ">{{ Msg }}  <img *ngIf="Msg!=''" src="images/sad.png" alt="Frustrated Icon" style="width: 50px; height: 50px;">
+          </p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+}
+

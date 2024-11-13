@@ -1,0 +1,197 @@
+
+
+<!--==============================================================================================
+
+                                   Home And Localization by AHMED ELGHOUL
+
+ ==================================================================================================-->
+
+
+
+
+
+
+<!-- first slide -->
+
+<div id="carouselExampleSlidesOnly " [class]="'carousel slide slider1 p-0 position-relative '+lang " data-bs-ride="carousel">
+  <div class="carousel-indicators FirstSlider position-absolute  top-50 d-flex flex-column  justify-content-start   w-25 ">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active rounded-circle A bg-secondary  " aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="rounded-circle B bg-secondary" aria-label="Slide 2"></button>
+  </div>
+  <div class="carousel-inner position-relative w-100 ">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="images/2.avif" class="d-block w-100 imgFirstSlider" alt="...">
+      <div class="carousel-caption capHeader d-none text-dark  d-md-block position-absolute top-0 p-5   ">
+          <h1 class="first mb-0" >{{'home.slider1.slide1.subtitle'|translate}} </h1>
+          <Span class="third ">{{'home.slider1.slide1.thirdtitle'|translate}}</Span>
+
+      </div>
+      <div class="carousel-caption capbutton  d-md-block position-absolute start-50 p-1 w-25 d-flex    ">
+          <p class="texts text-dark  mb-4  position-relative    d-none  d-xxl-block "> <br>
+            {{'home.slider1.slide1.description1'|translate}}
+              <br>{{'home.slider1.slide1.description2'|translate}}</p>
+          <div class="d-flex position-relative start-100 mb-3 me-4 ">
+              <button class="btn btn-light shop m-1" (click)="navigateTo('2-3', 1)">{{'home.btn.men'|translate}}</button>
+              <button class="btn btn-light shop m-1" (click)="navigateTo('17-18', 1)">{{'home.btn.Woman'|translate}}</button>
+
+               </div>
+           </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="images/1.avif" class="d-block w-100 imgFirstSlider" alt="...">
+
+      <div class="carousel-caption capHeader d-none text-light  d-md-block position-absolute top-0 p-5  align-items-end justify-content-end text-end ">
+
+        <h1 class="first mb-0" >{{'home.slider1.slide1.subtitle'|translate}} </h1>
+        <Span class="third ">{{'home.slider1.slide1.thirdtitle'|translate}}</Span>
+      </div>
+      <div class="carousel-caption capbutton d-md-block position-absolute  start-50 p-1 w-25 d-flex    ">
+        <p class="texts text-dark  mb-4  position-relative  d-none  d-xxl-block  "> <br>
+          {{'home.slider1.slide1.description1'|translate}}
+            <br>{{'home.slider1.slide1.description2'|translate}}</p>
+          <div class="d-flex position-relative start-100 mb-3 me-4 ">
+              <button class="btn btn-light shop m-1">{{'home.btn.men'|translate}}</button>
+              <button class="btn btn-light shop m-1">{{'home.btn.Woman'|translate}}</button>
+           </div>
+    </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 3 cards -->
+<div class="card-group p-3 m-0">
+  <div class="card m-2 img card-1" *ngFor="let item of items">
+    <ng-container *ngIf="item.type === 'image'; else videoTemplate">
+      <img [src]="item.src" class="card-img-top carimag" alt="...">
+    </ng-container>
+    <ng-template #videoTemplate>
+      <video [src]="item.src" autoplay muted loop></video>
+    </ng-template>
+
+    <div class="position-absolute carbody">
+      <h2 class="product-title">{{ item.title }}</h2>
+      <p class="product-subtitle">{{ item.subtitle }}</p>
+    </div>
+
+    <div class="position-absolute carbtn">
+      <button class="btn btn-light carbtnshop m-1">{{'home.btn.men'|translate}}</button>
+      <button class="btn btn-light carbtnshop m-1">{{'home.btn.Woman'|translate}}</button>
+    </div>
+  </div>
+</div>
+
+<!-- slide 2 -->
+
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let slide of slides2; let i = index" [ngClass]="{'active': i===0}">
+      <div class="row p-5">
+        <div class="col-md-6 slide2 m-0 p-1">
+          <div class="card position-relative">
+            <img [src]="slide.img" class="card-img-top" alt="Card Image">
+            <a [href]="'ProductCategory/' + slide.rootVal1"  class="position-absolute textSlide">{{ slide.text }}</a>
+          </div>
+        </div>
+        <div class="col-md-6 slide2 m-0 p-1">
+          <div class="card position-relative">
+            <img [src]="slide.img2" class="card-img-top" alt="Card Image">
+          <a [href]="'ProductCategory/' + slide.rootVal2" class="position-absolute textSlide">{{ slide.text2 }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+
+<!-- 4 product -->
+<div [class]="'container-fluid ' + lang">
+  <div class="column-wrapper h-100 mb-1">
+    <!-- Left Column -->
+    <div class="col-lg-6 left-column m-0 p-0">
+      <div class="position-relative h-100">
+        <img src="images/bigImage.jpg" class="img-fluid main-image" alt="Large Shoe Image">
+        <div class="text-overlay-left">
+          <p class="title">{{ 'home.4Product.title' | translate }}</p>
+          <p class="subtitle">{{ 'home.4Product.subtitle' | translate }}</p>
+          <div class="card-group">
+            <button class="btn btn-light m-1">{{ 'home.btn.men' | translate }}</button>
+            <button class="btn btn-light m-1">{{ 'home.btn.Woman' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-lg-6  right-column m-0 p-0 mb-1">
+      <div class="row g-1 w-100">
+        <!-- Product Loop -->
+        <div *ngFor="let prd of Products; trackBy: trackById" class="col-6">
+          <div class="position-relative imag4" [routerLink]="'/single-product/'+prd.id">
+            <img [src]="imagepath + prd.mainImagePath" class="img-fluid images"  alt="Small Shoe Image">
+            <div class="text-overlay">
+              <h6 class="titleName">{{ prd.name }}</h6>
+              <p class="colorName">{{ prd.colorName }}</p>
+            </div>
+            <div class="price">{{ prd.price }} L.E</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- gift Card -->
+
+<div class="container-fluid m-0  GiftCard">
+    <div class="row m-0 p-0 ">
+      <div class="col-lg-6 p-1 m-0">
+        <div class="image-container">
+          <img src="images/Gift2.jpg" alt="Gift Card Image" class="img-fluid">
+          <div class="overlays">
+            <div>
+              <h2>{{'home.giftCards.card1.title'|translate}}</h2>
+              <p>{{'home.giftCards.card1.subtitle'|translate}}</p>
+            </div>
+            <div class="card-group mt-auto">
+              <button class="btn btn-light m-1 giftbtn">{{'home.btn.men'|translate}}</button>
+              <button class="btn btn-light m-1 giftbtn">{{'home.btn.Woman'|translate}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 p-1 m-0">
+        <div class="image-container">
+          <img src="images/Gift1.jpg" alt="Another Image" class="img-fluid">
+          <div class="overlays">
+            <div>
+              <h2>{{'home.giftCards.card2.title'|translate}}</h2>
+              <p>{{'home.giftCards.card2.subtitle'|translate}}</p>
+            </div>
+            <div class="mt-auto">
+              <button class="btn btn-light giftbtn">{{'home.btn.now'|translate}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+<!-- more product -->
+ <app-slider-cm [class]="'m-1 '+lang "></app-slider-cm>
