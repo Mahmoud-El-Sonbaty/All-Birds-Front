@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
-import { FooterComponent } from "./components/footer/footer.component";
 import {Language, TranslateModule} from "@ngx-translate/core";
 import {TranslateService} from "@ngx-translate/core";
 import { LanguageService } from '../services/language.service';
@@ -12,8 +10,10 @@ import { LanguageService } from '../services/language.service';
   standalone: true,
   imports: [RouterOutlet,TranslateModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+
+  styleUrl: './app.component.css',
 })
+
 export class AppComponent {
   currentLanguage!: string;
 
@@ -23,8 +23,4 @@ export class AppComponent {
     // });
   }
   title = 'FrontAllbirds';
-
-  // toggleLanguage() {
-  //   this.languageservice.toggleLanguage();
-  // }
 }

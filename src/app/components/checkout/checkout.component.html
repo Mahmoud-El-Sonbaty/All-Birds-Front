@@ -301,7 +301,7 @@ s            </p>
           <!-- Item Info -->
           @for (detail of userCart.orderDetails; track detail.id) {
             <div class="d-flex">
-              <span class="badge-item me-2"><img [src]="baseImagePath + '' + detail.imagePath" alt="Product image" width="50"></span>
+              <span class="badge-item me-2"><img [src]="baseImageUrl + '' + detail.imagePath" alt="Product image" width="50"></span>
               <div>
                 <p class="product-title m-2">{{detail.productName}}</p>
                 <p class="product-subtitle text-muted m-0">{{detail.colorName}}</p>

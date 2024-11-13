@@ -88,7 +88,7 @@ export class ProductDetailsComponent implements OnInit {
     @Input('id') prdId: number = 0;
     errors:boolean=false;
     isDataLoading: boolean = true;
-    baseImagePath: string = environment.BaseIMageUrl;
+    baseImageUrl: string = environment.baseImageUrl;
     singlePrdData: ISingleProduct = {} as ISingleProduct;
     colorSizes: ISingleProductColorSize[] = [];
     selectedPrdColorSize: ISingleProductColorSize = {} as ISingleProductColorSize;

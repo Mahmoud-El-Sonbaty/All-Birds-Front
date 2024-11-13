@@ -35,7 +35,7 @@
       <div class="progres"></div><br>
       <div *ngFor="let item of userCart.orderDetails" class="d-flex mb-3">
 
-        <img [src]="baseImagePath + item.imagePath" alt="Product Image" class="img-fluid me-3" style="width: 60px; height: auto;">
+        <img [src]="baseImageUrl + item.imagePath" alt="Product Image" class="img-fluid me-3" style="width: 60px; height: auto;">
         <div class="flex-grow-1">
           <h6>{{ item.productName }}</h6>
           <small>{{ item.colorName }} |{{'sidebar.Size'|translate}} {{ item.sizeNumber }}</small>
@@ -123,7 +123,7 @@
              -->
 
              <!--  -->
-            <img [src]="baseImagePath + item.imagePath" alt="Product Image" class="img-fluid me-3" style="width: 60px; height: auto;" (click)="navigateTo('single-product/'+item.productId)">
+            <img [src]="baseImageUrl + item.imagePath" alt="Product Image" class="img-fluid me-3" style="width: 60px; height: auto;" (click)="navigateTo('single-product/'+item.productId)">
             <div class="flex-grow-2 text-center" >
               <h6>{{ item.productName }}</h6>
               <small>{{ item.colorName }} | {{'sidebar.Size'|translate}} {{ item.sizeNumber }}</small>

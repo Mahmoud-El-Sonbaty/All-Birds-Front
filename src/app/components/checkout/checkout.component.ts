@@ -320,7 +320,7 @@ selectPaymentMethod(method: string) {
   }
   //------------------------------------------------------------------------------ Sonbaty ------------------------------------------------------------------------------//
   userCart: IOrderMaster = {} as IOrderMaster;
-  baseImagePath: string = environment.BaseIMageUrl;
+  baseImageUrl: string = environment.baseImageUrl;
   placeOrder() {
     console.log("place order");
     if (localStorage.getItem("userToken")) {

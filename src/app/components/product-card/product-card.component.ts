@@ -16,7 +16,7 @@ export class ProductCardComponent implements OnInit  {
 
 
   @Input() Products: IProduct = {} as IProduct;
-  BaseImage: string = environment.BaseIMageUrl;
+  BaseImage: string = environment.baseImageUrl;
   mainImagePath? : string;
   PrdSizes! : IproductSize[];
 

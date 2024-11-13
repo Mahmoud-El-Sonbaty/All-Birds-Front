@@ -21,7 +21,7 @@ export class SliderCmComponent implements  AfterViewInit,OnDestroy,OnInit {
 
   sub:Subscription[]= []as Subscription[];
   Products:Iproduct[]=[]as Iproduct[];
-  imagepath:string=environment.BaseIMageUrl;
+  imagepath:string=environment.baseImageUrl;
   customOptions!: OwlOptions;
 
   // customOptions: OwlOptions = {

@@ -12,7 +12,7 @@
               <!-- Thumbnail Images -->
               <div class="thumbnail-container">
                   <img *ngFor="let thumb of selectedPrdColorImages; let i = index"
-                      [src]="baseImagePath+thumb.imagePath"
+                      [src]="baseImageUrl+thumb.imagePath"
                       [class.active]="thumb.prdColorImageId === selectedPrdColorImageId"
                       (click)="changeImage(thumb)"
                       class="thumbnail img-thumbnail"
@@ -40,7 +40,7 @@
               (touchend)="resetSwipe()"
               >
                   <!-- Main Product Image with Swiper and Zoom functionality -->
-                  <img [src]="baseImagePath+selectedPrdColorImage.imagePath"
+                  <img [src]="baseImageUrl+selectedPrdColorImage.imagePath"
                   (click)="openFullScreenCarousel()"
                   class="main-product-image"
                   alt="Product Image">
@@ -85,7 +85,7 @@
           <div *ngFor="let image of selectedPrdColorImages; let i = index"
               class="carousel-slide"
               [class.active]="image.prdColorImageId === selectedPrdColorImageId">
-              <img [src]="baseImagePath+image.imagePath" alt="Product Image {{ image.prdColorImageId }}" class="carousel-image">
+              <img [src]="baseImageUrl+image.imagePath" alt="Product Image {{ image.prdColorImageId }}" class="carousel-image">
           </div>
           <!-- <div *ngFor="let image of selectedColorImages; let i = index"
               class="carousel-slide"
@@ -377,7 +377,7 @@
                     <!-- Image Section -->
                     @if (i % 2 == 0) {
                       <div class="col-md-6 text-center ms-0">
-                        <img [src]="baseImagePath+item.imagePath" alt="Shoe Image" class="img-fluid">
+                        <img [src]="baseImageUrl+item.imagePath" alt="Shoe Image" class="img-fluid">
                       </div>
                       <div class="col-md-6">
                         <!-- <h5 class="text-uppercase text-secondary mb-3" style="letter-spacing: 2px;">TREE UPPER</h5> -->
@@ -398,7 +398,7 @@
                       </div>
                       <!-- Image Section -->
                       <div class="col-md-6 text-center ms-0">
-                        <img [src]="baseImagePath+item.imagePath" alt="Shoe Image" class="img-fluid">
+                        <img [src]="baseImageUrl+item.imagePath" alt="Shoe Image" class="img-fluid">
                       </div>
                     }
                 </div>

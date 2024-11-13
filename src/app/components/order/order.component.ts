@@ -15,7 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class OrderComponent {
   @Input() order: Order = {} as Order;
-  baseImagePath: string = environment.BaseIMageUrl;
+  baseImageUrl: string = environment.baseImageUrl;
   constructor(private router: Router) {}
   navigateTo(prdId: number) {
     this.router.navigateByUrl(`single-product/${prdId}`);
