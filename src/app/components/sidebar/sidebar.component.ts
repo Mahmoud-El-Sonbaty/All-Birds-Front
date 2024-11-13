@@ -23,7 +23,7 @@ export class SidebarComponent implements OnChanges {
       this.userCart = JSON.parse(localStorage.getItem("cart")!)
   }
   userCart: IOrderMaster = {} as IOrderMaster;
-  baseImagePath: string = environment.BaseIMageUrl;
+  baseImageUrl: string = environment.baseImageUrl;
   notLoggedIn: boolean = localStorage.getItem("userToken") == null;
 
 

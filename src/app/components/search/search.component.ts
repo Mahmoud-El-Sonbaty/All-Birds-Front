@@ -15,7 +15,7 @@
     styleUrl: './search.component.css'
   })
   export class SearchComponent  {
-    BaseImage: string = environment.BaseIMageUrl;
+    BaseImage: string = environment.baseImageUrl;
     sub: Subscription[] = [] as Subscription[];
     loading:boolean=false;
 

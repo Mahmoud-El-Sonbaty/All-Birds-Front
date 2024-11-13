@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit,OnDestroy {
 
   sub:Subscription[]= []as Subscription[];
   Products:Iproduct[]=[]as Iproduct[];
-  imagepath:string=environment.BaseIMageUrl;
+  imagepath:string=environment.baseImageUrl;
   lang!:string;
   constructor(private Product: ProductService, private translate: TranslateService ,language:LanguageService,private router:Router ) {
     this.lang=language.getLanguage();
