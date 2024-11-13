@@ -1,19 +1,17 @@
 export interface Iproduct {
-   id:number,
-   mainImagePath :string
-   price :number
-   colorName :string
-   name :string
-
+  id:number,
+  mainImagePath :string
+  price :number
+  colorName :string
+  name :string
 }
+
 export interface ApiresponseProduct{
 
   data:Iproduct[];
   msg:string;
   isSuccess:boolean;
 }
-
-
 
 export interface IProduct {
   id: number;
