@@ -1,0 +1,7 @@
+html {
+  transition: direction 1s ease;
+}
+
+body {
+  direction: inherit;
+}

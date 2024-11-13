@@ -1,0 +1,324 @@
+ <!--==============================================================================================
+
+                                   Nav Bar And Localization by AHMED ELGHOUL
+
+ ==================================================================================================-->
+
+
+
+
+ <nav [class]="'navbar navbar-expand-xl navbar-light bg-light '+ language ">
+  <a href="">
+
+    <div class="navbar-brand mx-auto col-1" id="Allbirds">
+      <img src="images/Logo.svg"  routerLink="home" href="#" alt="Logo" class="navbar-logo img-fluid" >
+    </div>
+  </a>
+
+
+
+
+    <div class="container-fluid d-xl-none  m-0 p-0">
+      <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>    </button>
+
+
+      <ul class="flex-column  collapse navbar-collapse  justify-content-between   list-unstyled " id="navbarNav1">
+
+
+
+
+        @for (parent of category; track parent.id ; let i =$index) {
+
+         @if(parent.isParentCategory){
+          <li class="nav-item">
+            <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button" (click)="showing(parent.id,parent.level)" aria-expanded="false"  [attr.aria-controls]="parent.id + 'Menu'">
+              <p class="ms-3 mt-3  d-inline-block ">{{parent.name}}</p>
+              @if(parent.isParentCategory){
+                <span class="arrows">→</span>
+
+              }
+              <hr>
+
+            </div>
+            @if(parent.isParentCategory){
+              <div [class]="'collapse ' +parent.id+'-content'" [id]="'Menu'+parent.id">
+                <h4 class="'collapse-header level0 centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(parent.id,parent.level)">
+                  <span class="back-button position-absolute start-0 ms-3">←</span>
+                {{parent.name}}
+                </h4>
+
+
+                <ul class="nav flex-column sub-menu">
+                  @for (child of parent.children; track child.id;let y =$index) {
+                    @if (child.isParentCategory) {
+                    <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" (click)="showing(child.id,child.level)" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
+                      <p class="ms-2 mt1  d-inline-block   ">{{child.name}}
+                    </p>
+                    <span class=" position-absolute end-0 me-3">→</span>
+
+
+                    <hr>
+
+                  </li>
+                }@else {
+                  <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" [routerLink]="['/collections',parent.id+'-'+child.id]" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
+                    <p class="ms-2 mt1  d-inline-block   ">{{child.name}}
+                  </p>
+
+                  <hr>
+
+                </li>
+                }
+                    @if (child.isParentCategory) {
+
+
+                      <div [class]="'collapse ' +child.id+'-content'" [id]="'Menu'+child.id">
+                        <h4 class="collapse-header  centered position-relative bg-secondary bg-opacity-25 p-2" (click)="goBack(child.id,child.level)">
+                          <span class="back-button position-absolute start-0 ms-3">←</span>
+                        {{child.name}}
+                        </h4>
+
+
+                        <ul class="nav flex-column sub-menu">
+                          @for (grandChild of child.children; track grandChild.id;let x =$index) {
+                            <li  class="nav-item level2 fade-in p-3" [routerLink]="['/collections',child.id+'-'+grandChild.id]"  >{{grandChild.name}}
+
+                            </li>
+                            <hr>
+
+                          }
+
+                        </ul>
+                        </div>
+                      }
+
+                  }
+
+                </ul>
+              </div>
+            }
+
+
+          </li>
+         }@else {
+
+           <li class="nav-item">
+                     <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button"  aria-expanded="false"  [routerLink]="['/collections',parent.id]" [attr.aria-controls]="parent.id + 'Menu'">
+                       <p class="ms-3 mt-3  d-inline-block ">{{parent.name}}</p>
+                       <hr>
+                     </div>
+                   </li>
+         }
+        }
+
+        <li class="nav-item nav-link level0">
+          <p class="ms-3 mt-3  d-inline-block ">{{'navBar.Account'|translate}}</p>
+          <hr>
+
+        </li>
+
+        <li class="nav-item nav-link level0">
+          <p class="ms-3 mt-3  d-inline-block ">{{'navBar.help'|translate}}</p>
+          <hr>
+
+        </li>
+        @if (local!=null){
+
+        <li class="nav-item nav-link level0" (click)="logOut()">
+          <p class="ms-3 mt-3  d-inline-block ">{{'navBar.SignOut'|translate}}</p>
+          <hr>
+
+        </li>
+      }
+      </ul>
+
+
+
+    </div>
+
+
+
+
+
+
+
+  <div class="container-fluid">
+    <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="toggler-icon"></span>
+      <span class="toggler-icon"></span>
+      <span class="toggler-icon"></span>    </button>
+
+
+    <div class="collapse navbar-collapse justify-content-between d-none" id="navbarNav">
+
+      <ul class="navbar-nav">
+      <ul class="navbar-nav ">
+
+        @for (child of category; track child.id ; let i =$index){
+          @if (child.isParentCategory) {
+            <li class="nav-item">
+              <a class="nav-link dropdown-toggle" href="#" [id]="child.name+'Dropdown'"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{child.name}}
+              </a>
+
+              <div class="dropdown-menu" [attr.aria-labelledby]="child.name + 'Dropdown'">
+                <div class="row fade-in">
+                    @for (kid of child.children; track  kid.id;let x= $index) {
+
+
+                      @if(kid.name !="New Arrivals"){
+                          <div class="col-lg-2 col-md-12 mx-auto">
+                          <h5>{{kid.name}}</h5>
+                          @for (smaller of kid.children; track  smaller.id;let s= $index) {
+
+                            <a class="dropdown-item"  routerLinkActive="active_link" [routerLink]="['/ProductCategory',kid.id+'-'+smaller.id]">{{smaller.name}}</a>
+                          }
+
+                        </div>
+                        }@else {
+                          <div class="col-lg-6 col-md-12">
+                            <h5>{{kid.name}}</h5>
+                              <div class="row">
+                                  <div class="col-md-12 m-2">
+                                    <div class="featured-image">
+                                      <img src="https://placehold.co/100x30" alt="Shop Men's Sale">
+                                      <div class="text">Shop Men's Sale</div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-12 m-2">
+                                    <div class="featured-image">
+                                      <img src="https://placehold.co/100x30" alt="Ultra-Soft Wool Sneaks">
+                                      <div class="text">Ultra-Soft Wool Sneaks</div>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+
+
+                        }
+                      }
+                  </div>
+                  </div>
+
+            </li>
+
+          }@else {
+
+                   <li class="nav-item " >
+                    @if(child.name=="Sale"){
+
+                      <a class="nav-link text-danger" routerLinkActive="active_link" [routerLink]="['/ProductCategory',child.id]">{{child.name}}</a>
+                    }@else {
+
+                      <a class="nav-link text-dark" routerLinkActive="active_link" [routerLink]="['/ProductCategory',child.id]">{{child.name}}</a>
+                    }
+
+                </li>
+          }
+        }
+
+
+    </ul>
+  </ul>
+
+
+      <ul class="navbar-nav text-dark">
+        <li class="nav-item ">
+          <a class="nav-link text-dark d-none d-xxl-block " href="#">{{'navBar.sustainability'|translate}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">{{'navBar.rerun'|translate}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">{{'navBar.stores'|translate}}</a>
+        </li>
+      </ul>
+
+    </div>
+    <div class="d-flex align-items-center">
+      <ul class="navbar-nav navbar-icons ms-auto d-flex flex-row " id="icons">
+          <li class="nav-item ">
+            <a class="nav-link"   (click)="toggleLanguage()"><i class="fas fa-globe text-dark"></i></a>
+          </li>
+          @if (!currentURl.includes('search')) {
+
+        <li class="nav-item d-none d-md-block ">
+          <a class="nav-link" (click)="goToSearch()"><i class="fas fa-search text-dark searchIcon"></i></a>
+        </li>
+      }
+      @if (isLoggedIn()) {
+        <li class="nav-item  d-none d-xl-block ">
+          <a class="nav-link" routerLink="orders"><i class="fas fa-user text-dark"></i></a>
+        </li>
+      }@else {
+
+        <li class="nav-item  d-none d-xl-block ">
+          <a class="nav-link" routerLink="register"><i class="fas fa-user text-dark"></i></a>
+        </li>
+      }
+        @if (local!=null){
+          <li class="nav-item  d-none d-xl-block cart-icon ">
+            <a class="nav-link" (click)="logOut()"> <i class="fas fa-sign-out-alt text-dark"></i> </a>
+
+          </li>
+        }
+
+        <li class="nav-item cart-icon">
+          <button class="nav-link position-relative"  (click)="sidebar.toggleSidebar()" >
+
+            <!-- <a     > -->
+
+
+
+              <i class="fas fa-shopping-cart text-dark"></i>
+
+              <!-- <span class="border border-light rounded-circle" style="background-color:#ddbc00 ;"> </span> -->
+            <!-- </a>  -->
+          </button>
+
+
+          <!-- <span class="badge bg-light text-dark ">+99</span> -->
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+  @if (!currentURl.includes('search')) {
+
+    <div  class="search-container d-flex justify-content-start align-items-center d-xl-none m-2 p-2 ">
+      <a class="nav-link" ><i class="fas fa-search text-dark searchIcon2 "></i></a>
+      <input class="form-control" (click)="goToSearch()" type="search" [placeholder]="'navBar.search'|translate" aria-label="Search" style=" margin-left: 10px;">
+    </div>
+  }
+</nav>
+
+
+<app-sidebar #sidebar></app-sidebar>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
