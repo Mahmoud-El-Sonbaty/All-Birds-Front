@@ -1,0 +1,345 @@
+{
+  "navBar": {
+    "Account":"Account",
+    "sustainability":"Sustainability",
+    "rerun":"rerun",
+    "stores":"stores",
+    "help":"help",
+    "search":"search",
+    "SignOut":"Sign Out"
+
+
+  },
+  "signUp": {
+    "register": {
+      "create_account": "Create an Account",
+      "info_message": "We never save credit card information.\n\nRegistering makes checkout fast and easy and saves your order information in your account.",
+      "labels": {
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "email": "Email",
+        "password": "Password",
+        "confirm_password": "Confirm Password"
+      },
+      "errors": {
+        "Fname_required": "First Name is required",
+        "Lname_required": "Last Name is required",
+        "min_length_firstname": "Minimum length is 3",
+        "min_length_lastname": "Minimum length is 3",
+        "email_required": "Email is required",
+        "email_invalid": "Email must contain @",
+        "password_required": "Password is required",
+        "min_length_password": "Minimum length is 6",
+        "password_invalid": "Password must contain at least one number",
+        "confirm_password_required": "Confirm Password is required",
+        "password_mismatch": "Confirm Password does not match"
+      },
+      "buttons": {
+        "submit": "Register",
+        "cancel": "Cancel"
+      },
+      "footer_note": "* REQUIRED FIELDS"
+    }
+  },
+  "checkOut": {
+    "Mobile_number":"Mobile number",
+    "Contact":"Contact",
+    "Login":"Login",
+    "Email":"Email",
+    "email_invalid":"Enter a valid email address",
+    "EmailMe":"Email me with news and offers",
+    "Delivery":"Delivery",
+    "Region":"Country/Region",
+    "First_name":"First name",
+    "Enter_First_name":"Enter a first name",
+    "Last_name":"Last name",
+    "Enter_Last_name":"Enter a last name",
+    "Company":"Company (required for business addresses)",
+    "Address":"Address",
+    "Enter_Address":"Enter an address",
+    "Enter_Apartment":"Apartment, suite, etc. (optional)",
+    "City":"City",
+    "Enter_City":"Enter the City",
+    "State":"State",
+    "Egypt":"Egypt",
+    "Syria":"Syria",
+    "zip":"ZIP code",
+    "Enter_zip":"Enter a ZIP / postal code",
+    "TextMe":"Text me with news and offers",
+    "Select_state":"Select a state / province",
+    "bigIfo":"By submitting this form, you agree to receive recurring automated promotional and personalized marketing text messages (e.g., cart reminders) from Allbirds at the cell number used when signing up. Consent is not a condition of any purchase. Reply HELP for help and STOP to cancel. Msg frequency varies. Msg and data rates may apply. View our",
+    "Privacy":"Privacy Policy",
+    "and":"&",
+    "terms":"Terms of Service",
+    "Shipping_method":"Shipping method",
+    "Enter_Shipping_method":"Enter your shipping address to view available shipping methods.",
+    "Payment":"Payment",
+    "transactions":"All transactions are secure and encrypted.",
+    "PayPal":"PayPal",
+    "PayPayPal":"Pay with PayPal",
+    "Apply":"Apply",
+    "Subtotal":"Subtotal",
+    "Shipping":"Shipping",
+    "EnterShipping":"Enter Shiping Address",
+    "USD":"USD",
+    "Total":"Total",
+
+    "cashOnDelevery":{
+      "cashOn":"Cash on Delivery",
+        "items": "Items:",
+        "shippingHandling": "Shipping & Handling:",
+        "freeDelivery": "Free Delivery:",
+        "freeDeliveryAvailable": "Available",
+        "orderTotal": "Order Total:",
+        "codInfo": "Please have the exact amount ready. Additional fees may apply for COD services."
+    }
+
+  },
+  "login": {
+    "welcome": "Welcome",
+    "logout": "Logout",
+    "password": "Password",
+    "login": "Login",
+    "register": "Register",
+    "search": "Search",
+    "email": "Email",
+    "home": "Home",
+    "about_us": "About Us",
+    "contact": "Contact",
+    "products": "Products",
+    "cart": "Cart",
+    "order_history": "Order History",
+    "admin_panel": "Admin Panel",
+    "EmailRequired": "Email is required",
+    "PasswordRequired": "Password is required",
+    "Minlength": "Minimum length is 6",
+    "mustContain": "Email must contain",
+    "passwordLeast": "Password must contain at least one number",
+    "forgetPassword": "Forgot Password",
+    "resetPassword": "Reset Your Password",
+    "emailBackToReset": "We will send you an email to reset your password.",
+    "emailMustContain": "Email must contain",
+    "submit": "Submit",
+    "Cancel": "Cancel"
+  },
+  "sidebar": {
+    "freeShipping": "You're $75 away from free shipping!",
+    "cartEmpty": "Your Cart is Empty",
+    "shopMens": "Shop Men's",
+    "shopWomens": "Shop Women's",
+    "shopSocks": "Shop Socks",
+    "shopMensSale": "Shop Men's Sale",
+    "shopWomensSale": "Shop Women's Sale",
+    "Congrats":"Congrats! You get free standard shipping",
+    "Size":"Size:",
+    "Subtotal":"Subtotal",
+    "Shipping":"Shipping",
+    "Free":"Free",
+    "Proceed":"Proceed to Checkout",
+    "productName":"product name"
+
+
+  },
+  "home": {
+    "btn":{
+      "men":"Shop Men",
+      "Woman":"Shop Woman",
+      "now": "Shop Now"
+    },
+    "slider1":{
+      "slide1":{
+      "subtitle":"Protected",
+      "thirdtitle":"By Nature",
+      "description1":"THE NEW PROTECT COLLECTION,",
+      "description2":"ULTRA WATER-REPELLENT TO WEATHER IT ALL."
+      }
+
+    },
+    "3cards":{
+      "card1":{
+        "title": "Wool Runner Go",
+        "subtitle":"Sublimely Soft, Everyday Elevated"
+      },
+      "card2":{
+        "title": "Wool Runner Mizzle",
+        "subtitle":"Weather-ready, Everyday Sneaker"
+      },
+      "card3":{
+        "title": "Wool Runner Go",
+        "subtitle":"'Breezy High-Top Sneakers"
+      }
+    },
+    "slider2":{
+      "slide1":{
+        "card1":"Men's season ready",
+        "card2":"Women's Fall Essentials"
+      },
+      "slide2":{
+        "card1":"Men's Sporty Styles",
+        "card2":"Women's Athleisure Styles"
+      },
+      "slide3":{
+        "card1":"Men's Lightweight Styles",
+        "card2":"Women's Packable Shoes"
+      }
+    },
+    "4Product":{
+      "title":"New Season, New Styles",
+      "subtitle":"The latest shoes to start winter on the right foot."
+    },
+    "giftCards":{
+      "card1":{
+        "title":"Gifts Under $100",
+        "subtitle":"Cozy Gifts At Comfy Prices"
+      },
+      "card2":{
+           "title":"Gift Cards",
+        "subtitle":"Always Fits, Never Fails"
+      }
+    }
+  },
+  "product-card": {
+    "Quick_Add":"Quick Add"
+  },
+  "filter":{
+    "Home":"Home",
+    "FilterBy":"Filter By:",
+    "Sizes":"Sizes",
+    "Sizetitle":" Most of our shoes only come in full sizes. If you’re a half size, select your nearest whole size too.",
+    "Clear_All":"Clear All",
+    "HUE":"HUE"
+  },
+  "slider":{
+    "Best_Seller":"Best Seller"
+  },
+  "product_details":{
+    "CLASSICS":"Classics:",
+    "SELECT_SIZE":"SELECT SIZE",
+    "ADD_TO_CART":"ADD TO CART - ",
+    "Free_Shipping_on_orders":"Free Shipping on orders of $75. Free extended returns through January 17th",
+    "FREE_SHIPPING" :"FREE SHIPPING",
+    "Highlights":"Highlights",
+    "Sustainability":"Sustainability",
+    "CarGuid":"Care Guide",
+    "CarGuidmsg":"Handy tips: Don’t put them in the dryer. They’ll go back to their original shape in no time. You can hand wash your insoles on their own.",
+    "CarGuidmsg2":"Want the full refresh experience? Swap in some new insoles. Check out our guide for more info on how to wash your running shoes.",
+    "Shipping_Returns":"Shipping & Returns",
+    "shipingMsg1":" Free shipping on orders over $75. Lightly worn shoes get donated to Soles4Souls.",
+    "shipingMsg2":"Gift with confidence; orders purchased between November 1, 2024 - December 24, 2024 are eligible for returns until January 17, 2025. Apparel labels need to be intact. For socks and undies, packaging must be unopened. Final Sale items cannot be returned or exchanged. Final Sale items include: gift cards, insoles, and items tagged final sale on our website and in Allbirds retail stores."
+  },
+  "order":{
+    "orderSummary": {
+      "orderNo": "ORDER NO",
+      "orderPlaced": "ORDER PLACED",
+      "total": "TOTAL",
+      "discountPercentage": "DISCOUNT PERCENTAGE",
+      "discountAmount": "DISCOUNT AMOUNT",
+      "shipTo": "SHIP TO",
+      "Pieces":"Pieces",
+      "2Pieces":"Pieces",
+      "Piece":"Piece",
+      "Color":"Color :",
+      "size":"Size :",
+      "sub_total":"Sub-Total :",
+      "َquantity":"Quantity :"
+    },
+    "orderState": "Order state",
+    "buttons": {
+      "buyAgain": "Buy it again",
+      "viewItem": "View your item"
+    }
+  },
+  "orders": {
+    "loading": "Loading...",
+    "noOrders": "No Orders To Display",
+    "No_Product": "This Product Doesn't Exist",
+    "error":"Error",
+    "yourOrders": "Your Orders",
+    "searchPlaceholder": "Search all orders",
+    "selectYear": "Select Year",
+    "allYears": "All Years",
+    "OrderCanceled":"Order Canceled"
+  },
+  "error": {
+
+  },
+  "footer": {
+    "footerWhite": {
+      "title": "The Allbirds Approach",
+      "sections": {
+        "wearAllDayComfort": {
+          "title": "Wear-All-Day Comfort",
+          "description": "Lightweight, bouncy, and wildly comfortable, Allbirds shoes make any outing feel effortless. Slip in, lace up, or slide them on and enjoy the comfy support.",
+          "link": "Learn More"
+        },
+        "sustainabilityInEveryStep": {
+          "title": "Sustainability In Every Step",
+          "description": "From materials to transport, we’re working to reduce our carbon footprint to near zero. Holding ourselves accountable and striving for climate goals isn’t a 30-year goal—it’s now.",
+          "link": "Learn More"
+        },
+        "materialsFromTheEarth": {
+          "title": "Materials From The Earth",
+          "description": "We replace petroleum-based synthetics with natural alternatives wherever we can. Like using wool, tree fiber, and sugar cane. They’re soft, breathable, and better for the planet—win, win, win.",
+          "link": "Learn More"
+        }
+      }
+    },
+    "footerBlack": {
+      "sections": {
+        "help": {
+          "title": "Help",
+          "links": {
+            "chatWithUs": "Chat with us!",
+            "phone1": "1-888-963-8944",
+            "phone2": "1-814-251-9966 (Text)",
+            "email": "help@allbirds.com",
+            "returnsExchanges": "Returns/Exchanges",
+            "faqContactUs": "FAQ/Contact Us",
+            "afterpay": "Afterpay"
+          }
+        },
+        "shop": {
+          "title": "Shop",
+          "links": {
+            "mensShoes": "Men's Shoes",
+            "womensShoes": "Women's Shoes",
+            "mensApparel": "Men's Apparel",
+            "womensApparel": "Women's Apparel",
+            "socks": "Socks",
+            "giftCards": "Gift cards",
+            "referAFriend": "Refer a friend"
+          }
+        },
+        "company": {
+          "title": "Company",
+          "links": {
+            "ourStory": "Our Story",
+            "ourMaterials": "Our Materials",
+            "sustainability": "Sustainability",
+            "investors": "Investors",
+            "shoeCare": "Shoe Care",
+            "affiliates": "Affiliates",
+            "bulkOrders": "Bulk Orders",
+            "careers": "Careers",
+            "press": "Press",
+            "responsibleDisclosure": "Allbirds Responsible Disclosure Program",
+            "californiaTransparencyAct": "California Transparency Act",
+            "communityOffers": "Community Offers",
+            "ourBlog": "Our Blog - The Perch"
+          }
+        }
+      },
+      "social_media": {
+        "title": "Follow the flock"
+
+      },
+      "footer_bottom": {
+        "text": "© 2024 Allbirds, Inc. All Rights Reserved.",
+        "links": {
+          "terms": "Terms",
+          "privacyAndAccessibility": "Privacy & Accessibility"
+        }
+      }
+    }
+  }
+}

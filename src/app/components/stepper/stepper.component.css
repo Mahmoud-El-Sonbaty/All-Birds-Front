@@ -1,0 +1,128 @@
+/* Base styles for stepper */
+.stepperContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* Step item styles */
+.step-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+
+/* Connector line between steps */
+.step-item:not(:first-child)::before {
+  content: '';
+  background-color: #cbd5e0;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  right: 50%;
+  top: 27%;
+  transform: translateY(-50%);
+}
+
+/* Step circle styles */
+.step {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  position: relative;
+  background-color: #232f3e;
+  border-radius: 9999px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.stepParag {
+  color: #717e8a;
+}
+
+/* Active and completed states */
+.active {
+  background-color: #48bb78;
+}
+.active + .stepParag {
+  color: #48bb78;
+}
+
+.complete {
+  background-color: #48bb78;
+}
+.complete + .stepParag {
+  color: #48bb78;
+}
+
+.completeParent:not(:first-child)::before,
+.activeParent:not(:first-child)::before {
+  background-color: #48bb78;
+}
+
+/* Canceled step */
+.canceled-step {
+  background-color: red;
+  font-size: 1.5em;
+}
+
+/* Responsive styles for tablets and mobile screens */
+@media (max-width: 991px) {
+  .step{
+    margin-right: 10px;
+  }
+  .stepParag{
+    text-align: center;
+    margin: 0;
+  }
+  .stepperContainerContainer {
+    display: flex;
+    justify-content: center;
+  }
+  .stepperContainer {
+    flex-direction: column;
+    width: fit-content;
+  }
+  .step-item {
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .step {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.875rem;
+  }
+
+  .step-item:not(:first-child)::before {
+    height: 100%;
+    width: 3px;
+    top: -21px;
+    right: auto;
+    left: 0;
+    transform: translateX(500%);
+  }
+}
+
+/* Additional adjustments for smaller devices */
+@media (max-width: 768px) {
+  .step {
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.75rem;
+  }
+
+  .stepParag {
+    font-size: 0.875rem;
+  }
+}
