@@ -51,8 +51,13 @@ export class OrdersComponent implements OnInit {
   }
   getUniqueOrderYears() {
     const years = this.ordersData.data.map(order => {
-      const [day, month, year] = order.dateOrdered.split('/');
-      return new Date(`${year}-${month}-${day}`).getFullYear(); // Correct format: yyyy-mm-dd
+      if (order.dateOrdered != null) {
+        const [day, month, year] = order.dateOrdered.split('/');
+        return new Date(`${year}-${month}-${day}`).getFullYear(); // Correct format: yyyy-mm-dd
+      }
+      else {
+        return new Date().getFullYear();
+      }
     });
     return Array.from(new Set(years)); // Remove duplicates
   }
@@ -60,9 +65,15 @@ export class OrdersComponent implements OnInit {
   // Filter orders based on year and search query
   getFilteredOrders() {
     return this.ordersData.data.filter(order => {
-      const [day, month, year] = order.dateOrdered.split('/');
-      const orderYear = new Date(`${year}-${month}-${day}`).getFullYear();
-
+      let orderYear;
+      if (order.dateOrdered != null) {
+        const [day, month, year] = order.dateOrdered.split('/');
+        orderYear = new Date(`${year}-${month}-${day}`).getFullYear();
+      }
+      else {
+        const [day, month, year] = new Date().toDateString().split('/');
+        orderYear = new Date(`${year}-${month}-${day}`).getFullYear();
+      }
       const selectedYearNumber = this.selectedYear ? Number(this.selectedYear) : null;
 
       // Check if any of the order properties or details match the search query

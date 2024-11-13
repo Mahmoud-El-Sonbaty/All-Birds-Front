@@ -241,7 +241,7 @@
       "Color":"Color :",
       "size":"Size :",
       "sub_total":"Sub-Total :",
-      "َquantity":"Quantity :"
+      "quantity":"Quantity :"
     },
     "orderState": "Order state",
     "buttons": {
@@ -255,10 +255,18 @@
     "No_Product": "This Product Doesn't Exist",
     "error":"Error",
     "yourOrders": "Your Orders",
-    "searchPlaceholder": "Search all orders",
+    "searchPlaceholder": "Search All Orders",
     "selectYear": "Select Year",
     "allYears": "All Years",
     "OrderCanceled":"Order Canceled"
+  },
+  "stepper": {
+    "pending": "Pending",
+    "approved": "Approved",
+    "processing": "Processing",
+    "out_for_delivery": "Out For Delivery",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled"
   },
   "error": {
 
