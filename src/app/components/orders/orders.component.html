@@ -18,7 +18,7 @@
           <div class="ordersSearchContainer">
             <div class="ordersSearchInput">
               <i class="ordersSearchIcon"></i>
-              <input type="text" placeholder="Search all orders" [(ngModel)]="searchQuery"/>
+              <input type="text" [placeholder]="'orders.searchPlaceholder' | translate" [(ngModel)]="searchQuery"/>
             </div>
           </div>
         </div>
