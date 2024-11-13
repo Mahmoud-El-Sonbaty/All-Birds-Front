@@ -13,8 +13,6 @@ export interface ApiresponseProduct{
   isSuccess:boolean;
 }
 
-
-
 export interface IProduct {
   id: number;
   name: string;
