@@ -64,7 +64,7 @@
 
                   </li>
                 }@else {
-                  <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" [routerLink]="['/collections',parent.id+'-'+child.id]" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
+                  <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" [routerLink]="['/ProductCategory',parent.id+'-'+child.id]" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
                     <p class="ms-2 mt1  d-inline-block   ">{{child.name}}
                   </p>
 
@@ -84,7 +84,7 @@
 
                         <ul class="nav flex-column sub-menu">
                           @for (grandChild of child.children; track grandChild.id;let x =$index) {
-                            <li  class="nav-item level2 fade-in p-3" [routerLink]="['/collections',child.id+'-'+grandChild.id]"  >{{grandChild.name}}
+                            <li  class="nav-item level2 fade-in p-3" [routerLink]="['/ProductCategory',child.id+'-'+grandChild.id]"  >{{grandChild.name}}
 
                             </li>
                             <hr>
@@ -106,7 +106,7 @@
          }@else {
 
            <li class="nav-item">
-                     <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button"  aria-expanded="false"  [routerLink]="['/collections',parent.id]" [attr.aria-controls]="parent.id + 'Menu'">
+                     <div [class]="'nav-link  level'+parent.level +' ' +parent.id+'-toggle position-relative fade-in  text-dark'" data-bs-toggle="collapse" [attr.href]="'#Menu' + parent.id "  role="button"  aria-expanded="false"  [routerLink]="['/ProductCategory',parent.id]" [attr.aria-controls]="parent.id + 'Menu'">
                        <p class="ms-3 mt-3  d-inline-block ">{{parent.name}}</p>
                        <hr>
                      </div>
@@ -114,7 +114,7 @@
          }
         }
 
-        <li class="nav-item nav-link level0">
+        <li class="nav-item nav-link level0" routerLink="orders">
           <p class="ms-3 mt-3  d-inline-block ">{{'navBar.Account'|translate}}</p>
           <hr>
 
