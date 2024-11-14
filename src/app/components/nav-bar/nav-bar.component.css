@@ -346,3 +346,9 @@ display: none !important;
     /* الحجم على الشاشات الكبيرة */
   }
 }
+.navbar-toggler:focus-within
+{
+  border: none !important;
+  box-shadow: none;
+
+}
