@@ -20,13 +20,16 @@
   color: black;
 }
 .ordersContainer{
-  margin-left: 4%;
-  width: 90%;
+  margin: 4%;
   padding: 3%;
 }
-.ordersContainerRTL{
+
+/* .en.ordersContainerRTL{
   direction: rtl;
 }
+.ar.ordersContainerRTL{
+  direction: ltr;
+} */
 .titleAndSearchContainer{
   width: 100%;
   display: flex;

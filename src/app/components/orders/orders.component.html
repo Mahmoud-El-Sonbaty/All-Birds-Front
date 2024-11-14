@@ -12,7 +12,7 @@
       </div> -->
     }
     @else{
-      <div class="ordersContainer">
+      <div [class]="'ordersContainer '+lang">
         <div class="titleAndSearchContainer">
           <h1>{{ 'orders.yourOrders' | translate }}</h1>
           <div class="ordersSearchContainer">
@@ -33,7 +33,7 @@
           <div class="ordersContents">
             <div class="ordersDisplay">
               <div *ngFor="let order of getFilteredOrders()">
-                <app-order [order]="order"></app-order>
+                <app-order [order]="order" ></app-order>
               </div>
             </div>
           </div>

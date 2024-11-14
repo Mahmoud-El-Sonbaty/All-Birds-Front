@@ -8,6 +8,7 @@ import { LoaderComponent } from '../loader/loader.component';
 import { OrderComponent } from '../order/order.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { AlertMessageComponent } from "../alert-message/alert-message.component";
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-orders',
@@ -25,8 +26,10 @@ export class OrdersComponent implements OnInit {
   };
   selectedYear: number | null = null;
   searchQuery: string = '';
-
-  constructor(private ordersService: OrdersService, private router: Router) {}
+  lang:string="en";
+  constructor(private ordersService: OrdersService, private router: Router,language:LanguageService) {
+    this.lang=language.getLanguage();
+  }
 
   ngOnInit(): void {
     this.ordersService.getUserOrders(localStorage.getItem("userToken")!).subscribe({

@@ -9,6 +9,7 @@
   padding: 0px;
 }
 /* orders */
+
 .theOrder{
   width: 100%;
   border: 1px solid #ccc ;
@@ -22,17 +23,31 @@
   background-color: #222222;
   display: flex;
   width: 100%;
+  padding: 5px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border-bottom: 1px solid #ccc;
 }
-.orderFirstSection>div{
+.ar .orderFirstSection>div{
+  margin-left: 19px;
+}
+.en .orderFirstSection>div{
   margin-right: 19px;
 }
-.orderFirstSection h5{
+.ar .orderFirstSection h5{
+  margin-left: 19px;
+  text-align: start;
+  color: #ffffff;
+}
+.en .orderFirstSection h5{
   margin-right: 19px;
   color: #ffffff;
 }
+.ar .orderFirstSection h6{
+  text-align: start;
+  color: #ffffff;
+}
+
 .orderFirstSection h6{
   color: #ffffff;
 }
@@ -43,17 +58,24 @@
 .orderStateH2{
   color: #717e8a;
   text-align: center;
-  margin-bottom: 7px;
+  margin-bottom: 20px !important;
 }
 .orderSecondSection{
   border-bottom: 1px solid #ccc;
 }
-.orderReceipt{
+.en .orderReceipt{
   margin-bottom:20px;
   margin-left:1.5%;
 }
-.orderProducts{
+.ar .orderReceipt{
+  margin-bottom:20px;
+  margin-right:1.5%;
+}
+.en .orderProducts{
   padding-left: 16px;
+}
+.ar .orderProducts{
+  padding-right: 16px;
 }
 .orderProduct{
   margin-bottom: 20px;
@@ -126,8 +148,9 @@
   }
   .orderProductInfos{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+
   }
   .orderProductReview{
     width: 50%;
@@ -173,3 +196,34 @@
   }
 }
 
+.accordion-button{
+
+  border: none;
+  background-color: #222222;
+  color: white;
+  width: fit-content;
+  /* text-decoration: none  !important; */
+  padding: 1rem;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.accordion-button div{
+  /* text-decoration: none ; */
+  padding: 5px;
+}
+.accordion-button:focus-within{
+  border: none !important;
+  box-shadow: none !important;
+  color: white !important;
+}
+.orderFirstSection {
+ border: 0 !important;
+}
+
+
+.accordion-button:not(.collapsed)::after {
+  background-image: var(--bs-accordion-btn-active-icon);
+  transform: var(--bs-accordion-btn-icon-transform);
+  filter: brightness(0) invert(1);
+}
