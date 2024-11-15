@@ -7,13 +7,15 @@ import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../../../services/language.service';
+import { Router, RouterLink } from '@angular/router';
 
 declare var $: any;
 
 @Component({
   selector: 'app-slider-cm',
   standalone: true,
-  imports: [CommonModule,CarouselModule,TranslateModule],
+  imports: [CommonModule,CarouselModule,TranslateModule,RouterLink],
   templateUrl: './slider-cm.component.html',
   styleUrl: './slider-cm.component.css'
 })
@@ -60,9 +62,9 @@ export class SliderCmComponent implements  AfterViewInit,OnDestroy,OnInit {
 
 
 
-
-  constructor(private Product:ProductService) {
-
+  lang:string="en"
+  constructor(private Product:ProductService,language:LanguageService) {
+    this.lang=language.getLanguage();
   }
   ngOnDestroy(): void {
     for (const element of this.sub) {

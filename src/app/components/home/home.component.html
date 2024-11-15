@@ -140,7 +140,7 @@
       <div class="col-lg-  right-column m-1 p-0 mb-1">
         <div class="row g-1 w-100">
           <!-- Product Loop -->
-          <div *ngFor="let prd of Products; trackBy: trackById" class="col-6 proudctCard    ">
+          <div *ngFor="let prd of Products; trackBy: trackById" class="col-6 proudctCard">
             <div class="position-relative imag4" [routerLink]="'/single-product/'+prd.id">
               <img [src]="imagepath + prd.mainImagePath" class="img-fluid images"  alt="Small Shoe Image">
             </div>
