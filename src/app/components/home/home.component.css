@@ -698,10 +698,18 @@
     font-size: 1.2rem;
 
   }
-  .prc
+ .en .prc
   {
     position: absolute;
     right: 2%;
+    bottom: 6%;
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+ .ar .prc
+  {
+    position: absolute;
+    left: 2%;
     bottom: 6%;
     margin-bottom: 5px;
     font-size: 1rem;
@@ -730,6 +738,6 @@
   .proudctCard{
     box-shadow: 5px 5px 5px 0 rgba(0, 9, 32, 0.579) !important;
     /* box-shadow: 5px 5px 5px rgba(86, 72, 6, 0.137); */
-    background-color: rgba(160, 119, 5, 0.179);
+    background-color: #e0dbd5;
     /* border:  rgba(199, 199, 199, 0.063) 2px solid ; */
   }

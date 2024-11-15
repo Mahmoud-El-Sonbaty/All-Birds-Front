@@ -73,8 +73,8 @@ opacity: 1;
 }
 .ar .card-price{
   position: absolute;
-  bottom: 5%;
-  right: 5%;
+  bottom: 4%;
+  left: 5%;
   font-size: 1.2em;
 
 }
