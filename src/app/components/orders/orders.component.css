@@ -158,3 +158,56 @@
   color: rgb(0, 0, 0);
 
 }
+
+
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.userDetails {
+  grid-column: span 4; /* يأخذ 4 أعمدة */
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* top: 50px; */
+  height: fit-content;
+}
+
+.userDetails h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+.userDetailsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.userDetailsTable td {
+  padding: 8px 12px;
+  font-size: 1rem;
+}
+
+.userDetailsTable td:first-child {
+  font-weight: bold;
+  color: #444;
+}
+
+.ordersContainer {
+  grid-column: span 8; /* يأخذ 8 أعمدة */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+li{
+  border: 0;
+  border-radius: 0;
+
+  border-bottom: 2px solid black;
+}

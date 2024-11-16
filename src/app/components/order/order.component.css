@@ -227,3 +227,42 @@
   transform: var(--bs-accordion-btn-icon-transform);
   filter: brightness(0) invert(1);
 }
+
+.orderProductInfos {
+  display: flex;
+  margin-left:20px ;
+  margin-right:20px ;
+  flex-direction: column; /* الترتيب عموديًا افتراضيًا */
+}
+
+.orderProductInfos > * {
+  margin-bottom: 8px; /* مسافة بين العناصر */
+}
+
+@media (max-width: 768px) {
+  .orderProductInfos {
+    align-items: center; /* محاذاة العناصر إلى المنتصف */
+  }
+}
+
+@media (max-width: 576px) {
+  .orderProductInfos {
+    display: grid;
+    grid-template-columns: 1fr; /* كل عنصر يأخذ عرض الشاشة بالكامل */
+    gap: 10px; /* مسافة بين العناصر */
+    text-align: center; /* محاذاة النصوص للمنتصف */
+  }
+
+  .orderProductInfos h5 {
+    font-size: 1rem; /* تصغير حجم النص للعناوين */
+  }
+
+  .orderProductInfos h6 {
+    font-size: 0.9rem; /* تصغير النصوص الفرعية */
+  }
+
+  .orderViewItem {
+    width: 100%; /* جعل الأزرار تأخذ العرض الكامل */
+    text-align: center;
+  }
+}

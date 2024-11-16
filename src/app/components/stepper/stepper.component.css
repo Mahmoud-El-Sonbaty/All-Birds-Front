@@ -82,8 +82,13 @@
   background-color: red;
   font-size: 1.5em;
 }
+@media (min-width: 1024px) {
+  .step-item{
+    width: 20%;
+  }
+}
 
-/* Responsive styles for tablets and mobile screens */
+
 @media (max-width: 991px) {
 
   .step{
@@ -142,6 +147,7 @@
     font-size: 0.75rem;
 
   }
+
 
 
   .stepParag {

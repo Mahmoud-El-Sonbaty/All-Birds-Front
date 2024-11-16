@@ -38,6 +38,7 @@ export class OrdersComponent implements OnInit {
         console.log(res);
         if (res.isSuccess) {
           this.ordersData = res
+          console.log(res.data)
         }
         else
           console.log(res.msg)
