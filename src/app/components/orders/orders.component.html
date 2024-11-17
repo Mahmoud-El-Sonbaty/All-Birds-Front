@@ -13,35 +13,60 @@
     }
     @else{
 
-          <!-- <div class="row d-flex justify-content-center align-items-center  pt-5">
+           <div class="row d-flex justify-content-center align-items-center  pt-5">
             <div class="col col-lg-6 mb-4 mb-lg-0">
               <div class="card mb-3" style="border-radius: .5rem;">
                 <div class="row g-0">
                   <div class="col-md-4 gradient-custom text-center text-white"
                     style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                    <img [src]="imagepath+userInfo.imagePath"
                       alt="Avatar" class="img-fluid mt-5 mb-2" style="width: 80px;" />
-                    <h5 class="text-dark">Marie Horwitz</h5>
-                    <p class="text-dark mb-1">Web Designer</p>
+                    <h5 class="text-dark">{{userInfo.firstName}} {{userInfo.lastName}}</h5>
+                    <!-- <p class="text-dark mb-1">Web Designer</p> -->
                     <i class="far fa-edit mb-5 text-dark"></i>
                   </div>
                   <div class="col-md-8">
                     <div class="card-body p-4">
-                      <h6>Information</h6>
+                      <h6>{{'user_name.Account_info'|translate}}</h6>
                       <hr class="mt-0 mb-4">
                       <div class="row pt-1">
                         <div class="col-6 mb-3">
-                          <h6>Email</h6>
-                          <p class="text-muted">infoexample.com</p>
+                          <h6>{{'user_name.First_name'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.firstName}}</p>
                         </div>
                         <div class="col-6 mb-3">
-                          <h6>Phone</h6>
-                          <p class="text-muted">123 456 789</p>
+                          <h6>{{'user_name.Last_name'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.lastName}}</p>
                         </div>
                         <hr class="mt-0 mb-4">
-                        <div class="col-12 mb-3">
-                          <h4>Addrees</h4>
-                          <p class="text-muted m-1 fs-5">25st sdad</p>
+
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.Email'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.email}}</p>
+                        </div>
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.user_name'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.username}}</p>
+                        </div>
+                        <hr class="mt-0 mb-4">
+
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.Country'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.country}}</p>
+                        </div>
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.City'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.city}}</p>
+                        </div>
+                        <hr class="mt-0 mb-4">
+
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.address'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.address}}</p>
+                        </div>
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.zip'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.zipCode}}</p>
                         </div>
 
                       </div>
@@ -51,7 +76,7 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
       <div [class]="'ordersContainer '+lang">
 
