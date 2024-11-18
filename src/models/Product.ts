@@ -1,16 +1,16 @@
 export interface Iproduct {
-   id:number,
-   mainImagePath :string
-   price :number
-   colorName :string
-   name :string
+  id: number,
+  mainImagePath: string
+  price: number
+  colorName: string
+  name: string
 
 }
-export interface ApiresponseProduct{
+export interface ApiresponseProduct {
 
-  data:Iproduct[];
-  msg:string;
-  isSuccess:boolean;
+  data: Iproduct[];
+  msg: string;
+  isSuccess: boolean;
 }
 
 export interface IProduct {
@@ -26,28 +26,27 @@ export interface ApiresponsePrd {
   data: IProduct[];
 }
 
-export interface IproductColor
-{
-  productColorId : number;
-  imagePath :string;
-  name : string
+export interface IproductColor {
+  productColorId: number;
+  imagePath: string;
+  name: string
   code: string
-  productSizes :IproductSize[];
+  productSizes: IproductSize[];
 }
 
 export interface IproductSize {
   productColorSizeId: number;
   sizeNumber: string;
-  unitsInStock : number;
+  unitsInStock: number;
 }
 
 
-export interface IproductSearch{
-  id :number;
-  mainImagePath : string;
-  colorName : string;
-  name : string
-  price : number
+export interface IproductSearch {
+  id: number;
+  mainImagePath: string;
+  colorName: string;
+  name: string
+  price: number
 }
 
 export interface ApiresponsePrdSearch {
