@@ -249,14 +249,22 @@
       "Color":"اللون :",
       "size":"المقاس :",
       "sub_total":"المجموع الجزئي:",
-      "َquantity":"الكمية :"
-
+      "quantity":"الكمية :"
     },
+
     "orderState": "حالة الطلب",
     "buttons": {
       "buyAgain": "اشترِ مرة أخرى",
       "viewItem": "عرض المنتج"
     }
+  },
+  "stepper": {
+    "pending": "قيد الإنتظار",
+    "approved": "تمت الموافقة",
+    "processing": "جاري التجهيز",
+    "out_for_delivery": "خرج للتوصيل",
+    "delivered": "تم التوصيل",
+    "cancelled": "تم الإلغاء"
   },
   "orders": {
     "loading": "جاري التحميل...",

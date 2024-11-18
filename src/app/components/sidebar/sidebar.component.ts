@@ -69,55 +69,61 @@ goToCheckout(): void {
   this.router.navigateByUrl("checkout");
 }
 
-updateQuantity(item: IOrderDetail, increase: boolean) {
-  if (localStorage.getItem("userToken")) {
-    if (localStorage.getItem("flag")) {
-      let newQ: number = increase ? item.quantity + 1 : item.quantity - 1;
-      this.userCart.total -= item.detailPrice;
-      item.detailPrice = item.detailPrice / item.quantity * newQ;
-      this.userCart.total += item.detailPrice;
-      item.quantity = newQ;
-      localStorage.setItem("cart", JSON.stringify(this.userCart))
-      // here update the whole cart
-      localStorage.removeItem("flag");
+  updateQuantity(item: IOrderDetail, increase: boolean) {
+    if (item.quantity < item.unitsInStock) {
+      if (localStorage.getItem("userToken")) {
+        if (localStorage.getItem("flag")) {
+          let newQ: number = increase ? item.quantity + 1 : item.quantity - 1;
+          this.userCart.total -= item.detailPrice;
+          item.detailPrice = item.detailPrice / item.quantity * newQ;
+          this.userCart.total += item.detailPrice;
+          item.quantity = newQ;
+          localStorage.setItem("cart", JSON.stringify(this.userCart))
+          // here update the whole cart
+          localStorage.removeItem("flag");
+        }
+        else {
+          this.cartService.updateQuantity(item.id, increase ? item.quantity + 1 : item.quantity - 1, localStorage.getItem("userToken")!).subscribe({
+            next:(res)=>{
+              console.log(res);
+              if (res.isSuccess) {
+                localStorage.removeItem("flag");
+                console.log(item.quantity)
+                this.userCart.total -= item.detailPrice;
+                item.detailPrice = res.data.detailPrice;
+                item.quantity = res.data.quantity;
+                this.userCart.total += item.detailPrice;
+                // item.unitsInStock = res.data.unitsInStock;
+                // this.userCart = res.data
+                localStorage.setItem("cart", JSON.stringify(this.userCart))
+              }
+              else
+                console.log(res.msg)
+            },
+            error:(err)=>{
+              console.log(err);
+              if(localStorage.getItem("cart"))
+                this.userCart = JSON.parse(localStorage.getItem("cart")!);
+            }
+          })
+        }
+      }
+      else {
+        let newQ: number = increase ? item.quantity + 1 : item.quantity - 1;
+        if (newQ > 0) {
+          this.userCart.total -= item.detailPrice;
+          item.detailPrice = item.detailPrice / item.quantity * newQ;
+          this.userCart.total += item.detailPrice;
+          item.quantity = newQ;
+          localStorage.setItem("flag", "true");
+          localStorage.setItem("cart", JSON.stringify(this.userCart))
+        }
+      }
     }
     else {
-      this.cartService.updateQuantity(item.id, increase ? item.quantity + 1 : item.quantity - 1, localStorage.getItem("userToken")!).subscribe({
-        next:(res)=>{
-          console.log(res);
-          if (res.isSuccess) {
-            localStorage.removeItem("flag");
-            console.log(item.quantity)
-            this.userCart.total -= item.detailPrice;
-            item.detailPrice = res.data.detailPrice;
-            item.quantity = res.data.quantity;
-            this.userCart.total += item.detailPrice;
-            // this.userCart = res.data
-            localStorage.setItem("cart", JSON.stringify(this.userCart))
-          }
-          else
-            console.log(res.msg)
-        },
-        error:(err)=>{
-          console.log(err);
-          if(localStorage.getItem("cart"))
-            this.userCart = JSON.parse(localStorage.getItem("cart")!);
-        }
-      })
+      console.log("not enough quantity");
     }
   }
-  else {
-    let newQ: number = increase ? item.quantity + 1 : item.quantity - 1;
-    if (newQ > 0) {
-      this.userCart.total -= item.detailPrice;
-      item.detailPrice = item.detailPrice / item.quantity * newQ;
-      this.userCart.total += item.detailPrice;
-      item.quantity = newQ;
-      localStorage.setItem("flag", "true");
-      localStorage.setItem("cart", JSON.stringify(this.userCart))
-    }
-  }
-}
 // increaseQuantity(item: IOrderDetail) {
 //   item.quantity++;
 // }

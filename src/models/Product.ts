@@ -1,12 +1,12 @@
 export interface Iproduct {
-  id: number,
-  mainImagePath: string
-  price: number
-  colorName: string
-  name: string
-
+  id:number,
+  mainImagePath :string
+  price :number
+  colorName :string
+  name :string
 }
-export interface ApiresponseProduct {
+
+export interface ApiresponseProduct{
 
   data: Iproduct[];
   msg: string;

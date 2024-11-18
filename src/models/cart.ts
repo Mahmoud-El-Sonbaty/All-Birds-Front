@@ -13,7 +13,7 @@ export interface IOrderDetail {
   quantity: number;
   detailPrice: number;
   notes?: string;
-  // colorNameAr: string;
+  unitsInStock: number;
   colorName: string;
   sizeNumber?: string;
   // productNameAr?: string;

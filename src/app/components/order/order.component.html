@@ -35,9 +35,6 @@
             <img src='{{baseImageUrl}}/{{detail.productImagePath}}' alt="" class="orderProductImg"/>
             <div class="orderProductInfos">
               <h5>{{detail.productName}}</h5>
-              "Pieces":"Pieces",
-              "2Pieces":"Pieces",
-              "Piece":"Piece"
               <h6>{{ 'order.orderSummary.Color' | translate }} {{detail.colorName}}</h6>
               <h6>{{ 'order.orderSummary.size' | translate }} {{detail.sizeNumber}}</h6>
               <h6>{{ 'order.orderSummary.sub_total' | translate }} ${{detail.detailPrice}}</h6>
@@ -50,7 +47,8 @@
                         ? ('order.orderSummary.Pieces' | translate)
                         : ('order.orderSummary.Piece' | translate))
                 }}
-              </h6>              <div class="orderProductInfosButtons">
+              </h6>
+              <div class="orderProductInfosButtons">
                 <!-- <button class="orderBuyAgain">Buy it again</button> -->
                 <button class="orderViewItem" (click)="navigateTo(detail.productId)">{{ 'order.buttons.viewItem' | translate }}</button>
               </div>
