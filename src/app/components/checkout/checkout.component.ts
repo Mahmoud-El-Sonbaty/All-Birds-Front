@@ -169,7 +169,7 @@ selectPaymentMethod(method: string) {
   private initConfig(): void {
     this.payPalConfig = {
       currency: 'EUR',
-      clientId: 'YOUR_CLIENT_ID_HERE', // Replace with your PayPal client ID
+      clientId: 'AdNeeQlNUaVPwkm3-7Gvo5WyDwOShDFd-8SxQ5mKU9Nm6-a6NBUH0Bqtx-VkRZmttwugbTh8o1nuvuuc', // Replace with your PayPal client ID
       createOrderOnClient: (data: any) => <ICreateOrderRequest>{
               intent: 'CAPTURE',
               purchase_units: [
