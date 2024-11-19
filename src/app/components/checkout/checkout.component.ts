@@ -324,6 +324,7 @@ selectPaymentMethod(method: string) {
   userCart: IOrderMaster = {} as IOrderMaster;
   baseImageUrl: string = environment.baseImageUrl;
   placeOrder() {
+    this.allert=false;
     console.log("place order");
     if (localStorage.getItem("userToken")) {
       if (localStorage.getItem("cart") && localStorage.getItem("flag") == null) {
@@ -336,11 +337,18 @@ selectPaymentMethod(method: string) {
               this.errmsg=(this.lang='en')?"Order Placed Succssfully":'حاجتك جاية قريب ان شاءالله ';
               this.Path='orders';
               this.isSucces=true;
+              this.allert=true;
+              // alert( this.errtitel)
+              // this.router.navigateByUrl("orders");
+
             }
             else {
               console.log(res.msg);
+              this.allert=true;
               this.errtitel=(this.lang='en')?"some thing is Wrong":'هناك خطا';
               this.errmsg=res.msg
+              // alert( this.errmsg)
+
             }
           },
           error: (err) => {
@@ -350,6 +358,8 @@ selectPaymentMethod(method: string) {
               this.errtitel=(this.lang='en')?"Error":'في خطأ';
               this.errmsg=(this.lang='en')?"token is not valid":'تذكرتك فيها حاجة يمعلم ';
               this.Path='register';
+              this.allert=true;
+
             }
           }
         })

@@ -30,7 +30,10 @@ export class SignupComponent {
       next:()=>{
       this.router.navigateByUrl("/home");
 
-      }
+      },
+      error:(err)=>{
+        alert(err.error)
+        }
 
       })
 

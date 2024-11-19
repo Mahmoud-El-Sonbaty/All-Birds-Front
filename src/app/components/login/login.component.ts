@@ -46,7 +46,7 @@ export class LoginComponent {
       },
 
       error:(err) => {
-        console.log(err);
+       alert(err.error)
       }
     })
 

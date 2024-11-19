@@ -6,7 +6,7 @@
 
  @if(loading){
   <app-loader></app-loader>
- }@else if(allert) {
+ }@else if(allert==true) {
   <app-alert-message [title]="errtitel" [message]="errmsg" [isSuccess]="isSucces" [Path]="Path" ></app-alert-message>
  }
 <div [class]="'container-fluid checkout-page '+lang  ">
