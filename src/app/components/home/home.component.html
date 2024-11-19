@@ -79,8 +79,8 @@
       </div>
 
       <div class="position-absolute carbtn">
-        <button class="btn btn-light carbtnshop m-1">{{'home.btn.men'|translate}}</button>
-        <button class="btn btn-light carbtnshop m-1">{{'home.btn.Woman'|translate}}</button>
+        <button class="btn btn-light carbtnshop m-1 "(click)="navigateTo('1-8', 1)">{{'home.btn.men'|translate}}</button>
+        <button class="btn btn-light carbtnshop m-1" (click)="navigateTo('17-25', 1)">{{'home.btn.Woman'|translate}}</button>
       </div>
     </div>
   </div>
@@ -129,8 +129,8 @@
             <p class="title">{{ 'home.4Product.title' | translate }}</p>
             <p class="subtitle">{{ 'home.4Product.subtitle' | translate }}</p>
             <div class="card-group">
-              <button class="btn btn-light m-1">{{ 'home.btn.men' | translate }}</button>
-              <button class="btn btn-light m-1">{{ 'home.btn.Woman' | translate }}</button>
+              <button class="btn btn-light m-1 " (click)="navigateTo('2-5', 1)"> {{ 'home.btn.men' | translate }}</button>
+              <button class="btn btn-light m-1" (click)="navigateTo('18-21', 1)">{{ 'home.btn.Woman' | translate }}</button>
             </div>
           </div>
         </div>
@@ -174,8 +174,8 @@
                 <p>{{'home.giftCards.card1.subtitle'|translate}}</p>
               </div>
               <div class="card-group mt-auto">
-                <button class="btn btn-light m-1 giftbtn">{{'home.btn.men'|translate}}</button>
-                <button class="btn btn-light m-1 giftbtn">{{'home.btn.Woman'|translate}}</button>
+                <button class="btn btn-light m-1 giftbtn"(click)="navigateTo('14-16', 1)" >{{'home.btn.men'|translate}}</button>
+                <button class="btn btn-light m-1 giftbtn" (click)="navigateTo('31-33', 1)">{{'home.btn.Woman'|translate}}</button>
               </div>
             </div>
           </div>
@@ -190,7 +190,7 @@
                 <p>{{'home.giftCards.card2.subtitle'|translate}}</p>
               </div>
               <div class="mt-auto">
-                <button class="btn btn-light giftbtn">{{'home.btn.now'|translate}}</button>
+                <button class="btn btn-light giftbtn" (click)="navigateTo('9-13', 1)">{{'home.btn.now'|translate}}</button>
               </div>
             </div>
           </div>

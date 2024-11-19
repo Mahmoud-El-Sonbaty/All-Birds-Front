@@ -19,11 +19,11 @@
                 <div class="row g-0">
                   <div class="col-md-4 gradient-custom text-center text-white"
                     style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                    <img [src]="imagepath+userInfo.imagePath"
+                    <img src="images/person.webp"
                       alt="Avatar" class="img-fluid mt-5 mb-2" style="width: 80px;" />
                     <h5 class="text-dark">{{userInfo.firstName}} {{userInfo.lastName}}</h5>
                     <!-- <p class="text-dark mb-1">Web Designer</p> -->
-                    <i class="far fa-edit mb-5 text-dark"></i>
+                    <!-- <i class="far fa-edit mb-5 text-dark"></i> -->
                   </div>
                   <div class="col-md-8">
                     <div class="card-body p-4">
@@ -82,21 +82,21 @@
 
         <div class="titleAndSearchContainer">
           <h1>{{ 'orders.yourOrders' | translate }}</h1>
-          <div class="ordersSearchContainer">
+          <!-- <div class="ordersSearchContainer">
             <div class="ordersSearchInput">
               <i class="ordersSearchIcon"></i>
               <input type="text" [placeholder]="'orders.searchPlaceholder' | translate" [(ngModel)]="searchQuery"/>
             </div>
-          </div>
+          </div> -->
 
         </div>
-        <div class="ordersNumberPerYear">
+        <!-- <div class="ordersNumberPerYear">
           {{ 'orders.selectYear' | translate }}:
           <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearChange()">
             <option value="">{{ 'orders.allYears' | translate }}</option>
             <option *ngFor="let year of getUniqueOrderYears()" [value]="year">{{ year }}</option>
           </select>
-        </div>
+        </div> -->
         <div>
           <div class="ordersContents">
             <div class="ordersDisplay">

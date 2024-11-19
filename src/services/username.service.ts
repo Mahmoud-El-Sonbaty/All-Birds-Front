@@ -26,7 +26,7 @@ export class UsernameService {
   }
 
   GetUserDetails(id:number):Observable<ApiresponseUserInfo>{
-    return this.httpClient.get<ApiresponseUserInfo>(`${environment.BaseUrl}/account/User/${id}/${this.lang.getLanguage()}`)
+    return this.httpClient.get<ApiresponseUserInfo>(`${environment.BaseUrl}/account/User/${id}`)
   }
 
 

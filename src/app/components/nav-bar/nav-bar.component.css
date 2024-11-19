@@ -259,6 +259,7 @@ display: none !important;
 .collapse {
   max-height: 12rem;
   overflow-y: auto;
+
 }
 
 .navbar-collapse {

@@ -60,7 +60,7 @@
 
                  <ul class="nav flex-column sub-menu">
                    @for (child of parent.children; track child.id;let y =$index) {
-                     @if (child.isParentCategory) {
+                     @if (child.isParentCategory||child.name=="Bestsellers"||child.name=="الأكثر مبيعًا") {
                      <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" (click)="showing(child.id,child.level)" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
                        <p class="ms-2 mt1  d-inline-block   ">{{child.name}}
                      </p>
@@ -70,7 +70,23 @@
                      <hr>
 
                    </li>
-                 }@else {
+                 }
+                 <!-- @else if(child.name=="Bestseller"||child.name=="الأكثر مبيعًا"){ -->
+<!--
+                  <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" (click)="showing(child.id,child.level)" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
+                    <p class="ms-2 mt1  d-inline-block   ">{{child.name}}
+                  </p>
+                  <span class=" position-absolute end-0 me-3">→</span>
+
+
+                  <hr>
+
+                </li> -->
+                  <!-- <a class="dropdown-item"  routerLinkActive="active_link" [routerLink]="['/single-product/',smaller.id]">{{smaller.name}}</a> -->
+
+                <!-- } -->
+                 @else {
+
                    <li  [class]="'nav-item level'+child.level+' fade-in p-1 '  +child.id+'-toggle'"  (click)="closeMenu()" data-bs-toggle="collapse" [attr.href]="'#Menu' + child.id "  role="button" [routerLink]="['/ProductCategory',parent.id+'-'+child.id]" aria-expanded="false"  [attr.aria-controls]="child.id + 'Menu'" [id]="child.id">
                      <p class="ms-2 mt1  d-inline-block   ">{{child.name}}
                    </p>
@@ -79,7 +95,7 @@
 
                  </li>
                  }
-                     @if (child.isParentCategory) {
+                     @if (child.isParentCategory||child.name=="Bestsellers"||child.name=="الأكثر مبيعًا") {
 
 
                        <div [class]="'collapse ' +child.id+'-content'" [id]="'Menu'+child.id">
@@ -90,17 +106,30 @@
 
 
                          <ul class="nav flex-column sub-menu">
-                           @for (grandChild of child.children; track grandChild.id;let x =$index) {
-                             <li  class="nav-item level2 fade-in p-3" (click)="closeMenu()" [routerLink]="['/ProductCategory',child.id+'-'+grandChild.id]"  >{{grandChild.name}}
 
-                             </li>
-                             <hr>
+                           @for (grandChild of child.children; track grandChild.id;let x =$index) {
+                            @if (child.name=="Bestsellers"||child.name=="الأكثر مبيعًا") {
+                              <li  class="nav-item level2 fade-in p-3" (click)="closeMenu()" [routerLink]="['/single-product/',grandChild.id]"  >
+                                {{grandChild.name}}
+
+                               </li>
+                               <hr>
+                            }@else {
+
+                              <li  class="nav-item level2 fade-in p-3" (click)="closeMenu()" [routerLink]="['/ProductCategory',child.id+'-'+grandChild.id]"  >
+                                {{grandChild.name}}95
+
+                               </li>
+                               <hr>
+                            }
+
 
                            }
 
                          </ul>
                          </div>
                        }
+
 
                    }
 
@@ -177,12 +206,18 @@
                      @for (kid of child.children; track  kid.id;let x= $index) {
 
 
-                       @if(kid.name !="New Arrivals"){
+                       @if(kid.name !="Featured"&& kid.name !="مميز"){
                            <div class="col-lg-2 col-md-12 mx-auto">
                            <h5>{{kid.name}}</h5>
                            @for (smaller of kid.children; track  smaller.id;let s= $index) {
+                              @if(kid.name=="Bestsellers"||kid.name=="الأكثر مبيعًا"){
 
-                             <a class="dropdown-item"  routerLinkActive="active_link" [routerLink]="['/ProductCategory',kid.id+'-'+smaller.id]">{{smaller.name}}</a>
+                                <a class="dropdown-item"  routerLinkActive="active_link" [routerLink]="['/single-product/',smaller.id]">{{smaller.name}}</a>
+
+                              }@else {
+
+                                <a class="dropdown-item"  routerLinkActive="active_link" [routerLink]="['/ProductCategory',kid.id+'-'+smaller.id]">{{smaller.name}}</a>
+                              }
                            }
 
                          </div>
@@ -191,15 +226,15 @@
                              <h5>{{kid.name}}</h5>
                                <div class="row">
                                    <div class="col-md-12 m-2">
-                                     <div class="featured-image">
-                                       <img src="https://placehold.co/100x30" alt="Shop Men's Sale">
-                                       <div class="text">Shop Men's Sale</div>
+                                     <div class="featured-image" [routerLink]="['/ProductCategory',child.id+'-'+kid.id]">
+                                       <img src="images/protected.jpg" alt="Shop Men's Sale">
+                                       <div class="text">{{kid.children?.at(0)?.name}}</div>
                                      </div>
                                    </div>
                                    <div class="col-md-12 m-2">
-                                     <div class="featured-image">
-                                       <img src="https://placehold.co/100x30" alt="Ultra-Soft Wool Sneaks">
-                                       <div class="text">Ultra-Soft Wool Sneaks</div>
+                                     <div class="featured-image" [routerLink]="['/ProductCategory',child.id+'-'+kid.id]">
+                                       <img src="images/gift100.jpg" alt="Ultra-Soft Wool Sneaks">
+                                       <div class="text">{{kid.children?.at(1)?.name}}</div>
                                      </div>
                                    </div>
                                </div>
