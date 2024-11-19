@@ -12,60 +12,60 @@
 
 
 
-<div  *ngIf="!showResetPasswordFormbool">
-  <h3 class="mb-4" >{{'login.login'|translate}}</h3>
-  <form  (ngSubmit)="check()"  #myform1="ngForm">
+  <div  *ngIf="!showResetPasswordFormbool">
+    <h3 class="mb-4" >{{'login.login'|translate}}</h3>
+    <form  (ngSubmit)="check()"  #myform1="ngForm">
 
-    <div class="form-group mb-3">
-      <label for="email">{{'login.email'|translate}}</label>
-      <input
-      name="email"
-      #EmaillogInp="ngModel"
-      required
-      [(ngModel)]="usernameCheck.Email" type="email" id="email" class="form-control shadow-none" />
-      @if(EmaillogInp.invalid&&EmaillogInp.touched){
-  @if (EmaillogInp.hasError("required")) {
-    <div class="text-danger">{{'login.EmailRequired'|translate}}</div>
-  }
-
-
-      }
-      @else if (!isEmailValid()&&EmaillogInp.touched) {
-
-
-  <div class="text-danger">{{'login.mustContain'|translate}} &#64;</div>
-      }
-      </div>
       <div class="form-group mb-3">
-        <label for="password">{{'login.password'|translate}}</label>
+        <label for="email">{{'login.email'|translate}}</label>
         <input
+        name="email"
+        #EmaillogInp="ngModel"
         required
-        minlength="6"
-        maxlength="40"
-        name="password"
-        #passwordlogInp="ngModel"
-        [(ngModel)]="usernameCheck.Password" type="password" id="password" class="form-control shadow-none" />
-        @if( passwordlogInp.invalid &&passwordlogInp.touched){
-          @if(passwordlogInp.hasError("required")){<div class="text-danger">{{'login.PasswordRequired'|translate}}</div>}
-          @if(passwordlogInp.hasError("minlength")){<div class="text-danger">{{'login.Minlength'|translate}} </div>
-          }
-              }
-          @else if(!ispasswordvaild()&&passwordlogInp.touched){
+        [(ngModel)]="usernameCheck.Email" type="email" id="email" class="form-control shadow-none" />
+        @if(EmaillogInp.invalid&&EmaillogInp.touched){
+    @if (EmaillogInp.hasError("required")) {
+      <div class="text-danger">{{'login.EmailRequired'|translate}}</div>
+    }
 
-            <div class="text-danger">{{'login.passwordLeast'|translate}} </div>
-              }
 
-      </div>
+        }
+        @else if (!isEmailValid()&&EmaillogInp.touched) {
 
-    <button type="submit" [disabled]="myform1.invalid||isCanLogin()" class="btn btn-dark btn-lg w-100">{{'login.login'|translate}}</button>
 
-    <!-- <div style="display: flex; justify-content: center;" >
+    <div class="text-danger">{{'login.mustContain'|translate}} &#64;</div>
+        }
+        </div>
+        <div class="form-group mb-3">
+          <label for="password">{{'login.password'|translate}}</label>
+          <input
+          required
 
-    <a > <button  class="forgetPassword"  type="button"  (click)="showResetPasswordForm()">{{'login.forgetPassword'|translate}}</button> </a>
-    </div> -->
-  </form>
+          name="password"
+          #passwordlogInp="ngModel"
+          [(ngModel)]="usernameCheck.Password" type="password" id="password" class="form-control shadow-none" />
+          <!-- @if( passwordlogInp.invalid &&passwordlogInp.touched){
+            @if(passwordlogInp.hasError("required")){<div class="text-danger">{{'login.PasswordRequired'|translate}}</div>}
 
-</div>
+                }
+            @else if(!ispasswordvaild()&&passwordlogInp.touched){
+
+             <div class="text-danger">{{'login.passwordLeast'|translate}} </div>
+                } -->
+
+        </div>
+
+      <button type="submit" [disabled]="myform1.invalid||isCanLogin()" class="btn btn-dark btn-lg w-100">{{'login.login'|translate}}</button>
+
+      <!-- <div style="display: flex; justify-content: center;" >
+
+      <a > <button  class="forgetPassword"  type="button"  (click)="showResetPasswordForm()">{{'login.forgetPassword'|translate}}</button> </a>
+      </div> -->
+    </form>
+
+  </div>
+
+
 
 
 

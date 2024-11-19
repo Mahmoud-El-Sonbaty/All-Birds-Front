@@ -29,6 +29,7 @@ export class SignupComponent {
     this._UsernameService.register(this.username).subscribe({
       next:()=>{
       this.router.navigateByUrl("/home");
+      alert('register successfully')
 
       },
       error:(err)=>{
