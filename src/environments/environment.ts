@@ -1,4 +1,4 @@
 export const environment = {
   BaseUrl:'https://allbirdsapi.tryasp.net/api',
-  baseImageUrl: 'http://allbirdsdashboard.tryasp.net/',
+  baseImageUrl: 'https://allbirdsdashboard.tryasp.net/',
 };
