@@ -24,12 +24,15 @@ export class SignupComponent {
     console.log(this.username);
 
 //add in cooks
-    this.cook.set("Email",this.username.Email);
+    this.cook.set("Email",this.username.email);
 
     this._UsernameService.register(this.username).subscribe({
       next:()=>{
       this.router.navigateByUrl("/home");
 
+      },
+      error: (err) => {
+        alert(err.error)
       }
 
       })
@@ -42,25 +45,25 @@ export class SignupComponent {
 // console.log("sssssss");
 
 // console.log(this.username.Email);
-return  (!!this.username.Email && this.username.Email.includes("@"));
+return  (!!this.username.email && this.username.email.includes("@"));
 
   }
   ispasswordvaild():boolean{
 
-    return /\d/.test(this.username.Password);
+    return /\d/.test(this.username.password);
   }
 
 isCansignup():Boolean{
 
-if(this.username.Email!=undefined&&this.username.Password!=undefined&&this.username.Confirm_Password!=undefined)
+if(this.username.email!=undefined&&this.username.password!=undefined&&this.username.confirmPassword!=undefined)
 {
   // console.log(false);
-if(this.isEmailValid()==true&&this.ispasswordvaild()==true&&(this.username.Password==this.username.Confirm_Password))
+if(this.isEmailValid()==true&&this.ispasswordvaild()==true&&(this.username.password==this.username.confirmPassword))
 
   {
     console.log("sssssssssssss");
 
-    console.log(this.isEmailValid());console.log(this.ispasswordvaild());console.log((this.username.Password==this.username.Confirm_Password));
+    console.log(this.isEmailValid());console.log(this.ispasswordvaild());console.log((this.username.password==this.username.confirmPassword));
 
     console.log("sssssssssss");
 
