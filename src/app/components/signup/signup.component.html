@@ -21,7 +21,7 @@
     maxlength="40"
     name="firstName"
     #FirstNameInp="ngModel"
-    [(ngModel)]="username.Firstname"
+    [(ngModel)]="username.firstname"
     type="text"
     id="firstName"
     class="form-control shadow-none"
@@ -44,7 +44,7 @@
     name="lastName"
     #LastNameInp="ngModel"
 
-    [(ngModel)]="username.Lastname" type="text" id="lastName"   class="form-control shadow-none"  />
+    [(ngModel)]="username.lastname" type="text" id="lastName"   class="form-control shadow-none"  />
     @if(LastNameInp.invalid &&LastNameInp.touched){
       @if(LastNameInp.hasError("required")){<div class="text-danger">{{'signUp.register.errors.Lname_required'|translate}}</div>}
       @if(LastNameInp.hasError("minlength")){<div class="text-danger">{{'signUp.register.errors.min_length_lastname'|translate}}</div>
@@ -57,7 +57,7 @@
     name="email"
     #EmailInp="ngModel"
     required
-    [(ngModel)]="username.Email" type="email" id="email"  class="form-control shadow-none" />
+    [(ngModel)]="username.email" type="email" id="email"  class="form-control shadow-none" />
     @if(EmailInp.invalid&&EmailInp.touched){
 @if (EmailInp.hasError("required")) {
   <div class="text-danger">{{'signUp.register.errors.email_required'|translate}}</div>
@@ -77,7 +77,7 @@
     maxlength="40"
     name="password"
     #passwordInp="ngModel"
-    [(ngModel)]="username.Password" type="password" id="password"   class="form-control shadow-none" />
+    [(ngModel)]="username.password" type="password" id="password"   class="form-control shadow-none" />
     @if( passwordInp.invalid &&passwordInp.touched){
       @if(passwordInp.hasError("required")){<div class="text-danger">{{'signUp.register.errors.password_required'|translate}}</div>}
       @if(passwordInp.hasError("minlength")){<div class="text-danger">{{'signUp.register.errors.min_length_password'|translate}}</div>
@@ -98,7 +98,7 @@
     maxlength="40"
     name="ConfirmPassword"
     #ConfirmpasswordInp="ngModel"
-    [(ngModel)]="username.Confirm_Password" type="password" class="form-control shadow-none" id="ConfirmPassword" >
+    [(ngModel)]="username.confirmPassword" type="password" class="form-control shadow-none" id="ConfirmPassword" >
 
     @if(ConfirmpasswordInp.invalid &&ConfirmpasswordInp.touched){
 
@@ -112,7 +112,7 @@
 
             <div class="text-danger">{{' signUp.register.errors.password_invalid'|translate}}</div>
               }
-              @else if(username.Confirm_Password!=username.Password){<div class="text-danger">{{'signUp.register.labels.confirm_password'|translate}}</div>}
+              @else if(username.confirmPassword!=username.password){<div class="text-danger">{{'signUp.register.labels.confirm_password'|translate}}</div>}
 
   </div>
 
