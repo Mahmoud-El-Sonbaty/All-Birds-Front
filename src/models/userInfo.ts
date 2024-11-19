@@ -1,7 +1,7 @@
 export interface IUserInfo {
   firstName  :string ;
   lastName :string ;
-  username :string ;
+  userName :string ;
   email :string ;
   country :string ;
   city :string ;
