@@ -57,9 +57,19 @@ input:focus{
 
 .btn:disabled {
   background-color: #212121;
-  color: white;
+  color: white !important;
   cursor: not-allowed;
   opacity: 1;
+}
+.btn:enabled {
+  background-color: #212121;
+  color: white !important;
+  opacity: 1;
+}
+.btn:enabled:hover{
+
+  background-color: white;
+  color: #212121 !important  ;
 }
 p.Note {
   font-size: .8rem;
