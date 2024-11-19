@@ -194,6 +194,8 @@ selectPaymentMethod(method: string) {
             onApprove: (data: any, actions: any) => {
               return actions.order.capture().then((details: any) => {
                 console.log('Transaction completed by ' + details);
+                this.placeOrder();
+
                 });
                 // console.log('Transaction completed by:', details.payer.name.given_name);
                 // console.log('Payer Name:', details.payer.name.given_name, details.payer.name.surname);
