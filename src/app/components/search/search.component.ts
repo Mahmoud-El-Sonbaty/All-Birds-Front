@@ -6,11 +6,12 @@
   import { CommonModule, CurrencyPipe } from '@angular/common';
   import { TranslateModule } from '@ngx-translate/core';
   import { LoaderComponent } from '../loader/loader.component';
+import { RouterLink } from '@angular/router';
 
   @Component({
     selector: 'app-search',
     standalone: true,
-    imports: [CurrencyPipe,CommonModule,TranslateModule,LoaderComponent],
+    imports: [CurrencyPipe,CommonModule,TranslateModule,LoaderComponent,RouterLink],
     templateUrl: './search.component.html',
     styleUrl: './search.component.css'
   })

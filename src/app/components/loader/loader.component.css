@@ -83,3 +83,15 @@ svg text {
   top: 0;
   left: 0;
 }
+
+@media (max-width: 768px) {
+  svg text {
+    font-size: 8vw;
+  }
+}
+
+@media (max-width: 480px) {
+  svg text {
+    font-size: 10vw;
+  }
+}

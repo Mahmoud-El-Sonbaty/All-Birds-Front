@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-stepper',
@@ -13,7 +14,9 @@ export class StepperComponent implements OnInit {
   @Input() orderState!: string;
   steps: string[] = ["In Cart", "Pending", "Approved", "Processing", "Out for Delivery", "Deliverd"];
   cancelled: string = '';
-  constructor(private translate: TranslateService) {
+  lang :string='en'
+  constructor(private translate: TranslateService ,language :LanguageService) {
+    this.lang=language.getLanguage()
   }
   ngOnInit(): void {
     this.translate.get([

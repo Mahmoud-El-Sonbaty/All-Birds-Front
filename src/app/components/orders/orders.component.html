@@ -12,28 +12,96 @@
       </div> -->
     }
     @else{
-      <div class="ordersContainer">
+
+           <div class="row d-flex justify-content-center align-items-center  pt-5">
+            <div class="col col-lg-6 mb-4 mb-lg-0">
+              <div class="card mb-3" style="border-radius: .5rem;">
+                <div class="row g-0">
+                  <div class="col-md-4 gradient-custom text-center text-white"
+                    style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                    <img src="images/person.webp"
+                      alt="Avatar" class="img-fluid mt-5 mb-2" style="width: 80px;" />
+                    <h5 class="text-dark">{{userInfo.firstName}} {{userInfo.lastName}}</h5>
+                    <!-- <p class="text-dark mb-1">Web Designer</p> -->
+                    <!-- <i class="far fa-edit mb-5 text-dark"></i> -->
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body p-4">
+                      <h6>{{'user_name.Account_info'|translate}}</h6>
+                      <hr class="mt-0 mb-4">
+                      <div class="row pt-1">
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.First_name'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.firstName}}</p>
+                        </div>
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.Last_name'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.lastName}}</p>
+                        </div>
+                        <hr class="mt-0 mb-4">
+
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.Email'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.email}}</p>
+                        </div>
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.user_name'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.userName}}</p>
+                        </div>
+                        <hr class="mt-0 mb-4">
+
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.Country'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.country}}</p>
+                        </div>
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.City'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.city}}</p>
+                        </div>
+                        <hr class="mt-0 mb-4">
+
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.address'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.address}}</p>
+                        </div>
+                        <div class="col-6 mb-3">
+                          <h6>{{'user_name.zip'|translate}}</h6>
+                          <p class="text-muted">{{userInfo.zipCode}}</p>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      <div [class]="'ordersContainer '+lang">
+
         <div class="titleAndSearchContainer">
           <h1>{{ 'orders.yourOrders' | translate }}</h1>
-          <div class="ordersSearchContainer">
+          <!-- <div class="ordersSearchContainer">
             <div class="ordersSearchInput">
               <i class="ordersSearchIcon"></i>
               <input type="text" [placeholder]="'orders.searchPlaceholder' | translate" [(ngModel)]="searchQuery"/>
             </div>
-          </div>
+          </div> -->
+
         </div>
-        <div class="ordersNumberPerYear">
+        <!-- <div class="ordersNumberPerYear">
           {{ 'orders.selectYear' | translate }}:
           <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearChange()">
             <option value="">{{ 'orders.allYears' | translate }}</option>
             <option *ngFor="let year of getUniqueOrderYears()" [value]="year">{{ year }}</option>
           </select>
-        </div>
+        </div> -->
         <div>
           <div class="ordersContents">
             <div class="ordersDisplay">
               <div *ngFor="let order of getFilteredOrders()">
-                <app-order [order]="order"></app-order>
+                <app-order [order]="order" ></app-order>
               </div>
             </div>
           </div>

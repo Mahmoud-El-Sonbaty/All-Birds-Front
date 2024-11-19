@@ -10,22 +10,24 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../../services/language.service';
 import { Router, RouterLink } from '@angular/router';
+import { LoaderComponent } from "../loader/loader.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,SliderCmComponent,TranslateModule , RouterLink],
+  imports: [CommonModule, SliderCmComponent, TranslateModule, RouterLink, LoaderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit,OnDestroy {
-
+  loader:boolean=false;
   sub:Subscription[]= []as Subscription[];
   Products:Iproduct[]=[]as Iproduct[];
   imagepath:string=environment.baseImageUrl;
   lang!:string;
   constructor(private Product: ProductService, private translate: TranslateService ,language:LanguageService,private router:Router ) {
     this.lang=language.getLanguage();
+    this.loader=true;
   }
 
   ngOnInit(): void {
@@ -102,9 +104,13 @@ export class HomeComponent implements OnInit,OnDestroy {
       next: (res) => {
         this.Products = res.data;
         console.log(this.Products);
+        this.loader=false;
+
       },
       error: (er) => {
         console.log(er);
+        this.loader=false;
+
       }
     });
     this.sub.push(pr);

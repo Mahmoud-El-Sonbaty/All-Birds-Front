@@ -1,4 +1,4 @@
 export const environment = {
-  BaseUrl:'http://localhost:5120/api',
+  BaseUrl:'http://allbirdsapi.tryasp.net/api',
   baseImageUrl: 'http://localhost:5272',
 };

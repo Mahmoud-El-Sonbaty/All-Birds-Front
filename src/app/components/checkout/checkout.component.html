@@ -6,7 +6,7 @@
 
  @if(loading){
   <app-loader></app-loader>
- }@else if(allert) {
+ }@else if(allert==true) {
   <app-alert-message [title]="errtitel" [message]="errmsg" [isSuccess]="isSucces" [Path]="Path" ></app-alert-message>
  }
 <div [class]="'container-fluid checkout-page '+lang  ">
@@ -188,10 +188,10 @@ s            </p>
             </div>
           </div>
         </div>
-        <h4 class="mt-4">{{ 'checkOut.Shipping_method' | translate }}
+        <!-- <h4 class="mt-4">{{ 'checkOut.Shipping_method' | translate }}
         </h4>
         <p class="text-secondary bg-light p-3">{{ 'checkOut.Enter_Shipping_method' | translate }}
-        </p>
+        </p> -->
         <!-- Payment Section -->
         <h4 class="mt-4">{{ 'checkOut.Payment' | translate }}
         </h4>
@@ -209,7 +209,7 @@ s            </p>
        <div class="form-check d-flex align-items-center p-3 mb-4"
             style="border: solid 1px gray;">
            <input
-               class="form-check-input custom-radio-black mt-0 mx-1"
+               class="form-check-input OnDelevery custom-radio-black mt-0 mx-1"
                type="radio" name="paymentMethod"
                id="cod"
                value="cod"
@@ -296,7 +296,7 @@ s            </p>
     </div>
     <!-- summary -->
     @if (userCart != null) {
-      <div class="order-summary col-md-6">
+      <div [class]="'order-summary col-md-6 '+lang">
         <div class="d-flex flex-column justify-content-between align-items-start">
           <!-- Item Info -->
           @for (detail of userCart.orderDetails; track detail.id) {

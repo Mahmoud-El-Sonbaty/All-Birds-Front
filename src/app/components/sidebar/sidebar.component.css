@@ -111,9 +111,76 @@
 /*  background-color: rgb(245, 245, 245); */
 /* / */
 
-.minus,
+/* .minus,
 .add{
   border: 0;
   background-color: rgba(238, 206, 206, 0);
 
+} */
+
+.quantity-control {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.quantity-control .minus,
+.quantity-control .add {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #666;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.quantity-control .quantity {
+  margin: 0 10px;
+  font-size: 1rem;
+}
+
+/* .price1{
+  position:absolute;
+  top:5px;
+} */
+
+.col-2 .btn-close:focus-within{
+  border:transparent;
+  box-shadow: none;
+ }
+.ar .col-2 .btn-close{
+  position: absolute;
+  top: -2.2rem;
+  left: .5rem;
+  font-size: .7rem;
+}
+
+.en .col-2 .btn-close{
+  position: absolute;
+  top: -2.2rem;
+  right: .5rem;
+  font-size: .7rem;
+}
+
+.ar .price1{
+  position: absolute;
+  bottom: -2rem;
+  left: .5rem;
+  font-size: 1rem;
+
+}
+
+.en .price1{
+  position: absolute;
+  bottom: -2rem;
+  right:.5rem;
+  font-size: 1rem;
+
+}
+
+.cartimage
+{
+  scale: 1.2;
 }

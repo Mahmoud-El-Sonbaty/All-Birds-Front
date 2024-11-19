@@ -8,11 +8,12 @@ import { NavigationEnd, Route, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../../services/language.service';
 import { CookieService } from 'ngx-cookie-service';
+import { LoaderComponent } from "../loader/loader.component";
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [CommonModule,RouterLink,SidebarComponent,TranslateModule],
+  imports: [CommonModule, RouterLink, SidebarComponent, TranslateModule, LoaderComponent],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
@@ -25,6 +26,9 @@ export class NavBarComponent implements OnInit,OnDestroy ,OnChanges {
   @ViewChild('sidebar') sidebar!: SidebarComponent;
   local:any;
   currentURl:string='';
+  isMenuOpen: boolean = false;
+  loader:boolean=true;
+
 constructor(private categories:CategeryServiceService,private lang:LanguageService ,private route :Router ,private cook:CookieService) {
   this.language=lang.getLanguage();
   this.route.events.subscribe(event => {
@@ -52,11 +56,13 @@ constructor(private categories:CategeryServiceService,private lang:LanguageServi
       {
         next:(res)=>{
           this.category=res.data
+          this.loader=false;
 
         },
         error:(err)=>{
           console.log(err);
 
+          this.loader=false;
 
          }
       }
@@ -172,5 +178,18 @@ constructor(private categories:CategeryServiceService,private lang:LanguageServi
   isLoggedIn(): boolean {
     const userToken = localStorage.getItem('userToken');
     return !!userToken;
+  }
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+  closeMenu() {
+    const navbarNav = document.getElementById('navbarNav1');
+    if (navbarNav && navbarNav.classList.contains('show')) {
+      navbarNav.classList.remove('show');
+    }
+
+
+
+      this.isMenuOpen = false;
   }
 }

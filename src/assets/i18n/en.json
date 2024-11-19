@@ -349,5 +349,18 @@
         }
       }
     }
+  },
+  "user_name":{
+    "First_name":"First name",
+    "Last_name":"Last name",
+    "Country":"Country",
+    "City":"City",
+    "zip":"ZIP code",
+    "Email":"Email",
+    "user_name":"User Name",
+    "address":"address",
+    "Account_info":"Account Information"
+
   }
+
 }
