@@ -8,6 +8,10 @@ import { LoaderComponent } from '../loader/loader.component';
 import { OrderComponent } from '../order/order.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { AlertMessageComponent } from "../alert-message/alert-message.component";
+import { LanguageService } from '../../../services/language.service';
+import { UsernameService } from '../../../services/username.service';
+import { IUserInfo } from '../../../models/userInfo';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-orders',
@@ -25,8 +29,14 @@ export class OrdersComponent implements OnInit {
   };
   selectedYear: number | null = null;
   searchQuery: string = '';
+  lang:string="en";
+  userInfo!: IUserInfo ;
+  UserId:number=0;
+  imagepath:string=environment.baseImageUrl;
 
-  constructor(private ordersService: OrdersService, private router: Router) {}
+  constructor(private ordersService: OrdersService, private router: Router,language:LanguageService,private user:UsernameService) {
+    this.lang=language.getLanguage();
+  }
 
   ngOnInit(): void {
     this.ordersService.getUserOrders(localStorage.getItem("userToken")!).subscribe({
@@ -35,6 +45,7 @@ export class OrdersComponent implements OnInit {
         console.log(res);
         if (res.isSuccess) {
           this.ordersData = res
+          console.log(res.data)
         }
         else
           console.log(res.msg)
@@ -45,6 +56,23 @@ export class OrdersComponent implements OnInit {
           localStorage.removeItem("userToken");
           this.router.navigateByUrl("register");
         }
+        console.log(err);
+      }
+    })
+
+    this.user.GetUserDetails(1).subscribe({
+      next:(res)=>{
+        this.isDataLoading = false;
+        console.log(res);
+        if (res.isSuccess) {
+          this.userInfo = res.data
+          console.log(res.data)
+        }
+        else
+          console.log(res.msg)
+      },
+      error:(err)=>{
+        this.isDataLoading = false;
         console.log(err);
       }
     })

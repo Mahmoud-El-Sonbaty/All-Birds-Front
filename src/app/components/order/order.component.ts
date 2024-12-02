@@ -5,6 +5,7 @@ import { Route, Router } from '@angular/router';
 import { StepperComponent } from '../stepper/stepper.component';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-order',
@@ -15,9 +16,25 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class OrderComponent {
   @Input() order: Order = {} as Order;
+  isMenuOpen: boolean = false;
+
   baseImageUrl: string = environment.baseImageUrl;
-  constructor(private router: Router) {}
+  lang:string="en"
+  constructor(private router: Router ,language:LanguageService) {
+this.lang=language.getLanguage();
+  }
   navigateTo(prdId: number) {
     this.router.navigateByUrl(`single-product/${prdId}`);
   }
+
+  togleMenu(){
+    const navbarNav = document.getElementById('OrderNav');
+    if (navbarNav) {
+      navbarNav.classList.toggle('show');
+    }
+
+
+  }
+
+
 }

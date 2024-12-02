@@ -34,6 +34,7 @@ input:focus-within{
   transition: box-shadow 0.1s ease-in-out;
   border: none;
   font-family: "Open Sans", sans-serif;
+  cursor: pointer;
   /* margin: 10px; لإضافة فراغات بين الكاردات */
 }
 

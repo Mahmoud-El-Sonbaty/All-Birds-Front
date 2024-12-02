@@ -21,7 +21,7 @@
     maxlength="40"
     name="firstName"
     #FirstNameInp="ngModel"
-    [(ngModel)]="username.firstName"
+    [(ngModel)]="username.firstname"
     type="text"
     id="firstName"
     class="form-control shadow-none"
@@ -44,7 +44,7 @@
     name="lastName"
     #LastNameInp="ngModel"
 
-    [(ngModel)]="username.lastName" type="text" id="lastName"   class="form-control shadow-none"  />
+    [(ngModel)]="username.lastname" type="text" id="lastName"   class="form-control shadow-none"  />
     @if(LastNameInp.invalid &&LastNameInp.touched){
       @if(LastNameInp.hasError("required")){<div class="text-danger">{{'signUp.register.errors.Lname_required'|translate}}</div>}
       @if(LastNameInp.hasError("minlength")){<div class="text-danger">{{'signUp.register.errors.min_length_lastname'|translate}}</div>

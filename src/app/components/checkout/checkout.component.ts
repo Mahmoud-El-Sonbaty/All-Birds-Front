@@ -169,7 +169,7 @@ selectPaymentMethod(method: string) {
   private initConfig(): void {
     this.payPalConfig = {
       currency: 'EUR',
-      clientId: 'YOUR_CLIENT_ID_HERE', // Replace with your PayPal client ID
+      clientId: 'AdNeeQlNUaVPwkm3-7Gvo5WyDwOShDFd-8SxQ5mKU9Nm6-a6NBUH0Bqtx-VkRZmttwugbTh8o1nuvuuc', // Replace with your PayPal client ID
       createOrderOnClient: (data: any) => <ICreateOrderRequest>{
               intent: 'CAPTURE',
               purchase_units: [
@@ -194,6 +194,8 @@ selectPaymentMethod(method: string) {
             onApprove: (data: any, actions: any) => {
               return actions.order.capture().then((details: any) => {
                 console.log('Transaction completed by ' + details);
+                this.placeOrder();
+
                 });
                 // console.log('Transaction completed by:', details.payer.name.given_name);
                 // console.log('Payer Name:', details.payer.name.given_name, details.payer.name.surname);
@@ -322,6 +324,7 @@ selectPaymentMethod(method: string) {
   userCart: IOrderMaster = {} as IOrderMaster;
   baseImageUrl: string = environment.baseImageUrl;
   placeOrder() {
+    this.allert=false;
     console.log("place order");
     if (localStorage.getItem("userToken")) {
       if (localStorage.getItem("cart") && localStorage.getItem("flag") == null) {
@@ -334,11 +337,18 @@ selectPaymentMethod(method: string) {
               this.errmsg=(this.lang='en')?"Order Placed Succssfully":'حاجتك جاية قريب ان شاءالله ';
               this.Path='orders';
               this.isSucces=true;
+              this.allert=true;
+              // alert( this.errtitel)
+              // this.router.navigateByUrl("orders");
+
             }
             else {
               console.log(res.msg);
+              this.allert=true;
               this.errtitel=(this.lang='en')?"some thing is Wrong":'هناك خطا';
               this.errmsg=res.msg
+              // alert( this.errmsg)
+
             }
           },
           error: (err) => {
@@ -348,6 +358,8 @@ selectPaymentMethod(method: string) {
               this.errtitel=(this.lang='en')?"Error":'في خطأ';
               this.errmsg=(this.lang='en')?"token is not valid":'تذكرتك فيها حاجة يمعلم ';
               this.Path='register';
+              this.allert=true;
+
             }
           }
         })

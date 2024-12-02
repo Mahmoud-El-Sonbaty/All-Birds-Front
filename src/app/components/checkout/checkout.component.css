@@ -341,3 +341,8 @@ select {
 
   margin: 30px;
 }
+
+.ar .form-check-input.OnDelevery{
+  position: absolute;
+  right:  41.25%;
+}

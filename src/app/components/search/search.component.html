@@ -14,7 +14,7 @@
 
       <ng-container *ngIf="ProductCards && ProductCards.length > 0; else noProducts">
         <ng-container *ngFor="let prd of ProductCards; let i = index">
-          <div class="card-body col-sm-5 col-md-5 col-lg-2 mt-5 mx-1">
+          <div class="card-body col-sm-5 col-md-5 col-lg-2 mt-5 mx-1"  [routerLink]="'/single-product/'+prd.id" >
             <img [src]="BaseImage + prd.mainImagePath" class="card-img-top p-3" alt="Product Image">
             <p class="card-text m-2 mt-3 p-1" style="font-weight: bolder;">{{ prd.name }}</p>
             <p class="card-text m-2 mt-3 p-1" style="font-weight: bolder;">{{ prd.colorName }}</p>
