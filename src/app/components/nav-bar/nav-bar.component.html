@@ -188,7 +188,7 @@
        <span class="toggler-icon"></span>    </button>
 
 
-     <div class="collapse navbar-collapse justify-content-between d-none" id="navbarNav">
+     <div class="collapse navbar-collapse justify-content-between d-none m-0 p-0" id="navbarNav">
 
        <ul class="navbar-nav">
        <ul class="navbar-nav ">
@@ -201,7 +201,7 @@
                {{child.name}}
                </a>
 
-               <div class="dropdown-menu" [attr.aria-labelledby]="child.name + 'Dropdown'">
+               <div class="dropdown-menu  " [attr.aria-labelledby]="child.name + 'Dropdown'">
                  <div class="row fade-in">
                      @for (kid of child.children; track  kid.id;let x= $index) {
 
