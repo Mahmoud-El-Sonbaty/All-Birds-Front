@@ -201,7 +201,7 @@
                {{child.name}}
                </a>
 
-               <div class="dropdown-menu  " [attr.aria-labelledby]="child.name + 'Dropdown'">
+               <div class="dropdown-menu" [attr.aria-labelledby]="child.name + 'Dropdown'">
                  <div class="row fade-in">
                      @for (kid of child.children; track  kid.id;let x= $index) {
 
