@@ -25,8 +25,12 @@ export class UsernameService {
     );
   }
 
-  GetUserDetails(id:number):Observable<ApiresponseUserInfo>{
-    return this.httpClient.get<ApiresponseUserInfo>(`${environment.BaseUrl}/account/User/${id}`)
+  GetUserDetails(userToken:string):Observable<ApiresponseUserInfo>{
+    return this.httpClient.get<ApiresponseUserInfo>(`${environment.BaseUrl}/account/User`, {
+      headers:{
+        'Authorization': "Bearer " + userToken
+      }
+    })
   }
 
 

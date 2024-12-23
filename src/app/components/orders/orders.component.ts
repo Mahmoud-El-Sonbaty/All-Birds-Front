@@ -31,7 +31,6 @@ export class OrdersComponent implements OnInit {
   searchQuery: string = '';
   lang:string="en";
   userInfo!: IUserInfo ;
-  UserId:number=0;
   imagepath:string=environment.baseImageUrl;
 
   constructor(private ordersService: OrdersService, private router: Router,language:LanguageService,private user:UsernameService) {
@@ -60,7 +59,7 @@ export class OrdersComponent implements OnInit {
       }
     })
 
-    this.user.GetUserDetails(1).subscribe({
+    this.user.GetUserDetails(localStorage.getItem("userToken")!).subscribe({
       next:(res)=>{
         this.isDataLoading = false;
         console.log(res);
