@@ -29,18 +29,18 @@ export class OrdersComponent implements OnInit {
   };
   selectedYear: number | null = null;
   searchQuery: string = '';
-  lang:string="en";
-  userInfo!: IUserInfo ;
-  UserId:number=0;
-  imagepath:string=environment.baseImageUrl;
+  lang: string = "en";
+  userInfo!: IUserInfo;
+  UserId: number = 0;
+  imagepath: string = environment.baseImageUrl;
 
-  constructor(private ordersService: OrdersService, private router: Router,language:LanguageService,private user:UsernameService) {
-    this.lang=language.getLanguage();
+  constructor(private ordersService: OrdersService, private router: Router, language: LanguageService, private user: UsernameService) {
+    this.lang = language.getLanguage();
   }
 
   ngOnInit(): void {
     this.ordersService.getUserOrders(localStorage.getItem("userToken")!).subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.isDataLoading = false;
         console.log(res);
         if (res.isSuccess) {
@@ -50,7 +50,7 @@ export class OrdersComponent implements OnInit {
         else
           console.log(res.msg)
       },
-      error:(err)=>{
+      error: (err) => {
         this.isDataLoading = false;
         if (err.status == 401) {
           localStorage.removeItem("userToken");
@@ -61,7 +61,7 @@ export class OrdersComponent implements OnInit {
     })
 
     this.user.GetUserDetails(1).subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.isDataLoading = false;
         console.log(res);
         if (res.isSuccess) {
@@ -71,7 +71,7 @@ export class OrdersComponent implements OnInit {
         else
           console.log(res.msg)
       },
-      error:(err)=>{
+      error: (err) => {
         this.isDataLoading = false;
         console.log(err);
       }
@@ -109,13 +109,13 @@ export class OrdersComponent implements OnInit {
         field.toString().toLowerCase().includes(this.searchQuery.toLowerCase());
       // Check order-level fields
       const orderMatches = matchesSearch(order.id) ||
-                           matchesSearch(order.clientName) ||
-                           matchesSearch(order.clientAddress) ||
-                           matchesSearch(order.total) ||
-                           matchesSearch(order.orderStateName) ||
-                           matchesSearch(order.discountAmount) ||
-                           matchesSearch(order.discountPercentage) ||
-                           matchesSearch(order.dateOrdered);
+        matchesSearch(order.clientName) ||
+        matchesSearch(order.clientAddress) ||
+        matchesSearch(order.total) ||
+        matchesSearch(order.orderStateName) ||
+        matchesSearch(order.discountAmount) ||
+        matchesSearch(order.discountPercentage) ||
+        matchesSearch(order.dateOrdered);
 
       // Check product details within the order
       const detailsMatch = order.details.some(detail =>

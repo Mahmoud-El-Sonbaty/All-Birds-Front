@@ -12,20 +12,20 @@ import { LanguageService } from './language.service';
 })
 export class UsernameService {
 
-  constructor(private httpClient:HttpClient,private lang:LanguageService) { }
+  constructor(private httpClient: HttpClient, private lang: LanguageService) { }
 
-  register(user:Username):Observable<Username>{
+  register(user: Username): Observable<Username> {
     return this.httpClient.post<Username>(`${environment.BaseUrl}/account/register`, user)
   }
 
-  getUserByEmail(loginCredentials: UsernameCheck):Observable<string>{
+  getUserByEmail(loginCredentials: UsernameCheck): Observable<string> {
     return this.httpClient.post<string>(`${environment.BaseUrl}/account/login`,
       loginCredentials,
       { responseType: 'text' as 'json' }
     );
   }
 
-  GetUserDetails(id:number):Observable<ApiresponseUserInfo>{
+  GetUserDetails(id: number): Observable<ApiresponseUserInfo> {
     return this.httpClient.get<ApiresponseUserInfo>(`${environment.BaseUrl}/account/User/${id}`)
   }
 
