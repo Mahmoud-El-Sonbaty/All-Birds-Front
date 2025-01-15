@@ -32,9 +32,9 @@ export class SignupComponent {
       alert('register successfully')
 
       },
-      error:(err)=>{
+      error: (err) => {
         alert(err.error)
-        }
+      }
 
       })
 

@@ -29,10 +29,9 @@ export class OrdersComponent implements OnInit {
   };
   selectedYear: number | null = null;
   searchQuery: string = '';
-  lang: string = "en";
-  userInfo!: IUserInfo;
-  UserId: number = 0;
-  imagepath: string = environment.baseImageUrl;
+  lang:string="en";
+  userInfo!: IUserInfo ;
+  imagepath:string=environment.baseImageUrl;
 
   constructor(private ordersService: OrdersService, private router: Router, language: LanguageService, private user: UsernameService) {
     this.lang = language.getLanguage();
@@ -60,8 +59,8 @@ export class OrdersComponent implements OnInit {
       }
     })
 
-    this.user.GetUserDetails(1).subscribe({
-      next: (res) => {
+    this.user.GetUserDetails(localStorage.getItem("userToken")!).subscribe({
+      next:(res)=>{
         this.isDataLoading = false;
         console.log(res);
         if (res.isSuccess) {
