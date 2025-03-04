@@ -1,27 +1,27 @@
-# FrontAllbirds
+# 🌐 Project: E-commerce Public Website (All-birds) 🛍️
+## Built with Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
+This repository contains the **frontend** application for the Allbirds E-commerce platform, built using **Angular**. The frontend provides a seamless, dynamic, and responsive user interface for customers to interact with the platform, enabling them to browse products, manage their shopping carts, and handle user authentication. It is designed to ensure a smooth and engaging shopping experience across all devices 📱💻.
 
-## Development server
+## 🚀 Key Features:
+- **Persistent Local Storage-powered Shopping Cart**: Ensures that the shopping cart data is stored locally and remains available even after page refresh or browser closure.
+- **JWT Authentication 🔑**: Secure login functionality using JSON Web Tokens (JWT) for session management.
+- **Advanced Product Search & Filtering**: Allows users to filter and search for products based on multiple criteria.
+- **Responsive Design 📐**: Ensures optimal layout and functionality across desktops, tablets, and mobile devices, providing a consistent user experience on any screen size.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🛠️ Technologies Used:
+- **Frontend Framework**: Angular
+- **Authentication**: JWT, Refresh Tokens
+- **State Management**: Local Storage
+- **Design**: Responsive Web Design
+- **Routing**: Angular Routing & Guards
+- **Others**: Dependency Injection, Components, Services, Guards
 
-## Code scaffolding
+## 💬 Description:
+The Allbirds E-commerce frontend is a scalable and modern web application built using **Angular**. It is designed to provide a fluid and engaging shopping experience with features like local storage-powered shopping cart, JWT-based authentication, and advanced search and filtering capabilities. The frontend also supports dynamic pagination to efficiently load and display products. The application follows modern frontend best practices, such as component-based architecture, dependency injection, and routing guards for managing application states and user access 🚀👨‍💻.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Our Team 🙌💼
+- Ahmed Maklad
+- Mahmoud El Sonbaty
+- Ahmed Mohamed Hassan
+- Hossam Hamed 🙌💼
